@@ -4,6 +4,11 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 var app = new EmberApp();
 
+app.import('bower_components/leaflet-dist/leaflet-src.js');
+app.import('bower_components/leaflet-dist/leaflet.css');
+app.import('bower_components/ember-leaflet/dist/ember-leaflet.js');
+
+
 // Use `app.import` to add additional libraries to the generated
 // output files.
 //

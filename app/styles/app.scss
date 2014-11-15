@@ -1,6 +1,21 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 html, body {
   margin: 20px;
+
+  font: 14px "Helvetica Neue",Arial,Helvetica,sans-serif;
+  line-height: 18px;
+  color: #4d4d4d;
 }
 
 
-@import 'club-card';
+@import 'klub-list';
+@import 'klub-card';
+@import 'leaflet-map';
+@import 'fancy-scrollbar';
