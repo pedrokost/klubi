@@ -26,7 +26,8 @@ module.exports = function(environment) {
       'connect-src': "'self'",
       'img-src': "'self' a.tiles.mapbox.com",
       'style-src': "'self' 'unsafe-inline'",  // TODO: Elimintae unsafe-inline
-      'media-src': "'self'"
+      'media-src': "'self'",
+      'report-uri': "http://localhost:4200"
     }
   };
 
