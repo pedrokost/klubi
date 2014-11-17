@@ -21,13 +21,14 @@ module.exports = function(environment) {
     // TODO: Review before going go production!!
     contentSecurityPolicy: {
       'default-src': "'none'",
-      'script-src': "'self' https://*.googleapis.com https://*.gstatic.com",
-      'font-src': "'self' https://fonts.gstatic.com",
+      'script-src': "'self' *.googleapis.com *.gstatic.com",
+      'font-src': "'self' fonts.gstatic.com",
       'connect-src': "'self'",
-      'img-src': "'self' https://*.gstatic.com https://*.googleapis.com",
-      'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com",  // TODO: Elimintae unsafe-inline
+      'img-src': "'self' *.gstatic.com *.googleapis.com *.google.com",
+      'style-src': "'self' 'unsafe-inline' fonts.googleapis.com",  // TODO: Elimintae unsafe-inline
       'media-src': "'self'",
-      'report-uri': "http://localhost:4200"
+      'report-uri': "localhost:4200",
+      'frame-src': "www.google.com"
     }
   };
 
