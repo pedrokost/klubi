@@ -21,11 +21,11 @@ module.exports = function(environment) {
     // TODO: Review before going go production!!
     contentSecurityPolicy: {
       'default-src': "'none'",
-      'script-src': "'self'",
-      'font-src': "'self'",
+      'script-src': "'self' https://*.googleapis.com https://*.gstatic.com",
+      'font-src': "'self' https://fonts.gstatic.com",
       'connect-src': "'self'",
-      'img-src': "'self' a.tiles.mapbox.com",
-      'style-src': "'self' 'unsafe-inline'",  // TODO: Elimintae unsafe-inline
+      'img-src': "'self' https://*.gstatic.com https://*.googleapis.com",
+      'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com",  // TODO: Elimintae unsafe-inline
       'media-src': "'self'",
       'report-uri': "http://localhost:4200"
     }

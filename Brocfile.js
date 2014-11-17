@@ -2,12 +2,29 @@
 
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
-var app = new EmberApp();
+var options = {
+  hinting: false,
+  tests: false,
+  minifyJS: {
+    enabled: false,
+    options: {
+        mangle: false,
+        compress: false
+      }
+  }
+}; // TODO: delete in production
 
+var app = new EmberApp(options);
+
+// Leaflet
 app.import('bower_components/leaflet-dist/leaflet-src.js');
 app.import('bower_components/leaflet-dist/leaflet.css');
 app.import('bower_components/ember-leaflet/dist/ember-leaflet.js');
-
+app.import('bower_components/leaflet-plugins/layer/tile/Google.js');
+// Leaflet clustering
+app.import('bower_components/leaflet.markerclusterer/dist/MarkerCluster.css');
+app.import('bower_components/leaflet.markerclusterer/dist/MarkerCluster.Default.css');
+app.import('bower_components/leaflet.markerclusterer/dist/leaflet.markercluster.js');
 
 // Use `app.import` to add additional libraries to the generated
 // output files.

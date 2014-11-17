@@ -1,4 +1,5 @@
-import MarkerCollectionLayer from '../layers/marker-collection';
+import MarkerClusterLayer from '../layers/marker-cluster-collection';
+import GoogleMapLayer from '../layers/google-map-layer';
 
 var southWest = L.latLng(45.23, 13.52),   // spodaj levo
     northEast = L.latLng(47.02, 16.65);   // zgoraj desno
@@ -12,7 +13,7 @@ export default EmberLeaflet.MapView.extend({
     maxBounds: L.latLngBounds(southWest, northEast)
   },
   childLayers: [
-    EmberLeaflet.DefaultTileLayer,
-    MarkerCollectionLayer
+    GoogleMapLayer,
+    MarkerClusterLayer
   ]
 });
