@@ -13,5 +13,18 @@ export default EmberLeaflet.MapView.extend({
   childLayers: [
     GoogleMapLayer,
     MarkerClusterLayer
-  ]
+  ],
+  subscribeToKlubHovered: function() {
+    window.pubsub.subscribe('klub.hovered', function(id){
+      this.get('controller').send('highlightKlub', id);
+    }.bind(this));
+
+    window.pubsub.subscribe('klub.unhovered', function(){
+      this.get('controller').send('unHighlightKlub');
+    }.bind(this));
+  }.on('didInsertElement'),
+  unsubscribeFromKlubHovered: function () {
+    window.pubsub.unsubscribe('klub.hovered');
+  }.on('willDestroyElement')
 });
+

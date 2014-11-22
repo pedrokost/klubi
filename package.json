@@ -36,6 +36,7 @@
     "glob": "^4.0.5"
   },
   "dependencies": {
-    "ember-cli-font-awesome": "0.0.4"
+    "ember-cli-font-awesome": "0.0.4",
+    "ember-pubsub": "^0.1.0"
   }
 }

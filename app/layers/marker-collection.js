@@ -1,10 +1,6 @@
+import KlubMarker from './klub-marker-layer';
+
 export default EmberLeaflet.MarkerCollectionLayer.extend({
-  content: function() {
-    var res = this.get('controller').map(function(klub){
-      return {
-        location: klub.get('latlng')
-      };
-    });
-    return res;
-  }.property('controller')
+  contentBinding: 'controller.layers',
+  itemLayerClass: KlubMarker
 });
