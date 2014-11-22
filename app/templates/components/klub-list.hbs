@@ -1,6 +1,6 @@
 <div class="klub-list-inner fancy-scrollbar">
   {{#each klub in klubs}}
-    {{klub-card name=klub.name town=klub.town}}
+    {{klub-card klubId=klub.id name=klub.name town=klub.town action="showKlub"}}
   {{else}}
     Sorry, nobody is here!
   {{/each}}

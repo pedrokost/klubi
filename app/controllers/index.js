@@ -1,5 +1,4 @@
 import Ember from 'ember';
 
-export default Ember.ArrayController.extend({
-  itemController: 'klub'
+export default Ember.Controller.extend({
 });
