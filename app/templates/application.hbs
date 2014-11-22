@@ -1,4 +1,4 @@
 {{view "leaflet-map" zoomBinding="zoom" centerBinding="center"}}
-<h2 id='title'>Zatresi</h2>
-{{klub-list klubs=content action="showKlub" isShowPage=isShowPage}}
+<h2 id='title'>Zatresi - Treniraj kar ti scre pozeli!</h2>
+{{klub-list klubs=controller isShowPage=isShowPage currentRouteName=currentRouteName action='zoomToMarker'}}
 {{outlet}}

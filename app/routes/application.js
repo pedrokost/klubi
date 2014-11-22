@@ -1,13 +1,13 @@
 import Ember from 'ember';
+import PubSub from 'ember-pubsub/pubsub';
+
+window.pubsub = PubSub.create(); // TODO: better way to do this...
 
 export default Ember.Route.extend({
   model: function() {
     return this.store.find('klub');
   },
   actions: {
-    showKlub: function(klubId) {
-      this.transitionTo('klub', klubId)
-    },
     goHome: function () {
       this.transitionTo('index')
     }

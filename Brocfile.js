@@ -7,10 +7,10 @@ var options = {
   tests: false,
   minifyJS: {
     enabled: false,
-    options: {
-        mangle: false,
-        compress: false
-      }
+  },
+  es3Safe: false,
+  minifyCSS: {
+    enabled: false
   },
   // TODO: delete above in production
 
@@ -36,6 +36,8 @@ app.import('bower_components/leaflet-plugins/layer/tile/Google.js');
 app.import('bower_components/leaflet.markerclusterer/dist/MarkerCluster.css');
 app.import('bower_components/leaflet.markerclusterer/dist/MarkerCluster.Default.css');
 app.import('bower_components/leaflet.markerclusterer/dist/leaflet.markercluster.js');
+app.import('bower_components/jquery-scrollintoview/jquery.scrollintoview.min.js');
+
 
 // Use `app.import` to add additional libraries to the generated
 // output files.

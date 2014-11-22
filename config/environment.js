@@ -5,6 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'zatresi',
     environment: environment,
     baseURL: '/',
+    host: 'http://api.zatresi.si',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
@@ -23,7 +24,7 @@ module.exports = function(environment) {
       'default-src': "'none'",
       'script-src': "'self' *.googleapis.com *.gstatic.com",
       'font-src': "'self' fonts.gstatic.com",
-      'connect-src': "'self'",
+      'connect-src': "'self' api.zatresi.si app.local:3000 *.app.local:3000",
       'img-src': "'self' *.gstatic.com *.googleapis.com *.google.com",
       'style-src': "'self' 'unsafe-inline' fonts.googleapis.com",  // TODO: Elimintae unsafe-inline
       'media-src': "'self'",
@@ -33,6 +34,8 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
+    // ENV.host = 'http://api.app.local:3000';
+    ENV.host = '/api';
     // ENV.APP.LOG_RESOLVER = true;
     ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;

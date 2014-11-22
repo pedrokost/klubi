@@ -7,7 +7,7 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.resource('klub', { path: '/:klub_id' }) // TODO: Use slug
+  this.resource('klub', { path: '/:klub_id' }); // TODO: Use slug
 });
 
 export default Router;
