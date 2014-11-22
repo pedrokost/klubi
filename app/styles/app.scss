@@ -9,8 +9,8 @@ html {
 html, body {
   margin: 20px;
 
-  font: 14px "Helvetica Neue",Arial,Helvetica,sans-serif;
-  line-height: 18px;
+  font: 16px "Helvetica Neue",Arial,Helvetica,sans-serif;
+  line-height: 20px;
   color: #4d4d4d;
 }
 
@@ -19,3 +19,4 @@ html, body {
 @import 'klub-card';
 @import 'leaflet-map';
 @import 'fancy-scrollbar';
+@import 'klub-page';

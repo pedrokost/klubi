@@ -7,6 +7,9 @@ export default Ember.Route.extend({
   actions: {
     showKlub: function(klubId) {
       this.transitionTo('klub', klubId)
+    },
+    goHome: function () {
+      this.transitionTo('index')
     }
   }
 });
