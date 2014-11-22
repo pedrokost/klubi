@@ -27,4 +27,3 @@ export default EmberLeaflet.MapView.extend({
     window.pubsub.unsubscribe('klub.hovered');
   }.on('willDestroyElement')
 });
-
