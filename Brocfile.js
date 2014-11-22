@@ -7,10 +7,10 @@ var options = {
   tests: false,
   minifyJS: {
     enabled: false,
-    options: {
-        mangle: false,
-        compress: false
-      }
+  },
+  es3Safe: false,
+  minifyCSS: {
+    enabled: false
   },
   // TODO: delete above in production
 
