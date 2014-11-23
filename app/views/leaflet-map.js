@@ -21,9 +21,13 @@ export default EmberLeaflet.MapView.extend({
     window.pubsub.subscribe('klub.unhovered', function(){
       this.get('controller').send('unHighlightKlub');
     }.bind(this));
+    window.pubsub.subscribe('klub.clicked', function(id){
+      this.get('controller').send('showKlub', id);
+    }.bind(this));
   }.on('didInsertElement'),
   unsubscribeFromKlubHovered: function () {
     window.pubsub.unsubscribe('klub.hovered');
     window.pubsub.unsubscribe('klub.unhovered');
+    window.pubsub.unsubscribe('klub.clicked');
   }.on('willDestroyElement')
 });

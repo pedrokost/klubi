@@ -40,6 +40,10 @@ export default Ember.ArrayController.extend({
       this.set('hoveredKlub', null);
       // this.get('hoveredMarker').setIcon(new L.Icon.Default());  // TODO
       // this.set('hoveredMarker', null);
+    },
+
+    showKlub: function (klubId) {
+      this.transitionTo('klub', klubId);
     }
   }
 });
