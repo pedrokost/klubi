@@ -5,14 +5,43 @@
   bottom: 0;
   right: 0;
   width: 300px;
-  z-index: 1;
+  z-index: 1002;
   margin-left: 10px;
   padding: 7px 3px;
 }
+
 
 .klub-list-inner {
   border-radius: 4px;
   height: 100%;
   overflow-y: scroll;
 
+}
+
+
+/*
+STATES
+*/
+.klub-list--occlude {
+  &:before {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.6);
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    pointer-events: none;
+    content: " ";
+    @include transition (opacity 250ms ease-in 0.5s);
+  }
+
+
+  &:hover, &:focus, &:active {
+    &:before {
+      opacity: 0;
+      @include transition-delay(0s);
+      @include transition-duration(85ms);
+      @include transition-timing-function(ease-out);
+    }
+  }
 }

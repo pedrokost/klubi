@@ -24,6 +24,7 @@
     "broccoli-sass": "^0.3.3",
     "connect-restreamer": "^1.0.1",
     "ember-cli": "0.1.2",
+    "ember-cli-bourbon": "0.0.5",
     "ember-cli-content-security-policy": "0.3.0",
     "ember-cli-ember-leaflet": "^0.1.0",
     "ember-cli-ic-ajax": "0.1.1",

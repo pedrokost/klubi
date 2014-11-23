@@ -1,4 +1,4 @@
-{{view "leaflet-map"}}
+{{view "leaflet-map" zoomBinding="zoom" centerBinding="center"}}
 <h2 id='title'>Zatresi</h2>
-{{klub-list klubs=content action="showKlub"}}
+{{klub-list klubs=content action="showKlub" isShowPage=isShowPage}}
 {{outlet}}
