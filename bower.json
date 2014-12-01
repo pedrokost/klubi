@@ -13,14 +13,13 @@
     "ember-qunit": "0.1.8",
     "ember-qunit-notifications": "0.0.4",
     "qunit": "~1.15.0",
-    "ember-leaflet": "~0.6.0",
+    "ember-leaflet": "gabesmed/ember-leaflet#48f32fd383",
     "leaflet-plugins": "^1.0",
     "normalize.css": "~3.0.2",
     "font-awesome": "~4.2.0",
     "bourbon": "~4.0.2"
   },
   "resolutions": {
-    "ember": "1.7.0",
-    "bourbon": "~4.0.2"
+    "ember": "1.7.0"
   }
 }

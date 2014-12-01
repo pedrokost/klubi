@@ -20,7 +20,7 @@
       margin-bottom: 0;
     }
 
-    &:hover, &:active, &.active {
+    &:hover, &:active, &.active, &.is-hovered {
       background-color: rgb(240,240,240);
     }
 

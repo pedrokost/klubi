@@ -4,4 +4,4 @@ export default L.Icon.Default.extend({
     iconAnchor: new L.Point(17, 60),
     shadowSize: new L.Point(65, 58)
   }
-})
+});

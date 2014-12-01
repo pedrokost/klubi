@@ -1,6 +1,6 @@
-import KlubMarker from './klub-marker-layer';
+import KlubMarker from './klub-marker';
 
 export default EmberLeaflet.MarkerCollectionLayer.extend({
-  contentBinding: 'controller.layers',
+  contentBinding: 'controller',
   itemLayerClass: KlubMarker
 });

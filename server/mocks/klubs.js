@@ -27,14 +27,14 @@ module.exports = function(app) {
         phone:  '031 231 440'
       }
     ];
-    for (var i = 0; i < 50; i++) {
+    for (var i = 0; i < 100; i++) {
       klubs.push({
         id: 2 + i,
         name: 'Karate ' + i,
         address: 'OŠ Toma Brejca, Šutna 39, 1241 Kamnik',
         town: 'Kamnik',
-        latitude: 46.2214969,
-        longitude: 14.6066272,
+        latitude: 46.122 + Math.random() * 1.2 - 0.6,
+        longitude: 14.815 + Math.random() * 3 - 1.5,
         website: 'http://www.sankukai.org/index.php/sankukai-karate-klubi/karateklubkamnik',
         email: 'info@sankukai.org',
         phone:  '031 231 440'
