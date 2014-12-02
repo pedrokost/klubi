@@ -12,16 +12,16 @@ export default Ember.ObjectController.extend({
     return this.get('latlng');
   }.property('latlng'),
 
-  icon : function(){
-    //define here the logic for your icon
-    //return a [Leaflet icon](http://leafletjs.com/reference.html#icon)
-    console.log('will change icon');
-    if (this.get('isHovered')) {
-      return new HighlightedIcon();
-    } else{
-      return new L.Icon.Default();
-    }
-  }.property('isHovered'),
+  // icon : function(){
+  //   //define here the logic for your icon
+  //   //return a [Leaflet icon](http://leafletjs.com/reference.html#icon)
+  //   // console.log('will change icon');
+  //   if (this.get('isHovered')) {
+  //     return new HighlightedIcon();
+  //   } else{
+  //     return new L.Icon.Default();
+  //   }
+  // }.property('isHovered'),
 
   offCenterLatlng: function() {
     var offsetLatitude = 0;

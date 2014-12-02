@@ -8,7 +8,7 @@ export default Ember.Component.extend({
     // window.pubsub.publish('klub.hovered', this.get('klubId'));
     // TODO this should be in the action, not herer
     var val = this.$()[0].getBoundingClientRect();
-    console.table(val.top);
+    // console.table(val.top);
     this.sendAction('action', true);
   },
   mouseLeave: function() {

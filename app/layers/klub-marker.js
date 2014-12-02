@@ -17,9 +17,14 @@ export default EmberLeaflet.MarkerLayer.extend(
      }, 'icon'),
 
     icon: function(){
-      console.log('will change icon');
-      console.debug('ahah');
-      return new L.Icon.Default();
+      // console.log('will change icon');
+      // console.debug('ahah');
+      // return new L.Icon.Default();
+      if (this.get('isHovered')) {
+        return new HighlightedIcon();
+      } else{
+        return new L.Icon.Default();
+      }
     }.property('isHovered', 'content.name'),
 
     click: function() {
