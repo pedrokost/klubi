@@ -33,7 +33,7 @@ STATES
     bottom: 0;
     pointer-events: none;
     content: " ";
-    @include transition (opacity 250ms ease-in 0.5s);
+    @include transition (opacity 250ms ease-in 0.1s);
   }
 
 

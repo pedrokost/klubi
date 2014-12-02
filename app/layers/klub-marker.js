@@ -3,8 +3,22 @@ import Ember from 'ember';
 
 export default EmberLeaflet.MarkerLayer.extend(
   {
+
+    _updateLayerOnIconChange: Ember.observer(function(){
+       console.log('icon changed: update leaflet icon');
+       var newIcon = Ember.get(this, 'icon');
+       var oldIcon = this._layer && this._layer.options.icon;
+       if(oldIcon && newIcon && oldIcon !== newIcon) {
+         var draggable = this._layer.dragging.enabled();
+         this._layer.setIcon(newIcon);
+         if(draggable) {this._layer.dragging.enable();}
+         else {this._layer.dragging.disable();}
+       }
+     }, 'icon'),
+
     icon: function(){
       console.log('will change icon');
+      console.debug('ahah');
       return new L.Icon.Default();
     }.property('isHovered', 'content.name'),
 
