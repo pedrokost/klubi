@@ -1,4 +1,3 @@
-import HighlightedIcon from '../layers/highlighted-icon';
 import Ember from 'ember';
 
 export default Ember.ObjectController.extend({
@@ -27,11 +26,11 @@ export default Ember.ObjectController.extend({
     var offsetLatitude = 0;
     var offsetLongitude = 0.005;
     return L.latLng(this.get('latitude')+offsetLatitude, this.get('longitude')+offsetLongitude);
-  }.property('latitude', 'longitude'),
+  }.property('latitude', 'longitude')/*,
   actions: {
     hover: function(onOff) {
       // console.log('changing isHovered from', this.get('isHovered'), 'to', onOff);
       this.set('isHovered', onOff);
     }
-  }
+  }*/
 });
