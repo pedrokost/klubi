@@ -23,14 +23,15 @@ EmberLeaflet.MarkerLayer.reopen({
 export default EmberLeaflet.MarkerLayer.extend({
 
     isHovered: Ember.computed.alias('content.isHovered'),
+    isActive: Ember.computed.alias('content.isActive'),
 
     icon: function(){
-      if (this.get('isHovered')) {
+      if (this.get('isHovered') || this.get('isActive')) {
         return new HighlightedIcon();
       } else{
         return new L.Icon.Default();
       }
-    }.property('isHovered'),
+    }.property('isHovered', 'isActive'),
 
     click: function() {
       this.get('controller').send('showKlub', this.content);
