@@ -1,7 +1,8 @@
 .klub_page {
   position: fixed;
   background: rgba(0,0,0,0.6);
-  background: url('/assets/map-show-mask.svg');
+  // background: url('/assets/map-show-mask.svg');
+  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSI+CiAgIDxyZWN0IGlkPSJiZzEiIHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9ImJsYWNrIiBtYXNrPSJ1cmwoI21hc2sxKSIgZmlsbC1vcGFjaXR5PSIwLjYiLz4KICA8ZGVmcz4KCiAgPG1hc2sgaWQ9Im1hc2sxIj4KICAgIDxyZWN0IGlkPSJiZzEiIHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IndoaXRlIi8+CiAgICA8Y2lyY2xlIGN4PSIyMiUiIGN5PSI1MCUiIHI9IjIwJSIgZmlsbD0iYmxhY2siIC8+CiAgICA8L21hc2s+CiAgPC9kZWZzPgo8L3N2Zz4K');
   background-size: cover;
   right: 0;
   top: 0;

@@ -25,7 +25,7 @@ module.exports = function(environment) {
       'script-src': "'self' *.googleapis.com *.gstatic.com",
       'font-src': "'self' fonts.gstatic.com",
       'connect-src': "'self' api.zatresi.si app.local:3000 *.app.local:3000",
-      'img-src': "'self' *.gstatic.com *.googleapis.com *.google.com",
+      'img-src': "'self' data: *.gstatic.com *.googleapis.com *.google.com",
       'style-src': "'self' 'unsafe-inline' fonts.googleapis.com",  // TODO: Elimintae unsafe-inline
       'media-src': "'self'",
       'report-uri': "localhost:4200",
