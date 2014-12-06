@@ -1,5 +1,6 @@
 import MarkerClusterCollection from '../layers/marker-cluster-collection';
-import GoogleMapLayer from '../layers/google-map-layer';
+// import GoogleMapLayer from '../layers/google-map-layer';
+import FoursquareMapLayer from '../layers/foursquare-map-layer';
 
 var southWest = L.latLng(45.0, 13.0),   // spodaj levo
     northEast = L.latLng(47.2, 17);   // zgoraj desno
@@ -11,23 +12,7 @@ export default EmberLeaflet.MapView.extend({
     maxBounds: L.latLngBounds(southWest, northEast)
   },
   childLayers: [
-    GoogleMapLayer,
+    FoursquareMapLayer,
     MarkerClusterCollection
-  ],
-  // subscribeToKlubHovered: function() {
-  //   window.pubsub.subscribe('klub.hovered', function(id){
-  //     this.get('controller').send('highlightKlub', id);
-  //   }.bind(this));
-  //   window.pubsub.subscribe('klub.unhovered', function(){
-  //     this.get('controller').send('unHighlightKlub');
-  //   }.bind(this));
-  //   window.pubsub.subscribe('klub.clicked', function(id){
-  //     this.get('controller').send('showKlub', id);
-  //   }.bind(this));
-  // }.on('didInsertElement'),
-  // unsubscribeFromKlubHovered: function () {
-  //   window.pubsub.unsubscribe('klub.hovered');
-  //   window.pubsub.unsubscribe('klub.unhovered');
-  //   window.pubsub.unsubscribe('klub.clicked');
-  // }.on('willDestroyElement')
+  ]
 });

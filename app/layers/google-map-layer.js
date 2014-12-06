@@ -124,8 +124,7 @@ var zatresiStyles = [{
       { "lightness": 24 },
       { "visibility": "on" }
     ]
-  }
-, {
+  }, {
     "featureType": "road.highway",
     "elementType": "geometry.fill",
     "stylers": [{
@@ -162,7 +161,7 @@ var zatresiStyles = [{
 
 var options = {
   mapOptions: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: "#FFFFFF",
     styles: zatresiStyles
   }
 };
@@ -170,6 +169,8 @@ var options = {
 
 export default EmberLeaflet.Layer.extend({
   _newLayer: function() {
-    return new L.Google('ROADMAP', options);
+    return new L.Google("ROADMAP", options);
   }
 });
+
+
