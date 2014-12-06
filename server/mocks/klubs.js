@@ -14,6 +14,7 @@ module.exports = function(app) {
         website: 'http://www.sankukai.org/index.php/sankukai-karate-klubi/karateklubgrosuplje',
         email: 'info@sankukai.org',
         phone:  '031 231 440',
+        slug: 'sankukai-karate-klub-grosuplje'
       },
       {
         id: 2,
@@ -24,7 +25,8 @@ module.exports = function(app) {
         longitude: 14.6066272,
         website: 'http://www.sankukai.org/index.php/sankukai-karate-klubi/karateklubkamnik',
         email: 'info@sankukai.org',
-        phone:  '031 231 440'
+        phone:  '031 231 440',
+        slug: 'sankukai-karate-klub-Kamnik'
       }
     ];
     for (var i = 0; i < 100; i++) {
@@ -37,7 +39,8 @@ module.exports = function(app) {
         longitude: 14.815 + Math.random() * 3 - 1.5,
         website: 'http://www.sankukai.org/index.php/sankukai-karate-klubi/karateklubkamnik',
         email: 'info@sankukai.org',
-        phone:  '031 231 440'
+        phone:  '031 231 440',
+        slug: 'karate-' + i
       });
     }
 
