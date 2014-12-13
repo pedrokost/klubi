@@ -22,12 +22,12 @@ module.exports = function(environment) {
     // TODO: Review before going go production!!
     contentSecurityPolicy: {
       'default-src': "'none'",
-      'script-src': "'self' *.googleapis.com *.gstatic.com",
-      'font-src': "'self' fonts.gstatic.com",
-      'connect-src': "'self' api.zatresi.si app.local:3000 *.app.local:3000",
-      'img-src': "'self' data: *.gstatic.com *.googleapis.com *.google.com  *.tiles.mapbox.com",
-      'style-src': "'self' 'unsafe-inline' fonts.googleapis.com",  // TODO: Elimintae unsafe-inline
-      'media-src': "'self'",
+      'script-src': "'self' *.googleapis.com *.gstatic.com d3s8w0mc0h7w8s.cloudfront.net",
+      'font-src': "'self' fonts.gstatic.com d3s8w0mc0h7w8s.cloudfront.net",
+      'connect-src': "'self' api.zatresi.si app.local:3000 *.app.local:3000 d3s8w0mc0h7w8s.cloudfront.net",
+      'img-src': "'self' data: *.gstatic.com *.googleapis.com *.google.com  *.tiles.mapbox.com d3s8w0mc0h7w8s.cloudfront.net",
+      'style-src': "'self' 'unsafe-inline' fonts.googleapis.com d3s8w0mc0h7w8s.cloudfront.net",  // TODO: Elimintae unsafe-inline
+      'media-src': "'self' d3s8w0mc0h7w8s.cloudfront.net",
       'report-uri': "localhost:4200",
       'frame-src': "www.google.com"
     }
