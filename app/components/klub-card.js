@@ -6,7 +6,6 @@ export default Ember.Component.extend({
   attributeBindings: ['klubId:data-id'],
   isHovered: false,
   mouseEnter: function() {
-    // window.pubsub.publish('klub.hovered', this.get('klubId'));
     // TODO this should be in the action, not herer
     // var val = this.$()[0].getBoundingClientRect();
     // console.table(val.top);
