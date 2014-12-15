@@ -13,6 +13,7 @@ module.exports = function(app) {
         longitude: 14.658899,
         website: 'http://www.sankukai.org/index.php/sankukai-karate-klubi/karateklubgrosuplje',
         email: 'info@sankukai.org',
+        facebook_url: 'http://www.sankukai.org/index.php/sankukai-karate-klubi/karateklubgrosuplje',
         phone:  '031 231 440',
         slug: 'sankukai-karate-klub-grosuplje'
       },
@@ -24,6 +25,7 @@ module.exports = function(app) {
         latitude: 46.2214969,
         longitude: 14.6066272,
         website: 'http://www.sankukai.org/index.php/sankukai-karate-klubi/karateklubkamnik',
+        facebook_url: 'http://www.sankukai.org/index.php/sankukai-karate-klubi/karateklubgrosuplje',
         email: 'info@sankukai.org',
         phone:  '031 231 440',
         slug: 'sankukai-karate-klub-Kamnik'

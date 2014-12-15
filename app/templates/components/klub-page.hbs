@@ -5,18 +5,31 @@
       <li class='klub_page-item'>
         <h1>{{name}}{{unbound fa-icon "close" fixedWidth=true listItem=true classNames="klub_page-close_btn js-close" title="Zapri"}}</h1>
       </li>
-      <li class='klub_page-item'>
-        <p>{{address}}</p>{{unbound fa-icon "map-marker" fixedWidth=true listItem=true}}
-      </li>
-      <li class='klub_page-item'>
-        <p><a {{bind-attr href=website}}>Spletna stran</a></p>{{unbound fa-icon "external-link-square" fixedWidth=true listItem=true}}
-      </li>
-      <li class='klub_page-item'>
-        <p>{{phone}}</p>{{unbound fa-icon "phone" fixedWidth=true listItem=true}}
-      </li>
-      <li class='klub_page-item'>
-        <p>{{mail-to email}}</p>{{unbound fa-icon "envelope" fixedWidth=true listItem=true}}
-      </li>
+      {{#if address}}
+        <li class='klub_page-item'>
+          <p>{{address}}</p>{{unbound fa-icon "map-marker" fixedWidth=true listItem=true}}
+        </li>
+      {{/if}}
+      {{#if website}}
+        <li class='klub_page-item'>
+          <p><a {{bind-attr href=website}}>Spletna stran</a></p>{{unbound fa-icon "external-link-square" fixedWidth=true listItem=true}}
+        </li>
+      {{/if}}
+      {{#if facebookUrl}}
+        <li class='klub_page-item'>
+          <p><a {{bind-attr href=facebookUrl}}>Facebook stran</a></p>{{unbound fa-icon "facebook" fixedWidth=true listItem=true}}
+        </li>
+      {{/if}}
+      {{#if phone}}
+        <li class='klub_page-item'>
+          <p>{{phone}}</p>{{unbound fa-icon "phone" fixedWidth=true listItem=true}}
+        </li>
+      {{/if}}
+      {{#if email}}
+        <li class='klub_page-item'>
+          <p>{{mail-to email}}</p>{{unbound fa-icon "envelope" fixedWidth=true listItem=true}}
+        </li>
+      {{/if}}
     </ul>
   </article>
   {{yield}}
