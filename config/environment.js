@@ -29,7 +29,9 @@ module.exports = function(environment) {
       'style-src': "'self' 'unsafe-inline' fonts.googleapis.com d3s8w0mc0h7w8s.cloudfront.net",  // TODO: Elimintae unsafe-inline
       'media-src': "'self' d3s8w0mc0h7w8s.cloudfront.net",
       'report-uri': "localhost:4200",
-      'frame-src': "www.google.com"
+      'frame-src': "www.google.com",
+      'font-src': "'self' d3s8w0mc0h7w8s.cloudfront.net"
+
     }
   };
 
