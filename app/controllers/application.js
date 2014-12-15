@@ -16,7 +16,7 @@ export default Ember.ArrayController.extend({
       this.transitionToRoute('klub', klubId);
     },
     zoomToMarker: function(klub) {
-      this.set('zoom', 10);
+      this.set('zoom', 12);
 
       Ember.run.later(function() {
         this.set('center', klub.get('location'));
