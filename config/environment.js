@@ -22,10 +22,10 @@ module.exports = function(environment) {
     // TODO: Review before going go production!!
     contentSecurityPolicy: {
       'default-src': "'none'",
-      'script-src': "'self' 'unsafe-inline' *.googleapis.com *.gstatic.com d3s8w0mc0h7w8s.cloudfront.net connect.facebook.net",
+      'script-src': "'self' 'unsafe-inline' *.googleapis.com *.gstatic.com d3s8w0mc0h7w8s.cloudfront.net connect.facebook.net www.google-analytics.com",
       'font-src': "'self' fonts.gstatic.com d3s8w0mc0h7w8s.cloudfront.net",
       'connect-src': "'self' api.zatresi.si app.local:3000 *.app.local:3000 d3s8w0mc0h7w8s.cloudfront.net",
-      'img-src': "'self' data: *.gstatic.com *.googleapis.com *.google.com  *.tiles.mapbox.com d3s8w0mc0h7w8s.cloudfront.net",
+      'img-src': "'self' data: *.gstatic.com *.googleapis.com *.google.com  *.tiles.mapbox.com d3s8w0mc0h7w8s.cloudfront.net www.google-analytics.com",
       'style-src': "'self' 'unsafe-inline' fonts.googleapis.com d3s8w0mc0h7w8s.cloudfront.net",  // TODO: Elimintae unsafe-inline
       'media-src': "'self' d3s8w0mc0h7w8s.cloudfront.net",
       'report-uri': "localhost:4200",
@@ -43,6 +43,8 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     ENV.APP.LOG_VIEW_LOOKUPS = true;
 
+    // window.ENV.LOG_EVENT_TRACKING = true; // Google Analytics see what is tracked
+
     ENV.contentSecurityPolicy['script-src'] = ENV.contentSecurityPolicy['script-src'] + " 'unsafe-eval' localhost:4200";
   }
 
@@ -59,7 +61,6 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
   }
 
   return ENV;

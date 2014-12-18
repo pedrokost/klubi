@@ -9,5 +9,5 @@ export default DS.Model.extend({
   website: DS.attr('string'),
   facebookUrl: DS.attr('string'),
   phone: DS.attr('string'),
-  email: DS.attr('string')
+  email: DS.attr('string'),
 });

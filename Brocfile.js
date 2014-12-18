@@ -41,6 +41,8 @@ app.import('bower_components/leaflet.markerclusterer/dist/MarkerCluster.Default.
 app.import('bower_components/leaflet.markerclusterer/dist/leaflet.markercluster.js');
 app.import('bower_components/jquery-scrollintoview/jquery.scrollintoview.min.js');
 
+// Google Analytics
+app.import('bower_components/ember-google-analytics/ember-google-analytics.js');
 
 // Use `app.import` to add additional libraries to the generated
 // output files.

@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(
+  Ember.GoogleAnalyticsTrackingMixin, {
 
   tagName: 'section',
   classNames: ['klub-list'],
@@ -50,6 +51,7 @@ export default Ember.Component.extend({
         var hoveredKlub2 = this.get('klubs').findBy('isHovered', true);
         if (hoveredKlub2 && hoveredKlub.get('id') === hoveredKlub2.get('id')) {
           doTheScroll();
+          this.trackEvent('klub', 'scroll-to-klub', hoveredKlub.get('id'), 1);
         }
       }, 500);
     }
