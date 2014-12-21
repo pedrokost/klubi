@@ -1,6 +1,6 @@
+{{top-nav}}
 {{view "leaflet-map" zoomBinding="zoom" centerBinding="center"}}
-<h2 id='title'>Zatresi - Treniraj kar ti scre pozeli!</h2>
-{{klub-list klubs=controller isShowPage=isShowPage currentRouteName=currentRouteName action='zoomToMarker'}}
+{{klub-list klubs=filteredKlubs isShowPage=isShowPage currentRouteName=currentRouteName action='zoomToMarker'}}
 {{outlet}}
 
 <div class="social-buttons">

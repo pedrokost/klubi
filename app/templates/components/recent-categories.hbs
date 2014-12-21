@@ -1,0 +1,5 @@
+{{#each category in recentCategories}}
+  {{#link-to 'application' (query-params category=category.name) classNameBindings=":category"}}
+    {{category.name}}
+  {{/link-to}}
+{{/each}}

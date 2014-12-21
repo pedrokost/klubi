@@ -1,0 +1,33 @@
+.top-nav {
+  top: 0;
+  background: transparentize(#e3e3e3, 0.4);
+  display: block;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 300px;
+  height: 40px;
+}
+
+
+h1.title {
+  float: left;
+  font-size: 1.5rem;
+  line-height: 40px;
+  margin: 0;
+  padding: 0;
+  padding-left: 50px;
+}
+
+
+h2.slogan {
+  color: #999;
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: normal;
+  float: left;
+  line-height: 40px;
+  margin: 0;
+  margin-left: 1.2rem;
+  padding-top: 0.1rem;
+}

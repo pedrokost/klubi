@@ -10,4 +10,5 @@ export default DS.Model.extend({
   facebookUrl: DS.attr('string'),
   phone: DS.attr('string'),
   email: DS.attr('string'),
+  categories: DS.attr('array')
 });

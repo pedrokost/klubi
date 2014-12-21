@@ -7,6 +7,18 @@ export default Ember.ArrayController.extend(
   zoom: 8,
   center: L.latLng(46.122636,14.81546), // Slivna, Slovenia,
 
+  queryParams: ['category'],
+  category: 'fitnes',
+
+  filteredKlubs: function() {
+    var category = this.get('category');
+
+    return this.filter(function(item) {
+      return item.get('categories').indexOf(category) >= 0;
+    });
+
+  }.property('category', 'model'),
+
 
   isShowPage: function() {
     return this.get('currentPath') === 'klub';

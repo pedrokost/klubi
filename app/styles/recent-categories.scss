@@ -1,0 +1,25 @@
+.recent-categories {
+  margin-left: 1.2rem;
+  float: left;
+
+
+  .category {
+    top: 0.55rem;
+    float: left;
+    background: #fff;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    position: relative;
+    margin: 0;
+    margin-left: 5px;
+    cursor: pointer;
+    color: inherit;
+    text-decoration: none;
+
+
+    &:hover, &:active, &.active {
+      background-color: rgb(240,240,240);
+    }
+  }
+}
+
