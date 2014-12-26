@@ -4,6 +4,6 @@ export default Ember.Component.extend({
   classNames: ['recent-categories'],
   recentCategories: [
     Ember.Object.create({name: 'fitnes'}),
-    // Ember.Object.create({name: 'gimnastika'})
+    Ember.Object.create({name: 'wellness'})
   ]
 });
