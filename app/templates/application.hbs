@@ -1,10 +1,7 @@
 {{top-nav}}
 {{view "leaflet-map" zoomBinding="zoom" centerBinding="center"}}
 
-<div class="databar">
-  {{klub-list klubs=filteredKlubs isShowPage=isShowPage currentRouteName=currentRouteName action='zoomToMarker'}}
-  {{send-email-button}}
-</div>
+{{data-bar isShowPage=isShowPage klubs=filteredKlubs currentRouteName=currentRouteName action='zoomToMarker'}}
 
 {{outlet}}
 

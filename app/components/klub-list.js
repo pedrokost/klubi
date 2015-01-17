@@ -5,8 +5,6 @@ export default Ember.Component.extend(
 
   tagName: 'section',
   classNames: ['klub-list'],
-  classNameBindings: ['isShowPage:klub-list--occlude'],
-  isShowPage: false,
 
   scrollToKlubListener: function() {
     if (document.querySelector('.klub-list:hover')) {

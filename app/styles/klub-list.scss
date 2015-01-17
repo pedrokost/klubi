@@ -3,6 +3,7 @@
 .klub-list {
   @include flex(1);
   position: relative;
+  background: #e3e3e3;
 }
 
 
@@ -19,29 +20,4 @@
 }
 
 
-/*
-STATES
-*/
-.klub-list--occlude {
-  &:before {
-    position: absolute;
-    background: rgba(0, 0, 0, 0.6);
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    pointer-events: none;
-    content: " ";
-    @include transition (opacity 250ms ease-in 0.1s);
-  }
 
-
-  &:hover, &:focus, &:active {
-    &:before {
-      opacity: 0;
-      @include transition-delay(0s);
-      @include transition-duration(85ms);
-      @include transition-timing-function(ease-out);
-    }
-  }
-}
