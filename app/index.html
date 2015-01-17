@@ -11,6 +11,8 @@
 
     <link rel="stylesheet" href="assets/vendor.css">
     <link rel="stylesheet" href="assets/zatresi.css">
+
+    {{content-for 'head-footer'}}
   </head>
   <body>
     {{content-for 'body'}}
@@ -40,5 +42,7 @@
         fjs.parentNode.insertBefore(js, fjs);
       }(document, "script", "facebook-jssdk"));
     </script>
+    {{content-for 'body-footer'}}
+
   </body>
 </html>
