@@ -1,0 +1,25 @@
+.send-email-button {
+  padding: 3px 10px 13px;
+  text-align: center;
+
+  .btn {
+    border: none;
+    background: none;
+  }
+
+  &:hover, &:active, &:focus {
+    .send-email-button--details {
+      height: 10em;
+      @include transition(height 0.25s ease-out);
+    }
+  }
+}
+
+
+.send-email-button--details {
+  height: 0;
+  overflow: hidden;
+  @include transition(height 2s 2s ease-in-out);
+  margin: 0;
+  padding: 0;
+}

@@ -34,7 +34,7 @@ module.exports = function(app) {
       }
     ];
     if (req.query.category === 'fitnes') {
-      for (var i = 0; i < Math.random() * 15 + 5; i++) {
+      for (var i = 0; i < Math.random() * 105 + 5; i++) {
         klubs.push({
           id: 2 + i,
           name: req.query.category + ' ' +  i,

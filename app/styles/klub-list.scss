@@ -1,19 +1,18 @@
+@import 'bourbon';
+
 .klub-list {
-  position: absolute;
-  background: #e3e3e3;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 300px;
-  z-index: 1002;
-  margin-left: 10px;
-  padding: 7px 3px;
+  @include flex(1);
+  position: relative;
 }
 
 
 .klub-list-inner {
+  position: absolute;
+  top: 7px;
+  bottom: 7px;
+  left: 3px;
+  right: 5px;
   border-radius: 4px;
-  height: 100%;
   overflow-y: scroll;
   padding: 0;
   margin: 0;
