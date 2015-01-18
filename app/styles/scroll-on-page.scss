@@ -1,0 +1,50 @@
+.scroll-on-page {
+
+///////////////////////////////////////////////////////////////////////////////////
+
+  p {
+    color: $base-font-color;
+    line-height: $base-line-height;
+  }
+
+  a {
+    color: $base-link-color;
+    text-decoration: none;
+  }
+
+//////////////////////////////////////////////////////////////////////////////////
+
+  display: inline-block;
+
+  aside {
+    @include media($large-screen) {
+      @include span-columns(2 of 8);
+    }
+  }
+
+  .scroll-on-page-link {
+    border-bottom: 1px solid transparentize($base-link-color, 0.8);
+    display: block;
+    margin-right: $base-spacing;
+    outline: none;
+    padding: ($base-spacing / 2) 0;
+
+    &:last-child {
+      margin-bottom: $base-spacing;
+    }
+  }
+
+  article {
+    h4 {
+      margin: 0 0 0.5em 0;
+    }
+
+    section p:last-of-type {
+      margin-bottom: 2em;
+    }
+
+    @include media($large-screen) {
+      @include span-columns(6 of 8);
+    }
+  }
+}

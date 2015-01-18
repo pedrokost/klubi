@@ -1,0 +1,60 @@
+header.logo-button {
+
+  $logo-button-color: lighten($base-font-color, 30%);
+  $logo-button-background: $base-background-color;
+  $logo-button-border-color: $map-widget-border-color;
+
+  z-index: 1007;
+  @include outer-container;
+  width: $sliding-menu-width;
+  position: fixed;
+  top: 0;
+  left: 0;
+  @include pad($base-page-pad);
+
+  // color: $dark-gray;
+  // &.has-dark-background {
+  //   color: $light-gray;
+  // }
+  h1.title {
+  }
+
+
+  h2.slogan {
+    font-size: 1rem;
+    line-height: 2rem;
+    font-weight: normal;
+    text-align: center;
+    @include span-columns(12);
+    @include omega();
+    position: absolute;
+    bottom:0;
+    left: 0;
+    color: $logo-button-color;
+    background: $white;
+    border-top: 1px solid darken($logo-button-background, 3%);
+  }
+
+  .sliding-menu-button {
+    @include button(flat, $logo-button-background);
+    padding: 10px 16px 2.5rem 16px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    color: $base-accent-color;
+    @include span-columns(12);
+    @include omega();
+    border: 1px solid $logo-button-border-color;
+    border-bottom: 1px solid darken($logo-button-border-color, 15);
+
+    &:hover:not(:disabled) {
+      background-color: darken($logo-button-background, 3%);
+    }
+
+    i {
+
+    }
+  }
+}
+

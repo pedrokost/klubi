@@ -1,0 +1,9 @@
+.article {
+  @include span-columns(8);
+  @include shift(2);
+  @include omega();
+
+  // &:first-item {  // really need html bars
+  margin-top: $top-nav-height;
+  // }
+}

@@ -17,7 +17,7 @@ export default Ember.Component.extend(
   zoomToMarker: function() {
     // If mouse stays on a card for awhile, zoom to the corresponding marker in the map.
     // Do nothing if on any 'klub' route
-    if(this.get('currentRouteName') === 'klub') {
+    if(this.get('isShowPage')) {
       return;
     }
 

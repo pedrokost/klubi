@@ -1,5 +1,11 @@
-{{#each category in recentCategories}}
-  {{#link-to 'application' (query-params category=category.identifier) classNameBindings=":category"}}
-    {{category.name}}
-  {{/link-to}}
-{{/each}}
+<div class="button-group">
+  {{#each category in recentCategories}}
+    <label>
+      <input type="radio" name="button-group" {{bind-attr value="category.identifier"}}>
+      {{#link-to 'klubs' (query-params category=category.identifier) classNameBindings=":category :button-group-item"}}
+        {{category.name}}
+      {{/link-to}}
+    </label>
+  {{/each}}
+</div>
+

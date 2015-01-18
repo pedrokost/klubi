@@ -1,0 +1,14 @@
+.top-nav {
+  // top: 0;
+  // background: transparentize(#e3e3e3, 0.4);
+  // display: block;
+  position: absolute;
+  z-index: 1;
+  left: $sliding-menu-width;
+  top: 0;
+  right: $data-bar-width;
+  // height: 0;
+  background: red;
+  @include pad($base-page-pad);
+}
+

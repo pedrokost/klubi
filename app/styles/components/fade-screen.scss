@@ -1,0 +1,13 @@
+.sliding-menu-fade-screen {
+  @include position(fixed, 0px 0px 0px 0px);
+  @include transition;
+  background: black;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1005;
+
+  &.is-visible {
+    opacity: 0.4;
+    visibility: visible;
+  }
+}

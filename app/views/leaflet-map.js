@@ -7,14 +7,26 @@ L.Icon.Default.imagePath = 'https://d3s8w0mc0h7w8s.cloudfront.net/assets/images'
 var southWest = L.latLng(45.0, 13.0),   // spodaj levo
     northEast = L.latLng(47.2, 17);   // zgoraj desno
 
+
 export default EmberLeaflet.MapView.extend({
   options: {
     attributionControl: false,
     minZoom: 8,
-    maxBounds: L.latLngBounds(southWest, northEast)
+    maxBounds: L.latLngBounds(southWest, northEast),
+    zoomControl: false
   },
   childLayers: [
     FoursquareMapLayer,
     MarkerClusterCollection
-  ]
+  ],
+  didCreateLayer: function() {
+    this._super();
+    var options = {
+      position: 'bottomleft',
+      zoomInTitle: 'Približaj',
+      zoomOutTitle: 'Oddalji'
+    };
+    L.control.zoom(options).addTo(this._layer);
+  }
 });
+

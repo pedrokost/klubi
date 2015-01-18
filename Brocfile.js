@@ -36,9 +36,10 @@ app.import('bower_components/leaflet-dist/leaflet.css');
 app.import('bower_components/ember-leaflet/dist/ember-leaflet.js');
 app.import('bower_components/leaflet-plugins/layer/tile/Google.js');
 // Leaflet clustering
-app.import('bower_components/leaflet.markerclusterer/dist/MarkerCluster.css');
-app.import('bower_components/leaflet.markerclusterer/dist/MarkerCluster.Default.css');
-app.import('bower_components/leaflet.markerclusterer/dist/leaflet.markercluster.js');
+app.import('bower_components/leaflet.markercluster/dist/MarkerCluster.css');
+app.import('bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css');
+app.import('bower_components/leaflet.markercluster/dist/leaflet.markercluster.js');
+
 app.import('bower_components/jquery-scrollintoview/jquery.scrollintoview.min.js');
 
 // Google Analytics

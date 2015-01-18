@@ -7,7 +7,10 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.resource('klub', { path: '/:klub_id' }); // TODO: Use slug
+  this.route('oprojektu');
+  this.resource('klubs', { path: '' }, function() {
+    this.resource('klub', { path: '/:klub_id' }, function() {});
+  });
 });
 
 export default Router;

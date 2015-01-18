@@ -1,0 +1,114 @@
+@include keyframes(slide-away) {
+  from {
+    @include transform(translateX($sliding-menu-width));
+    opacity: 1;
+  }
+  to {
+    @include transform(translateX(0));
+    opacity: 0.4;
+  }
+}
+
+
+.sliding-menu-content {
+
+///////////////////////////////////////////////////////////////////////////////////
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+//////////////////////////////////////////////////////////////////////////////////
+
+  $sliding-menu-border-color: $dark-gray;
+  $sliding-menu-background: lighten($sliding-menu-border-color, 5%);
+  $sliding-menu-color: $light-gray;
+  $sliding-menu-color-subtitle: $light-gray;
+  $sliding-menu-icon-color: $medium-gray;
+  $sliding-menu-border: 1px solid $sliding-menu-border-color;
+  $sliding-menu-background-hover: $base-accent-color;
+  $sliding-menu-color-hover: $light-gray;
+  $sliding-menu-color-subtitle-hover: $light-gray;
+  $sliding-menu-background-focus: lighten($sliding-menu-background, 5%);
+
+  @include position(fixed, 0px auto 0px 0px);
+  @include size($sliding-menu-width 100%);
+  @include transform(translateX(-$sliding-menu-width));
+  @include transition(all 0.25s ease-out);
+  background: $sliding-menu-background;
+  z-index: 1006;
+  // overflow-y: auto; // I can't have this if I want to animate the active button
+  -webkit-overflow-scrolling: touch;
+  padding-top: $top-nav-height;
+
+  li.active {
+    @include transition(all 0.25s ease-out);
+    @include transform(translateX($sliding-menu-width));
+
+    @include animation(slide-away 1.0s ease);
+    @include animation-delay(2s);
+    @include animation-fill-mode(forwards);
+    @include animation-iteration-count(1);
+    @include animation-play-state(running);
+  }
+
+  li a {
+    border-bottom: $sliding-menu-border;
+    color: $sliding-menu-color;
+    display: block;
+    font-weight: bold;
+    padding: 1em;
+    @include outer-container;
+
+    i {
+      @include span-columns(3);
+      text-align: center;
+      font-size: 2rem;
+      line-height: 1rem + 1rem * $base-line-height;
+      color: $sliding-menu-icon-color;
+    }
+
+    span {
+      @include span-columns(9);
+    }
+
+    &:focus {
+      background-color: $sliding-menu-background-focus;
+    }
+
+    &:hover, &.active {
+      background-color: $sliding-menu-background-hover;
+      color: $sliding-menu-color-hover;
+
+      small {
+        color: $sliding-menu-color-subtitle-hover;
+      }
+    }
+
+    small {
+      display: block;
+      color: $sliding-menu-color-subtitle;
+      font-weight: normal;
+    }
+  }
+
+  &.is-visible {
+    @include transform(translateX(0));
+
+    li.active {
+      @include transform(translateX(0));
+      @include animation-play-state(paused);
+      @include animation(none);
+      opacity: 1;
+    }
+  }
+}
+// Based on code by Diego Eis
