@@ -20,6 +20,12 @@ You will need the following things properly installed on your computer.
 * `npm install`
 * `bower install`
 
+### Troubleshooting
+
+* `rm -rf tmp`
+* `sudo umount /mnt/EmberCliRamdisk`
+* `sudo rm -R /mnt/EmberCliRamdisk/`
+
 ## Running / Development
 
 * `ember server`
