@@ -1,0 +1,101 @@
+.square-cards {
+  @include display(flex);
+  @include flex-wrap(wrap);
+  @include justify-content(space-between);
+}
+
+.square-card {
+  ///////////////////////////////////////////////////////////////////////////////////
+  $base-border-color: gainsboro !default;
+  $base-border-radius: 3px !default;
+  $base-background-color: white !default;
+  $base-spacing: 1.5em !default;
+  $base-accent-color: #477DCA !default;
+  $base-link-color: $base-accent-color !default;
+  $dark-gray: #333 !default;
+  $base-font-color: $dark-gray !default;
+  //////////////////////////////////////////////////////////////////////////////////
+
+  $square-card-border-color: $base-border-color;
+  $square-card-border: 1px solid $square-card-border-color;
+  $square-card-background: lighten($square-card-border-color, 10%);
+  $square-card-header-background: $square-card-background;
+  $square-card-hover-background: lighten($square-card-background, 5%);
+  $square-card-image-background: #DBD199;
+  $square-card-image-hover-background: lighten($square-card-image-background, 5%);
+  $square-card-margin: 1em;
+
+  @include flex-basis(15em);
+  @include flex-grow(1);
+  @include transition (all 0.2s ease-in-out);
+  background-color: $square-card-background;
+  border-radius: $base-border-radius;
+  border: $square-card-border;
+  box-shadow: 0 2px 4px darken($base-background-color, 10%);
+  // cursor: pointer;
+  margin: 0 $square-card-margin $base-spacing $square-card-margin;
+  position: relative;
+  position: relative;
+
+  .square-card-image {
+    overflow: hidden;
+    max-height: 150px;
+
+    img {
+      @include transition (all 0.2s ease-in-out);
+      background: $square-card-image-background;
+      border-top-left-radius: $base-border-radius;
+      border-top-right-radius: $base-border-radius;
+      width: 100%;
+    }
+  }
+
+  .square-card-header {
+    @include transition (all 0.2s ease-in-out);
+    background-color: $square-card-header-background;
+    border-bottom: $square-card-border;
+    border-radius: $base-border-radius $base-border-radius 0 0;
+    font-weight: bold;
+    line-height: 1.5em;
+    padding: ($base-spacing / 3) ($base-spacing / 2);
+
+    > a {
+      color: inherit;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .square-card-copy {
+    font-size: 0.9em;
+    line-height: 1.5em;
+    padding: ($base-spacing / 2) ($base-spacing / 2);
+
+    p {
+      margin: 0 0 ($base-spacing / 2) !important;
+    }
+  }
+
+  &:focus,
+  &:hover {
+    background-color: $square-card-hover-background;
+
+    .square-card-image img {
+      background: $square-card-image-hover-background;
+    }
+
+    .square-card-header {
+      background-color: $square-card-hover-background;
+    }
+  }
+
+  &:active {
+    background-color: $square-card-background;
+
+    .square-card-header {
+      background-color: $square-card-background;
+    }
+  }
+}

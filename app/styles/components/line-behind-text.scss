@@ -1,0 +1,21 @@
+.line-behind-text {
+  $line-behind-text-background-color: $base-background-color;
+  $line-behind-text-font-family: $header-font-family;
+
+  border-bottom: 1px solid #cacaca;
+  text-align: center;
+  margin-bottom: 2.5em;
+
+  h4 {
+    background: $line-behind-text-background-color;
+    color: gray;
+    display: inline-block;
+    font-family: $line-behind-text-font-family;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 0 10px;
+    position: relative;
+    text-transform: uppercase;
+    top: 1.1em;
+  }
+}

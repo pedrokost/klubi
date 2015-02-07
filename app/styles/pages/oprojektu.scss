@@ -1,9 +1,58 @@
-.article {
+.body {
+  @include outer-container;
+};
+.oprojektu {
+
   @include span-columns(8);
-  @include shift(2);
+  @include shift(3);
   @include omega();
 
-  // &:first-item {  // really need html bars
-  margin-top: $top-nav-height;
-  // }
+  h1 {
+    font-size: 5rem;
+    position: relative;
+    color: $blue;
+    margin: 0.25em 0 0.5em 0;
+
+    &:before, &:after {
+      content: attr(title);
+      color: rgba(255,255,255,.1);
+      position: absolute;
+    }
+
+    &:before { top: 1px; left: 1px }
+    &:after  { top: 2px; left: 2px }
+  }
+
+  section {
+    margin: 2em 0;
+  }
+  h4 {
+    margin: 1em 0 0.5em 0;
+  }
+
+  ul {
+    @extend %default-ul;
+
+    &.icon-bullets {
+      padding: 0;
+
+      ul > li {
+        list-style: inherit;
+      }
+    }
+  }
+
+  .icon-bullets {
+    .bullet {
+      @include flex-basis(30em);
+    }
+  }
+
+  // // &:first-item {  // really need html bars
+  // margin-top: $top-nav-height;
+  // // }
+
+  .flash-notice {
+    @extend %flash-simple;
+  }
 }
