@@ -1,0 +1,7 @@
+// TODO: scope this to only the klubs template
+.loader {
+  @extend %loader;
+  height: 100vh;
+  color: $blue;
+  margin-right: $data-bar-width;
+}

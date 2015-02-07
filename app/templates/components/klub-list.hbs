@@ -1,7 +1,10 @@
 <ul class="klub-list-inner fancy-scrollbar">
   {{#each klub in klubs}}
     {{klub-card klubId=klub.id name=klub.name town=klub.town isHovered=klub.isHovered}}
-  {{else}}
-    Nalagam...
   {{/each}}
+  {{#unless klubs}}
+    <div class="loader">
+      {{fa-icon "refresh" spin=true size=5}}
+    </div>
+  {{/unless}}
 </ul>

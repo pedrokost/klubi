@@ -1,9 +1,12 @@
 .leaflet-container {
+
+  $leaflet-background-color: #EBE5E0;
+
   position: absolute;
   top: 0;
   left: 0;
   right: $data-bar-width;
   bottom: 0;
-  background-color: #EBE5E0;
+  background-color: $leaflet-background-color;
 
 }

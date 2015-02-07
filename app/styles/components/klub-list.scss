@@ -2,6 +2,13 @@
   @include flex(1);
   position: relative;
   background: #e3e3e3;
+
+  .loader {
+    @extend %loader;
+    height: 100%;
+    color: $blue;
+    margin: 0;
+  }
 }
 
 

@@ -1,0 +1,8 @@
+%loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 10em;
+  @include animation(fadeIn 1.0s 0.25s ease-in);
+  @include animation-fill-mode(backwards);
+}

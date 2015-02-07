@@ -4,4 +4,10 @@
 {{data-bar isShowPage=isShowPage klubs=filteredKlubs action='zoomToMarker'}}
 {{recent-categories}}
 
+{{#unless anyKlub}}
+  <div class="loader">
+    {{fa-icon "refresh" spin=true size=5}}
+  </div>
+{{/unless}}
+
 {{outlet}}

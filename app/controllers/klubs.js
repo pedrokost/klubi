@@ -9,6 +9,10 @@ export default Ember.ArrayController.extend(Ember.GoogleAnalyticsTrackingMixin, 
   queryParams: ['category'],
   category: 'fitnes',
 
+  anyKlub: function() {
+    return this.get('model');
+  }.property('model'),
+
   filteredKlubs: function() {
     var category = this.get('category');
 
