@@ -1,12 +1,15 @@
 {{view "leaflet-map" zoomBinding="zoom" centerBinding="center"}}
 
-
 {{data-bar isShowPage=isShowPage klubs=filteredKlubs action='zoomToMarker'}}
 {{recent-categories}}
 
 {{#unless anyKlub}}
   <div class="loader">
-    {{fa-icon "refresh" spin=true size=5}}
+    <div class="spinner-container">
+      <div class="spinner"></div>
+      <div class="spinner"></div>
+      <div class="spinner"></div>
+    </div>
   </div>
 {{/unless}}
 

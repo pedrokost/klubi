@@ -5,13 +5,13 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 var options = {
   hinting: false,
   tests: false,
-  minifyJS: {
-    enabled: false,
-  },
+  // minifyJS: {
+  //   enabled: false,
+  // },
   es3Safe: false,
-  minifyCSS: {
-    enabled: false
-  },
+  // minifyCSS: {
+  //   enabled: false
+  // },
   // TODO: delete above in production
 
   emberCliFontAwesome: { includeFontAwesomeAssets: false },
