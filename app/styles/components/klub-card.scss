@@ -2,6 +2,7 @@
 
   list-style: none;
 
+
   & > a {
     display: block;
     text-decoration: none;
@@ -25,6 +26,15 @@
       background-color: rgb(240,240,240);
     }
 
+    @include animation(fadeIn 0.25s ease);
+    @include animation-fill-mode(backwards);
   }
 
+  $delay-ease: 1;
+  @for $i from 1 through 20 {
+    &:nth-of-type(#{$i}) a{
+      @include animation-delay($i * $delay-ease * 0.1s);
+      $delay-ease: $delay-ease * 0.95;
+    }
+  }
 }
