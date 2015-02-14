@@ -4,18 +4,20 @@
   justify-content: center;
   line-height: 10em;
   position: relative;
+  pointer-events: none;
   @include animation(fadeIn 1.0s 0.25s ease-in);
   @include animation-fill-mode(backwards);
 
   .spinner-container {
     position: relative;
+    pointer-events: none;
   }
   .spinner {
     $spinner-width: 50px;
     $spinner-height: 50px;
     $spinner-color: $blue;
     $spinner-thickness: 2px;
-    $spinner-spacing: - $spinner-thickness;
+    $spinner-spacing: - $spinner-thickness/2;
     $spinner-offset-left: - $spinner-width / 2;
     $spinner-offset-top: - $spinner-height / 2;
 
@@ -28,8 +30,10 @@
     border-top: $spinner-thickness solid transparent;
     height: $spinner-width;
     width: $spinner-height;
+    pointer-events: none;
+
     $spin-anim-speed: 0.5s;
-    $fade-anim-speed: 4s; //$spin-anim-speed*8;
+    $fade-anim-speed: 2s; //$spin-anim-speed*8;
 
     left: $spinner-offset-left;
     top: $spinner-offset-top;
