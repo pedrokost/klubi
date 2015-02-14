@@ -12,6 +12,7 @@ export default EmberLeaflet.MapView.extend({
   options: {
     attributionControl: false,
     minZoom: 8,
+    // maxZoom: 10, // required for auto spiderification of overlapping markers
     maxBounds: L.latLngBounds(southWest, northEast),
     zoomControl: false
   },
