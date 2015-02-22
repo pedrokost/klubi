@@ -38,7 +38,7 @@ export default EmberLeaflet.MapView.extend({
       }, 200);
     }, 200);
 
-  }.observes('wantedCenter', 'zoom'),
+  }.observes('wantedCenter'),
 
   options: {
     attributionControl: false,
