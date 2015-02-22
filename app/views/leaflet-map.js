@@ -1,4 +1,7 @@
 import MarkerClusterCollection from '../layers/marker-cluster-collection';
+import Ember from 'ember';
+
+import MarkerCollectionLayer from '../layers/marker-collection';
 // import GoogleMapLayer from '../layers/google-map-layer';
 import FoursquareMapLayer from '../layers/foursquare-map-layer';
 
@@ -9,15 +12,44 @@ var southWest = L.latLng(45.0, 13.0),   // spodaj levo
 
 
 export default EmberLeaflet.MapView.extend({
+
+  setOffsetCenter: function(){
+    var markerLoc = this.get('wantedCenter');
+    var zoom = this.get('zoom');
+
+    var containrWidth = Ember.$('.leaflet-container').width();
+    var perc = 0.22;
+
+    var inPxs = this._layer.options.crs.latLngToPoint(markerLoc, zoom);
+    inPxs.x = inPxs.x + containrWidth * perc;
+    var inLls = this._layer.options.crs.pointToLatLng(inPxs, zoom);
+
+    this.set('center', inLls);
+
+    // This fixes a bug:
+    // Hover on card -- marker goes to wanted location
+    // Click on card -- marker gets moved to the left and stays there (expected to not move)
+    // The lines below case the computed property to be recomputed -- thus reseting
+    // the marker location and correcting the issue
+    Ember.run.later(this, function() {
+      this.set('center', null);
+      Ember.run.later(this, function(){
+        this.set('center', inLls);
+      }, 200);
+    }, 200);
+
+  }.observes('wantedCenter', 'zoom'),
+
   options: {
     attributionControl: false,
     minZoom: 8,
     // maxZoom: 10, // required for auto spiderification of overlapping markers
     maxBounds: L.latLngBounds(southWest, northEast),
-    zoomControl: false
+    zoomControl: false // added later with extra options
   },
   childLayers: [
     FoursquareMapLayer,
+    // MarkerCollectionLayer,
     MarkerClusterCollection
   ],
   didCreateLayer: function() {

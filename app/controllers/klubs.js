@@ -4,10 +4,11 @@ export default Ember.ArrayController.extend(Ember.GoogleAnalyticsTrackingMixin, 
   needs: ['application'],
   itemController: 'klub',
   zoom: 8,
-  center: L.latLng(46.122636,14.81546), // Slivna, Slovenia,
+  markerCenter: L.latLng(46.122636,14.81546), // Slivna, Slovenia,
   currentRouteName: Ember.computed.alias('controllers.application.currentRouteName'),
   queryParams: ['category'],
   category: 'fitnes',
+  offsetedMap: false, // whether to offset the map to make place for klub details
 
   anyKlub: function() {
     return this.get('model');
@@ -36,7 +37,7 @@ export default Ember.ArrayController.extend(Ember.GoogleAnalyticsTrackingMixin, 
       this.set('zoom', 12);
 
       Ember.run.later(function() {
-        this.set('center', klub.get('location'));
+        this.set('markerCenter', klub.get('location'));
       }.bind(this), 500);
 
       this.trackEvent('klub', 'zoom-to-marker', klub.get('id'), 1);
