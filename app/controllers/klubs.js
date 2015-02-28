@@ -31,6 +31,7 @@ export default Ember.ArrayController.extend(Ember.GoogleAnalyticsTrackingMixin, 
 
   actions: {
     showKlub: function (klubId) {
+
       this.transitionToRoute('klub', klubId);
     },
     zoomToMarker: function(klub) {

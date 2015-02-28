@@ -13,14 +13,9 @@ export default Ember.Route.extend({
   model: function(params) {
     return this.store.findQuery('klub', params);
   },
-  setupController: function(controller, model) {
-    this._super(controller, model);
-    controller.set('offsetedMap', false);
-  },
   actions: {
     goHome: function () {
       this.transitionTo('klubs');
-      this.get('controller').set('offsetedMap', false);
     }
   }
 });

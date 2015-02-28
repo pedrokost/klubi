@@ -31,6 +31,7 @@ export default EmberLeaflet.MapView.extend({
     // Click on card -- marker gets moved to the left and stays there (expected to not move)
     // The lines below case the computed property to be recomputed -- thus reseting
     // the marker location and correcting the issue
+
     Ember.run.later(this, function() {
       this.set('center', null);
       Ember.run.later(this, function(){
