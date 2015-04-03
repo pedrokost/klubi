@@ -8,10 +8,10 @@ export default Ember.Route.extend({
   },
   beforeModel: function(){
     // To show the user a category change is in progress, remove the currently shown data, so I can display a spinner
-    this.controllerFor('klubs').set('model', null);
+    this.controllerFor('klubs').set('model', Ember.A());
   },
   model: function(params) {
-    return this.store.findQuery('klub', params);
+    return this.store.find('klub', params);
   },
   actions: {
     goHome: function () {
