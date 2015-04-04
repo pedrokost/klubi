@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-export default Ember.ObjectController.extend({
+export default Ember.Controller.extend({
   needs: ['application', 'klubs'],
   isHovered: false,
 
@@ -11,14 +11,13 @@ export default Ember.ObjectController.extend({
 
   _panMapToMarker: function() {
     var center = this.get('latlng');
-
     this.set('mapCenter', center);
     this.set('mapZoom', 16);
   },
 
   panMapToMarker: function() {
     this._panMapToMarker();
-  }.observes('content', 'content.latlng'),
+  }.observes('model', 'latlng'),
 
   isActive: function() {
     // TODO: There must be a better way to do this, maybe getting it from the view as a property?
@@ -31,12 +30,12 @@ export default Ember.ObjectController.extend({
       // }
     }
     return false;
-  }.property('content.id', 'currentRouteName'),
+  }.property('model.id', 'currentRouteName'),
 
 
   latlng: function() {
-    return L.latLng(this.get('latitude'), this.get('longitude'));
-  }.property('latitude', 'longitude'),
+    return L.latLng(this.get('model.latitude'), this.get('model.longitude'));
+  }.property('model', 'latitude', 'longitude'),
 
   location: Ember.computed.alias('latlng'),
 });

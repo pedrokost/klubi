@@ -18,7 +18,7 @@ export default Ember.ArrayController.extend(Ember.GoogleAnalyticsTrackingMixin, 
     var category = this.get('category');
 
     return this.filter(function(item) {
-      return item.get('categories').indexOf(category) >= 0;
+      return item.get('model.categories').indexOf(category) >= 0;
     });
 
   }.property('category', 'model'),
@@ -30,9 +30,8 @@ export default Ember.ArrayController.extend(Ember.GoogleAnalyticsTrackingMixin, 
   }.property('currentRouteName'),
 
   actions: {
-    showKlub: function (klubId) {
-
-      this.transitionToRoute('klub', klubId);
+    showKlub: function (klub) {
+      this.transitionToRoute('klub', klub);
     },
     zoomToMarker: function(klub) {
       this.set('zoom', 12);

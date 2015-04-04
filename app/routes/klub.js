@@ -12,6 +12,14 @@ export default Ember.Route.extend({
 
     var currentCategory = this.controllerFor('klubs').get('category');
 
+    /*
+    HACK: For some reason, model is sometime a model, sometimes an object
+    that wrapps the model.
+    */
+    if (model.get('model')) {
+      model = model.get('model');
+    };
+
     if (model.get('categories').indexOf(currentCategory) === -1) {
       this.controllerFor('klubs').set('category', model.get('categories')[0]);
     }

@@ -39,7 +39,7 @@ export default Ember.Component.extend(
 
     function doTheScroll (){
       Ember.run.next(this, function(){  // TODO: Not sure this improves anything
-        var $dom = Ember.$('.klub-card[data-id=' + hoveredKlub.get('id') + ']');
+        var $dom = Ember.$('.klub-card[data-id=' + hoveredKlub.get('model.id') + ']');
         $dom.scrollintoview({direction: 'y'});
       });
     }
@@ -47,9 +47,9 @@ export default Ember.Component.extend(
     if (hoveredKlub) {
       Ember.run.later(this, function(){
         var hoveredKlub2 = this.get('klubs').findBy('isHovered', true);
-        if (hoveredKlub2 && hoveredKlub.get('id') === hoveredKlub2.get('id')) {
+        if (hoveredKlub2 && hoveredKlub.get('model.id') === hoveredKlub2.get('model.id')) {
           doTheScroll();
-          this.trackEvent('klub', 'scroll-to-klub', hoveredKlub.get('id'), 1);
+          this.trackEvent('klub', 'scroll-to-klub', hoveredKlub.get('model.id'), 1);
         }
       }, 500);
     }

@@ -1,6 +1,6 @@
 <ul class="klub-list-inner fancy-scrollbar">
   {{#each klub in klubs}}
-    {{klub-card klubId=klub.id name=klub.name town=klub.town isHovered=klub.isHovered}}
+    {{klub-card klubId=klub.model.id name=klub.model.name town=klub.model.town isHovered=klub.isHovered}}
   {{/each}}
   {{#unless klubs}}
     <div class="loader">

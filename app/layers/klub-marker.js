@@ -34,13 +34,13 @@ export default EmberLeaflet.MarkerLayer.extend({
     }.property('isHovered', 'isActive'),
 
     click: function() {
-      this.get('controller').send('showKlub', this.content);
+      this.get('controller').send('showKlub', this.get('content.model'));
     },
     mouseover: function() {
-      this.set('content.isHovered', true);
+      this.set('isHovered', true);
     },
     mouseout: function() {
-      this.set('content.isHovered', false);
+      this.set('isHovered', false);
     }
   }
 );
