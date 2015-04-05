@@ -9,6 +9,7 @@ var Router = Ember.Router.extend({
 export default Router.map(function() {
   this.route('oprojektu');
   this.resource('klubs', { path: '' }, function() {
-    this.resource('klub', { path: '/:klub_id' }, function() {});
+    this.resource('klub', { path: '/:klub_id' }, function() {}); // generates subroutes
+    this.route('new');
   });
 });

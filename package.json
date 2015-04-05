@@ -45,6 +45,5 @@
     "express": "^4.8.5",
     "glob": "^4.0.5",
     "node-sass": "^2.0.1"
-  },
-  "dependencies": {}
+  }
 }

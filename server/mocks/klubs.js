@@ -2,6 +2,11 @@ module.exports = function(app) {
   'use strict';
   var express = require('express');
   var klubsRouter = express.Router();
+
+  klubsRouter.post('/', function(req, res) {
+    res.status(201).json({});
+  });
+
   klubsRouter.get('/', function(req, res) {
     var klubs = [
       {

@@ -1,5 +1,15 @@
 {{logo-button action="toggleSideNav"}}
 
+<div class="flashes-container">
+  {{#if flashMessages}}
+    {{#each flashMessages as |flash|}}
+      <div class="flash-{{flash.type}}">
+        <span>{{flash.message}}</span>
+      </div>
+    {{/each}}
+  {{/if}}
+</div>
+
 {{outlet}}
 
 {{side-nav visible=isSideNavVisible}}

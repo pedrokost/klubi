@@ -1,0 +1,42 @@
+<div class="klub_page klub_new_page">
+  <div class="klub_page-container">
+    <form class="klub_page-article" {{action "sendNewKlubEmail" on="submit"}}>
+      <ul class="fa-ul klub_page-item_list">
+        <li class="klub_page-separator">
+          Podatki o klubu
+        </li>
+        <li class='klub_page-item'>
+          <label>Ime: </label>{{input type="text" value=model.name  required="required"}}
+        </li>
+        <li class='klub_page-item'>
+          <label>Naslov: </label>{{input type="text" value=model.address  required="required"}}{{unbound fa-icon "map-marker" fixedWidth=true listItem=true}}
+        </li>
+        <li class='klub_page-item'>
+          <label>Spletna stran: </label>{{input type="text" value=model.website}}{{unbound fa-icon "external-link-square" fixedWidth=true listItem=true}}
+        </li>
+        <li class='klub_page-item'>
+          <label>Facebook stran: </label>{{input type="text" value=model.facebookUrl}}{{unbound fa-icon "facebook" fixedWidth=true listItem=true}}
+        </li>
+        <li class='klub_page-item'>
+          <label>Telefon: </label>{{input type="text" value=model.phone}}{{unbound fa-icon "phone" fixedWidth=true listItem=true}}
+        </li>
+        <li class='klub_page-item'>
+          <label>Epošta: </label>{{input type="email" value=model.email}}{{unbound fa-icon "envelope" fixedWidth=true listItem=true}}
+        </li>
+        <li class="klub_page-separator">
+          Vaši podatki
+        </li>
+        <li class='klub_page-item'>
+          <label>Vaša epošta: </label>{{input type="email" value=editorEmail required="required"}}{{unbound fa-icon "envelope" fixedWidth=true listItem=true}}
+        </li>
+        <li class="klub_page-separator"></li>
+        <li class="klub_page-item">
+          {{input type="submit" value="Pošlji"}}
+        </li>
+      </ul>
+    </form>
+  </div>
+
+  {{outlet}}
+
+</div>
