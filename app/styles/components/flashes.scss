@@ -9,7 +9,7 @@
 $base-spacing: 1.5em !default;
 $alert-color: #fff6bf !default;
 $error-color: #fbe3e4 !default;
-$notice-color: #e5edf8 !default;
+$info-color: #e5edf8 !default;
 $success-color: #e6efc2 !default;
 
 @mixin flash($color) {
@@ -32,19 +32,19 @@ $success-color: #e6efc2 !default;
   }
 }
 
-.flash-alert {
+.alert-alert {
   @include flash($alert-color);
 }
 
-.flash-error {
+.alert-error {
   @include flash($error-color);
 }
 
-.flash-notice {
-  @include flash($notice-color);
+.alert-info {
+  @include flash($info-color);
 }
 
-.flash-success {
+.alert-success {
   @include flash($success-color);
 }
 %flash-simple {

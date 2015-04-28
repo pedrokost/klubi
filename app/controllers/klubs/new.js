@@ -14,6 +14,7 @@ export default Ember.Controller.extend({
       klub.facebook_url = klub.facebookUrl;
       delete klub.facebookUrl;
       var data = JSON.stringify({klub: klub});
+      const flashMessages = Ember.get(this, 'flashMessages');
 
       Ember.$.ajax({
         url: ENV.host + '/klubs',
@@ -23,20 +24,10 @@ export default Ember.Controller.extend({
         processData: false,
         contentType: 'application/json'
       }).done(function() {
-        /* TODO: Use ember-cli-flash-messages instead of this */
-        var message = Ember.Object.create({
-          type: 'success',
-          message: 'Tvoj vnos je bil uspešno poslan in bo v kratken obravnavan. Hvala ;)'
-        });
-        self.get('controllers.application.flashMessages').pushObject(message);
-        Ember.run.later(function() {
-          self.get('controllers.application.flashMessages').removeObject(message);
-        }, 5000);
+        flashMessages.success('Hvala za obvestilo o klubu ;)! Podatke bomo preverili in klub v kratkem prikazali na strani');
         self.transitionToRoute('klubs');
       }).fail(function() {
-        /* TODO: Implement a nice error handling thingy */
-        debugger;
-        alert('error');
+        flashMessages.error('Prišlo je do neznane napake pri shranjevanju podatkov o klubu :( Če ti ponovno ne uspe, me o tem prosim obesti na pedro@zatresi.si.');
       });
     }
   }
