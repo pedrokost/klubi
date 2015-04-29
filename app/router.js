@@ -12,5 +12,5 @@ export default Router.map(function() {
     this.resource('klub', { path: '/:klub_id' }, function() {}); // generates subroutes
     this.route('new');
   });
-  this.route('new-klub');
+  this.route('dodaj-klub');
 });
