@@ -10,7 +10,7 @@
 
   &:hover, &:active, &:focus {
     .send-email-button--details {
-      height: 11em;
+      height: 9em;
       @include transition(height 0.25s ease-out);
     }
   }
