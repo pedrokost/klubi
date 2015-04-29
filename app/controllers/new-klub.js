@@ -1,9 +1,11 @@
 import Ember from 'ember';
-import ENV from '../../config/environment';
+import ENV from '../config/environment';
 
 export default Ember.Controller.extend({
   needs: ['application'],
   editorEmail: null,
+  submitButtonDisabled: false,
+
   actions: {
     sendNewKlubEmail: function() {
       var self = this;
@@ -15,6 +17,7 @@ export default Ember.Controller.extend({
       delete klub.facebookUrl;
       var data = JSON.stringify({klub: klub});
       const flashMessages = Ember.get(this, 'flashMessages');
+      this.set('submitButtonDisabled', true);
 
       Ember.$.ajax({
         url: ENV.host + '/klubs',
@@ -24,9 +27,11 @@ export default Ember.Controller.extend({
         processData: false,
         contentType: 'application/json'
       }).done(function() {
+        self.set('submitButtonDisabled', false);
         flashMessages.success('Hvala za obvestilo o klubu ;)! Podatke bomo preverili in klub v kratkem prikazali na strani');
         self.transitionToRoute('klubs');
       }).fail(function() {
+        self.set('submitButtonDisabled', false);
         flashMessages.error('Prišlo je do neznane napake pri shranjevanju podatkov o klubu :( Če ti ponovno ne uspe, me o tem prosim obesti na pedro@zatresi.si.');
       });
     }

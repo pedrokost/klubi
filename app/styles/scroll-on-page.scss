@@ -33,18 +33,4 @@
       margin-bottom: $base-spacing;
     }
   }
-
-  article {
-    h4 {
-      margin: 0 0 0.5em 0;
-    }
-
-    section p:last-of-type {
-      margin-bottom: 2em;
-    }
-
-    @include media($large-screen) {
-      @include span-columns(6 of 8);
-    }
-  }
 }

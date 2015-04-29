@@ -1,0 +1,13 @@
+.new-klub {
+  .line-behind-text:not(:first-child) {
+    margin-top: 3em;
+  }
+
+  button[type=submit] .loader-inline {
+    @extend %loader-inline;
+    display: none;
+  }
+  button[type=submit]:disabled .loader-inline {
+    display: inline;
+  }
+}

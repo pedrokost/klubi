@@ -1,0 +1,40 @@
+.body {
+  @include outer-container;
+}
+
+.article {
+  @include span-columns(8);
+  @include shift(3);
+  @include omega();
+
+  h1 {
+    font-size: 5rem;
+    position: relative;
+    color: $blue;
+    margin: 0.25em 0 0.5em 0;
+
+    &:before, &:after {
+      content: attr(title);
+      color: rgba(255,255,255,.1);
+      position: absolute;
+    }
+
+    &:before { top: 1px; left: 1px }
+    &:after  { top: 2px; left: 2px }
+  }
+
+  article {
+    margin-bottom: 3em;
+    h4 {
+      // margin: 0 0 0.5em 0;
+    }
+
+    section p:last-of-type {
+      margin-bottom: 2em;
+    }
+
+    @include media($large-screen) {
+      @include span-columns(6 of 8);
+    }
+  }
+}
