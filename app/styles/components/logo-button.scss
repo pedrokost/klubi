@@ -4,19 +4,21 @@ header.logo-button {
   $logo-button-background: $base-background-color;
   $logo-button-border-color: $map-widget-border-color;
 
+  position: relative;
   z-index: 1007;
+  width: 100%;
   @include outer-container;
-  width: $sliding-menu-width;
-  position: fixed;
-  top: 0;
-  left: 0;
-  @include pad($base-page-pad);
 
-  // color: $dark-gray;
-  // &.has-dark-background {
-  //   color: $light-gray;
-  // }
+  @include media($medium-screen-up) {
+    width: $sliding-menu-width;
+    position: fixed;
+    top: 0;
+    left: 0;
+    @include pad($base-page-pad);
+  }
+
   h1.title {
+
   }
 
 
@@ -24,29 +26,42 @@ header.logo-button {
     font-size: 1rem;
     line-height: 2rem;
     font-weight: normal;
-    text-align: center;
-    @include span-columns(12);
-    @include omega();
-    position: absolute;
-    bottom:0;
-    left: 0;
     color: $logo-button-color;
     background: $white;
     border-top: 1px solid darken($logo-button-background, 3%);
+
+    display: none;
+
+    @include media($medium-screen-up) {
+      display: block;
+      @include span-columns(12);
+      @include omega();
+      text-align: center;
+      position: absolute;
+      bottom:0;
+      left: 0;
+    }
   }
 
   .sliding-menu-button {
+    text-align: left;
     @include button(flat, $logo-button-background);
-    padding: 10px 16px 2.5rem 16px;
+    border-radius: 0;
     overflow: hidden;
+    padding: 10px 16px 10px 16px;
     position: relative;
     cursor: pointer;
     outline: none;
     color: $base-accent-color;
     @include span-columns(12);
     @include omega();
-    border: 1px solid $logo-button-border-color;
     border-bottom: 1px solid darken($logo-button-border-color, 15);
+
+    @include media($medium-screen-up) {
+      border: 1px solid $logo-button-border-color;
+      text-align: center;
+      padding: 10px 16px 2.5rem 16px;
+    }
 
     &:hover:not(:disabled) {
       background-color: darken($logo-button-background, 3%);

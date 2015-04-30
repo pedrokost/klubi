@@ -48,11 +48,15 @@
 
   position: absolute;
   z-index: 1;
-  left: $sliding-menu-width;
   top: 0;
-  // right: $data-bar-width;
+  right: 0;
+  left: 0;
   @include pad($base-page-pad);
 
+  @include media($medium-screen-up) {
+    right: auto;
+    left: $sliding-menu-width;
+  }
 
   input {
     display: none;

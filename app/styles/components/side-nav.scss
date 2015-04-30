@@ -47,7 +47,11 @@
   z-index: 1006;
   // overflow-y: auto; // I can't have this if I want to animate the active button
   -webkit-overflow-scrolling: touch;
-  padding-top: $top-nav-height;
+  padding-top: $top-nav-height-mobile;
+
+  @include media($medium-screen-up) {
+    padding-top: $top-nav-height;
+  }
 
   li.active {
     @include transition(all 0.25s ease-out);

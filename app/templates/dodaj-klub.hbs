@@ -17,13 +17,13 @@
               <label>Naslov: </label>{{input type="text" value=model.address  required="required"}}{{unbound fa-icon "map-marker" fixedWidth=true listItem=true}}
             </li>
             <li class='dodaj-klub-item'>
-              <label>Spletna stran: </label>{{input type="text" value=model.website}}{{unbound fa-icon "external-link-square" fixedWidth=true listItem=true}}
+              <label>Spletna stran: </label>{{input type="url" value=model.website}}{{unbound fa-icon "external-link-square" fixedWidth=true listItem=true}}
             </li>
             <li class='dodaj-klub-item'>
-              <label>Facebook stran: </label>{{input type="text" value=model.facebookUrl}}{{unbound fa-icon "facebook" fixedWidth=true listItem=true}}
+              <label>Facebook stran: </label>{{input type="url" value=model.facebookUrl}}{{unbound fa-icon "facebook" fixedWidth=true listItem=true}}
             </li>
             <li class='dodaj-klub-item'>
-              <label>Telefon: </label>{{input type="text" value=model.phone}}{{unbound fa-icon "phone" fixedWidth=true listItem=true}}
+              <label>Telefon: </label>{{input type="tel" value=model.phone}}{{unbound fa-icon "phone" fixedWidth=true listItem=true}}
             </li>
             <li class='dodaj-klub-item'>
               <label>Epošta: </label>{{input type="email" value=model.email}}{{unbound fa-icon "envelope" fixedWidth=true listItem=true}}

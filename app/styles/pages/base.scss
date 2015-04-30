@@ -2,13 +2,39 @@
   @include outer-container;
 }
 
+.bodywrapper {
+  position: fixed;
+  overflow: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  margin-top: $top-nav-height-mobile;
+
+  @include media($medium-screen-up) {
+    margin-top: 0;
+  }
+
+}
+
+.bodywrapper-hidden {
+  overflow: hidden;
+}
+
+
 .article {
-  @include span-columns(8);
-  @include shift(3);
+  @include span-columns(10);
+  @include shift(1);
   @include omega();
 
+  @include media($medium-screen-up) {
+    @include span-columns(8);
+    @include shift(3);
+  }
+
   h1 {
-    font-size: 5rem;
+    font-size: 3.5rem;
     position: relative;
     color: $blue;
     margin: 0.25em 0 0.5em 0;
@@ -21,6 +47,10 @@
 
     &:before { top: 1px; left: 1px }
     &:after  { top: 2px; left: 2px }
+
+    @include media($medium-screen-up) {
+      font-size: 5rem;
+    }
   }
 
   article {

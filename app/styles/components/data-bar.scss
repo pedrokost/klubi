@@ -1,6 +1,7 @@
 .data-bar {
 
 
+  display: none;
   background: #e3e3e3;
   position: absolute;
   top: 0;
@@ -8,11 +9,13 @@
   // z-index: 1002;
   right: 0;
   width: $data-bar-width;
-  @include display(flex);
-  @include flex-direction(column);
 
-   // @include justify-content(flex-start);
-   // @include align-items(stretch);
+  // @include justify-content(flex-start);
+  // @include align-items(stretch);
+  @include media($medium-screen-up) {
+    @include display(flex);
+    @include flex-direction(column);
+  }
 }
 
 

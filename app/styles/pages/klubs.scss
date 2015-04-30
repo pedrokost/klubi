@@ -3,5 +3,8 @@
   @extend %loader;
   height: 100vh;
   color: $blue;
-  margin-right: $data-bar-width;
+
+  @include media($medium-screen-up) {
+    margin-right: $data-bar-width;
+  }
 }

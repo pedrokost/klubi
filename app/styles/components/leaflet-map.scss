@@ -5,8 +5,11 @@
   position: absolute;
   top: 0;
   left: 0;
-  right: $data-bar-width;
   bottom: 0;
+  right: 0;
   background-color: $leaflet-background-color;
 
+  @include media($medium-screen-up) {
+    right: $data-bar-width;
+  }
 }
