@@ -4,7 +4,8 @@
     "window",
     "-Promise",
     "L",
-    "EmberLeaflet"
+    "EmberLeaflet",
+    "moment"
   ],
   "browser" : true,
   "boss" : true,

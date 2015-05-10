@@ -48,6 +48,9 @@ app.import('bower_components/jquery-scrollintoview/jquery.scrollintoview.min.js'
 // Google Analytics
 app.import('bower_components/ember-google-analytics/ember-google-analytics.js');
 
+// Moment.js
+app.import('bower_components/momentjs/min/moment.min.js');
+
 // Use `app.import` to add additional libraries to the generated
 // output files.
 //
