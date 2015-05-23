@@ -20,5 +20,5 @@ export default Ember.Controller.extend({
   categoryClass: function() {
     var category = this.get('content.category');
     return 'category-' + category.split(' ')[0];
-  }.property()
+  }.property(),
 });

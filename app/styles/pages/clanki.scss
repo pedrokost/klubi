@@ -2,6 +2,10 @@
   width: (100% / 12) * $columns;
 }
 
+.clanki {
+  margin-top: 60px;
+}
+
 .clanki.grid-items-lines {
   $base-background-color: white !default;
   $dark-gray: #333 !default;
