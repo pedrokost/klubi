@@ -6,7 +6,7 @@ export default Ember.View.extend({
       var attr = $(this).attr('data-image-src');
 
       if (typeof attr !== typeof undefined && attr !== false) {
-        $(this).css('background-image', 'linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,1)), url('+attr+')');
+        $(this).css('background-image', 'url('+attr+')');
       }
     });
   }.on('didInsertElement'),

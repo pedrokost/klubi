@@ -14,7 +14,8 @@ export default Ember.Controller.extend({
   }.property(),
 
   showImage: function() {
-    return random() > 0.5;
+    // return random() > 0.5;
+    return true;
   }.property(),
 
   categoryClass: function() {

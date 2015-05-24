@@ -13,8 +13,6 @@
   <section class="clanki">
 
     <div class="clanek clanek-first">
-      <h1></h1>
-      <p></p>
     </div>
 
     {{#each clanek in filteredClaneks itemController="clanek"}}
@@ -22,7 +20,7 @@
         <span class="category {{clanek.categoryClass}}">{{clanek.content.category}}</span>
         <h1>{{clanek.content.title}}</h1>
         <small class="meta">{{clanek.content.source}}, {{from-date clanek.content.publishedAt}}</small>
-        <p>{{clanek.content.content}}</p>
+        <span class="read-indicator" title="rdeče: tega še nisi prebral/a, zeleno: prebrano"></span>
       </a>
     {{/each}}
 
