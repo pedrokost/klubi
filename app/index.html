@@ -17,6 +17,7 @@
   <body>
     {{content-for 'body'}}
     <!-- &v=3.exp&signed_in=true throws error due to unmatched protocols -->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
     <script src="assets/vendor.js"></script>
     <script src="assets/zatresi.js"></script>
 
@@ -43,6 +44,5 @@
       }(document, "script", "facebook-jssdk"));
     </script>
     {{content-for 'body-footer'}}
-
   </body>
 </html>

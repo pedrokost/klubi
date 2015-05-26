@@ -34,7 +34,7 @@ module.exports = function(environment) {
       'media-src': "'self' d3s8w0mc0h7w8s.cloudfront.net",
       'report-uri': "localhost:4200",
       'frame-src': "www.google.com www.facebook.com *.ak.facebook.com",
-      'font-src': "'self' d3s8w0mc0h7w8s.cloudfront.net"
+      'font-src': "'self' d3s8w0mc0h7w8s.cloudfront.net fonts.gstatic.com"
     }
   };
 

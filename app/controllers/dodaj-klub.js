@@ -34,6 +34,12 @@ export default Ember.Controller.extend({
         self.set('submitButtonDisabled', false);
         flashMessages.error('Prišlo je do neznane napake pri shranjevanju podatkov o klubu :( Če ti ponovno ne uspe, me o tem prosim obesti na pedro@zatresi.si.');
       });
+    },
+
+    setLatLng: function (latitude, longitude) {
+      this.get('model').setProperties({
+        latitude, longitude
+      });
     }
   }
 });
