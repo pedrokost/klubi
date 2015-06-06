@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  titleToken: 'Športni Klubi',
   queryParams: {
     category: {
       refreshModel: true

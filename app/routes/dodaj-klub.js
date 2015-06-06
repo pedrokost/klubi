@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  titleToken: 'Dodaj klub',
   model: function() {
     return this.store.createRecord('klub', {
       // name: 'Name',
