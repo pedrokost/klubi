@@ -17,10 +17,13 @@
     "leaflet.markercluster": "Leaflet/Leaflet.markercluster#master",
     "normalize.css": "~3.0.2",
     "font-awesome": "~4.2.0",
-    "bourbon": "~4.0.2",
+    "bourbon": "4.2.1",
     "jquery-scrollintoview": "https://github.com/litera/jquery-scrollintoview/archive/v1.8.zip",
     "ember-google-analytics": "~0.1.0",
     "neat": "~1.7.1",
     "momentjs": "~2.10.3"
+  },
+  "resolutions": {
+    "bourbon": "4.2.1"
   }
 }
