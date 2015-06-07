@@ -25,8 +25,9 @@
 
     @include clearfix;
     @include display(flex);
-    @include justify-content(center);
+    @include justify-content(flex-start);
     @include align-items(stretch);
+    @include align-content(stretch);
     @include flex-wrap(wrap);
     clear: both;
     text-align: justify;
@@ -43,6 +44,7 @@
     @include transition (all 0.2s ease-in-out);
     @include flex(2 2 15em);
     @include align-self(stretch);
+    @include flex-grow(2);
     background: $flex-box-background;
     border-radius: $base-border-radius;
     display: block;

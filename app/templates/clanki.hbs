@@ -15,13 +15,8 @@
     <div class="clanek clanek-first">
     </div>
 
-    {{#each clanek in filteredClaneks itemController="clanek"}}
-      <a href="{{clanek.content.url}}" target="_blank" class="clanek {{if clanek.showBig 'clanek-big'}} {{if clanek.showImage 'clanek-image'}}" data-image-src="{{clanek.content.imageUrl}}">
-        <span class="category {{clanek.categoryClass}}">{{clanek.content.category}}</span>
-        <h1>{{clanek.content.title}}</h1>
-        <small class="meta">{{clanek.content.source}}, {{from-date clanek.content.publishedAt}}</small>
-        <span class="read-indicator" title="rdeče: tega še nisi prebral/a, zeleno: prebrano"></span>
-      </a>
+    {{#each clanek in filteredClaneks}}
+      {{clanek-item clanek=clanek}}
     {{/each}}
 
   </section>

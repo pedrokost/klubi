@@ -45,7 +45,8 @@ header.logo-button {
 
   .sliding-menu-button {
     text-align: left;
-    @include button(flat, $logo-button-background);
+    background-color: $logo-button-background;
+    // @include button(flat, $logo-button-background);
     border-radius: 0;
     overflow: hidden;
     padding: 10px 16px 10px 16px;
