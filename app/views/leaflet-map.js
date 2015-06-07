@@ -13,7 +13,7 @@ var southWest = L.latLng(45.0, 13.0),   // spodaj levo
 
 export default EmberLeaflet.MapView.extend({
 
-  setOffsetCenter: function(){
+  setOffsetCenter: Ember.observer('wantedCenter', function(){
     var markerLoc = this.get('wantedCenter');
     var zoom = this.get('zoom');
 
@@ -39,7 +39,7 @@ export default EmberLeaflet.MapView.extend({
       }, 200);
     }, 200);
 
-  }.observes('wantedCenter'),
+  }),
 
   options: {
     attributionControl: false,

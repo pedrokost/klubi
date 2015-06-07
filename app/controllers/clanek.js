@@ -9,17 +9,17 @@ function random() {
 
 export default Ember.Controller.extend({
 
-  showBig: function() {
+  showBig: Ember.computed(function() {
     return random() > 0.8;
-  }.property(),
+  }),
 
-  showImage: function() {
+  showImage: Ember.computed(function() {
     // return random() > 0.5;
     return true;
-  }.property(),
+  }),
 
-  categoryClass: function() {
+  categoryClass: Ember.computed(function() {
     var category = this.get('content.category');
     return 'category-' + category.split(' ')[0];
-  }.property(),
+  }),
 });

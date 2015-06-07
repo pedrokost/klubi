@@ -15,11 +15,11 @@ export default Ember.Controller.extend({
     this.set('mapZoom', 16);
   },
 
-  panMapToMarker: function() {
+  panMapToMarker: Ember.observer('model', 'latlng', function() {
     this._panMapToMarker();
-  }.observes('model', 'latlng'),
+  }),
 
-  isActive: function() {
+  isActive: Ember.computed('model.id', 'currentRouteName', function() {
     // TODO: There must be a better way to do this, maybe getting it from the view as a property?
 
     if (this.get('currentRouteName') === 'klub.index') {
@@ -30,12 +30,12 @@ export default Ember.Controller.extend({
       // }
     }
     return false;
-  }.property('model.id', 'currentRouteName'),
+  }),
 
 
-  latlng: function() {
+  latlng: Ember.computed('model', 'latitude', 'longitude', function() {
     return L.latLng(this.get('model.latitude'), this.get('model.longitude'));
-  }.property('model', 'latitude', 'longitude'),
+  }),
 
   location: Ember.computed.alias('latlng'),
 });

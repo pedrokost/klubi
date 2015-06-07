@@ -10,24 +10,24 @@ export default Ember.ArrayController.extend(Ember.GoogleAnalyticsTrackingMixin, 
   category: 'fitnes',
   offsetedMap: false, // whether to offset the map to make place for klub details
 
-  anyKlub: function() {
+  anyKlub: Ember.computed('model', function() {
     return this.get('model');
-  }.property('model'),
+  }),
 
-  filteredKlubs: function() {
+  filteredKlubs: Ember.computed('category', 'model', function() {
     var category = this.get('category');
 
     return this.filter(function(item) {
       return item.get('model.categories').indexOf(category) >= 0;
     });
 
-  }.property('category', 'model'),
+  }),
 
 
-  isShowPage: function() {
+  isShowPage: Ember.computed('currentRouteName', function() {
     // TODO: this is brittle.
     return this.get('currentRouteName') === 'klub.index';
-  }.property('currentRouteName'),
+  }),
 
   actions: {
     showKlub: function (klub) {

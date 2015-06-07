@@ -13,7 +13,7 @@ export default Ember.Component.extend({
   latitude: null,
   longitude: null,
 
-  initialize: function() {
+  initialize: Ember.on('didInsertElement', function() {
     this.set('geocoder', new google.maps.Geocoder());
 
     var latlng = new google.maps.LatLng(46.0569465, 14.5057515);
@@ -30,7 +30,7 @@ export default Ember.Component.extend({
     this.set('marker', marker);
     this.set('ready', true);
 
-  }.on('didInsertElement'),
+  }),
 
   showAddressOnMap: function(position) {
     var map = this.get('map');
@@ -70,11 +70,11 @@ export default Ember.Component.extend({
     });
   },
 
-  listenForTypingPause: function() {
+  listenForTypingPause: Ember.observer('address', 'ready', function() {
     this.set('latitude', null);
     this.set('longitude', null);
     this.set('geocodingInvalid', true);
     this.get('marker').setOpacity(0.2);
     Ember.run.debounce(this, this.updateMap, 250);
-  }.observes('address', 'ready')
+  })
 });

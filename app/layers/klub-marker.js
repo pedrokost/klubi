@@ -25,13 +25,13 @@ export default EmberLeaflet.MarkerLayer.extend({
     isHovered: Ember.computed.alias('content.isHovered'),
     isActive: Ember.computed.alias('content.isActive'),
 
-    icon: function(){
+    icon: Ember.computed('isHovered', 'isActive', function(){
       if (this.get('isHovered') || this.get('isActive')) {
         return new HighlightedIcon();
       } else{
         return new L.Icon.Default();
       }
-    }.property('isHovered', 'isActive'),
+    }),
 
     click: function() {
       this.get('controller').send('showKlub', this.get('content.model'));

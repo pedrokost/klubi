@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.View.extend({
-  showImages: function() {
+  showImages: Ember.on('didInsertElement', function() {
     this.$(".clanek-image").each(function() {
       var attr = $(this).attr('data-image-src');
 
@@ -9,11 +9,11 @@ export default Ember.View.extend({
         $(this).css('background-image', 'url('+attr+')');
       }
     });
-  }.on('didInsertElement'),
+  }),
 
-  showImagesOnFilterChange: function() {
+  showImagesOnFilterChange: Ember.observer('controller.category', function() {
     Ember.run.scheduleOnce('afterRender', this, function() {
       this.showImages();
     });
-  }.observes('controller.category')
+  })
 });

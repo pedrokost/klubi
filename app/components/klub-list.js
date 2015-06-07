@@ -6,13 +6,13 @@ export default Ember.Component.extend(
   tagName: 'section',
   classNames: ['klub-list'],
 
-  scrollToKlubListener: function() {
+  scrollToKlubListener: Ember.observer('klubs.@each.isHovered', function() {
     if (document.querySelector('.klub-list:hover')) {
       Ember.run.once(this, 'zoomToMarker');
     } else {
       Ember.run.once(this, 'scrollToCard');
     }
-  }.observes('klubs.@each.isHovered'),
+  }),
 
   zoomToMarker: function() {
     // If mouse stays on a card for awhile, zoom to the corresponding marker in the map.
