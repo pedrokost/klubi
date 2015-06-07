@@ -6,7 +6,7 @@ var Router = Ember.Router.extend({
   location: config.locationType
 });
 
-export default Router.map(function() {
+Router.map(function() {
   this.route('oprojektu');
   this.route('dodaj-klub');
   this.route('clanki', function() {});
@@ -15,3 +15,5 @@ export default Router.map(function() {
     this.route('new');
   });
 });
+
+export default Router;
