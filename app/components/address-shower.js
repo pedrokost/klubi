@@ -56,7 +56,7 @@ export default Ember.Component.extend({
       that.set('geocodingInvalid', status !== google.maps.GeocoderStatus.OK);
 
       if (status == google.maps.GeocoderStatus.OK) {
-        console.log(results[0].geometry.location);
+        // console.log(results[0].geometry.location);
         let latitude = results[0].geometry.location.lat();
         let longitude = results[0].geometry.location.lng();
         that.set('latitude', latitude);

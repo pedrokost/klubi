@@ -6,7 +6,7 @@ export default DS.ActiveModelSerializer.extend({
     payload = {
       'clanki': payload.clanki
     };
-    console.log(payload)
+    // console.log(payload)
     return this._super(store, type, payload, id, requestType);
   }
 });
