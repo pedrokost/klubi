@@ -39,7 +39,7 @@
     "ember-cli-ramdisk": "0.0.7",
     "ember-cli-sass": "^4.0.0",
     "ember-cli-uglify": "^1.0.1",
-    "ember-data": "^1.0.0-beta.19",
+    "ember-data": "^1.0.0-beta.18",
     "ember-deploy": "^0.3.1",
     "ember-deploy-redis": "0.0.5",
     "ember-deploy-s3": "0.0.4",
