@@ -1,5 +1,10 @@
 <ul class="klub-list-inner fancy-scrollbar">
-  {{#each klub in klubs}}
+  <li class="klub-card">
+    <div class="klub-card-inner klub-card-inner--search">
+      {{input type="search" value=query class="klub-list-search" placeholder="Išči"}}
+    </div>
+  </li>
+  {{#each klub in filteredKlubs}}
     {{klub-card klubId=klub.model.id name=klub.model.name town=klub.model.town isHovered=klub.isHovered}}
   {{/each}}
   {{#unless klubs}}

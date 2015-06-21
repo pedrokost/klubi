@@ -3,7 +3,7 @@
   list-style: none;
 
 
-  & > a {
+  & > .klub-card-inner {
     display: block;
     text-decoration: none;
     color: inherit;
@@ -28,6 +28,11 @@
 
     @include animation(fadeIn 0.25s ease);
     @include animation-fill-mode(backwards);
+
+
+    &.klub-card-inner--search {
+      cursor: text;
+    }
   }
 
   $delay-ease: 1;

@@ -5,6 +5,8 @@ export default Ember.Component.extend(
 
   tagName: 'section',
   classNames: ['klub-list'],
+  query: '',
+  filteredKlubs: null,
 
   scrollToKlubListener: Ember.observer('klubs.@each.isHovered', function() {
     if (document.querySelector('.klub-list:hover')) {
@@ -12,6 +14,17 @@ export default Ember.Component.extend(
     } else {
       Ember.run.once(this, 'scrollToCard');
     }
+  }),
+
+  filteredKlubs: Ember.computed('klubs', 'query', function() {
+    var query = this.get('query').toLowerCase();
+
+    if (!query) { return this.get('klubs'); }
+
+    return this.get('klubs').filter(klub => {
+      debugger
+      return klub.get('model.name').toLowerCase().indexOf(query) >= 0 || klub.get('model.address').toLowerCase().indexOf(query) >= 0;
+    });
   }),
 
   zoomToMarker: function() {

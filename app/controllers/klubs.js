@@ -20,9 +20,7 @@ export default Ember.ArrayController.extend(Ember.GoogleAnalyticsTrackingMixin, 
     return this.filter(function(item) {
       return item.get('model.categories').indexOf(category) >= 0;
     });
-
   }),
-
 
   isShowPage: Ember.computed('currentRouteName', function() {
     // TODO: this is brittle.
@@ -41,7 +39,6 @@ export default Ember.ArrayController.extend(Ember.GoogleAnalyticsTrackingMixin, 
       }.bind(this), 500);
 
       this.trackEvent('klub', 'zoom-to-marker', klub.get('id'), 1);
-
     }
   }
 
