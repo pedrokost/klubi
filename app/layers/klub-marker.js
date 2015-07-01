@@ -1,7 +1,8 @@
 import HighlightedIcon from './highlighted-icon';
 import Ember from 'ember';
+import MarkerLayer from 'ember-leaflet/layers/marker';
 
-EmberLeaflet.MarkerLayer.reopen({
+MarkerLayer.reopen({
   didCreateLayer:function(){
     this._updateLayerOnIconChange();
   },
@@ -20,27 +21,23 @@ EmberLeaflet.MarkerLayer.reopen({
    }, 'icon')
 });
 
-export default EmberLeaflet.MarkerLayer.extend({
+export default MarkerLayer.extend({
 
-    isHovered: Ember.computed.alias('content.isHovered'),
-    isActive: Ember.computed.alias('content.isActive'),
-
-    icon: Ember.computed('isHovered', 'isActive', function(){
-      if (this.get('isHovered') || this.get('isActive')) {
-        return new HighlightedIcon();
-      } else{
-        return new L.Icon.Default();
-      }
-    }),
-
-    click: function() {
-      this.get('controller').send('showKlub', this.get('content.model'));
-    },
-    mouseover: function() {
-      this.set('isHovered', true);
-    },
-    mouseout: function() {
-      this.set('isHovered', false);
+  icon: Ember.computed('content.isHovered', 'isActive', function(){
+    if (this.get('content.isHovered') || this.get('isActive')) {
+      return new HighlightedIcon();
+    } else{
+      return new L.Icon.Default();
     }
+  }),
+
+  click: function() {
+    this.get('controller').sendAction('showKlub', this.get('content'));
+  },
+  mouseover: function() {
+    this.set('content.isHovered', true);
+  },
+  mouseout: function() {
+    this.set('content.isHovered', false);
   }
-);
+});

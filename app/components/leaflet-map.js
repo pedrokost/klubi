@@ -1,17 +1,15 @@
+// import Ember from 'ember';
 import MarkerClusterCollection from '../layers/marker-cluster-collection';
-import Ember from 'ember';
-
+import EmberLeafletComponent from 'ember-leaflet/components/leaflet-map';
 import MarkerCollectionLayer from '../layers/marker-collection';
 // import GoogleMapLayer from '../layers/google-map-layer';
 import FoursquareMapLayer from '../layers/foursquare-map-layer';
-
-L.Icon.Default.imagePath = 'https://d3s8w0mc0h7w8s.cloudfront.net/assets/images'; // substitute your media path
 
 var southWest = L.latLng(45.0, 13.0),   // spodaj levo
     northEast = L.latLng(47.2, 17);   // zgoraj desno
 
 
-export default EmberLeaflet.MapView.extend({
+export default EmberLeafletComponent.extend({
 
   setOffsetCenter: Ember.observer('wantedCenter', function(){
     var markerLoc = this.get('wantedCenter');
@@ -19,6 +17,8 @@ export default EmberLeaflet.MapView.extend({
 
     var containrWidth = Ember.$('.leaflet-container').width();
     var perc = 0.22;
+
+    if (!this._layer) { return }
 
     var inPxs = this._layer.options.crs.latLngToPoint(markerLoc, zoom);
     inPxs.x = inPxs.x + containrWidth * perc;
@@ -36,7 +36,7 @@ export default EmberLeaflet.MapView.extend({
       this.set('center', null);
       Ember.run.later(this, function(){
         this.set('center', inLls);
-      }, 200);
+      }, 500);
     }, 200);
 
   }),
@@ -50,7 +50,7 @@ export default EmberLeaflet.MapView.extend({
   },
   childLayers: [
     FoursquareMapLayer,
-    // MarkerCollectionLayer,
+    // MarkerCollectionLayer
     MarkerClusterCollection
   ],
   didCreateLayer: function() {

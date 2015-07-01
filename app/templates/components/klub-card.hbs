@@ -1,4 +1,7 @@
-{{#link-to 'klub' klubId classNameBindings="isHovered :klub-card-inner"}}
+{{#link-to 'klub' klubId class=linkCSSClasses }}
   {{name}}<br>
   <small>{{town}}</small>
 {{/link-to}}
+
+{{!-- for come reason classNamesBinding is not updating when using
+the link-to helper. --}}

@@ -1,20 +1,20 @@
-  {{logo-button action="toggleSideNav"}}
+{{logo-button action="toggleSideNav"}}
 
-  <div class="bodywrapper {{if isSideNavVisible 'bodywrapper-hidden'}}">
-    <div class="flashes-container">
-      {{#if flashMessages}}
-        {{#each flashMessages.queue as |flash|}}
-          {{flash-message flash=flash}}
-        {{/each}}
-      {{/if}}
-    </div>
-    {{outlet}}
+<div class="bodywrapper {{if isSideNavVisible 'bodywrapper-hidden'}}">
+  <div class="flashes-container">
+    {{#if flashMessages}}
+      {{#each flashMessages.queue as |flash|}}
+        {{flash-message flash=flash}}
+      {{/each}}
+    {{/if}}
   </div>
+  {{outlet}}
+</div>
 
-  {{side-nav visible=isSideNavVisible}}
+{{side-nav visible=isSideNavVisible}}
 
-  <div class="social-buttons">
-    <div class="fb-like" data-href="https://www.facebook.com/zatresi.si" data-width="225" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
-  </div>
+<div class="social-buttons">
+  <div class="fb-like" data-href="https://www.facebook.com/zatresi.si" data-width="225" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+</div>
 
-  {{fade-screen visible=isSideNavVisible action="toggleSideNav"}}
+{{fade-screen visible=isSideNavVisible action="toggleSideNav"}}

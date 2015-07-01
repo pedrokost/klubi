@@ -1,4 +1,5 @@
 import MarkerCollectionLayer from '../layers/marker-collection';
+import ContainerLayer from 'ember-leaflet/layers/container';
 
 var options = {
   maxClusterRadius: 80,
@@ -9,7 +10,7 @@ var options = {
   removeOutsideVisibleBounds: false // Testing if true is the cause for marker dissapearance
 };
 
-export default EmberLeaflet.ContainerLayer.extend({
+export default ContainerLayer.extend({
   childLayers: [ MarkerCollectionLayer ],
   _newLayer: function() {
     return new L.MarkerClusterGroup(options);

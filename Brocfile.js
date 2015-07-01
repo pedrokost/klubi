@@ -35,10 +35,7 @@ app.import("bower_components/font-awesome/fonts/FontAwesome.otf", { destDir: "fo
 
 app.import('bower_components/normalize.css/normalize.css');
 // Leaflet
-app.import('bower_components/leaflet-dist/leaflet-src.js');
-app.import('bower_components/leaflet-dist/leaflet.css');
-app.import('bower_components/ember-leaflet/dist/ember-leaflet.js');
-app.import('bower_components/leaflet-plugins/layer/tile/Google.js');
+// app.import('bower_components/leaflet-plugins/layer/tile/Google.js');
 // Leaflet clustering
 app.import('bower_components/leaflet.markercluster/dist/MarkerCluster.css');
 app.import('bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css');

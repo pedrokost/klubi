@@ -12,7 +12,7 @@ export default Ember.Route.extend({
     this.controllerFor('klubs').set('model', Ember.A());
   },
   model: function(params) {
-    return this.store.find('klub', params);
+    return this.store.query('klub', params);
   },
   actions: {
     goHome: function () {

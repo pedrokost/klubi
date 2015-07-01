@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-export default Ember.View.extend({
+export default Ember.Component.extend({
   showImages: Ember.on('didInsertElement', function() {
     this.$(".clanek-image").each(function() {
       var attr = $(this).attr('data-image-src');

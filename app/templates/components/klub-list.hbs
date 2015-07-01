@@ -4,10 +4,10 @@
       {{input type="search" value=query class="klub-list-search" placeholder="Išči"}}
     </div>
   </li>
-  {{#each klub in filteredKlubs}}
-    {{klub-card klubId=klub.model.id name=klub.model.name town=klub.model.town isHovered=klub.isHovered}}
-  {{/each}}
-  {{#unless klubs}}
+
+  {{#each klubs as |klub|}}
+    {{klub-card klubId=klub.id name=klub.name town=klub.town isHovered=klub.isHovered}}
+  {{else}}
     <div class="loader">
       <div class="spinner-container">
         <div class="spinner"></div>
@@ -15,5 +15,5 @@
         <div class="spinner"></div>
       </div>
     </div>
-  {{/unless}}
+  {{/each}}
 </ul>

@@ -10,5 +10,10 @@ export default DS.Model.extend({
   facebookUrl: DS.attr('string'),
   phone: DS.attr('string'),
   email: DS.attr('string'),
-  categories: DS.attr('array')
+  categories: DS.attr('array'),
+
+  isHovered: false,
+  location: Ember.computed('latitude', 'longitude', function() {
+    return L.latLng(this.get('latitude'), this.get('longitude'));
+  })
 });

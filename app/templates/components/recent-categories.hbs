@@ -1,7 +1,7 @@
 <div class="button-group">
-  {{#each category in recentCategories}}
+  {{#each recentCategories as |category|}}
     <label>
-      <input type="radio" name="button-group" {{bind-attr value="category.identifier"}}>
+      <input type="radio" name="button-group" value={{category.identifier}}>
       {{#link-to 'klubs' (query-params category=category.identifier) classNameBindings=":category :button-group-item"}}
         {{category.name}}
       {{/link-to}}

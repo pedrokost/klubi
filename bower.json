@@ -1,9 +1,9 @@
 {
   "name": "zatresi",
   "dependencies": {
-    "ember": "1.12.0",
+    "ember": "1.13.3",
     "jquery": "~2.1.4",
-    "ember-data": "1.0.0-beta.18",
+    "ember-data": "1.13.5",
     "ember-resolver": "~0.1.15",
     "loader.js": "~3.2.1",
     "ember-cli-shims": "ember-cli/ember-cli-shims#0.0.3",
@@ -12,8 +12,7 @@
     "ember-qunit": "~0.4.0",
     "ember-qunit-notifications": "0.0.7",
     "qunit": "~1.18.0",
-    "ember-leaflet": "gabesmed/ember-leaflet#da9a7f83b5ab5a308f868214ae3b2d2dfaf1a075",
-    "leaflet-plugins": "1.3.3",
+    "leaflet-plugins": "~1.3.6",
     "leaflet.markercluster": "Leaflet/Leaflet.markercluster#master",
     "normalize.css": "~3.0.2",
     "font-awesome": "~4.3.0",
@@ -21,6 +20,10 @@
     "jquery-scrollintoview": "https://github.com/litera/jquery-scrollintoview/archive/v1.8.zip",
     "ember-google-analytics": "~0.1.0",
     "neat": "~1.7.1",
-    "momentjs": "~2.10.3"
+    "momentjs": "~2.10.3",
+    "leaflet": "~0.7.3"
+  },
+  "resolutions": {
+    "jquery": "~2.1.4"
   }
 }
