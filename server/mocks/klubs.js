@@ -95,7 +95,10 @@ module.exports = function(app) {
   });
 
   klubsRouter.get('/', function(req, res) {
-    res.send({'klubs': KLUBS});
+    var klubs = KLUBS.filter(function(klub) {
+      return klub.categories.indexOf(req.query.category) >= 0;
+    });
+    res.send({'klubs': klubs});
   });
 
   klubsRouter.get('/:slug', function(req, res) {
