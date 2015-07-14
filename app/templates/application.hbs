@@ -1,4 +1,3 @@
-{{logo-button action="toggleSideNav"}}
 
 <div class="bodywrapper {{if isSideNavVisible 'bodywrapper-hidden'}}">
   <div class="flashes-container">
@@ -11,10 +10,14 @@
   {{outlet}}
 </div>
 
-{{side-nav visible=isSideNavVisible}}
+{{#if showMenus}}
+  {{logo-button action="toggleSideNav"}}
 
-<div class="social-buttons">
-  <div class="fb-like" data-href="https://www.facebook.com/zatresi.si" data-width="225" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
-</div>
+  {{side-nav visible=isSideNavVisible}}
 
-{{fade-screen visible=isSideNavVisible action="toggleSideNav"}}
+  <div class="social-buttons">
+    <div class="fb-like" data-href="https://www.facebook.com/zatresi.si" data-width="225" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+  </div>
+
+  {{fade-screen visible=isSideNavVisible action="toggleSideNav"}}
+{{/if}}

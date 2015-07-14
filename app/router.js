@@ -10,10 +10,16 @@ Router.map(function() {
   this.route('oprojektu');
   this.route('dodaj-klub');
   this.route('clanki', function() {});
+
+  this.route('embeds', function() {
+    this.route('categoryklubs', function() {});
+  });
+
   this.resource('klubs', { path: '' }, function() {
     this.resource('klub', { path: '/:klub_id' }, function() {}); // generates subroutes
     this.route('new');
   });
+
 });
 
 export default Router;

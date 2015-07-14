@@ -1,0 +1,15 @@
+{{leaflet-map zoom=zoom wantedCenter=markerCenter klubs=model showKlub="showKlub"}}
+
+{{data-bar isShowPage=isShowPage klubs=model action="zoomToMarker"}}
+
+{{#unless anyKlub}}
+  <div class="loader">
+    <div class="spinner-container">
+      <div class="spinner"></div>
+      <div class="spinner"></div>
+      <div class="spinner"></div>
+    </div>
+  </div>
+{{/unless}}
+
+{{outlet}}

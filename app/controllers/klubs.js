@@ -16,6 +16,8 @@ export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
   filteredKlubs: Ember.computed('category', 'model', function() {
     var category = this.get('category');
 
+    if (!this.get('model')) { return Ember.A(); };
+
     return this.get('model').filter(function(item) {
       return item.get('categories').indexOf(category) >= 0;
     });
