@@ -1,10 +1,11 @@
 // TODO: scope this to only the klubs template
 .loader {
   @extend %loader;
-  height: 100vh;
+  height: calc(100vh - #{$top-nav-height-mobile} );
   color: $blue;
 
   @include media($medium-screen-up) {
     margin-right: $data-bar-width;
+    height: 100vh;
   }
 }

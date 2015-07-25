@@ -14,10 +14,16 @@
 
 .klub_page-container {
   display: table;
-  width: calc(60% - 350px);
   height: 100%;
-  margin-left: 40%;
+  width: calc(70% - 5px);
+  margin-left: 30%;
+  padding-top: $top-nav-height-mobile;
 
+  @include media($medium-screen-up) {
+    padding-top: 0;
+    width: calc(60% - 350px);
+    margin-left: 40%;
+  }
 }
 
 .klub_page-container--fullwidth {
@@ -31,24 +37,36 @@
 
 .klub_page-item_list {
   text-align: right;
+  max-height: calc(100vh - #{$top-nav-height-mobile});
+  overflow: auto;
+
+  @include media($medium-screen-up) {
+    max-height: none;
+  }
 }
 
 .klub_page-item {
+  $icon-right-offset: 2.5rem;
+
   background: rgba(0,0,0,0.6);
   // background-position: 100% 15%;
   border-radius: 3px;
   float: right;
   clear: both;
   line-height: 1.3;  // Don't add units, it makes it fail
-  margin: 1.3rem 2rem 1rem 0;
+  margin: 0.5rem $icon-right-offset 0.5rem 0;
   padding: 0.6em 0.8em;
+
+  @include media($medium-screen-up) {
+    margin: 1.3rem $icon-right-offset 1rem 0;
+  }
 
   p, h1 {
     margin: 0;
   }
 
   .fa-li {
-    right: -2.5em;
+    right: -$icon-right-offset;
     left: auto;
     padding:0.6rem;
     top: 50%;

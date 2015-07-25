@@ -18,7 +18,7 @@ header.logo-button {
   }
 
   h1.title {
-
+    font-size: 2rem;
   }
 
 
@@ -49,7 +49,7 @@ header.logo-button {
     // @include button(flat, $logo-button-background);
     border-radius: 0;
     overflow: hidden;
-    padding: 10px 16px 10px 16px;
+    padding: 7px 16px 7px 16px;
     position: relative;
     cursor: pointer;
     outline: none;
