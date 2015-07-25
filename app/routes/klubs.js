@@ -13,10 +13,5 @@ export default Ember.Route.extend({
   },
   model: function(params) {
     return this.store.query('klub', params);
-  },
-  actions: {
-    goHome: function () {
-      this.transitionTo('klubs');
-    }
   }
 });

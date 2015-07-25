@@ -12,7 +12,9 @@ Router.map(function() {
   this.route('clanki', function() {});
 
   this.route('embeds', function() {
-    this.route('categoryklubs', function() {});
+    this.route('categoryklubs', function() {
+      this.route('klub', { path: '/:klub_id' }, function() {});
+    });
   });
 
   this.resource('klubs', { path: '' }, function() {

@@ -15,13 +15,13 @@ export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
 
   isShowPage: Ember.computed('currentRouteName', function() {
     // TODO: this is brittle.
-    return this.get('currentRouteName') === 'klub.index';
+    return this.get('currentRouteName') === 'embeds.categoryklubs.klub.index';
   }),
 
   actions: {
     showKlub: function (klub) {
       // TODO: Will probably needs a simple one for these too
-      this.transitionToRoute('klub', klub);
+      this.transitionToRoute('embeds.categoryklubs.klub', klub);
     },
     zoomToMarker: function(klub) {
       this.set('zoom', 12);
@@ -29,5 +29,9 @@ export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
 
       this.trackEvent('klub', 'zoom-to-marker', klub.get('id'), 1);
     },
+    zoomToLocation: function(location, zoomLevel) {
+      this.set('zoom', zoomLevel);
+      this.set('markerCenter', location);
+    }
   }
 });

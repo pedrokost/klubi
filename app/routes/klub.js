@@ -31,5 +31,10 @@ export default Ember.Route.extend({
 
     // Ask the controller to ask parent to set the map position correct
     klubsController.send('zoomToLocation', model.get('location'), this.WANTED_ZOOM_LEVEL);
+  },
+  actions: {
+    goHome: function () {
+      this.transitionTo('klubs');
+    }
   }
 });

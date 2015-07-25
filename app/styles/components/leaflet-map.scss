@@ -13,3 +13,9 @@
     right: $data-bar-width;
   }
 }
+
+.leaflet-container--fullwidth {
+  @include media($medium-screen-up) {
+    right: 0;
+  }
+}
