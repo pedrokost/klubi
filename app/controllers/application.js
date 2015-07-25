@@ -8,6 +8,10 @@ export default Ember.Controller.extend({
     this.set('isSideNavVisible', false);
   }),
 
+  isEmbeddedPage: Ember.computed('currentRouteName', function() {
+    return this.get('currentRouteName').startsWith('embeds');
+  }),
+
   actions: {
     hideMenus: function() {
       this.set('showMenus', false);
