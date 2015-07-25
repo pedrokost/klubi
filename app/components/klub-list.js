@@ -8,7 +8,7 @@ export default Ember.Component.extend(
   query: '',
   filteredKlubs: null,
 
-  scrollToKlubListener: Ember.observer('klubs.@each.isHovered', function() {
+  syncMarkerCenterAndCardPosition: Ember.observer('klubs.@each.isHovered', function() {
     if (document.querySelector('.klub-list:hover')) {
       Ember.run.once(this, 'zoomToMarker');
     } else {

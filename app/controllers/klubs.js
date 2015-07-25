@@ -7,7 +7,6 @@ export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
   currentRouteName: Ember.computed.alias('controllers.application.currentRouteName'),
   queryParams: ['category'],
   category: 'fitnes',
-  offsetedMap: false, // whether to offset the map to make place for klub details
 
   anyKlub: Ember.computed('filteredKlubs', function() {
     return this.get('filteredKlubs');
@@ -33,26 +32,13 @@ export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
       this.transitionToRoute('klub', klub);
     },
     zoomToMarker: function(klub) {
-      this.set('zoom', 12);
-
-      Ember.run.later(this, function() {
-        this.set('markerCenter', klub.get('location'));
-        Ember.run.later(this, function() {
-          this.set('markerCenter', klub.get('location'));
-        }, 200);
-      }, 500);
+      this.send('zoomToLocation', klub.get('location'), 12);
 
       this.trackEvent('klub', 'zoom-to-marker', klub.get('id'), 1);
     },
     zoomToLocation: function(location, zoomLevel) {
       this.set('zoom', zoomLevel);
-
-      Ember.run.later(this, function() {
-        this.set('markerCenter', location);
-        Ember.run.later(this, function() {
-          this.set('markerCenter', location);
-        }, 200);
-      }, 500);
+      this.set('markerCenter', location);
     }
 
   }

@@ -8,42 +8,35 @@ import FoursquareMapLayer from '../layers/foursquare-map-layer';
 var southWest = L.latLng(45.0, 13.0),   // spodaj levo
     northEast = L.latLng(47.2, 17);   // zgoraj desno
 
-
 export default EmberLeafletComponent.extend({
 
-  setOffsetCenter: Ember.observer('wantedCenter', function(){
-    var markerLoc = this.get('wantedCenter');
-    var zoom = this.get('zoom');
+  setOffsetCenter: Ember.observer('wantedCenter', 'wantedZoom', 'isShowPage', 'layer', function(){
 
-    var containrWidth = Ember.$('.leaflet-container').width();
-    var perc = 0.22;
+    var wantedCenter = this.get('wantedCenter');
+    var wantedZoom = this.get('wantedZoom');
 
-    if (!this._layer) { return }
+    if (this.get('layer')) { // It's not always defined
+      let map = this.get('layer');
 
-    var inPxs = this._layer.options.crs.latLngToPoint(markerLoc, zoom);
-    inPxs.x = inPxs.x + containrWidth * perc;
-    var inLls = this._layer.options.crs.pointToLatLng(inPxs, zoom);
+      if (this.get('isShowPage')) {
+        let containrWidth = Ember.$('.leaflet-container').width();
+        let perc = 0.22;
+        let targetPoint = map.project(wantedCenter, wantedZoom).add([containrWidth * perc, 0]);
+        wantedCenter = map.unproject(targetPoint, wantedZoom);
+      }
 
-    this.set('center', inLls);
-
-    // This fixes a bug:
-    // Hover on card -- marker goes to wanted location
-    // Click on card -- marker gets moved to the left and stays there (expected to not move)
-    // The lines below case the computed property to be recomputed -- thus reseting
-    // the marker location and correcting the issue
-
-    Ember.run.later(this, function() {
-      this.set('center', null);
-      Ember.run.later(this, function(){
-        this.set('center', inLls);
-      }, 500);
-    }, 200);
-
+      // SetView is preferred over setting center and zoom in succession.
+      // It also doesn't seem to cause the markers to dissapear when both
+      // center and zoom are changed
+      map.setView(wantedCenter, wantedZoom);
+      // map.flyTo(wantedCenter, wantedZoom); // This is in the v1.0 beta 1 branch that there is another bug with this._southWest being undefined, so I cant use it until it will be fixed in beta 2 (https://github.com/Leaflet/Leaflet/issues/3280)
+    }
   }),
 
   options: {
     attributionControl: false,
     minZoom: 8,
+    center: L.latLng(46.122636,14.81546),
     // maxZoom: 10, // required for auto spiderification of overlapping markers
     maxBounds: L.latLngBounds(southWest, northEast),
     zoomControl: false // added later with extra options
@@ -60,6 +53,7 @@ export default EmberLeafletComponent.extend({
       zoomInTitle: 'Približaj',
       zoomOutTitle: 'Oddalji'
     };
+
     L.control.zoom(options).addTo(this._layer);
   }
 });
