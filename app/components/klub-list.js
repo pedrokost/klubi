@@ -23,7 +23,6 @@ export default Ember.Component.extend(
     if (!query) { return this.get('klubs'); }
 
     return this.get('klubs').filter(klub => {
-      debugger
       return klub.get('name').toLowerCase().indexOf(query) >= 0 || klub.get('address').toLowerCase().indexOf(query) >= 0;
     });
   }),

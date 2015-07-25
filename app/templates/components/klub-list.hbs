@@ -5,7 +5,7 @@
     </div>
   </li>
 
-  {{#each klubs as |klub|}}
+  {{#each filteredKlubs as |klub|}}
     {{klub-card klubId=klub.id name=klub.name town=klub.town isHovered=klub.isHovered}}
   {{else}}
     <div class="loader">
