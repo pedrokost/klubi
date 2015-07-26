@@ -32,6 +32,16 @@
 
     &.klub-card-inner--search {
       cursor: text;
+      padding: 0;
+
+      input {
+        padding: calc(10px + 0.5em) 0.5em;
+        border-color: transparent;
+
+        &:focus {
+          border-color: #477DCA;
+        }
+      }
     }
   }
 
