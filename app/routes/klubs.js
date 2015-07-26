@@ -1,7 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  titleToken: 'Športni Klubi',
+  title: function(tokens) {
+    if (!!tokens.length) {
+      return tokens.reverse().join(' - ');
+    }
+    return 'Športni Klubi';
+  },
   queryParams: {
     category: {
       refreshModel: true
