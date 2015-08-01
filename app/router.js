@@ -17,8 +17,14 @@ Router.map(function() {
     });
   });
 
-  this.resource('klubs', { path: '' }, function() {
-    this.resource('klub', { path: '/:klub_id' }, function() {}); // generates subroutes
+  this.route('klubs', {
+    path: '',
+    resetNamespace: true
+  }, function() {
+    this.route('klub', {
+      path: '/:klub_id',
+      resetNamespace: true
+    }, function() {}); // generates subroutes
     this.route('new');
   });
 

@@ -48,7 +48,7 @@
     "ember-disable-proxy-controllers": "^1.0.0",
     "ember-export-application-global": "^1.0.2",
     "ember-leaflet": "gabesmed/ember-leaflet#ember-cli-es6",
-    "ember-watson": "^0.5.0",
+    "ember-watson": "^0.6.1",
     "express": "^4.12.4",
     "glob": "^5.0.10",
     "morgan": "^1.5.3",
