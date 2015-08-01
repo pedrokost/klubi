@@ -13,13 +13,13 @@ export default Ember.Component.extend({
     return cssClass;
   }),
 
-  mouseEnter: function() {
+  mouseEnter() {
     // TODO this should be in the action, not herer
     // var val = this.$()[0].getBoundingClientRect();
     // console.table(val.top);
     this.set('isHovered', true);
   },
-  mouseLeave: function() {
+  mouseLeave() {
     this.set('isHovered', false);
   }
 });

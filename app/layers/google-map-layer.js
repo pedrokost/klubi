@@ -168,7 +168,7 @@ var options = {
 
 
 export default EmberLeaflet.Layer.extend({
-  _newLayer: function() {
+  _newLayer() {
     return new L.Google("ROADMAP", options);
   }
 });

@@ -32,7 +32,7 @@ export default Ember.Component.extend({
 
   }),
 
-  showAddressOnMap: function(position) {
+  showAddressOnMap(position) {
     var map = this.get('map');
     var marker = this.get('marker');
 
@@ -41,7 +41,7 @@ export default Ember.Component.extend({
     marker.setPosition(position);
   },
 
-  updateMap: function() {
+  updateMap() {
     var ready = this.get('ready');
     if (!ready) { return; }
 

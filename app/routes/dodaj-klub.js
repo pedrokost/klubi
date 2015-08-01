@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   titleToken: 'Dodaj klub',
-  model: function() {
+  model() {
     return this.store.createRecord('klub', {
       // name: 'Name',
       // email: 'name@klub.com',

@@ -12,7 +12,7 @@ var options = {
 
 export default ContainerLayer.extend({
   childLayers: [ MarkerCollectionLayer ],
-  _newLayer: function() {
+  _newLayer() {
     return new L.MarkerClusterGroup(options);
   }
 });

@@ -28,15 +28,15 @@ export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
   }),
 
   actions: {
-    showKlub: function (klub) {
+    showKlub(klub) {
       this.transitionToRoute('klub', klub);
     },
-    zoomToMarker: function(klub) {
+    zoomToMarker(klub) {
       this.send('zoomToLocation', klub.get('location'), 12);
 
       this.trackEvent('klub', 'zoom-to-marker', klub.get('id'), 1);
     },
-    zoomToLocation: function(location, zoomLevel) {
+    zoomToLocation(location, zoomLevel) {
       this.set('zoom', zoomLevel);
       this.set('markerCenter', location);
     }

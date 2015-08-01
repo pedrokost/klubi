@@ -2,7 +2,7 @@ import Ember from 'ember';
 import KlubRoute from '../../klub';
 
 export default KlubRoute.extend({
-  setupController: function(controller, model) {
+  setupController(controller, model) {
     // When navigating directly to a klub's page that is
     // not included in the default category, the model
     // is unloaded instantly. This fixes this.
@@ -14,7 +14,7 @@ export default KlubRoute.extend({
     categoryKlubsController.send('zoomToLocation', model.get('location'), this.WANTED_ZOOM_LEVEL);
   },
   actions: {
-    goHome: function () {
+    goHome() {
       this.transitionTo('embeds.categoryklubs');
     }
   }

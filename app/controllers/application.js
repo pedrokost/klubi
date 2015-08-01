@@ -13,7 +13,7 @@ export default Ember.Controller.extend({
   }),
 
   actions: {
-    hideMenus: function() {
+    hideMenus() {
       this.set('showMenus', false);
     }
   }

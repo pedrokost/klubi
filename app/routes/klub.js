@@ -2,13 +2,13 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   WANTED_ZOOM_LEVEL: 16,
-  titleToken: function(model) {
+  titleToken(model) {
     return model.get('name');
   },
-  model: function(params) {
+  model(params) {
     return this.store.findRecord('klub', params.klub_id);
   },
-  setupController: function(controller, model) {
+  setupController(controller, model) {
     // When navigating directly to a klub's page that is
     // not included in the default category, the model
     // is unloaded instantly. This fixes this.
@@ -33,7 +33,7 @@ export default Ember.Route.extend({
     klubsController.send('zoomToLocation', model.get('location'), this.WANTED_ZOOM_LEVEL);
   },
   actions: {
-    goHome: function () {
+    goHome() {
       this.transitionTo('klubs');
     }
   }

@@ -27,7 +27,7 @@ export default Ember.Component.extend(
     });
   }),
 
-  zoomToMarker: function() {
+  zoomToMarker() {
     // If mouse stays on a card for awhile, zoom to the corresponding marker in the map.
     // Do nothing if on any 'klub' route
     if(this.get('isShowPage')) {
@@ -46,7 +46,7 @@ export default Ember.Component.extend(
     }
   },
 
-  scrollToCard: function() {
+  scrollToCard() {
     // Scroll to the klub in the list if it is outside of the viewport
     var hoveredKlub = this.get('klubs').findBy('isHovered', true);
 

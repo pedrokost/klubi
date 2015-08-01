@@ -10,10 +10,10 @@ export default ActiveModelAdapter.extend({
     'Accept': 'application/vnd.zatresi.v1'
     // TODO: add API_KEY
   },
-  shouldBackgroundReloadRecord: function() {
+  shouldBackgroundReloadRecord() {
     return true;
   },
-  shouldReloadAll: function() {
+  shouldReloadAll() {
     return true; //non-Ember 2 default
   }
 });

@@ -1,10 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  beforeModel: function() {
+  beforeModel() {
     this.controllerFor('application').send('hideMenus');
   },
-  model: function(params) {
+  model(params) {
     return this.store.query('klub', params);
   }
 });

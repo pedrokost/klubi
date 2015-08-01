@@ -4,7 +4,7 @@ import MarkerLayer from 'ember-leaflet/layers/marker';
 import PopupMixin from 'ember-leaflet/mixins/popup';
 
 MarkerLayer.reopen({
-  didCreateLayer:function(){
+  didCreateLayer() {
     this._updateLayerOnIconChange();
   },
   _updateLayerOnIconChange: Ember.observer(function(){
@@ -46,14 +46,14 @@ export default MarkerLayer.extend(PopupMixin, {
     }
   }),
 
-  click: function() {
+  click() {
     this.get('controller').sendAction('showKlub', this.get('content'));
   },
-  mouseover: function(e) {
+  mouseover(e) {
     this.openPopup();
     this.set('content.isHovered', true);
   },
-  mouseout: function(e) {
+  mouseout(e) {
     this.closePopup();
     this.set('content.isHovered', false);
   }

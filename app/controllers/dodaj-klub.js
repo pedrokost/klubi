@@ -7,7 +7,7 @@ export default Ember.Controller.extend({
   submitButtonDisabled: false,
 
   actions: {
-    sendNewKlubEmail: function() {
+    sendNewKlubEmail() {
       var self = this;
       var klub = this.get('model');
       var editorEmail = this.get('editorEmail');
@@ -36,7 +36,7 @@ export default Ember.Controller.extend({
       });
     },
 
-    setLatLng: function (latitude, longitude) {
+    setLatLng(latitude, longitude) {
       this.get('model').setProperties({
         latitude, longitude
       });

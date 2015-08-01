@@ -2,11 +2,11 @@ import DS from 'ember-data';
 import Ember from 'ember';
 
 export default DS.Transform.extend({
-  deserialize: function(serialized) {
+  deserialize(serialized) {
     return (Ember.typeOf(serialized) === 'array') ? serialized : [];
   },
 
-  serialize: function(deserialized) {
+  serialize(deserialized) {
     var type = Ember.typeOf(deserialized);
     if (type === 'array') {
         return deserialized;

@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  title: function(tokens) {
+  title(tokens) {
     if (!!tokens.length) {
       return tokens.reverse().join(' - ');
     }
@@ -12,11 +12,11 @@ export default Ember.Route.extend({
       refreshModel: true
     }
   },
-  beforeModel: function(){
+  beforeModel() {
     // To show the user a category change is in progress, remove the currently shown data, so I can display a spinner
     this.controllerFor('klubs').set('model', Ember.A());
   },
-  model: function(params) {
+  model(params) {
     return this.store.query('klub', params);
   }
 });

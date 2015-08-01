@@ -46,7 +46,7 @@ export default EmberLeafletComponent.extend({
     // MarkerCollectionLayer
     MarkerClusterCollection
   ],
-  didCreateLayer: function() {
+  didCreateLayer() {
     this._super();
     var options = {
       position: 'bottomleft',

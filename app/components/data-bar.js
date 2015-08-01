@@ -6,7 +6,7 @@ export default Ember.Component.extend({
   isShowPage: false,
 
   actions: {
-    zoomToMarker: function(hoveredKlub) {
+    zoomToMarker(hoveredKlub) {
       this.sendAction('action', hoveredKlub);
     }
   }

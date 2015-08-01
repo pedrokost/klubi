@@ -4,7 +4,7 @@ export default Ember.Component.extend({
   tagName: 'header',
   classNames: ['logo-button'],
   actions: {
-    toggleSideNav: function() {
+    toggleSideNav() {
       this.sendAction('action');
     }
   }

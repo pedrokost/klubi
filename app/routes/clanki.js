@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   titleToken: 'Članki, novice in novosti',
-  model: function() {
+  model() {
     return this.store.findAll('clanek');
   }
 });
