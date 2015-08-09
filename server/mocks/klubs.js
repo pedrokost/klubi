@@ -42,9 +42,13 @@ KLUBS = [
 ];
 
 var quantity;
-quantity = Math.random() * 105 + 5;
+quantity = 400 + 5;
 for (var i = 0; i < quantity; i++) {
-  KLUBS.push(createKlubById('fitnes', i));
+  var klub = createKlubById('fitnes', i);
+  if (Math.random() > 0.3) {
+    klub.categories = ['pilates', 'vadba za starejse'].concat(klub.categories);
+  }
+  KLUBS.push(klub);
 }
 quantity = 0;
 for (var i = 0; i < quantity; i++) {

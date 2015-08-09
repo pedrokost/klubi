@@ -1,4 +1,5 @@
 import HighlightedIcon from './highlighted-icon';
+import ThemedIcon from './themed-icon';
 import Ember from 'ember';
 import MarkerLayer from 'ember-leaflet/layers/marker';
 import PopupMixin from 'ember-leaflet/mixins/popup';
@@ -31,19 +32,25 @@ export default MarkerLayer.extend(PopupMixin, {
     // FIXME: This is not a good way to set the popup offset for differently
     // sized icons
     let iconOpts = this.get('icon').options;
-    let offset = iconOpts.iconSize[1] + 13;
+    let offset = iconOpts.iconSize.y - 7;
     return {
       closeButton: false,
       offset: L.point(0, -offset)
     }
   }),
 
-  icon: Ember.computed('content.isHovered', 'isActive', function(){
+  icon: Ember.computed('content.isHovered', 'isActive', 'content.categories', function(){
+    let iconOptions = {};
+    iconOptions.category = this.controller.get('categoryShown');
+
     if (this.get('content.isHovered') || this.get('isActive')) {
-      return new HighlightedIcon();
+      iconOptions.highlighted = true;
+      // return new HighlightedIcon();
     } else{
-      return new L.Icon.Default();
+      // return new L.Icon.Default();
     }
+
+    return new ThemedIcon(iconOptions);
   }),
 
   click() {

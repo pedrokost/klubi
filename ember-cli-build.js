@@ -16,7 +16,8 @@ var options = {
 
   emberCliFontAwesome: { includeFontAwesomeAssets: false },
   fingerprint: {
-    prepend: 'https://d3s8w0mc0h7w8s.cloudfront.net/'
+    prepend: 'https://d3s8w0mc0h7w8s.cloudfront.net/',
+    generateAssetMap: true
   },
   vendorFiles: {
     'handlebars.js': null
