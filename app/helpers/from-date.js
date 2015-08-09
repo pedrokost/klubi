@@ -4,5 +4,4 @@ export function fromDate(date) {
   return moment(date[0]).fromNow();
 }
 
-
-export default Ember.HTMLBars.makeBoundHelper(fromDate);
+export default Ember.Helper.helper(fromDate);

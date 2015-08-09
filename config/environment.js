@@ -15,6 +15,7 @@ module.exports = function(environment) {
     },
     flashMessageDefaults: {
       timeout            : 15000,
+      extendedTimeout    : 1000,
       types              : [ 'alert', 'error', 'notice', 'success' ]
     },
 

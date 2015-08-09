@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
   category: 'vse',
 
   categories: Ember.computed('model', function() {
-    var cats = this.get('model').mapProperty('category').uniq();
+    var cats = this.get('model').mapBy('category').uniq();
     cats.unshift('vse');
     return cats;
   }),

@@ -7,7 +7,7 @@ MarkerLayer.reopen({
   didCreateLayer() {
     this._updateLayerOnIconChange();
   },
-  _updateLayerOnIconChange: Ember.observer(function(){
+  _updateLayerOnIconChange: Ember.observer('icon', function(){
      // console.log('icon changed: update leaflet icon');
      var newIcon = Ember.get(this, 'icon');
      var oldIcon = this._layer && this._layer.options.icon;
@@ -19,7 +19,7 @@ MarkerLayer.reopen({
          else {this._layer.dragging.disable();}
        }
      }
-   }, 'icon')
+   })
 });
 
 export default MarkerLayer.extend(PopupMixin, {

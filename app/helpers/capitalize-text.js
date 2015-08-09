@@ -4,4 +4,4 @@ export function capitalize(string) {
   return string[0].capitalize();
 }
 
-export default Ember.HTMLBars.makeBoundHelper(capitalize);
+export default Ember.Helper.helper(capitalize);
