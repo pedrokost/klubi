@@ -1,10 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
-  needs: ['application'],
+  application: Ember.inject.controller('application'),
   zoom: 8,
   markerCenter: L.latLng(46.122636,14.81546), // Slivna, Slovenia,
-  currentRouteName: Ember.computed.alias('controllers.application.currentRouteName'),
+  currentRouteName: Ember.computed.alias('application.currentRouteName'),
   queryParams: ['category'],
   category: 'fitnes',
 
