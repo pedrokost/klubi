@@ -21,6 +21,7 @@
     "ember-google-analytics": "~0.1.0",
     "neat": "~1.7.1",
     "momentjs": "~2.10.3",
-    "leaflet": "~0.7.3"
+    "leaflet": "~0.7.3",
+    "leaflet.locatecontrol": "~0.44.0"
   }
 }
