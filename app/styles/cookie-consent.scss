@@ -1,0 +1,27 @@
+body .cc_container {
+  padding: 3px 8px;
+  opacity: 0.9;
+
+  border-width: 0;
+  border-top-width: 1px;
+
+  font-family: inherit;
+
+  .cc_btn {
+    @extend %button;
+    // @include appearance(none);
+  }
+
+  &:focus, &:hover {
+    opacity: 1;
+  }
+
+  .cc_message {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+    font-size: 1em;
+    max-width: calc(100% - 150px);
+    margin-top: 0.75em;
+  }
+}

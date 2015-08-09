@@ -21,3 +21,13 @@
 
   {{fade-screen visible=isSideNavVisible action="toggleSideNav"}}
 {{/if}}
+
+
+{{#unless isEmbeddedPage}}
+  <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
+  <script type="text/javascript">
+      window.cookieconsent_options = {"message":"S piškotki si pomagamo pri zagotavljanju storitev. Z uporabo naših storitev se strinjate, da lahko uporabljamo piškotke.","dismiss":"V redu","learnMore":"","link":null,"theme":"light-bottom"};
+  </script>
+  <script type="text/javascript" src="//s3.amazonaws.com/cc.silktide.com/cookieconsent.latest.min.js"></script>
+  <!-- End Cookie Consent plugin -->
+{{/unless}}
