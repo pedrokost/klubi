@@ -13,6 +13,12 @@ export default L.Icon.Default.extend({
       case 'wellness':
         this.options.iconUrl = '/assets/icons/spa.png';
         break;
+      case 'judo':
+        this.options.iconUrl = '/assets/icons/judo.png';
+        break;
+      case 'gimnastika':
+        this.options.iconUrl = '/assets/icons/gimnastika.png';
+        break;
       default:
         this.options.iconUrl = '/assets/icons/default.png';
         break;
