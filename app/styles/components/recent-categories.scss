@@ -34,6 +34,7 @@
   $base-accent-color: #477DCA !default;
   $base-link-color: $base-accent-color !default;
   $dark-gray: #333 !default;
+  $widgets-separation: 10px;
   $large-screen: em(860) !default;
   $base-font-color: $dark-gray !default;
   //////////////////////////////////////////////////////////////////////////////////
@@ -57,7 +58,7 @@
   overflow: auto;
 
   @include media($medium-screen-up) {
-    right: auto;
+    right: $data-bar-width + $widgets-separation;
     left: $sliding-menu-width;
   }
 
@@ -68,9 +69,11 @@
   label {
     margin-bottom: 0;
     display: inline-block;
+    margin-right: 4px;
 
     @include media($medium-screen-up) {
-      float: left;
+      margin-right: 0px;
+      // float: left;
     }
 
     .button-group-item {

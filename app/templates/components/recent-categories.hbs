@@ -1,11 +1,9 @@
 <div class="button-group button-group--mobile">
-  {{#each recentCategories as |category|}}
-    <label>
+  {{#each recentCategories as |category|}}<label>
       <input type="radio" name="button-group" value={{category.identifier}}>
       {{#link-to 'klubs' (query-params category=category.identifier) classNameBindings=":category :button-group-item"}}
         {{category.name}}
       {{/link-to}}
-    </label>
-  {{/each}}
+    </label>{{/each}}
 </div>
 
