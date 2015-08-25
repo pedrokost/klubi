@@ -3,6 +3,9 @@
       <input type="radio" name="button-group" value={{category.identifier}}>
       {{#link-to 'klubs' (query-params category=category.identifier) classNameBindings=":category :button-group-item"}}
         {{category.name}}
+        {{#if category.isBeta}}
+          <span class="tag tag-beta">BETA</span>
+        {{/if}}
       {{/link-to}}
     </label>{{/each}}
 </div>
