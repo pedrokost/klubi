@@ -5,7 +5,13 @@
   color: $blue;
 
   @include media($medium-screen-up) {
-    margin-right: $data-bar-width;
     height: 100vh;
+  }
+}
+
+
+.loader--klubs {
+  @include media($medium-screen-up) {
+    margin-right: $data-bar-width;
   }
 }
