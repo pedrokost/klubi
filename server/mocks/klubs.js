@@ -1,19 +1,6 @@
 
 KLUBS = [
   {
-    name: 'Sankukai karate klub Grosuplje',
-    address: 'Nova OŠ Luis Adamič, Tovarniška 14, Grosuplje',
-    town: 'Grosuplje',
-    latitude: 45.9557645,
-    longitude: 14.658899,
-    website: 'http://www.sankukai.org/index.php/sankukai-karate-klubi/karateklubgrosuplje',
-    email: 'info@sankukai.org',
-    facebook_url: 'http://www.sankukai.org/index.php/sankukai-karate-klubi/karateklubgrosuplje',
-    phone:  '031 231 440',
-    slug: 'sankukai-karate-klub-grosuplje',
-    categories: ['karate']
-  },
-  {
     name: 'Sankukai karate klub Grosuplje 2',
     address: 'Nova OŠ Luis Adamič, Tovarniška 14, Grosuplje',
     town: 'Grosuplje',
@@ -24,7 +11,8 @@ KLUBS = [
     facebook_url: 'http://www.sankukai.org/index.php/sankukai-karate-klubi/karateklubgrosuplje',
     phone:  '031 231 440',
     slug: 'sankukai-karate-klub-grosuplje-2',
-    categories: ['karate']
+    categories: ['karate'],
+    parent_id: 'sankukai-karate-klub-grosuplje',
   },
   {
     name: 'Sankukai karate klub Kamnik',
@@ -37,7 +25,22 @@ KLUBS = [
     email: 'info@sankukai.org',
     phone:  '031 231 440',
     slug: 'sankukai-karate-klub-kamnik',
-    categories: ['karate']
+    categories: ['karate'],
+    parent_id: 'sankukai-karate-klub-grosuplje',
+  },
+  {
+    name: 'Sankukai karate klub Grosuplje',
+    address: 'Nova OŠ Luis Adamič, Tovarniška 14, Grosuplje',
+    town: 'Grosuplje',
+    latitude: 45.9557645,
+    longitude: 14.658899,
+    website: 'http://www.sankukai.org/index.php/sankukai-karate-klubi/karateklubgrosuplje',
+    email: 'info@sankukai.org',
+    facebook_url: 'http://www.sankukai.org/index.php/sankukai-karate-klubi/karateklubgrosuplje',
+    phone:  '031 231 440',
+    slug: 'sankukai-karate-klub-grosuplje',
+    categories: ['karate'],
+    parent_id: null,
   }
 ];
 
@@ -63,8 +66,6 @@ for (var i = 0; i < quantity; i++) {
   KLUBS.push(createKlubById('wellness', i));
 }
 
-
-
 function createKlubById (category, id) {
   return {
     name: category + ' ' +  id,
@@ -76,7 +77,8 @@ function createKlubById (category, id) {
     email: 'info@sankukai.org',
     phone:  '031 231 440',
     slug: category + "-" + id,
-    categories: [category]
+    categories: [category],
+    parent: null
   }
 }
 

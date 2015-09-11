@@ -53,3 +53,41 @@
     }
   }
 }
+
+
+.klub-card--with-branches {
+  & > .klub-card-inner {
+    padding: 0;
+  }
+
+  &:hover, &:active, &.active, &.is-hovered {
+    .klub-card-branch {
+      background-color: white;
+    }
+  }
+
+  .klub-card-parent, .klub-card-branch {
+    color: inherit;
+    display: block;
+
+  }
+
+  .klub-card-parent {
+    padding: 10px 10px 5px 10px;
+    &.active {
+      background-color: rgb(240,240,240);
+    }
+  }
+
+  .klub-card-branch {
+    border-top: 1px solid #efefef;
+    padding: 5px 10px;
+    &:last-child {
+      padding-bottom: 10px;
+    }
+
+    &:hover, &:active, &.active {
+      background-color: rgb(240,240,240);
+    }
+  }
+}

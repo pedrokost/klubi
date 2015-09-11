@@ -17,8 +17,8 @@ export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
 
     if (!this.get('model')) { return Ember.A(); };
 
-    return this.get('model').filter(function(item) {
-      return item.get('categories').indexOf(category) >= 0;
+    return this.get('model').filter(function(klub) {
+      return klub.get('categories').indexOf(category) >= 0;
     });
   }),
 

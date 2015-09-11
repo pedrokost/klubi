@@ -16,14 +16,46 @@ export default Ember.Component.extend(
     }
   }),
 
-  filteredKlubs: Ember.computed('klubs', 'query', function() {
+  filteredKlubs: Ember.computed('klubs', 'klubs.[].parent', 'klubs.[].name', 'query', function() {
 
-    var query = this.get('query').toLowerCase();
+    let isParentFilter = (klub) => {
+      var klubs = this.get('klubs');
 
-    if (!query) { return this.get('klubs'); }
+      // Return if it is a parent klub, or if its real parent does not belong to the current category.
+      return klub.get('parent.content') === null || (klubs.mapBy('id').indexOf(klub.get('parent.id')) === -1);
+    };
 
-    return this.get('klubs').filter(klub => {
+    let searchFilter = (klub, query) => {
+      // TODO: Should also search in all the children and parents
       return klub.get('name').toLowerCase().indexOf(query) >= 0 || klub.get('address').toLowerCase().indexOf(query) >= 0;
+    };
+
+    let fullSearchFilter = (klub, query) => {
+      // Returns true if the klub, any of its parents, or any of its children contains the search query
+      let family = Ember.A([klub]);
+      if (klub.get('parent.content')) {
+        family.pushObject(klub.get('parent.content'))
+      }
+      if (klub.get('branches.length')) {
+        klub.get('branches').forEach(function(b) {
+          family.pushObject(b);
+        });
+      }
+      return family.find(function(klub) {
+        return searchFilter(klub, query);
+      }) !== undefined;
+    };
+
+    let parentsSearchFilter = (klub, query) => {
+      return isParentFilter(klub) && fullSearchFilter(klub, query);
+    };
+
+    let klubs = this.get('klubs');
+    let query = this.get('query').toLowerCase();
+    let filter = query ? parentsSearchFilter : isParentFilter;
+
+    return klubs.filter(klub => {
+      return filter(klub, query);
     });
   }),
 

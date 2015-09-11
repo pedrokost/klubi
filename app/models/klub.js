@@ -11,6 +11,8 @@ export default DS.Model.extend({
   phone: DS.attr('string'),
   email: DS.attr('string'),
   categories: DS.attr('array'),
+  parent: DS.belongsTo('klub', { inverse: 'branches', async: true }),
+  branches: DS.hasMany('klub', { inverse: 'parent', async: true }),
 
   isHovered: false,
   location: Ember.computed('latitude', 'longitude', function() {
