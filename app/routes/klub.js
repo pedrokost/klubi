@@ -1,9 +1,20 @@
 import Ember from 'ember';
+import RouteMetaMixin from 'ember-cli-meta-tags/mixins/route-meta';
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(RouteMetaMixin, {
   WANTED_ZOOM_LEVEL: 16,
   titleToken(model) {
     return model.get('name');
+  },
+  meta: function() {
+    var klub = this.modelFor(this.routeName);
+    var category = this.controllerFor('klubs').get('category');
+
+    return {
+      'name': {
+        'description': `${klub.get('name')} je ${category} klub v mestu ${klub.get('town')}. Najdi najboljši ${category} klub v svoji bližini.`
+      }
+    }
   },
   model(params) {
     return this.store.findRecord('klub', params.klub_id);

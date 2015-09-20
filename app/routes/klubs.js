@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import RouteMetaMixin from 'ember-cli-meta-tags/mixins/route-meta';
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(RouteMetaMixin, {
   title(tokens) {
     if (!!tokens.length) {
       return tokens.reverse().join(' - ');
@@ -10,6 +11,14 @@ export default Ember.Route.extend({
   queryParams: {
     category: {
       refreshModel: true
+    }
+  },
+  meta: function() {
+    var category = this.controllerFor(this.routeName).get('category');
+    return {
+      'name': {
+        'description': `Najdi najboljši ${category} klub v svoji bližini. Smo največja Slovenska baza ${category} in drugih športnih klubov!`
+      }
     }
   },
   beforeModel() {
