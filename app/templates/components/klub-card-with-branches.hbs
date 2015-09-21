@@ -1,17 +1,10 @@
-<div class="klub-card-inner">
-  {{#link-to 'klub' klubId class=parentCSSClasses }}
-    {{name}}
-  {{/link-to}}
-  {{#link-to 'klub' klubId class=branchCSSClasses }}
-    <small class="branch">{{town}}</small>
-  {{/link-to}}
-
-  {{#each branchesWithCategory as |branch|}}
-    {{#link-to 'klub' branch.id class=branchCSSClasses }}
-      <small class="branch">{{branch.town}}</small>
-    {{/link-to}}
-  {{/each}}
-</div>
+{{#link-to 'klub' klubId class=parentCSSClasses data-id=klubId}}
+  {{name}}
+{{/link-to}}
+{{klub-card-address klubTown=town klubId=klubId isHovered=klub.isHovered action="setHoveredKlub"}}
+{{#each branchesWithCategory as |branch|}}
+  {{klub-card-address klubTown=branch.town klubId=branch.id isHovered=branch.isHovered action="setHoveredKlub"}}
+{{/each}}
 
 {{!-- for come reason classNamesBinding is not updating when using
 the link-to helper. --}}

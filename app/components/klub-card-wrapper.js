@@ -3,8 +3,18 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   tagName: 'li',
   classNames: ['klub-card'],
+  classNameBindings: ['cardClass'],
+  // TODO: add class name binding for type of card
 
   hasFamily: Ember.computed.gt('family.length', 1),
+
+  cardClass: Ember.computed('hasFamily', function() {
+    if (this.get('hasFamily')) {
+      return 'klub-card--with-branches';
+    } else {
+      return 'klub-card--without-branches';
+    }
+  }),
 
   cardType: Ember.computed('hasFamily', function() {
     if (this.get('hasFamily')) {
@@ -28,4 +38,10 @@ export default Ember.Component.extend({
 
     return family;
   }),
+
+  actions: {
+    setHoveredKlub(klubId, toHovered) {
+      this.sendAction('setHoveredKlub', klubId, toHovered);
+    }
+  }
 });

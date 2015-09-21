@@ -99,4 +99,15 @@ export default Ember.Component.extend(
       }, 500);
     }
   },
+
+  actions: {
+    setHoveredKlub(klubId, toHovered) {
+      let klub = this.get('klubs').find(klub => klub.get('id') === klubId);
+      if (toHovered.hovered === true) {
+        klub.set('isHovered', true);
+      } else {
+        klub.set('isHovered', false);
+      }
+    }
+  }
 });

@@ -1,12 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  tagName: 'div',
-  classNames: ['klub-card-inner'],
-  attributeBindings: ['klubId:data-id'],
 
-  linkCSSClasses: Ember.computed('isHovered', function () {
-    let cssClass = 'klub-card-parent';
+  branchCSSClasses: Ember.computed('isHovered', function() {
+    let cssClass = 'klub-card-branch';
     if (this.get('isHovered')) {
       cssClass += ' is-hovered';
     };

@@ -6,7 +6,7 @@
   </li>
 
   {{#each filteredKlubs as |klub|}}
-    {{klub-card-wrapper klub=klub categoryShown=categoryShown}}
+    {{klub-card-wrapper klub=klub categoryShown=categoryShown setHoveredKlub="setHoveredKlub"}}
   {{else}}
     <div class="loader">
       <div class="spinner-container">
