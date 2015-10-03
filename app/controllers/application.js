@@ -9,7 +9,9 @@ export default Ember.Controller.extend({
   }),
 
   isEmbeddedPage: Ember.computed('currentRouteName', function() {
-    return this.get('currentRouteName').startsWith('embeds');
+    let route = this.get('currentRouteName');
+    let matcher = 'embeds';
+    return (route.substr(0, matcher.length).toLowerCase() === matcher.toLowerCase())
   }),
 
   actions: {
