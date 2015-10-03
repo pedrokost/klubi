@@ -10,5 +10,13 @@ export default Ember.Route.extend(RouteMetaMixin, {
   },
   model() {
     return this.store.findAll('clanek');
+  },
+  afterModel(model, transition) {
+    transition.then(function() {
+      Ember.run.scheduleOnce('afterRender', this, function() {
+        console.log('Done Transitioning');
+        window.prerenderReady = true;
+      });
+    });
   }
 });

@@ -19,6 +19,14 @@ export default Ember.Route.extend(RouteMetaMixin, {
   model(params) {
     return this.store.findRecord('klub', params.klub_id);
   },
+  afterModel(model, transition) {
+    transition.then(function() {
+      Ember.run.scheduleOnce('afterRender', this, function() {
+        console.log('Done Transitioning');
+        window.prerenderReady = true;
+      });
+    });
+  },
   setupController(controller, model) {
     // When navigating directly to a klub's page that is
     // not included in the default category, the model

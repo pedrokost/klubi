@@ -14,5 +14,13 @@ export default Ember.Route.extend(RouteMetaMixin, {
       // email: 'name@klub.com',
       // address: 'Za Gasilskim domom 11, 1290 Grosuplje'
     });
+  },
+  afterModel(model, transition) {
+    transition.then(function() {
+      Ember.run.scheduleOnce('afterRender', this, function() {
+        console.log('Done Transitioning');
+        window.prerenderReady = true;
+      });
+    });
   }
 });

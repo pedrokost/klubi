@@ -22,9 +22,13 @@
   <body>
     {{content-for 'body'}}
     <!-- &v=3.exp&signed_in=true throws error due to unmatched protocols -->
+    <script>
+      window.prerenderReady = false;
+    </script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
     <script src="assets/vendor.js"></script>
     <script src="assets/zatresi.js"></script>
+
 
 
 

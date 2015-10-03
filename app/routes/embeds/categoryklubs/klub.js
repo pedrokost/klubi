@@ -13,6 +13,14 @@ export default KlubRoute.extend({
     // Ask the controller to ask parent to set the map position correct
     categoryKlubsController.send('zoomToLocation', model.get('location'), this.WANTED_ZOOM_LEVEL);
   },
+  afterModel(model, transition) {
+    transition.then(function() {
+      Ember.run.scheduleOnce('afterRender', this, function() {
+        console.log('Done Transitioning');
+        window.prerenderReady = true;
+      });
+    });
+  },
   actions: {
     goHome() {
       this.transitionTo('embeds.categoryklubs');

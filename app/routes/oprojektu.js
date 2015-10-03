@@ -7,5 +7,13 @@ export default Ember.Route.extend(RouteMetaMixin, {
     'name': {
       'description': 'Najdi najboljši fitnes, vadbeni center, karate dojo, wellness center, frizbi klub, judo dojo, gimnastično društvo v svoji bližini. Smo največja Slovenska baza fitnesov, karate klubov, judo klubov, frizbi klubov, in več!'
     }
+  },
+  afterModel: function(model, transition) {
+    transition.then(function() {
+      Ember.run.scheduleOnce('afterRender', this, function() {
+        console.log('Done Transitioning');
+        window.prerenderReady = true;
+      });
+    });
   }
 });
