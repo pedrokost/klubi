@@ -1,0 +1,13 @@
+.l-flex {
+  @include display(flex);
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+
+.l-flex--horz {
+  @include flex-direction(row);
+}
+
+.l-flex--vert {
+  @include flex-direction(column);
+}

@@ -11,7 +11,26 @@
 
 
 .loader--klubs {
-  @include media($medium-screen-up) {
-    margin-right: $data-bar-width;
+  margin: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  @include media($landscape-large-screen-up) {
+    right: $data-bar-width;
+  }
+}
+
+
+.klubs-page {
+  height: 100%;
+  width: 100%;
+}
+
+
+.map-and-klubpage {
+  @include flex-grow(1);
+
+  @include media($landscape-large-screen-up) {
+    @include flex-direction(row);
   }
 }

@@ -1,13 +1,20 @@
-{{leaflet-map wantedZoom=zoom wantedCenter=markerCenter klubs=model showKlub="showKlub" isShowPage=isShowPage class="leaflet-container--fullwidth" categoryShown=category}}
+<div class="l-flex klubs-page">
 
-{{#unless anyKlub}}
-  <div class="loader loader--embeds">
-    <div class="spinner-container">
-      <div class="spinner"></div>
-      <div class="spinner"></div>
-      <div class="spinner"></div>
-    </div>
+  <div class="l-flex l-flex--vert map-and-klubpage">
+
+    {{leaflet-map wantedZoom=zoom wantedCenter=markerCenter klubs=model showKlub="showKlub" isShowPage=isShowPage categoryShown=category}}
+
+    {{outlet}}
   </div>
-{{/unless}}
 
-{{outlet}}
+  {{#unless anyKlub}}
+    <div class="loader loader--embeds">
+      <div class="spinner-container">
+        <div class="spinner"></div>
+        <div class="spinner"></div>
+        <div class="spinner"></div>
+      </div>
+    </div>
+  {{/unless}}
+
+</div>

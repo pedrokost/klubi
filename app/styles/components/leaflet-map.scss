@@ -1,21 +1,5 @@
 .leaflet-container {
-
   $leaflet-background-color: #EBE5E0;
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+  @include flex-grow(1);
   background-color: $leaflet-background-color;
-
-  @include media($medium-screen-up) {
-    right: $data-bar-width;
-  }
-}
-
-.leaflet-container--fullwidth {
-  @include media($medium-screen-up) {
-    right: 0;
-  }
 }

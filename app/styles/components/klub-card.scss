@@ -7,7 +7,8 @@
     display: block;
     text-decoration: none;
     color: inherit;
-    background-color: #fff;
+    // background-color: rgb(240,240,240);
+    background-color: $white;
     border-bottom: 1px solid #ccc;
     border-radius: 3px;
     cursor: pointer;
@@ -16,7 +17,6 @@
     margin-right: 4px;
     min-height: 20px;
     line-height: 20px;
-    padding: 10px;
 
     *:last-child {
       margin-bottom: 0;
@@ -29,6 +29,13 @@
     @include animation(fadeIn 0.25s ease);
     @include animation-fill-mode(backwards);
 
+    .klub-card-parent {
+      padding: 10px;
+      border-radius: 3px;
+      &.active {
+        background-color: rgb(240,240,240);
+      }
+    }
 
     &.klub-card-inner--search {
       cursor: text;
@@ -64,7 +71,7 @@
 
     &:hover, &:active, &.active, &.is-hovered {
       .klub-card-branch {
-        background-color: white;
+        background-color: $white;
       }
     }
 
@@ -76,9 +83,6 @@
 
     .klub-card-parent {
       padding: 10px 10px 5px 10px;
-      &.active {
-        background-color: rgb(240,240,240);
-      }
     }
 
     .klub-card-branch {

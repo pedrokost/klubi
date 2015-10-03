@@ -1,49 +1,14 @@
 .data-bar {
-
-
+  $data-bar-border: 1px solid $map-widget-border-color;
   display: none;
   background: #e3e3e3;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  // z-index: 1002;
-  right: 0;
-  width: $data-bar-width;
+  border-left: $data-bar-border;
+  @include justify-content(flex-start);
+  @include align-items(stretch);
+  @include flex(0 0 $data-bar-width);
+  @include flex-direction(column);
 
-  // @include justify-content(flex-start);
-  // @include align-items(stretch);
-  @include media($medium-screen-up) {
+  @include media($large-screen-up) {
     @include display(flex);
-    @include flex-direction(column);
-  }
-}
-
-
-/*
-STATES
-*/
-.data-bar--occlude {
-  z-index: 1002;
-  &:before {
-    position: absolute;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 1002;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    pointer-events: none;
-    content: " ";
-    @include transition (opacity 250ms ease-in 0.1s);
-  }
-
-
-  &:hover, &:focus, &:active {
-    &:before {
-      opacity: 0;
-      @include transition-delay(0s);
-      @include transition-duration(85ms);
-      @include transition-timing-function(ease-out);
-    }
   }
 }

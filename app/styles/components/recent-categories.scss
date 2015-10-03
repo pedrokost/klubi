@@ -1,27 +1,11 @@
-// .recent-categories {
-//   margin-left: 1.2rem;
-//   float: left;
-
-
-//   .category {
-//     top: 0.55rem;
-//     float: left;
-//     background: #fff;
-//     padding: 0.2rem 0.4rem;
-//     border-radius: 3px;
-//     position: relative;
-//     margin: 0;
-//     margin-left: 5px;
-//     cursor: pointer;
-//     color: inherit;
-//     text-decoration: none;
-
-
-//     &:hover, &:active, &.active {
-//       background-color: rgb(240,240,240);
-//     }
-//   }
-// }
+.recent-categories {
+  position: absolute;
+  z-index: 1002;
+  background: puple;
+  top: 0px;
+  left: 0;
+  right: 0;
+}
 
 .button-group.button-group--mobile {
   ///////////////////////////////////////////////////////////////////////////////////
@@ -57,9 +41,14 @@
   max-width: 100%;
   overflow: auto;
 
+
   @include media($medium-screen-up) {
-    right: $data-bar-width + $widgets-separation;
+    right:  $widgets-separation;
     left: $sliding-menu-width;
+  }
+
+  @include media($landscape-large-screen-up) {
+    right: $data-bar-width + $widgets-separation;
   }
 
   input {

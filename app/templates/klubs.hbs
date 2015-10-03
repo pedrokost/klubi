@@ -1,17 +1,26 @@
-{{leaflet-map wantedZoom=zoom wantedCenter=markerCenter klubs=filteredKlubs showKlub="showKlub" isShowPage=isShowPage categoryShown=category}}
+<div class="l-flex klubs-page">
 
-{{data-bar isShowPage=isShowPage klubs=filteredKlubs categoryShown=category action="zoomToMarker"}}
+  <div class="l-flex l-flex--vert map-and-klubpage">
 
-{{recent-categories}}
+    {{!-- <div class={{if isShowPage 'is-show-page'}}> --}}
+    {{leaflet-map wantedZoom=zoom wantedCenter=markerCenter klubs=filteredKlubs showKlub="showKlub" isShowPage=isShowPage categoryShown=category}}
+    {{!-- </div> --}}
 
-{{#unless anyKlub}}
-  <div class="loader loader--klubs">
-    <div class="spinner-container">
-      <div class="spinner"></div>
-      <div class="spinner"></div>
-      <div class="spinner"></div>
-    </div>
+    {{outlet}}
   </div>
-{{/unless}}
+  {{#unless anyKlub}}
+    <div class="loader loader--klubs">
+      <div class="spinner-container">
+        <div class="spinner"></div>
+        <div class="spinner"></div>
+        <div class="spinner"></div>
+      </div>
+    </div>
+  {{/unless}}
+  {{recent-categories}}
 
-{{outlet}}
+  {{data-bar isShowPage=isShowPage klubs=filteredKlubs categoryShown=category action="zoomToMarker"}}
+
+
+
+</div>

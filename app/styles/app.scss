@@ -3,6 +3,8 @@
 @import '../../bower_components/neat/app/assets/stylesheets/neat';
 @import 'base/base';
 
+@import 'mixins';
+
 // Major/non-components base classes
 @import 'fancy-scrollbar';
 @import 'scroll-on-page';

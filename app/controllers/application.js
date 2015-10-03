@@ -4,6 +4,10 @@ export default Ember.Controller.extend({
   isSideNavVisible: false,
   showMenus: true,
 
+  isShowPage: Ember.computed('currentRouteName', function() {
+    return ['embeds.categoryklubs.klub.index', 'klub.index'].contains(this.get('currentRouteName'));
+  }),
+
   hideSideNav: Ember.observer('currentPath', function() {
     this.set('isSideNavVisible', false);
   }),
