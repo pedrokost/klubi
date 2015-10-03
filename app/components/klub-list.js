@@ -6,7 +6,6 @@ export default Ember.Component.extend(
   tagName: 'section',
   classNames: ['klub-list'],
   query: '',
-  filteredKlubs: null,
 
   syncMarkerCenterAndCardPosition: Ember.observer('klubs.@each.isHovered', function() {
     if (document.querySelector('.klub-list:hover')) {
