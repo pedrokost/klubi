@@ -18,7 +18,8 @@ export default KlubRoute.extend(Prerenderable, LeafletRefreshable, {
   },
   actions: {
     goHome() {
-      this.transitionTo('embeds.categoryklubs');
+      console.log('categoryklubs')
+      this.transitionTo('embeds.categoryklubs.index');
     }
   }
 });

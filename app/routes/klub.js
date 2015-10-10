@@ -48,6 +48,7 @@ export default Ember.Route.extend(RouteMetaMixin, Prerenderable, LeafletRefresha
   },
   actions: {
     goHome() {
+      console.log('klubs')
       this.transitionTo('klubs');
     }
   }
