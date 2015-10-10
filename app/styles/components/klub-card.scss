@@ -22,7 +22,7 @@
       margin-bottom: 0;
     }
 
-    &:hover, &:active, &.active, &.is-hovered {
+    &:hover, &:active, &.active {
       background-color: rgb(240,240,240);
     }
 
@@ -32,7 +32,13 @@
     .klub-card-parent {
       padding: 10px;
       border-radius: 3px;
-      &.active {
+      &.active, &.is-hovered {
+        background-color: rgb(240,240,240);
+      }
+    }
+
+    .klub-card-branch {
+      &.active, &.is-hovered {
         background-color: rgb(240,240,240);
       }
     }
@@ -69,7 +75,7 @@
       padding: 0;
     }
 
-    &:hover, &:active, &.active, &.is-hovered {
+    &:hover, &:active, &.active {
       .klub-card-branch {
         background-color: $white;
       }

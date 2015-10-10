@@ -83,7 +83,7 @@ export default Ember.Component.extend(
 
     function doTheScroll (){
       Ember.run.next(this, function(){  // TODO: Not sure this improves anything
-        var $dom = Ember.$(`.klub-card[data-id='${hoveredKlub.get('id')}']`);
+        var $dom = Ember.$(`.js-klub-card[data-id='${hoveredKlub.get('id')}']`);
         $dom.scrollintoview({direction: 'y'});
       });
     }

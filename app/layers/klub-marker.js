@@ -58,10 +58,10 @@ export default MarkerLayer.extend(PopupMixin, {
   },
   mouseover(e) {
     this.openPopup();
-    this.set('content.isHovered', true);
+    this.get('controller').sendAction('setHoveredKlub', this.get('content.id'), {hovered: true});
   },
   mouseout(e) {
     this.closePopup();
-    this.set('content.isHovered', false);
+    this.get('controller').sendAction('setHoveredKlub', this.get('content.id'), {hovered: false});
   }
 });
