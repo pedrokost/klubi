@@ -24,12 +24,12 @@ export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
 
   isShowPage: Ember.computed('currentRouteName', function() {
     // TODO: this is brittle.
-    return this.get('currentRouteName') === 'klub.index';
+    return this.get('currentRouteName') === 'klubs.klub.index';
   }),
 
   actions: {
     showKlub(klub) {
-      this.transitionToRoute('klub', klub);
+      this.transitionToRoute('klubs.klub', klub);
     },
     zoomToMarker(klub) {
       this.send('zoomToLocation', klub.get('location'), 12);

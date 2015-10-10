@@ -23,7 +23,6 @@ Router.map(function() {
   }, function() {
     this.route('klub', {
       path: '/:klub_id',
-      resetNamespace: true
     }, function() {}); // generates subroutes
     this.route('new');
   });

@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import KlubRoute from '../../klub';
+import KlubRoute from 'zatresi/routes/klubs/klub';
 import Prerenderable from 'zatresi/mixins/after-render-prerenderable';
 import LeafletRefreshable from 'zatresi/mixins/refresh-leaflet';
 
@@ -18,7 +18,6 @@ export default KlubRoute.extend(Prerenderable, LeafletRefreshable, {
   },
   actions: {
     goHome() {
-      console.log('categoryklubs')
       this.transitionTo('embeds.categoryklubs.index');
     }
   }
