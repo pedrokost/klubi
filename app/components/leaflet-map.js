@@ -73,6 +73,12 @@ export default EmberLeafletComponent.extend({
       }
     }
 
+    // Storing the map globally is necessary for refresh-leaflet mixin
+    window.zatresiMap = this._layer;
+    // this._layer.on('resize', function(){
+    //   console.log('map has resized');
+    // })
+
     L.control.zoom(zoomOptions).addTo(this._layer);
     L.control.locate(geolocateOptions).addTo(this._layer);
   }

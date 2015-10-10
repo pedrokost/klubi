@@ -1,8 +1,10 @@
 import Ember from 'ember';
 import RouteMetaMixin from 'ember-cli-meta-tags/mixins/route-meta';
 import Prerenderable from 'zatresi/mixins/after-render-prerenderable';
+import LeafletRefreshable from 'zatresi/mixins/refresh-leaflet';
 
-export default Ember.Route.extend(RouteMetaMixin, Prerenderable, {
+
+export default Ember.Route.extend(RouteMetaMixin, Prerenderable, LeafletRefreshable, {
   WANTED_ZOOM_LEVEL: 16,
   titleToken(model) {
     return model.get('name');
