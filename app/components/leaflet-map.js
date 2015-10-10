@@ -10,28 +10,28 @@ var southWest = L.latLng(45.0, 13.0),   // spodaj levo
 
 export default EmberLeafletComponent.extend({
 
-  setOffsetCenter: Ember.observer('wantedCenter', 'wantedZoom', 'isShowPage', 'layer', function(){
+  // setOffsetCenter: Ember.observer('wantedCenter', 'wantedZoom', 'isShowPage', 'layer', function(){
 
-    var wantedCenter = this.get('wantedCenter');
-    var wantedZoom = this.get('wantedZoom');
+  //   var wantedCenter = this.get('wantedCenter');
+  //   var wantedZoom = this.get('wantedZoom');
 
-    if (this.get('layer')) { // It's not always defined
-      let map = this.get('layer');
+  //   if (this.get('layer')) { // It's not always defined
+  //     let map = this.get('layer');
 
-      if (this.get('isShowPage')) {
-        let containrWidth = Ember.$('.leaflet-container').width();
-        let perc = 0.22;
-        let targetPoint = map.project(wantedCenter, wantedZoom).add([containrWidth * perc, 0]);
-        wantedCenter = map.unproject(targetPoint, wantedZoom);
-      }
+  //     if (this.get('isShowPage')) {
+  //       let containrWidth = Ember.$('.leaflet-container').width();
+  //       let perc = 0.22;
+  //       let targetPoint = map.project(wantedCenter, wantedZoom).add([containrWidth * perc, 0]);
+  //       wantedCenter = map.unproject(targetPoint, wantedZoom);
+  //     }
 
-      // SetView is preferred over setting center and zoom in succession.
-      // It also doesn't seem to cause the markers to dissapear when both
-      // center and zoom are changed
-      map.setView(wantedCenter, wantedZoom);
-      // map.flyTo(wantedCenter, wantedZoom); // This is in the v1.0 beta 1 branch that there is another bug with this._southWest being undefined, so I cant use it until it will be fixed in beta 2 (https://github.com/Leaflet/Leaflet/issues/3280)
-    }
-  }),
+  //     // SetView is preferred over setting center and zoom in succession.
+  //     // It also doesn't seem to cause the markers to dissapear when both
+  //     // center and zoom are changed
+  //     map.setView(wantedCenter, wantedZoom);
+  //     // map.flyTo(wantedCenter, wantedZoom); // This is in the v1.0 beta 1 branch that there is another bug with this._southWest being undefined, so I cant use it until it will be fixed in beta 2 (https://github.com/Leaflet/Leaflet/issues/3280)
+  //   }
+  // }),
 
   options: {
     attributionControl: false,

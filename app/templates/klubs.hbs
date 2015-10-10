@@ -3,7 +3,7 @@
   <div class="l-flex l-flex--vert map-and-klubpage">
 
     {{!-- <div class={{if isShowPage 'is-show-page'}}> --}}
-    {{leaflet-map wantedZoom=zoom wantedCenter=markerCenter klubs=filteredKlubs showKlub="showKlub" setHoveredKlub="setHoveredKlub" isShowPage=isShowPage categoryShown=category}}
+    {{leaflet-map zoom=zoom center=markerCenter klubs=filteredKlubs showKlub="showKlub" setHoveredKlub="setHoveredKlub" isShowPage=isShowPage categoryShown=category}}
     {{!-- </div> --}}
 
     {{outlet}}
