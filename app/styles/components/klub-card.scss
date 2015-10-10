@@ -2,6 +2,16 @@
 
   list-style: none;
 
+  @include animation(fadeIn 0.25s ease);
+  @include animation-fill-mode(backwards);
+
+  $delay-ease: 1;
+  @for $i from 1 through 20 {
+    &:nth-of-type(#{$i}){
+      @include animation-delay($i * $delay-ease * 0.1s);
+      $delay-ease: $delay-ease * 0.95;
+    }
+  }
 
   & > .klub-card-inner {
     display: block;
@@ -25,9 +35,6 @@
     &:hover, &:active, &.active {
       background-color: rgb(240,240,240);
     }
-
-    @include animation(fadeIn 0.25s ease);
-    @include animation-fill-mode(backwards);
 
     .klub-card-parent {
       padding: 10px;
@@ -55,14 +62,6 @@
           border-color: #477DCA;
         }
       }
-    }
-  }
-
-  $delay-ease: 1;
-  @for $i from 1 through 20 {
-    &:nth-of-type(#{$i}) a{
-      @include animation-delay($i * $delay-ease * 0.1s);
-      $delay-ease: $delay-ease * 0.95;
     }
   }
 
