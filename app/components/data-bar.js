@@ -6,6 +6,9 @@ export default Ember.Component.extend({
   actions: {
     zoomToMarker(hoveredKlub) {
       this.sendAction('action', hoveredKlub);
+    },
+    setHoveredKlub(klubId, toHovered) {
+      this.sendAction('setHoveredKlub', klubId, toHovered);
     }
   }
 });

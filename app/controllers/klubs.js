@@ -33,14 +33,15 @@ export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
     },
     zoomToMarker(klub) {
       this.send('zoomToLocation', klub.get('location'), 12);
-
       this.trackEvent('klub', 'zoom-to-marker', klub.get('id'), 1);
     },
     zoomToLocation(location, zoomLevel) {
       this.set('zoom', zoomLevel);
       this.set('markerCenter', location);
+    },
+    setHoveredKlub(klubId, toHovered) {
+      let klub = this.get('model').find(klub => klub.get('id') === klubId);
+      klub.set('isHovered', toHovered.hovered);
     }
-
   }
-
 });
