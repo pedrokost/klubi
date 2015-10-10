@@ -1,7 +1,8 @@
 import Ember from 'ember';
 import RouteMetaMixin from 'ember-cli-meta-tags/mixins/route-meta';
+import Prerenderable from 'zatresi/mixins/after-render-prerenderable';
 
-export default Ember.Route.extend(RouteMetaMixin, {
+export default Ember.Route.extend(RouteMetaMixin, Prerenderable, {
   titleToken: 'Dodaj klub',
   meta: {
     'name': {
@@ -13,14 +14,6 @@ export default Ember.Route.extend(RouteMetaMixin, {
       // name: 'Name',
       // email: 'name@klub.com',
       // address: 'Za Gasilskim domom 11, 1290 Grosuplje'
-    });
-  },
-  afterModel(model, transition) {
-    transition.then(function() {
-      Ember.run.scheduleOnce('afterRender', this, function() {
-        console.log('Done Transitioning');
-        window.prerenderReady = true;
-      });
     });
   }
 });

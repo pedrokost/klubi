@@ -27,13 +27,5 @@ export default Ember.Route.extend(RouteMetaMixin, {
   },
   model(params) {
     return this.store.query('klub', params);
-  },
-  afterModel(model, transition) {
-    transition.then(function() {
-      Ember.run.scheduleOnce('afterRender', this, function() {
-        console.log('Done Transitioning');
-        window.prerenderReady = true;
-      });
-    });
   }
 });

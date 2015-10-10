@@ -1,7 +1,8 @@
 import Ember from 'ember';
 import KlubRoute from '../../klub';
+import Prerenderable from 'zatresi/mixins/after-render-prerenderable';
 
-export default KlubRoute.extend({
+export default KlubRoute.extend(Prerenderable, {
   setupController(controller, model) {
     // When navigating directly to a klub's page that is
     // not included in the default category, the model
@@ -12,14 +13,6 @@ export default KlubRoute.extend({
 
     // Ask the controller to ask parent to set the map position correct
     categoryKlubsController.send('zoomToLocation', model.get('location'), this.WANTED_ZOOM_LEVEL);
-  },
-  afterModel(model, transition) {
-    transition.then(function() {
-      Ember.run.scheduleOnce('afterRender', this, function() {
-        console.log('Done Transitioning');
-        window.prerenderReady = true;
-      });
-    });
   },
   actions: {
     goHome() {

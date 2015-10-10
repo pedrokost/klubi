@@ -1,7 +1,8 @@
 import Ember from 'ember';
 import RouteMetaMixin from 'ember-cli-meta-tags/mixins/route-meta';
+import Prerenderable from 'zatresi/mixins/after-render-prerenderable';
 
-export default Ember.Route.extend(RouteMetaMixin, {
+export default Ember.Route.extend(RouteMetaMixin, Prerenderable, {
   titleToken: 'Članki, novice in novosti',
   meta: {
     'name': {
@@ -10,13 +11,5 @@ export default Ember.Route.extend(RouteMetaMixin, {
   },
   model() {
     return this.store.findAll('clanek');
-  },
-  afterModel(model, transition) {
-    transition.then(function() {
-      Ember.run.scheduleOnce('afterRender', this, function() {
-        console.log('Done Transitioning');
-        window.prerenderReady = true;
-      });
-    });
   }
 });
