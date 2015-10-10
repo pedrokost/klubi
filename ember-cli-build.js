@@ -53,6 +53,9 @@ module.exports = function(defaults) {
   // Moment.js
   app.import('bower_components/momentjs/min/moment.min.js');
 
+  // Social buttons
+  app.import('bower_components/rrssb/js/rrssb.min.js');
+
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //
