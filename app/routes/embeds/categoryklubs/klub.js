@@ -17,7 +17,8 @@ export default KlubRoute.extend(Prerenderable, LeafletRefreshable, {
     categoryKlubsController.send('zoomToLocation', model.get('location'), this.WANTED_ZOOM_LEVEL);
   },
   actions: {
-    goHome() {
+    goHomeToEmbedsKlubs() {
+      console.log('going to categoryklubs index')
       this.transitionTo('embeds.categoryklubs.index');
     }
   }
