@@ -8,7 +8,6 @@ export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
   markerCenter: L.latLng(46.122636,14.81546), // Slivna, Slovenia,
   currentRouteName: Ember.computed.alias('application.currentRouteName'),
 
-
   anyKlub: Ember.computed('model', function() {
     return this.get('model');
   }),
@@ -32,6 +31,10 @@ export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
     zoomToLocation(location, zoomLevel) {
       this.set('zoom', zoomLevel);
       this.set('markerCenter', location);
+    },
+    setHoveredKlub(klubId, toHovered) {
+      let klub = this.get('model').find(klub => klub.get('id') === klubId);
+      klub.set('isHovered', toHovered.hovered);
     }
   }
 });

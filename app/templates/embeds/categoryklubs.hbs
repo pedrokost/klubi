@@ -2,7 +2,7 @@
 
   <div class="l-flex l-flex--vert map-and-klubpage">
 
-    {{leaflet-map wantedZoom=zoom wantedCenter=markerCenter klubs=model showKlub="showKlub" isShowPage=isShowPage categoryShown=category}}
+    {{leaflet-map zoom=zoom center=markerCenter klubs=model showKlub="showKlub" setHoveredKlub="setHoveredKlub" isShowPage=isShowPage categoryShown=category }}
 
     {{outlet}}
   </div>

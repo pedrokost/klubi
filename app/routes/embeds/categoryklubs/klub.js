@@ -4,6 +4,7 @@ import Prerenderable from 'zatresi/mixins/after-render-prerenderable';
 import LeafletRefreshable from 'zatresi/mixins/refresh-leaflet';
 
 export default KlubRoute.extend(Prerenderable, LeafletRefreshable, {
+  WANTED_ZOOM_LEVEL: 16,
   setupController(controller, model) {
     // When navigating directly to a klub's page that is
     // not included in the default category, the model
