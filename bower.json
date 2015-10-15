@@ -1,7 +1,7 @@
 {
   "name": "zatresi",
   "dependencies": {
-    "ember": "~1.13.7",
+    "ember": "~1.13.9",
     "ember-resolver": "~0.1.18",
     "jquery": "~2.1.4",
     "ember-data": "~2.0.0",
@@ -26,7 +26,7 @@
     "rrssb": "~1.8.6"
   },
   "resolutions": {
-    "ember": "~1.13.7",
+    "ember": "~1.13.9",
     "font-awesome": "~4.4.0"
   }
 }
