@@ -11,7 +11,7 @@ export default {
       alreadyRun = true;
     }
 
-    Ember.LinkView.reopen({
+    Ember.LinkComponent.reopen({
       init: function() {
         this._super();
         var self = this;
