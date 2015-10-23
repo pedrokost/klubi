@@ -15,6 +15,9 @@ export default Ember.Route.extend({
   headTags: function() {
     let assetsResolve = this.assets.resolve;
     var category = this.controllerFor(this.routeName).get('category');
+
+    let canonical = category === 'fitnes' ? 'http://www.zatresi.si/' : `http://www.zatresi.si/?category=${category}`;
+
     return [{
       type: 'meta',
       tagId: 'meta-description',
@@ -34,14 +37,14 @@ export default Ember.Route.extend({
       tagId: 'link-canonical',
       attrs: {
         rel: 'canonical',
-        content: `http://www.zatresi.si/?category=${category}`
+        content: canonical
       }
     }, {
       type: 'meta',
       tagId: 'meta-og-url',
       attrs: {
         property: 'og:url',
-        content: `http://www.zatresi.si/?category=${category}`
+        content: canonical
       }
     }, {
       type: 'meta',
