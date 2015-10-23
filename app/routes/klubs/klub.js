@@ -25,6 +25,13 @@ export default Ember.Route.extend(Prerenderable, LeafletRefreshable, {
         rel: 'canonical',
         content: `http://www.zatresi.si/${klub.get('id')}`
       }
+    }, {
+      type: 'meta',
+      tagId: 'meta-og-url',
+      attrs: {
+        property: 'og:url',
+        content: `http://www.zatresi.si/${klub.get('id')}`
+      }
     }];
   },
   model(params) {

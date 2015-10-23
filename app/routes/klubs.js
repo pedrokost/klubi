@@ -28,7 +28,14 @@ export default Ember.Route.extend({
         rel: 'canonical',
         content: `http://www.zatresi.si/?category=${category}`
       }
-    }];
+    }, {
+    type: 'meta',
+    tagId: 'meta-og-url',
+    attrs: {
+      property: 'og:url',
+      content: `http://www.zatresi.si/?category=${category}`
+    }
+  }];
   },
   beforeModel() {
     // To show the user a category change is in progress, remove the currently shown data, so I can display a spinner

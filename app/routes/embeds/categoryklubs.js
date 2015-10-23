@@ -23,6 +23,13 @@ export default Ember.Route.extend({
         rel: 'canonical',
         content: `http://www.zatresi.si/?category=${category}`
       }
+    }, {
+      type: 'meta',
+      tagId: 'meta-og-url',
+      attrs: {
+        property: 'og:url',
+        content: `http://www.zatresi.si/?category=${category}`
+      }
     }];
   },
 });

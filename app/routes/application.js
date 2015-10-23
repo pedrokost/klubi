@@ -20,6 +20,13 @@ export default Ember.Route.extend({
       rel: 'canonical',
       content: 'http://www.zatresi.si'
     }
+  }, {
+    type: 'meta',
+    tagId: 'meta-og-url',
+    attrs: {
+      property: 'og:url',
+      content: 'http://www.zatresi.si'
+    }
   }],
   actions: {
     toggleSideNav() {
