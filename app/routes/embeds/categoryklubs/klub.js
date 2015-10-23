@@ -21,5 +21,24 @@ export default KlubRoute.extend(Prerenderable, LeafletRefreshable, {
       console.log('going to categoryklubs index')
       this.transitionTo('embeds.categoryklubs.index');
     }
-  }
+  },
+  headTags: function() {
+    var klub = this.modelFor(this.routeName);
+    var category = this.controllerFor('embeds.categoryklubs').get('category');
+    return [{
+      type: 'meta',
+      tagId: 'meta-description',
+      attrs: {
+        name: 'description',
+        content: `${klub.get('name')} je ${category} klub v mestu ${klub.get('town')}. Najdi najboljši ${category} klub v svoji bližini.`
+      }
+    }, {
+      type: 'link',
+      tagId: 'link-canonical',
+      attrs: {
+        rel: 'canonical',
+        content: `http://www.zatresi.si/${klub.get('id')}`
+      }
+    }];
+  },
 });

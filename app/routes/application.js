@@ -13,6 +13,13 @@ export default Ember.Route.extend({
       name: 'description',
       content: 'Iskalnik klubov v Sloveniji'
     }
+  }, {
+    type: 'link',
+    tagId: 'link-canonical',
+    attrs: {
+      rel: 'canonical',
+      content: 'http://www.zatresi.si'
+    }
   }],
   actions: {
     toggleSideNav() {

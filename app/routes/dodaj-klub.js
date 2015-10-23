@@ -10,6 +10,13 @@ export default Ember.Route.extend(Prerenderable, {
       name: 'description',
       content: 'Dodaj športni klub v največjo bazo športnih (fitnes, karate, judo, gimnastika, itd) klubov v Sloveniji.'
     }
+  }, {
+    type: 'link',
+    tagId: 'link-canonical',
+    attrs: {
+      rel: 'canonical',
+      content: 'http://www.zatresi.si/dodaj-klub'
+    }
   }],
   model() {
     return this.store.createRecord('klub', {

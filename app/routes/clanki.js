@@ -10,6 +10,13 @@ export default Ember.Route.extend(Prerenderable, {
       name: 'description',
       content: 'Agregator novic športnih klubov, športnih prireditev in novosti v Sloveniji.'
     }
+  }, {
+    type: 'link',
+    tagId: 'link-canonical',
+    attrs: {
+      rel: 'canonical',
+      content: 'http://www.zatresi.si/clanki'
+    }
   }],
   model() {
     return this.store.findAll('clanek');

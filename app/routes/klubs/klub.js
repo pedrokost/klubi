@@ -18,6 +18,13 @@ export default Ember.Route.extend(Prerenderable, LeafletRefreshable, {
         name: 'description',
         content: `${klub.get('name')} je ${category} klub v mestu ${klub.get('town')}. Najdi najboljši ${category} klub v svoji bližini.`
       }
+    }, {
+      type: 'link',
+      tagId: 'link-canonical',
+      attrs: {
+        rel: 'canonical',
+        content: `http://www.zatresi.si/${klub.get('id')}`
+      }
     }];
   },
   model(params) {

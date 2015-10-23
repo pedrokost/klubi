@@ -21,6 +21,13 @@ export default Ember.Route.extend({
         name: 'description',
         content: `Najdi najboljši ${category} klub v svoji bližini. Smo največja Slovenska baza ${category} in drugih športnih klubov!`
       }
+    }, {
+      type: 'link',
+      tagId: 'link-canonical',
+      attrs: {
+        rel: 'canonical',
+        content: `http://www.zatresi.si/?category=${category}`
+      }
     }];
   },
   beforeModel() {
