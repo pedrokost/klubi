@@ -46,6 +46,13 @@ export default KlubRoute.extend(Prerenderable, LeafletRefreshable, {
         property: 'og:url',
         content: `http://www.zatresi.si/${klub.get('id')}`
       }
+    }, {
+      type: 'meta',
+      tagId: 'meta-og-title',
+      attrs: {
+        property: 'og:title',
+        content: `${klub.get('name')}`
+      }
     }];
   },
 });

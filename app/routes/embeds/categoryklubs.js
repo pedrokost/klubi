@@ -30,6 +30,13 @@ export default Ember.Route.extend({
         property: 'og:url',
         content: `http://www.zatresi.si/?category=${category}`
       }
+    }, {
+      type: 'meta',
+      tagId: 'meta-og-title',
+      attrs: {
+        property: 'og:title',
+        content: `Športni Klubi ${category}`
+      }
     }];
   },
 });

@@ -24,5 +24,12 @@ export default Ember.Route.extend(Prerenderable, {
       property: 'og:url',
       content: 'http://www.zatresi.si/oprojektu'
     }
+  }, {
+    type: 'meta',
+    tagId: 'meta-og-title',
+    attrs: {
+      property: 'og:title',
+      content: 'O projektu'
+    }
   }]
 });

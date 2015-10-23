@@ -27,6 +27,13 @@ export default Ember.Route.extend({
       property: 'og:url',
       content: 'http://www.zatresi.si'
     }
+  }, {
+    type: 'meta',
+    tagId: 'meta-og-title',
+    attrs: {
+      property: 'og:title',
+      content: 'Kje bos treniral?'
+    }
   }],
   actions: {
     toggleSideNav() {

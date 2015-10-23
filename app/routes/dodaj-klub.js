@@ -24,6 +24,13 @@ export default Ember.Route.extend(Prerenderable, {
       property: 'og:url',
       content: 'http://www.zatresi.si/dodaj-klub'
     }
+  }, {
+    type: 'meta',
+    tagId: 'meta-og-title',
+    attrs: {
+      property: 'og:title',
+      content: 'Dodaj klub'
+    }
   }],
   model() {
     return this.store.createRecord('klub', {

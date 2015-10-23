@@ -24,6 +24,13 @@ export default Ember.Route.extend(Prerenderable, {
       property: 'og:url',
       content: 'http://www.zatresi.si/clanki'
     }
+  }, {
+    type: 'meta',
+    tagId: 'meta-og-title',
+    attrs: {
+      property: 'og:title',
+      content: 'Članki, novice in novosti'
+    }
   }],
   model() {
     return this.store.findAll('clanek');
