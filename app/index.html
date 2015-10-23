@@ -19,6 +19,19 @@
     <meta name="fragment" content="!">
 
     {{content-for 'head-footer'}}
+    <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Organization",
+      "name" : "Zatresi",
+      "url" : "http://www.zatresi.si",
+      "sameAs" : [
+        "https://www.facebook.com/zatresi.si",
+        "https://twitter.com/zatresi",
+        "https://plus.google.com/+ZatresiSi"
+      ]
+    }
+    </script>
   </head>
   <body>
     {{content-for 'body'}}
