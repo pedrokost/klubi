@@ -11,6 +11,13 @@ export default Ember.Route.extend(Prerenderable, {
       content: 'Agregator novic športnih klubov, športnih prireditev in novosti v Sloveniji.'
     }
   }, {
+    type: 'meta',
+    tagId: 'meta-og-description',
+    attrs: {
+      property: 'og:description',
+      content: 'Agregator novic športnih klubov, športnih prireditev in novosti v Sloveniji.'
+    }
+  }, {
     type: 'link',
     tagId: 'link-canonical',
     attrs: {

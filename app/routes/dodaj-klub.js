@@ -11,6 +11,13 @@ export default Ember.Route.extend(Prerenderable, {
       content: 'Dodaj športni klub v največjo bazo športnih (fitnes, karate, judo, gimnastika, itd) klubov v Sloveniji.'
     }
   }, {
+    type: 'meta',
+    tagId: 'meta-og-description',
+    attrs: {
+      property: 'og:description',
+      content: 'Dodaj športni klub v največjo bazo športnih (fitnes, karate, judo, gimnastika, itd) klubov v Sloveniji.'
+    }
+  }, {
     type: 'link',
     tagId: 'link-canonical',
     attrs: {

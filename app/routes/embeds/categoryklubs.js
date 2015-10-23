@@ -18,6 +18,13 @@ export default Ember.Route.extend({
         content: `Najdi najboljši ${category} klub v svoji bližini. Smo največja Slovenska baza ${category} in drugih športnih klubov!`
       }
     }, {
+      type: 'meta',
+      tagId: 'meta-og-description',
+      attrs: {
+        property: 'og:description',
+        content: `Najdi najboljši ${category} klub v svoji bližini. Smo največja Slovenska baza ${category} in drugih športnih klubov!`
+      }
+    }, {
       type: 'link',
       tagId: 'link-canonical',
       attrs: {

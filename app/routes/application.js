@@ -12,7 +12,14 @@ export default Ember.Route.extend({
       tagId: 'meta-description',
       attrs: {
         name: 'description',
-        content: 'Iskalnik klubov v Sloveniji'
+        content: 'Najdi najboljši fitnes, vadbeni center, karate dojo, wellness center, frizbi klub, judo dojo, gimnastično društvo v svoji bližini. Smo največja Slovenska baza fitnesov, karate klubov, judo klubov, frizbi klubov, in več!'
+      }
+    }, {
+      type: 'meta',
+      tagId: 'meta-og-description',
+      attrs: {
+        property: 'og:description',
+        content: 'Najdi najboljši fitnes, vadbeni center, karate dojo, wellness center, frizbi klub, judo dojo, gimnastično društvo v svoji bližini. Smo največja Slovenska baza fitnesov, karate klubov, judo klubov, frizbi klubov, in več!'
       }
     }, {
       type: 'link',

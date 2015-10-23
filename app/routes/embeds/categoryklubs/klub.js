@@ -34,6 +34,13 @@ export default KlubRoute.extend(Prerenderable, LeafletRefreshable, {
         content: `${klub.get('name')} je ${category} klub v mestu ${klub.get('town')}. Najdi najboljši ${category} klub v svoji bližini.`
       }
     }, {
+      type: 'meta',
+      tagId: 'meta-og-description',
+      attrs: {
+        property: 'og:description',
+        content: `${klub.get('name')} je ${category} klub v mestu ${klub.get('town')}. Najdi najboljši ${category} klub v svoji bližini.`
+      }
+    }, {
       type: 'link',
       tagId: 'link-canonical',
       attrs: {
