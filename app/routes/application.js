@@ -6,6 +6,14 @@ export default Ember.Route.extend({
     }
     return 'Kje bos treniral? - zatresi.si';
   },
+  headTags: [{
+    type: 'meta',
+    tagId: 'meta-description',
+    attrs: {
+      name: 'description',
+      content: 'Iskalnik klubov v Sloveniji'
+    }
+  }],
   actions: {
     toggleSideNav() {
       this.controllerFor('application').toggleProperty('isSideNavVisible');
