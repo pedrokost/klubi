@@ -7,6 +7,7 @@ module.exports = function(environment) {
     baseURL: '/',
     host: 'http://api.zatresi.si',
     locationType: 'auto',
+    cdnPrepend: 'https://d3s8w0mc0h7w8s.cloudfront.net/',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

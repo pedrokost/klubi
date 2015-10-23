@@ -9,6 +9,7 @@ export default Ember.Route.extend(Prerenderable, LeafletRefreshable, {
     return model.get('name');
   },
   headTags: function() {
+    let assetsResolve = this.assets.resolve;
     var klub = this.modelFor(this.routeName);
     var category = this.controllerFor('klubs').get('category');
     return [{
@@ -38,6 +39,13 @@ export default Ember.Route.extend(Prerenderable, LeafletRefreshable, {
       attrs: {
         property: 'og:title',
         content: `${klub.get('name')}`
+      }
+    }, {
+      type: 'meta',
+      tagId: 'meta-og-image',
+      attrs: {
+        property: 'og:image',
+        content: assetsResolve(`assets/social/fb-${category}.png`, true)
       }
     }];
   },

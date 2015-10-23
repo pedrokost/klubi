@@ -23,6 +23,7 @@ export default KlubRoute.extend(Prerenderable, LeafletRefreshable, {
     }
   },
   headTags: function() {
+    let assetsResolve = this.assets.resolve;
     var klub = this.modelFor(this.routeName);
     var category = this.controllerFor('embeds.categoryklubs').get('category');
     return [{
@@ -53,6 +54,13 @@ export default KlubRoute.extend(Prerenderable, LeafletRefreshable, {
         property: 'og:title',
         content: `${klub.get('name')}`
       }
+    }, {
+      type: 'meta',
+      tagId: 'meta-og-image',
+      attrs: {
+        property: 'og:image',
+        content: assetsResolve(`assets/social/fb-${category}.png`, true)
+      }
     }];
-  },
+  }
 });

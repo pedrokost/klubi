@@ -8,6 +8,7 @@ export default Ember.Route.extend({
     return this.store.query('klub', params);
   },
   headTags: function() {
+    let assetsResolve = this.assets.resolve;
     var category = this.controllerFor(this.routeName).get('category');
     return [{
       type: 'meta',
@@ -36,6 +37,13 @@ export default Ember.Route.extend({
       attrs: {
         property: 'og:title',
         content: `Športni Klubi ${category}`
+      }
+    }, {
+      type: 'meta',
+      tagId: 'meta-og-image',
+      attrs: {
+        property: 'og:image',
+        content: assetsResolve(`assets/social/fb-${category}.png`, true)
       }
     }];
   },
