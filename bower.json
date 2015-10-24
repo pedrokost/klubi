@@ -1,10 +1,10 @@
 {
   "name": "zatresi",
   "dependencies": {
-    "ember": "~1.13.9",
+    "ember": "~2.1.0",
     "ember-resolver": "~0.1.18",
     "jquery": "~2.1.4",
-    "ember-data": "~2.0.0",
+    "ember-data": "~2.1.0",
     "loader.js": "~3.3.0",
     "ember-cli-shims": "~0.0.6",
     "ember-cli-test-loader": "~0.2.0",
@@ -24,9 +24,5 @@
     "leaflet": "~0.7.3",
     "leaflet.locatecontrol": "~0.44.0",
     "rrssb": "~1.8.6"
-  },
-  "resolutions": {
-    "ember": "~1.13.9",
-    "font-awesome": "~4.4.0"
   }
 }

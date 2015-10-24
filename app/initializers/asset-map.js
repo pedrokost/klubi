@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import ENV from '../config/environment';
 
-export function initialize(container, application) {
+export function initialize(application) {
   application.deferReadiness();
 
   var AssetMap = Ember.Object.extend();
@@ -32,7 +32,7 @@ export function initialize(container, application) {
       }
     });
   }).then(function() {
-    container.register('assetMap:main', AssetMap, {singleton: true});
+    application.register('assetMap:main', AssetMap, {singleton: true});
     application.inject('component', 'assets', 'assetMap:main');
     application.inject('route', 'assets', 'assetMap:main');
     application.advanceReadiness();
