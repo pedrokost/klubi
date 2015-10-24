@@ -10,6 +10,7 @@ export default Ember.Controller.extend({
     sendNewKlubEmail() {
       var self = this;
       var klub = this.get('model');
+      klub.set('categories', klub.get('categories').split(',').map( cat => cat.trim().dasherize() ));
       var editorEmail = this.get('editorEmail');
       klub = JSON.parse(JSON.stringify(klub));
       klub.editor = editorEmail;
