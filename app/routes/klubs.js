@@ -2,10 +2,11 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   title(tokens) {
+    var category = this.controllerFor(this.routeName).get('category');
     if (!!tokens.length) {
       return tokens.reverse().join(' - ');
     }
-    return 'Športni Klubi';
+    return `${category.capitalize()} klubi`;
   },
   queryParams: {
     category: {
