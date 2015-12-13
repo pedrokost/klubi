@@ -56,7 +56,7 @@ export default Ember.Route.extend(Prerenderable, LeafletRefreshable, {
       }
     }];
   },
-  model(params) {
+  model(params, transition) {
     return this.store.findRecord('klub', params.klub_id);
   },
   setupController(controller, model) {

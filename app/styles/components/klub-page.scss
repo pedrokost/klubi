@@ -39,6 +39,9 @@
   // $icon-right-offset: 2.5rem;
   $klub_page-border-color: $map-widget-border-color;
 
+  .klub_page-edit_klub {
+    display: none;
+  }
 
   border-bottom: 1px solid darken($white, 3%);
 
@@ -57,6 +60,12 @@
 
   &:last-child {
     border-bottom: none;
+  }
+
+  &:hover {
+    .klub_page-edit_klub {
+      display: inline;
+    }
   }
 
 }

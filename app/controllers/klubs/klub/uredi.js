@@ -35,7 +35,7 @@ export default Ember.Controller.extend({
         contentType: 'application/json'
       }).done(function() {
         self.set('submitButtonDisabled', false);
-        flashMessages.success('Hvala za popravke ;) Podatke bomo preverili in klub v kratkem prikazali na strani');
+        flashMessages.success('Hvala za popravke ;) Podatke bomo preverili in jih v kratkem prikazali na strani');
         self.transitionToRoute('klubs.klub', klub_id);
       }).fail(function() {
         self.set('submitButtonDisabled', false);
