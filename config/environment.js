@@ -28,7 +28,7 @@ module.exports = function(environment) {
     // TODO: Review before going go production!!
     contentSecurityPolicy: {
       'default-src': "'none'",
-      'script-src': "'self' 'unsafe-inline' *.googleapis.com *.gstatic.com d3s8w0mc0h7w8s.cloudfront.net connect.facebook.net www.google-analytics.com",
+      'script-src': "'self' 'unsafe-inline' *.googleapis.com *.gstatic.com d3s8w0mc0h7w8s.cloudfront.net connect.facebook.net www.google-analytics.com cdnjs.cloudflare.com",
       'font-src': "'self' fonts.gstatic.com d3s8w0mc0h7w8s.cloudfront.net",
       'connect-src': "'self' api.zatresi.si app.local:3000 *.app.local:3000 app.local:3200 *.app.local:3200 d3s8w0mc0h7w8s.cloudfront.net www.kimonolabs.com",
       'img-src': "'self' data: *.gstatic.com *.googleapis.com *.google.com  *.tiles.mapbox.com d3s8w0mc0h7w8s.cloudfront.net www.google-analytics.com fitnes.si www.fitness-info.si",

@@ -23,10 +23,11 @@ Router.map(function() {
   }, function() {
     this.route('klub', {
       path: '/:klub_id',
-    }, function() {}); // generates subroutes
+    }, function() {
+      this.route('uredi');
+    }); // generates subroutes
     this.route('new');
   });
-
 });
 
 export default Router;

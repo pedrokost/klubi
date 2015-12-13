@@ -112,7 +112,11 @@ module.exports = function(app) {
         findKlubBySlug(req.params.slug)
       ]
     });
-  })
+  });
+
+  klubsRouter.patch('/:slug', function(req, res) {
+    res.status(202).json({});
+  });
 
   app.use('/api/klubs', klubsRouter);
 };
