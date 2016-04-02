@@ -1,86 +1,37 @@
-// import Ember from 'ember';
-import MarkerClusterCollection from '../layers/marker-cluster-collection';
-import EmberLeafletComponent from 'ember-leaflet/components/leaflet-map';
-import MarkerCollectionLayer from '../layers/marker-collection';
-// import GoogleMapLayer from '../layers/google-map-layer';
-import FoursquareMapLayer from '../layers/foursquare-map-layer';
+// import Ember from 'ember'
 
-var southWest = L.latLng(45.0, 13.0),   // spodaj levo
-    northEast = L.latLng(47.2, 17);   // zgoraj desno
+import EmberLeafletComponent from 'ember-leaflet/components/leaflet-map'
 
 export default EmberLeafletComponent.extend({
-
-  // setOffsetCenter: Ember.observer('wantedCenter', 'wantedZoom', 'isShowPage', 'layer', function(){
-
-  //   var wantedCenter = this.get('wantedCenter');
-  //   var wantedZoom = this.get('wantedZoom');
-
-  //   if (this.get('layer')) { // It's not always defined
-  //     let map = this.get('layer');
-
-  //     if (this.get('isShowPage')) {
-  //       let containrWidth = Ember.$('.leaflet-container').width();
-  //       let perc = 0.22;
-  //       let targetPoint = map.project(wantedCenter, wantedZoom).add([containrWidth * perc, 0]);
-  //       wantedCenter = map.unproject(targetPoint, wantedZoom);
-  //     }
-
-  //     // SetView is preferred over setting center and zoom in succession.
-  //     // It also doesn't seem to cause the markers to dissapear when both
-  //     // center and zoom are changed
-  //     map.setView(wantedCenter, wantedZoom);
-  //     // map.flyTo(wantedCenter, wantedZoom); // This is in the v1.0 beta 1 branch that there is another bug with this._southWest being undefined, so I cant use it until it will be fixed in beta 2 (https://github.com/Leaflet/Leaflet/issues/3280)
-  //   }
-  // }),
-
-  options: {
-    attributionControl: false,
-    minZoom: 8,
-    center: L.latLng(46.122636,14.81546),
-    // maxZoom: 10, // required for auto spiderification of overlapping markers
-    maxBounds: L.latLngBounds(southWest, northEast),
-    zoomControl: false // added later with extra options
-  },
-  childLayers: [
-    FoursquareMapLayer,
-    // MarkerCollectionLayer
-    MarkerClusterCollection
-  ],
   didCreateLayer() {
-    this._super();
-    var that = this;
+    this._super(...arguments)
+
+    var that = this
     var zoomOptions = {
       position: 'bottomleft',
       zoomInTitle: 'Približaj',
       zoomOutTitle: 'Oddalji'
-    };
+    }
     var geolocateOptions = {
       position: 'bottomleft',
       icon: 'fa fa-location-arrow',
       strings: {
-          title: "Pokaži mojo lokacijo",  // title of the locate control
-          metersUnit: "metrov", // string for metric units
-          popup: "Vi ste tukaj (na {distance} {unit} natančno)",  // text to appear if user clicks on circle
-          outsideMapBoundsMsg: "Ste zunaj meja zemljevida", // default message for onLocationOutsideMapBounds
+        title: 'Pokaži mojo lokacijo', // title of the locate control
+        metersUnit: 'metrov', // string for metric units
+        popup: 'Vi ste tukaj (na {distance} {unit} natančno)', // text to appear if user clicks on circle
+        outsideMapBoundsMsg: 'Ste zunaj meja zemljevida' // default message for onLocationOutsideMapBounds
       },
       locateOptions: {
         enableHighAccuracy: true,
         maxZoom: 14
       },
-      onLocationError: function(err) {
-        const flashMessages = that.get('flashMessages');
-        flashMessages.error(err.message);
+      onLocationError(err) {
+        const flashMessages = that.get('flashMessages')
+        flashMessages.error(err.message)
       }
     }
 
-    // Storing the map globally is necessary for refresh-leaflet mixin
-    window.zatresiMap = this._layer;
-    // this._layer.on('resize', function(){
-    //   console.log('map has resized');
-    // })
-
-    L.control.zoom(zoomOptions).addTo(this._layer);
-    L.control.locate(geolocateOptions).addTo(this._layer);
+    this.L.control.zoom(zoomOptions).addTo(this._layer)
+    this.L.control.locate(geolocateOptions).addTo(this._layer)
   }
-});
-
+})

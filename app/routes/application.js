@@ -6,7 +6,7 @@ export default Ember.Route.extend({
     }
     return 'Kje bos treniral? - zatresi.si';
   },
-  headTags: function() {
+  headTags() {
     return [{
       type: 'meta',
       tagId: 'meta-description',

@@ -7,7 +7,7 @@ export default Ember.Route.extend({
   model(params) {
     return this.store.query('klub', params);
   },
-  headTags: function() {
+  headTags() {
     let assetsResolve = this.assets.resolve;
     var category = this.controllerFor(this.routeName).get('category');
 

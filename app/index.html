@@ -11,7 +11,7 @@
     <meta name="google-site-verification" content="MaoiCJ8nQLKRIJfVSFOBYgrrL_UpeIuBpud5s_pUBRA" />
     <link rel="shortcut icon" href="/assets/favicon.ico">
 
-    {{content-for 'head'}}
+    {{content-for "head"}}
 
     <link rel="stylesheet" href="assets/vendor.css">
     <link rel="stylesheet" href="assets/zatresi.css">
@@ -20,7 +20,7 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@zatresi" />
 
-    {{content-for 'head-footer'}}
+    {{content-for "head-footer"}}
     <script type="application/ld+json">
     {
       "@context" : "http://schema.org",
@@ -36,11 +36,11 @@
     </script>
   </head>
   <body>
-    {{content-for 'body'}}
+    {{content-for "body"}}
     <script>
       window.prerenderReady = false;
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
     <script src="assets/vendor.js"></script>
     <script src="assets/zatresi.js"></script>
 
@@ -56,6 +56,15 @@
       ga('create', 'UA-57812885-1', 'auto');
       ga('send', 'pageview');
     </script>
-    {{content-for 'body-footer'}}
+
+    <!-- TODO: This should not be shown on embedded pages #unless isEmbeddedPage -->
+    <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
+    <script type="text/javascript">
+        window.cookieconsent_options = {"message":"S piškotki si pomagamo pri zagotavljanju storitev. Z uporabo naših storitev se strinjate, da lahko uporabljamo piškotke.","dismiss":"V redu","learnMore":"","link":null,"theme":"light-bottom"};
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.9/cookieconsent.min.js"></script>
+    <!-- End Cookie Consent plugin -->
+
+    {{content-for "body-footer"}}
   </body>
 </html>

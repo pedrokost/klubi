@@ -1,17 +1,16 @@
-import Ember from 'ember';
-import Prerenderable from 'zatresi/mixins/after-render-prerenderable';
-import LeafletRefreshable from 'zatresi/mixins/refresh-leaflet';
-
+import Ember from 'ember'
+import Prerenderable from 'zatresi/mixins/after-render-prerenderable'
+import LeafletRefreshable from 'zatresi/mixins/refresh-leaflet'
 
 export default Ember.Route.extend(Prerenderable, LeafletRefreshable, {
   WANTED_ZOOM_LEVEL: 16,
   titleToken(model) {
-    return model.get('name');
+    return model.get('name')
   },
-  headTags: function() {
-    let assetsResolve = this.assets.resolve;
-    var klub = this.modelFor(this.routeName);
-    var category = this.controllerFor('klubs').get('category');
+  headTags() {
+    let assetsResolve = this.assets.resolve
+    var klub = this.modelFor(this.routeName)
+    var category = this.controllerFor('klubs').get('category')
     return [{
       type: 'meta',
       tagId: 'meta-description',
@@ -54,39 +53,38 @@ export default Ember.Route.extend(Prerenderable, LeafletRefreshable, {
         property: 'og:image',
         content: assetsResolve(`assets/social/fb-${category}.png`, true)
       }
-    }];
+    }]
   },
   model(params, transition) {
-    return this.store.findRecord('klub', params.klub_id);
+    return this.store.findRecord('klub', params.klub_id)
   },
   setupController(controller, model) {
     // When navigating directly to a klub's page that is
     // not included in the default category, the model
     // is unloaded instantly. This fixes this.
-    this._super(controller, model);
+    this._super(controller, model)
 
-    var currentCategory = this.controllerFor('klubs').get('category');
-
+    var currentCategory = this.controllerFor('klubs').get('category')
 
     // HACK: For some reason, model is sometime a model, sometimes an object
     // that wrapps the model.
 
     if (model.get('model')) {
-      model = model.get('model');
-    };
+      model = model.get('model')
+    }
 
-    let klubsController = this.controllerFor('klubs');
+    let klubsController = this.controllerFor('klubs')
     if (model.get('categories').indexOf(currentCategory) === -1) {
-      klubsController.set('category', model.get('categories')[0]);
+      klubsController.set('category', model.get('categories')[0])
     }
 
     // Ask the controller to ask parent to set the map position correct
-    klubsController.send('zoomToLocation', model.get('location'), this.WANTED_ZOOM_LEVEL);
+    klubsController.send('zoomToLocation', model.get('location'), this.WANTED_ZOOM_LEVEL)
   },
   actions: {
     goHome() {
       console.log('going to klubs index')
-      this.transitionTo('klubs.index');
+      this.transitionTo('klubs.index')
     }
   }
-});
+})

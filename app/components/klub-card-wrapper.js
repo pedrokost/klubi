@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import Ember from 'ember'
 
 export default Ember.Component.extend({
   tagName: 'li',
@@ -8,40 +8,40 @@ export default Ember.Component.extend({
 
   hasFamily: Ember.computed.gt('family.length', 1),
 
-  cardClass: Ember.computed('hasFamily', function() {
+  cardClass: Ember.computed('hasFamily', function () {
     if (this.get('hasFamily')) {
-      return 'klub-card--with-branches';
+      return 'klub-card--with-branches'
     } else {
-      return 'klub-card--without-branches';
+      return 'klub-card--without-branches'
     }
   }),
 
-  cardType: Ember.computed('hasFamily', function() {
+  cardType: Ember.computed('hasFamily', function () {
     if (this.get('hasFamily')) {
-      return 'klub-card-with-branches';
+      return 'klub-card-with-branches'
     } else {
-      return 'klub-card';
+      return 'klub-card'
     }
   }),
 
-  family: Ember.computed('klub', 'klub.parent', 'klub.branches', function() {('')
-    let klub = this.get('klub');
-    let family = Ember.A([klub]);
+  family: Ember.computed('klub', 'klub.parent', 'klub.branches', function () {('')
+    let klub = this.get('klub')
+    let family = Ember.A([klub])
     if (klub.get('parent.content')) {
-      family.pushObject(klub.get('parent.content'));
+      family.pushObject(klub.get('parent.content'))
     }
     if (klub.get('branches.length')) {
-      klub.get('branches').forEach(function(b) {
-        family.pushObject(b);
-      });
+      klub.get('branches').forEach(function (b) {
+        family.pushObject(b)
+      })
     }
 
-    return family;
+    return family
   }),
 
   actions: {
     setHoveredKlub(klubId, toHovered) {
-      this.sendAction('setHoveredKlub', klubId, toHovered);
+      this.sendAction('setHoveredKlub', klubId, toHovered)
     }
   }
-});
+})

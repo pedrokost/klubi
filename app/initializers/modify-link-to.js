@@ -4,7 +4,7 @@ var alreadyRun = false;
 
 export default {
   name: 'modify-model',
-  initialize: function() {
+  initialize() {
     if (alreadyRun) {
       return;
     } else {
@@ -12,7 +12,7 @@ export default {
     }
 
     Ember.LinkComponent.reopen({
-      init: function() {
+      init() {
         this._super();
         var self = this;
 

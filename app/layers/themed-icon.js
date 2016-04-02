@@ -2,7 +2,7 @@
 // when diffent icons are grouped within a single cluster
 
 export default L.Icon.Default.extend({
-  initialize: function (opts) {
+  initialize(opts) {
     switch (opts.category) {
       case 'karate':
         this.options.iconUrl = '/assets/icons/karate.png';

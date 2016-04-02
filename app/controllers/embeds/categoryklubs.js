@@ -5,7 +5,7 @@ export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
   queryParams: ['category'],
   category: 'fitnes',
   zoom: 8,
-  markerCenter: L.latLng(46.122636,14.81546), // Slivna, Slovenia,
+  markerCenter: [46.122636, 14.81546], // Slivna, Slovenia,
   currentRouteName: Ember.computed.alias('application.currentRouteName'),
 
   anyKlub: Ember.computed('model', function() {

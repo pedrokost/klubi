@@ -1,23 +1,23 @@
-import Ember from 'ember';
+import Ember from 'ember'
 
 export default Ember.Route.extend({
   title(tokens) {
-    var category = this.controllerFor(this.routeName).get('category');
-    if (!!tokens.length) {
-      return tokens.reverse().join(' - ');
+    var category = this.controllerFor(this.routeName).get('category')
+    if (tokens.length > 0) {
+      return tokens.reverse().join(' - ')
     }
-    return `${category.capitalize()} klubi`;
+    return `${category.capitalize()} klubi`
   },
   queryParams: {
     category: {
       refreshModel: true
     }
   },
-  headTags: function() {
-    let assetsResolve = this.assets.resolve;
-    var category = this.controllerFor(this.routeName).get('category');
+  headTags() {
+    let assetsResolve = this.assets.resolve
+    var category = this.controllerFor(this.routeName).get('category')
 
-    let canonical = category === 'fitnes' ? 'http://www.zatresi.si/' : `http://www.zatresi.si/?category=${category}`;
+    let canonical = category === 'fitnes' ? 'http://www.zatresi.si/' : `http://www.zatresi.si/?category=${category}`
 
     return [{
       type: 'meta',
@@ -61,13 +61,13 @@ export default Ember.Route.extend({
         property: 'og:image',
         content: assetsResolve(`assets/social/fb-${category}.png`, true)
       }
-    }];
+    }]
   },
   beforeModel() {
     // To show the user a category change is in progress, remove the currently shown data, so I can display a spinner
-    this.controllerFor('klubs').set('model', Ember.A());
+    this.controllerFor('klubs').set('model', Ember.A())
   },
   model(params) {
-    return this.store.query('klub', params);
+    return this.store.query('klub', params)
   }
-});
+})

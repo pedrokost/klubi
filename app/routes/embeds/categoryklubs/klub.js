@@ -22,7 +22,7 @@ export default KlubRoute.extend(Prerenderable, LeafletRefreshable, {
       this.transitionTo('embeds.categoryklubs.index');
     }
   },
-  headTags: function() {
+  headTags() {
     let assetsResolve = this.assets.resolve;
     var klub = this.modelFor(this.routeName);
     var category = this.controllerFor('embeds.categoryklubs').get('category');

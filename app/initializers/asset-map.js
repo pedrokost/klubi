@@ -13,7 +13,7 @@ export function initialize(application) {
   promise.then(function(assetMap) {
     AssetMap.reopen({
       assetMap: assetMap,
-      resolve: function(name, getAbsolute) {
+      resolve(name, getAbsolute) {
         if (getAbsolute) {
           return ENV.cdnPrepend + assetMap.assets[name];
         } else {
@@ -23,7 +23,7 @@ export function initialize(application) {
     });
   }, function() {
     AssetMap.reopen({
-      resolve: function(name, getAbsolute) {
+      resolve(name, getAbsolute) {
         if (getAbsolute) {
           return ENV.cdnPrepend + name;
         } else {
