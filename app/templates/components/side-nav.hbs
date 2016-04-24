@@ -2,9 +2,17 @@
   {{#link-to 'klubs.index' tagName="li" href=false class="side-nav-item"}}
     {{#link-to 'klubs.index' class="side-nav-item-inner"}}{{fa-icon "map-marker"}} <span>Zemljevid<small>Najdi klub zase</small></span>{{/link-to}}
   {{/link-to}}
-  {{#link-to 'clanki' tagName="li" href=false class="side-nav-item"}}
+
+
+  <li class="side-nav-item">
+    <a href="#" class="side-nav-item-inner">
+      {{fa-icon "th-list"}} <span>Seznam klubov<small>Pride kmalu...</small></span>
+    </a>
+  </li>
+
+{{!--   {{#link-to 'clanki' tagName="li" href=false class="side-nav-item"}}
     {{#link-to 'clanki' class="side-nav-item-inner"}}{{fa-icon "newspaper-o"}} <span>Članki<small>Zadnje novosti</small></span>{{/link-to}}
-  {{/link-to}}
+  {{/link-to}} --}}
   {{#link-to 'dodaj-klub' tagName="li" href=false class="side-nav-item"}}
     {{#link-to 'dodaj-klub' class="side-nav-item-inner"}}{{fa-icon "plus"}} <span>Dodaj klub<small>Ga ne najdes? Dodaj ga!</small></span>{{/link-to}}
   {{/link-to}}
