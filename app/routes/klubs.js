@@ -8,11 +8,6 @@ export default Ember.Route.extend({
     }
     return `${category.capitalize()} klubi`
   },
-  queryParams: {
-    category: {
-      refreshModel: true
-    }
-  },
   headTags() {
     let assetsResolve = this.assets.resolve
     var category = this.controllerFor(this.routeName).get('category')
@@ -63,11 +58,24 @@ export default Ember.Route.extend({
       }
     }]
   },
-  beforeModel() {
+  beforeModel(transition) {
+    const supportedCategories = ['fitnes', 'wellness', 'karate', 'frizbi', 'judo', 'gimnastika']
+
+    var categoryToLoad = transition.state.params.klubs.category;
+
+    if (categoryToLoad && supportedCategories.indexOf(categoryToLoad) === -1) {
+      transition.abort()
+      let that = this
+      this.store.findRecord('klub', categoryToLoad).then(function(klub) {
+        that.transitionTo('klubs.klub', klub.get('categories.firstObject'), klub)
+      })
+    }
+
     // To show the user a category change is in progress, remove the currently shown data, so I can display a spinner
-    this.controllerFor('klubs').set('model', Ember.A())
+    this.controllerFor(this.routeName).set('model', Ember.A())
   },
   model(params) {
+    this.controllerFor(this.routeName).set('category', params.category)
     return this.store.query('klub', params)
   }
 })

@@ -1,7 +1,7 @@
 <div class="button-group button-group--mobile">
   {{#each recentCategories as |category|}}<label>
       <input type="radio" name="button-group" value={{category.identifier}}>
-      {{#link-to 'klubs' (query-params category=category.identifier) classNameBindings=":category :button-group-item"}}
+      {{#link-to 'klubs' category.identifier  classNameBindings=":category :button-group-item"}}
         {{category.name}}
         {{#if category.isBeta}}
           <span class="tag tag-beta">BETA</span>

@@ -19,3 +19,5 @@ testem.log
 deploy.json
 
 GOODTOKNOW.md
+
+.env*
