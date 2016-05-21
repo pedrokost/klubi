@@ -47,7 +47,11 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-Specify what it takes to deploy your app.
+```
+ember deploy prod
+# Review changes in browser. When happy run
+ember deploy:activate prod --revision=hash
+```
 
 ## Further Reading / Useful Links
 
