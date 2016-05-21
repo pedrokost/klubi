@@ -61,12 +61,12 @@ export default Ember.Route.extend({
   beforeModel(transition) {
     const supportedCategories = ['fitnes', 'wellness', 'karate', 'frizbi', 'judo', 'gimnastika']
 
-    var categoryToLoad = transition.state.params.klubs.category;
+    var categoryToLoad = transition.state.params.klubs.category
 
     if (categoryToLoad && supportedCategories.indexOf(categoryToLoad) === -1) {
       transition.abort()
       let that = this
-      this.store.findRecord('klub', categoryToLoad).then(function(klub) {
+      this.store.findRecord('klub', categoryToLoad).then(function (klub) {
         that.transitionTo('klubs.klub', klub.get('categories.firstObject'), klub)
       })
     }

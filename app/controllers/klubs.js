@@ -1,4 +1,5 @@
 import Ember from 'ember'
+import ThemedIcon from '../layers/themed-icon'
 
 /* globals L */
 
@@ -24,6 +25,14 @@ export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
 
     return this.get('model').filter(function (klub) {
       return klub.get('categories').indexOf(category) >= 0
+    })
+  }),
+
+  themedIcon: Ember.computed('category', function () {
+    let category = this.get('category')
+
+    return new ThemedIcon({
+      category: category
     })
   }),
 

@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import Ember from 'ember'
 
 export default Ember.Route.extend({
   redirect() {
-    this.transitionTo('klubs', 'fitnes');
+    this.transitionTo('klubs', 'fitnes')
   }
-});
+})
