@@ -1,17 +1,18 @@
-import Ember from 'ember';
+import Ember from 'ember'
 
 export default Ember.Route.extend({
   beforeModel() {
-    this.controllerFor('application').send('hideMenus');
+    this.controllerFor('application').send('hideMenus')
   },
   model(params) {
-    return this.store.query('klub', params);
+    this.controllerFor(this.routeName).set('category', params.category)
+    return this.store.query('klub', params)
   },
   headTags() {
-    let assetsResolve = this.assets.resolve;
-    var category = this.controllerFor(this.routeName).get('category');
+    let assetsResolve = this.assets.resolve
+    var category = this.controllerFor(this.routeName).get('category')
 
-    let canonical = category === 'fitnes' ? 'http://www.zatresi.si/' : `http://www.zatresi.si/?category=${category}`;
+    let canonical = category === 'fitnes' ? 'http://www.zatresi.si/' : `http://www.zatresi.si/?category=${category}`
 
     return [{
       type: 'meta',
@@ -55,6 +56,6 @@ export default Ember.Route.extend({
         property: 'og:image',
         content: assetsResolve(`assets/social/fb-${category}.png`, true)
       }
-    }];
+    }]
   },
-});
+})

@@ -1,5 +1,4 @@
 import Ember from 'ember'
-import ThemedIcon from '../layers/themed-icon'
 
 /* globals L */
 
@@ -28,27 +27,12 @@ export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
     })
   }),
 
-  themedIcon: Ember.computed('category', function () {
-    let category = this.get('category')
-
-    return new ThemedIcon({
-      category: category
-    })
-  }),
-
   isShowPage: Ember.computed('currentRouteName', function () {
     // TODO: this is brittle.
     return this.get('currentRouteName') === 'klubs.klub.index'
   }),
 
   actions: {
-    updateCenter(e) {
-      let center = e.target.getCenter()
-    // console.log(center.lat)
-    // console.log(center.lng)
-    // this.set('lat', center.lat)
-    // this.set('lng', center.lng)
-    },
     showKlub(klub) {
       this.transitionToRoute('klubs.klub', klub)
     },

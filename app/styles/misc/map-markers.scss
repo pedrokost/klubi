@@ -1,0 +1,50 @@
+.klub-icon {
+  width: 32px;
+  height: 37px;
+  position: relative;
+  margin-left: -16px;
+  margin-top: -37px;
+}
+.klub-icon-shadow, .klub-icon-marker, .klub-icon-title_wrapper {
+  position: absolute;
+}
+
+.klub-icon-shadow {
+  bottom: 0;
+  width: 51px;
+  height: 37px;
+  margin-left: -8px;
+}
+
+.klub-icon-marker {
+  bottom: 0;
+}
+
+.klub-icon-title_wrapper {
+  bottom: 0;
+  width: 120px;
+  left: 100%;
+  margin-left: 2px;
+  font-size: 1.15em;
+  line-height: 1.1;
+  margin-bottom: 7px;
+  height: 28px;
+  color: #477DCA;
+  overflow: hidden;
+  display: table;
+  text-shadow: 0px 0px 8px white,
+                -1px -1px 4px white;
+}
+
+.klub-icon-title {
+  display: table-cell;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.klub-icon-title_wrapper-shadow {
+  color: transparent;
+  text-shadow: 0 0 4px #5f5b59;
+  @include transform(skewX(-45deg) rotateX(65deg) translateZ(1px) scale(1,1.3))
+  transform-origin: bottom left;
+}
