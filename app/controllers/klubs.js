@@ -6,10 +6,8 @@ var southWest = L.latLng(45.0, 13.0), // spodaj levo
   northEast = L.latLng(47.2, 17) // zgoraj desno
 
 export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
-  application: Ember.inject.controller('application'),
   zoom: 8,
   markerCenter: [46.122636, 14.81546], // Slivna, Slovenia,
-  currentRouteName: Ember.computed.alias('application.currentRouteName'),
   category: 'fitnes',
   maxBounds: L.latLngBounds(southWest, northEast),
 
@@ -25,11 +23,6 @@ export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
     return this.get('model').filter(function (klub) {
       return klub.get('categories').indexOf(category) >= 0
     })
-  }),
-
-  isShowPage: Ember.computed('currentRouteName', function () {
-    // TODO: this is brittle.
-    return this.get('currentRouteName') === 'klubs.klub.index'
   }),
 
   actions: {
