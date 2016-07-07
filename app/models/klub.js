@@ -17,6 +17,7 @@ export default Model.extend({
   categories: attr('array'),
   parent: belongsTo('klub', { inverse: 'branches', async: true }),
   branches: hasMany('klub', { inverse: 'parent', async: true }),
+  notes: attr('string'),
 
   isHovered: false,
   location: Ember.computed('latitude', 'longitude', function () {
