@@ -31,7 +31,7 @@ export default Ember.Controller.extend({
       }).done(function () {
         self.set('submitButtonDisabled', false)
         flashMessages.success('Hvala za obvestilo o klubu ;)! Podatke bomo preverili in klub v kratkem prikazali na strani')
-        self.transitionToRoute('klubs')
+        self.transitionToRoute('application')
       }).fail(function () {
         self.set('submitButtonDisabled', false)
         flashMessages.error('Prišlo je do neznane napake pri shranjevanju podatkov o klubu :( Če ti ponovno ne uspe, me o tem prosim obesti na pedro@zatresi.si.')
