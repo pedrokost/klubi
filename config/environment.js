@@ -4,14 +4,19 @@ module.exports = function (environment) {
   var ENV = {
     modulePrefix: 'zatresi',
     environment: environment,
-    baseURL: '/',
     host: 'http://api.zatresi.si',
     locationType: 'auto',
+    rootURL: '/',
     cdnPrepend: 'https://d3s8w0mc0h7w8s.cloudfront.net/',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
+      },
+      EXTEND_PROTOTYPES: {
+        // Prevent Ember Data from overriding Date.parse.
+        Date: false,
+        String: true
       }
     },
     flashMessageDefaults: {
@@ -30,7 +35,7 @@ module.exports = function (environment) {
       'default-src': "'none'",
       'script-src': "'self' 'unsafe-inline' *.googleapis.com *.gstatic.com d3s8w0mc0h7w8s.cloudfront.net connect.facebook.net www.google-analytics.com cdnjs.cloudflare.com",
       'font-src': "'self' fonts.gstatic.com d3s8w0mc0h7w8s.cloudfront.net",
-      'connect-src': "'self' api.zatresi.si app.local:3000 *.app.local:3000 app.local:3200 *.app.local:3200 d3s8w0mc0h7w8s.cloudfront.net www.kimonolabs.com",
+      'connect-src': "'self' api.zatresi.si app.local:3000 *.app.local:3000 app.local:3200 *.app.local:3200 d3s8w0mc0h7w8s.cloudfront.net",
       'img-src': "'self' data: *.gstatic.com *.googleapis.com *.google.com  *.tiles.mapbox.com d3s8w0mc0h7w8s.cloudfront.net www.google-analytics.com fitnes.si www.fitness-info.si",
       'style-src': "'self' 'unsafe-inline' fonts.googleapis.com d3s8w0mc0h7w8s.cloudfront.net", // TODO: Elimintae unsafe-inline
       'media-src': "'self' d3s8w0mc0h7w8s.cloudfront.net",
@@ -57,7 +62,6 @@ module.exports = function (environment) {
 
   if (environment === 'test') {
     // Testem prefers this...
-    ENV.baseURL = '/'
     ENV.locationType = 'none'
 
     // keep test console output quieter

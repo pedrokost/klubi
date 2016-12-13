@@ -6,5 +6,5 @@ export default Ember.Helper.helper(function (emailAddress, label) {
   // TODO: If block given, label = yield
   // TODO: allow passing the subject
   var link = '<a href="mailto:' + emailAddress + '">' + label + '</a>';
-  return new Ember.Handlebars.SafeString(link);
+  return new Ember.String.htmlSafe(link);
 });
