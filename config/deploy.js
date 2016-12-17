@@ -13,7 +13,8 @@ module.exports = function (deployTarget) {
       maxRecentUploads: 100
     },
     s3: {
-      prefix: ''
+      prefix: '',
+      'filePattern': '**/*.{js,css,png,gif,ico,jpg,map,xml,txt,svg,swf,eot,ttf,woff,woff2,otf,json}'
     }
   }
   if (VALID_DEPLOY_TARGETS.indexOf(deployTarget) === -1) {
