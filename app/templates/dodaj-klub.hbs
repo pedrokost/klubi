@@ -20,7 +20,7 @@
             <li class='dodaj-klub-item'>
               <label>Naslov: </label>{{input type="text" value=model.address  required="required" placeholder="Mariborska cesta 5, Maribor"}}{{fa-icon "map-marker" fixedWidth=true listItem=true}}
 
-              {{address-shower address=model.address action="setLatLng"}}
+              {{address-shower address=model.address action="setAddressAttrs"}}
             </li>
             <li class='dodaj-klub-item'>
               <label>Spletna stran: </label>{{input type="url" value=model.website placeholder="http://www.maribor-fitnes.si"}}{{fa-icon "external-link-square" fixedWidth=true listItem=true}}
