@@ -26,6 +26,13 @@ export default Ember.Route.extend(Prerenderable, {
     }
   }, {
     type: 'meta',
+    tagId: 'meta-og-type',
+    attrs: {
+      property: 'og:type',
+      content: 'website'
+    }
+  }, {
+    type: 'meta',
     tagId: 'meta-og-title',
     attrs: {
       property: 'og:title',

@@ -16,6 +16,13 @@ export default Ember.Route.extend({
       }
     }, {
       type: 'meta',
+      tagId: 'meta-og-type',
+      attrs: {
+        property: 'og:type',
+        content: 'website'
+      }
+    }, {
+      type: 'meta',
       tagId: 'meta-og-description',
       attrs: {
         property: 'og:description',

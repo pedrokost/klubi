@@ -48,6 +48,13 @@ export default KlubRoute.extend(Prerenderable, {
       }
     }, {
       type: 'meta',
+      tagId: 'meta-og-type',
+      attrs: {
+        property: 'og:type',
+        content: 'website'
+      }
+    }, {
+      type: 'meta',
       tagId: 'meta-og-url',
       attrs: {
         property: 'og:url',
