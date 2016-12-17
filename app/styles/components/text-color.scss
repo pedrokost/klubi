@@ -1,0 +1,37 @@
+/*
+* @Author: Pedro Kostelec
+* @Date:   2016-12-17 15:36:37
+* @Last Modified by:   Pedro Kostelec
+* @Last Modified time: 2016-12-17 15:40:27
+*/
+
+
+$muted-color: #FFFFFF !default;
+$alert-color: #fff6bf !default;
+$error-color: #fbe3e4 !default;
+$info-color: #e5edf8 !default;
+$success-color: #e6efc2 !default;
+
+@mixin text($color) {
+  color: darken($color, 60%);
+}
+
+.text-muted {
+  @include text($muted-color);
+}
+
+.text-alert {
+  @include text($alert-color);
+}
+
+.text-error {
+  @include text($error-color);
+}
+
+.text-info {
+  @include text($info-color);
+}
+
+.text-success {
+  @include text($success-color);
+}

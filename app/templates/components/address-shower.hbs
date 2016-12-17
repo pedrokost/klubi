@@ -1,3 +1,11 @@
+{{#if geocodingFailed}}
+  <small class="text-error">Vnešenega naslova ne prepoznamo.</small>
+{{else}}
+  {{#if address}}
+    <small class="text-muted">{{formattedAddress}}</small>
+  {{/if}}
+{{/if}}
+
 <div id="address-shower-map">
 
 </div>
