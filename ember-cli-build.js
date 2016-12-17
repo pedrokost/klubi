@@ -19,6 +19,7 @@ var options = {
   fingerprint: {
     prepend: 'https://d3s8w0mc0h7w8s.cloudfront.net/',
     generateAssetMap: true,
+    fingerprintAssetMap: true,
     exclude: [
       'images/layers-2x.png',
       'images/layers.png',

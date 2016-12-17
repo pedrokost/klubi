@@ -3,11 +3,11 @@ import Prerenderable from 'zatresi/mixins/after-render-prerenderable'
 
 export default Ember.Route.extend(Prerenderable, {
   WANTED_ZOOM_LEVEL: 16,
+  assetMap: Ember.inject.service('asset-map'),
   titleToken(model) {
     return model.get('name')
   },
   headTags() {
-    let assetsResolve = this.assets.resolve
     var klub = this.modelFor(this.routeName)
     var category = this.controllerFor('klubs').get('category')
     return [{
@@ -22,28 +22,21 @@ export default Ember.Route.extend(Prerenderable, {
       tagId: 'meta-og-description',
       attrs: {
         property: 'og:description',
-        content: `${klub.get('name')} je ${category} klub v mestu ${klub.get('town')}. Najdi najboljši ${category} klub v svoji bližini.`
+        content: `${klub.get('name')} je ${category} klub v ${klub.get('town')}.`
       }
     }, {
       type: 'link',
       tagId: 'link-canonical',
       attrs: {
         rel: 'canonical',
-        content: `http://www.zatresi.si/${klub.get('id')}`
-      }
-    }, {
-      type: 'meta',
-      tagId: 'meta-og-type',
-      attrs: {
-        property: 'og:type',
-        content: 'website'
+        content: `http://www.zatresi.si/${category}/${klub.get('id')}`
       }
     }, {
       type: 'meta',
       tagId: 'meta-og-url',
       attrs: {
         property: 'og:url',
-        content: `http://www.zatresi.si/${klub.get('id')}`
+        content: `http://www.zatresi.si/${category}/${klub.get('id')}`
       }
     }, {
       type: 'meta',
@@ -51,13 +44,6 @@ export default Ember.Route.extend(Prerenderable, {
       attrs: {
         property: 'og:title',
         content: `${klub.get('name')}`
-      }
-    }, {
-      type: 'meta',
-      tagId: 'meta-og-image',
-      attrs: {
-        property: 'og:image',
-        content: assetsResolve(`assets/social/fb-${category}.png`, true)
       }
     }]
   },

@@ -24,10 +24,12 @@ module.exports = function (environment) {
       extendedTimeout: 1000,
       types: [ 'alert', 'error', 'notice', 'success' ]
     },
-
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+    ifa: {
+      enabled: false
     },
 
     // TODO: Review before going go production!!
@@ -72,6 +74,9 @@ module.exports = function (environment) {
   }
 
   if (environment === 'production') {
+    ENV.ifa = {
+      enabled: true
+    };
   }
 
   if (environment === 'funky') {

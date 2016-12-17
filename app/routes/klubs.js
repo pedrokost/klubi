@@ -1,6 +1,7 @@
 import Ember from 'ember'
 
 export default Ember.Route.extend({
+  assetMap: Ember.inject.service('asset-map'),
   title(tokens) {
     var category = this.controllerFor(this.routeName).get('category')
     if (tokens.length > 0) {
@@ -9,10 +10,9 @@ export default Ember.Route.extend({
     return `${category.capitalize()} klubi`
   },
   headTags() {
-    let assetsResolve = this.assets.resolve
     var category = this.controllerFor(this.routeName).get('category')
 
-    let canonical = category === 'fitnes' ? 'http://www.zatresi.si/' : `http://www.zatresi.si/?category=${category}`
+    let canonical = `http://www.zatresi.si/${category}`
 
     return [{
       type: 'meta',
@@ -61,7 +61,7 @@ export default Ember.Route.extend({
       tagId: 'meta-og-image',
       attrs: {
         property: 'og:image',
-        content: assetsResolve(`assets/social/fb-${category}.png`, true)
+        content: this.get('assetMap').resolve(`assets/social/fb-${category}.png`)
       }
     }]
   },
