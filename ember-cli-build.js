@@ -50,8 +50,6 @@ module.exports = function (defaults) {
   app.import('bower_components/leaflet.markercluster/dist/MarkerCluster.css')
   app.import('bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css')
   app.import('bower_components/leaflet.markercluster/dist/leaflet.markercluster.js')
-  app.import('bower_components/leaflet.locatecontrol/dist/L.Control.Locate.min.js')
-  app.import('bower_components/leaflet.locatecontrol/dist/L.Control.Locate.css')
 
   app.import('bower_components/jquery-scrollintoview/jquery.scrollintoview.min.js')
 

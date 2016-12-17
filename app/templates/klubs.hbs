@@ -2,7 +2,7 @@
 
   <div class="l-flex l-flex--vert map-and-klubpage">
 
-    {{#leaflet-map center=markerCenter zoom=zoom minZoom="8" maxZoom="18" zoomControl="false"}}
+    {{#leaflet-map center=markerCenter zoom=zoom minZoom=8 maxZoom=18 zoomControl=false zatresiZoomControl=true}}
       {{tile-layer url="https://a.tiles.mapbox.com/v3/foursquare.meku766r/{z}/{x}/{y}.png"}}
 
       {{#marker-cluster-layer zoomToBoundsOnClick="true" spiderfyOnMaxZoom="true"}}

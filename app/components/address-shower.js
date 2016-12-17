@@ -4,48 +4,20 @@ export default Ember.Component.extend({
   address: null,
   formattedAddress: null,
   geocoder: null,
-  marker: null,
-  map: null,
-  ready: false,
   geocodingInvalid: true,
   geocodingFailed: false,
   classNames: ['address-shower'],
   classNameBindings: ['geocodingInvalid'],
 
-  latitude: null,
-  longitude: null,
+  zoom: 9,
+  mapLocation: [46.0569465, 14.5057515],
 
   initialize: Ember.on('didInsertElement', function() {
     this.set('geocoder', new google.maps.Geocoder());
-
-    var latlng = new google.maps.LatLng(46.0569465, 14.5057515);
-    var mapOptions = {
-      zoom: 8,
-      center: latlng
-    }
-    var map = new google.maps.Map(document.getElementById('address-shower-map'), mapOptions);
-    var marker = new google.maps.Marker({
-      map: map,
-      position: latlng
-    });
-    this.set('map', map);
-    this.set('marker', marker);
-    this.set('ready', true);
+    this.updateMap();
   }),
 
-  showAddressOnMap(position) {
-    var map = this.get('map');
-    var marker = this.get('marker');
-
-    map.setZoom(16);
-    map.setCenter(position);
-    marker.setPosition(position);
-  },
-
   updateMap() {
-    var ready = this.get('ready');
-    if (!ready) { return; }
-
     var geocoder = this.get('geocoder');
     var address = this.get('address');
 
@@ -69,27 +41,22 @@ export default Ember.Component.extend({
           )
           town = town ? town.long_name : null;
 
-          that.set('latitude', latitude);
-          that.set('longitude', longitude);
-          that.get('marker').setOpacity(1);
           that.set('formattedAddress', formattedAddress);
 
           that.sendAction('action', latitude, longitude, formattedAddress, town);
 
-          that.showAddressOnMap(results[0].geometry.location);
+          that.set('zoom', 14)
+          that.set('mapLocation', [latitude, longitude]);
         }
       });
     }
   },
 
-  listenForTypingPause: Ember.observer('address', 'ready', function() {
-    this.set('latitude', null);
-    this.set('longitude', null);
+  listenForTypingPause: Ember.observer('address', function() {
     this.set('formattedAddress', '...');
     this.set('town', null);
     this.set('geocodingInvalid', true);
     this.set('geocodingFailed', false);
-    this.get('marker').setOpacity(0.2);
     Ember.run.debounce(this, this.updateMap, 250);
   })
 });

@@ -6,6 +6,12 @@
   {{/if}}
 {{/if}}
 
-<div id="address-shower-map">
+{{#leaflet-map center=mapLocation zoom=zoom minZoom=8 maxZoom=18 zoomControl=false zatresiZoomControl=false id="address-shower-map"}}
 
-</div>
+  {{tile-layer url="https://a.tiles.mapbox.com/v3/foursquare.meku766r/{z}/{x}/{y}.png"}}
+
+  {{marker-layer location=mapLocation}}
+
+{{/leaflet-map}}
+
+
