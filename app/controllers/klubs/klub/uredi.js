@@ -5,6 +5,7 @@ export default Ember.Controller.extend({
   editorEmail: null,
   submitButtonDisabled: false,
   flashMessages: Ember.inject.service(),
+  formattedAddress: null,
 
   actions: {
     updateKlub() {
@@ -15,6 +16,7 @@ export default Ember.Controller.extend({
       } else {
         klub.set('categories', klub.get('categories').split(',').map(cat => cat.trim().dasherize()))
       }
+      klub.set('address', this.get('formattedAddress'))
       var editorEmail = this.get('editorEmail')
       let klub_id = klub.id
 
@@ -44,9 +46,9 @@ export default Ember.Controller.extend({
       })
     },
 
-    setLatLng(latitude, longitude) {
-      this.get('model').setProperties({
-      latitude, longitude})
+    setAddressAttrs(latitude, longitude, formattedAddress, town) {
+      this.get('model').setProperties({latitude, longitude, town});
+      this.setProperties({formattedAddress});
     }
   }
 })

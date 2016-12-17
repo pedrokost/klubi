@@ -74,9 +74,7 @@ export default Ember.Component.extend({
           that.get('marker').setOpacity(1);
           that.set('formattedAddress', formattedAddress);
 
-          that.sendAction('action', latitude, longitude);
-          // that.sendAction('town', town);
-          // that.sendAction('formattedAddress', formattedAddress)
+          that.sendAction('action', latitude, longitude, formattedAddress, town);
 
           that.showAddressOnMap(results[0].geometry.location);
         }
