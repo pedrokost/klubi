@@ -1,7 +1,7 @@
-<div class="button-group button-group--mobile">
+<div class="button-group button-group--mobile fancy-scrollbar">
   {{#each recentCategories as |category|}}<label>
       <input type="radio" name="button-group" value={{category.identifier}}>
-      {{#link-to 'klubs' category.identifier  classNameBindings=":category :button-group-item"}}
+      {{#link-to linkDestination category.identifier  classNameBindings=":category :button-group-item"}}
         {{category.name}}
         {{#if category.isBeta}}
           <span class="tag tag-beta">BETA</span>

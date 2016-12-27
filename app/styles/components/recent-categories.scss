@@ -1,10 +1,5 @@
 .recent-categories {
-  position: absolute;
-  z-index: 1002;
-  background: puple;
-  top: 0px;
-  left: 0;
-  right: 0;
+  position: relative;
 }
 
 .button-group.button-group--mobile {
@@ -31,25 +26,9 @@
   $button-group-color-checked: white;
   $button-group-border-checked: darken($button-group-background-checked, 15%);
 
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  right: 0;
-  left: 0;
-  @include pad($base-page-pad);
   white-space: nowrap;
-  max-width: 100%;
-  overflow: auto;
-
-
-  @include media($medium-screen-up) {
-    right:  $widgets-separation;
-    left: $sliding-menu-width;
-  }
-
-  @include media($landscape-large-screen-up) {
-    right: $data-bar-width + $widgets-separation;
-  }
+  overflow-x: auto;
+  @include pad(1px);
 
   input {
     display: none;

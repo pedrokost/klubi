@@ -3,19 +3,14 @@
     {{#link-to 'klubs' 'fitnes' class="side-nav-item-inner"}}{{fa-icon "map-marker"}} <span>Zemljevid<small>Najdi klub zase</small></span>{{/link-to}}
   {{/link-to}}
 
+  {{#link-to 'seznam-klubov.klubs' tagName="li" href=false class="side-nav-item"}}
+    {{#link-to 'seznam-klubov.klubs' 'fitnes' class="side-nav-item-inner"}}{{fa-icon "list-ol"}} <span>Seznam klubov<small>Najdi klub zase</small></span>{{/link-to}}
+  {{/link-to}}
 
-  <li class="side-nav-item">
-    <a href="#" class="side-nav-item-inner">
-      {{fa-icon "th-list"}} <span>Seznam klubov<small>Pride kmalu...</small></span>
-    </a>
-  </li>
-
-{{!--   {{#link-to 'clanki' tagName="li" href=false class="side-nav-item"}}
-    {{#link-to 'clanki' class="side-nav-item-inner"}}{{fa-icon "newspaper-o"}} <span>Članki<small>Zadnje novosti</small></span>{{/link-to}}
-  {{/link-to}} --}}
   {{#link-to 'dodaj-klub' tagName="li" href=false class="side-nav-item"}}
     {{#link-to 'dodaj-klub' class="side-nav-item-inner"}}{{fa-icon "plus"}} <span>Dodaj klub<small>Ga ne najdes? Dodaj ga!</small></span>{{/link-to}}
   {{/link-to}}
+
   {{#link-to 'oprojektu' tagName="li" href=false class="side-nav-item"}}
     {{#link-to 'oprojektu' class="side-nav-item-inner"}}{{fa-icon "info"}} <span>O projektu<small>Kaj? Zakaj? Kdo? Kontakt</small></span>{{/link-to}}
   {{/link-to}}

@@ -31,6 +31,27 @@
 .klubs-page {
   height: 100%;
   width: 100%;
+
+  .recent-categories {
+    $widgets-separation: 10px;
+
+    position: absolute;
+    z-index: 1002;
+    top: 0px;
+    left: 0;
+    right: 0;
+    // overflow: hidden;
+    margin: $base-page-pad;
+
+    @include media($medium-screen-up) {
+      right:  $widgets-separation;
+      left: $sliding-menu-width;
+    }
+
+    @include media($landscape-large-screen-up) {
+      right: $data-bar-width + $widgets-separation;
+    }
+  }
 }
 
 

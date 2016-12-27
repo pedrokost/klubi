@@ -1,0 +1,33 @@
+.klub-list {
+  position: relative;
+  // background: #ccc;
+  // padding: 7px 5px 7px 3px;
+}
+
+.klub-list-search {
+  margin: 0;
+  width: 100%;
+}
+
+.klub-list-collection {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+}
+
+.klub-list-collection-container {
+  > div {
+    @extend %fancy-scrollbar;
+  }
+}
+
+
+.klub-list-search {
+
+  .klub-list-search-input {
+    border-radius: 2px;
+    padding: 0.75em 1em;
+    margin-bottom: 3em;
+  }
+}
+

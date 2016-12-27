@@ -1,0 +1,86 @@
+.klub-card {
+
+  list-style: none;
+
+  // @include animation(fadeIn 0.25s ease);
+  // @include animation-fill-mode(backwards);
+
+  // $delay-ease: 1;
+  // @for $i from 1 through 20 {
+  //   &:nth-of-type(#{$i}){
+  //     @include animation-delay($i * $delay-ease * 0.1s);
+  //     $delay-ease: $delay-ease * 0.95;
+  //   }
+  // }
+
+  & > .klub-card-inner {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 1px solid #DEDEDE;
+    cursor: pointer;
+    padding-bottom: 5px;
+    line-height: 20px;
+
+    &:hover, &:active, &.active {
+      background-color: rgb(240,240,240);
+    }
+
+    .klub-card-parent {
+      padding: 10px;
+      border-radius: 3px;
+      &.active, &.is-hovered {
+        background-color: rgb(240,240,240);
+      }
+    }
+
+    .klub-card-branch {
+      &.active, &.is-hovered {
+        background-color: rgb(240,240,240);
+      }
+    }
+  }
+
+  &.klub-card--without-branches {
+
+  }
+
+  &.klub-card--with-branches {
+    & > .klub-card-inner {
+      padding: 0;
+    }
+
+    &:hover, &:active, &.active {
+      .klub-card-branch {
+        background-color: $white;
+      }
+    }
+
+    .klub-card-parent, .klub-card-branch {
+      color: inherit;
+      display: block;
+
+    }
+
+    .klub-card-parent {
+      padding: 10px 10px 5px 10px;
+    }
+
+    .klub-card-branch {
+      border-top: 1px dashed #F1F1F1;
+      padding: 5px 10px;
+      &:last-child {
+        padding-bottom: 10px;
+      }
+
+      &:hover, &:active, &.active {
+        background-color: rgb(240,240,240);
+      }
+    }
+  }
+}
+
+.klub-card-parent {
+  color: inherit;
+  display: block;
+}

@@ -9,5 +9,6 @@ export default Ember.Component.extend({
     Ember.Object.create({identifier: 'frizbi', name: 'Frizbi'}),
     Ember.Object.create({identifier: 'judo', name: 'Judo', isBeta: true}),
     Ember.Object.create({identifier: 'gimnastika', name: 'Gimnastika', isBeta: true})
-  ]
+  ],
+  linkDestination: 'klubs'
 })

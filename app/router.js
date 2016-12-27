@@ -17,18 +17,25 @@ Router.map(function() {
     })
   })
 
+  this.route('seznam-klubov', {
+    path: 'seznam-klubov'
+  }, function() {
+    this.route('klubs', {
+      path: '/:category'
+    });
+  })
+
   this.route('klubs', {
     path: '/:category',
     resetNamespace: true
   }, function() {
     this.route('klub', {
-      path: '/:klub_id'
-    }, function() {
-      this.route('uredi')
+        path: '/:klub_id'
+      }, function() {
+        this.route('uredi')
     }) // generates subroutes
 
     this.route('new')
-
   })
 })
 
