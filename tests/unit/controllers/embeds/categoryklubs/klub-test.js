@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('controller:klubs/klub', 'Unit | Controller | klubs/klub', {
+moduleFor('controller:embeds/categoryklubs/klub', 'Unit | Controller | embeds/categoryklubs/klub', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });

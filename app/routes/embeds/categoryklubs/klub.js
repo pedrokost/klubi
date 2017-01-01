@@ -5,6 +5,7 @@ import Prerenderable from 'zatresi/mixins/after-render-prerenderable';
 export default KlubRoute.extend(Prerenderable, {
   WANTED_ZOOM_LEVEL: 16,
   assetMap: Ember.inject.service('asset-map'),
+
   setupController(controller, model) {
     // When navigating directly to a klub's page that is
     // not included in the default category, the model

@@ -68,7 +68,7 @@ for (var i = 0; i < quantity; i++) {
 
 function createKlubById (category, id) {
   return {
-    name: category + ' ' +  id,
+    name: `${category} ${id}`,
     address: 'OŠ Toma Brejca, Šutna 39, 1241 Kamnik',
     town: 'Kamnik',
     latitude: 46.122 + Math.random() * 1.2 - 0.6,

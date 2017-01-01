@@ -3,7 +3,7 @@
 
     <ul class="fa-ul klub_page-item_list js-close">
       <li class='klub_page-item'>
-        <h1 itemprop="name">{{name}} {{#link-to 'klubs.klub.uredi' klubId title="Uredi podatke o klubu" class="klub_page-edit_klub"}}{{fa-icon "pencil"}}{{/link-to}}</h1>{{fa-icon "close" fixedWidth=true listItem=true classNames="klub_page-close_btn js-close" title="Zapri"}}
+        <h1 itemprop="name">{{name}} {{#link-to 'klubs.klub.uredi' categoryShown klubId title="Uredi podatke o klubu" class="klub_page-edit_klub"}}{{fa-icon "pencil"}}{{/link-to}}</h1>{{fa-icon "close" fixedWidth=true listItem=true classNames="klub_page-close_btn js-close" title="Zapri"}}
       </li>
       {{#if address}}
         <li class='klub_page-item'>
@@ -32,7 +32,7 @@
       {{/if}}
 
       <li class='klub_page-item'>
-        <p>{{#link-to 'klubs.klub.uredi' klubId}}So podatki napačni? Uredi klub!{{/link-to}}</p>{{fa-icon "pencil" fixedWidth=true listItem=true}}
+        <p>{{#link-to 'klubs.klub.uredi' categoryShown klubId}}So podatki napačni? Uredi klub!{{/link-to}}</p>{{fa-icon "pencil" fixedWidth=true listItem=true}}
       </li>
     </ul>
   </article>
