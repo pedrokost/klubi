@@ -2,8 +2,11 @@
   z-index: 1006;
   position: absolute;
   top: 65px;
-  right: $data-bar-width + 10px;
-  left: $sliding-menu-width + 10px;
+  margin: $base-page-pad;
+
+  @include media($medium-screen-up) {
+    top: 105px;
+  }
 }
 
 // Sync this with text-color.scss
