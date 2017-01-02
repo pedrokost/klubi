@@ -65,6 +65,11 @@ quantity = Math.random() * 60;
 for (var i = 0; i < quantity; i++) {
   KLUBS.push(createKlubById('wellness', i));
 }
+quantity = Math.random() * 30;
+for (var i = 0; i < quantity; i++) {
+  KLUBS.push(createKlubById('cheerleading', i));
+}
+
 
 function createKlubById (category, id) {
   return {

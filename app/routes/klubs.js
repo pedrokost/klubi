@@ -66,7 +66,7 @@ export default Ember.Route.extend({
     }]
   },
   beforeModel(transition) {
-    const supportedCategories = ['fitnes', 'wellness', 'karate', 'frizbi', 'judo', 'gimnastika']
+    const supportedCategories = ['fitnes', 'wellness', 'karate', 'frizbi', 'judo', 'gimnastika', 'cheerleading']
 
     var categoryToLoad = transition.state.params.klubs.category
 
