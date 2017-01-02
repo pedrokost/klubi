@@ -9,7 +9,7 @@ export default Ember.Route.extend(Prerenderable, {
   },
   headTags() {
     var klub = this.modelFor(this.routeName)
-    var category = this.controllerFor(this.routeName).get('category')
+    var category = this.controllerFor(this.routeName).get('categoryShown')
     return [{
       type: 'meta',
       tagId: 'meta-description',
