@@ -31,6 +31,9 @@ module.exports = function (environment) {
     ifa: {
       enabled: false
     },
+    rollbar: {
+      accessToken: 'd66dea1a45e7484eaa73e7f24dbd7044'
+    },
 
     // TODO: Review before going go production!!
     contentSecurityPolicy: {
