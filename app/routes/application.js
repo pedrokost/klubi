@@ -1,4 +1,8 @@
 import Ember from 'ember';
+
+// window.ENV = window.ENV || {};
+// window.ENV.LOG_EVENT_TRACKING = true; // Google Analytics see what is tracked
+
 export default Ember.Route.extend({
   title(tokens) {
     if (!!tokens.length) {

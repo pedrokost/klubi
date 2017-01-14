@@ -50,8 +50,6 @@ module.exports = function (environment) {
   if (environment === 'development') {
     ENV.host = '/api'
 
-    // window.ENV.LOG_EVENT_TRACKING = true // Google Analytics see what is tracked
-
     ENV.contentSecurityPolicy['script-src'] = ENV.contentSecurityPolicy['script-src'] + " 'unsafe-eval' localhost:4200"
 
     // ENV.APP.LOG_RESOLVER = true

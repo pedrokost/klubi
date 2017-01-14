@@ -69,7 +69,6 @@ export default Ember.Route.extend({
     const supportedCategories = ['fitnes', 'wellness', 'karate', 'frizbi', 'judo', 'gimnastika', 'cheerleading']
 
     var categoryToLoad = transition.state.params.klubs.category
-
     if (categoryToLoad && supportedCategories.indexOf(categoryToLoad) === -1) {
       transition.abort()
       let that = this
