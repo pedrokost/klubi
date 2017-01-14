@@ -1,4 +1,5 @@
 import Ember from 'ember'
+import _, { intersection } from 'zatresi/helpers/intersection';
 
 export default Ember.Route.extend({
   assetMap: Ember.inject.service('asset-map'),
@@ -73,7 +74,13 @@ export default Ember.Route.extend({
       transition.abort()
       let that = this
       this.store.findRecord('klub', categoryToLoad).then(function (klub) {
-        that.transitionTo('klubs.klub', klub.get('categories.firstObject'), klub)
+
+        // Do not naively take the first category, but the first in the
+        const valid_categories = intersection(klub.get('categories'), supportedCategories);
+
+        // set of supported categories
+        // Let it fail if no valid categories, it just shouldn't happen
+        that.transitionTo('klubs.klub', valid_categories[0], klub)
       })
     }
 

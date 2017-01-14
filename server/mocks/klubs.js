@@ -41,6 +41,20 @@ KLUBS = [
     slug: 'sankukai-karate-klub-grosuplje',
     categories: ['karate'],
     parent_id: null,
+  },
+  {
+    name: 'Mocky mocky',
+    address: 'Nova OŠ Luis Adamič, Tovarniška 14, Grosuplje',
+    town: 'Grosuplje',
+    latitude: 45.9557645,
+    longitude: 14.658899,
+    website: 'http://www.sankukai.org/index.php/sankukai-karate-klubi/karateklubgrosuplje',
+    email: 'info@sankukai.org',
+    facebook_url: 'http://www.sankukai.org/index.php/sankukai-karate-klubi/karateklubgrosuplje',
+    phone:  '031 231 440',
+    slug: 'mocky-mocky',
+    categories: ['arena', 'trx', 'karate'],
+    parent_id: null,
   }
 ];
 
