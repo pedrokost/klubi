@@ -1,0 +1,15 @@
+.embedded-add-klub-btn {
+  @extend %button;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+
+  padding: 0.5em 0.75em;
+
+  @include media($medium-screen-up) {
+    padding: 0.75em 1em;
+    top: $base-page-pad;
+    right: $base-page-pad;
+    bottom: auto;
+  }
+}

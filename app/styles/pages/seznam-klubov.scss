@@ -2,7 +2,7 @@
 * @Author: Pedro Kostelec
 * @Date:   2016-12-27 22:30:42
 * @Last Modified by:   Pedro Kostelec
-* @Last Modified time: 2017-01-01 14:48:56
+* @Last Modified time: 2017-01-18 22:51:11
 */
 .seznam-klubov-page {
 
@@ -18,5 +18,9 @@
 
   article {
     margin-bottom: 0;
+  }
+
+  .embedded-add-klub-btn {
+    z-index: 1003;
   }
 }
