@@ -1,0 +1,33 @@
+/*
+* @Author: Pedro Kostelec
+* @Date:   2017-01-29 11:20:15
+* @Last Modified by:   Pedro Kostelec
+* @Last Modified time: 2017-01-29 11:22:21
+*/
+
+.klub-form {
+  button[type=submit] .loader-inline {
+    @extend %loader-inline;
+    display: none;
+  }
+  button[type=submit]:disabled .loader-inline {
+    display: inline;
+  }
+
+  .fa-ul {
+    margin-left: 0;
+  }
+
+  .fa-li {
+    left: 0;
+    text-align: left;
+  }
+
+  label {
+    margin-left: 1.5rem;
+  }
+
+  .line-behind-text:not(:first-child) {
+    margin-top: 3em;
+  }
+}

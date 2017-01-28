@@ -1,0 +1,53 @@
+<form {{action "save" on="submit"}}>
+  <ul class="fa-ul">
+    <li class="line-behind-text">
+      <h4>Podatki o klubu</h4>
+    </li>
+    <li>
+      <label>Ime: </label>{{input type="text" value=klub.name  required="required" placeholder="Fitnes Maribor"}}{{fa-icon "home" fixedWidth=true listItem=true}}
+    </li>
+    <li>
+      <label>Kategorije: </label><small>Ločene z vejico.</small>{{input type="text" value=klub.categories  required="required" placeholder="fitnes,zumba"}}{{fa-icon "clone" fixedWidth=true listItem=true}}
+
+    </li>
+    <li>
+      <label>Naslov: </label>{{input type="text" value=klub.address  required="required" placeholder="Mariborska cesta 5, Maribor"}}{{fa-icon "map-marker" fixedWidth=true listItem=true}}
+      {{address-shower address=klub.address action="setAddressAttrs"}}
+    </li>
+    <li>
+      <label>Spletna stran: </label>{{input type="url" value=klub.website placeholder="http://www.maribor-fitnes.si"}}{{fa-icon "external-link-square" fixedWidth=true listItem=true}}
+    </li>
+    <li>
+      <label>Facebook stran: </label>{{input type="url" value=klub.facebookUrl placeholder="http://facebook.com/mariborfitnes"}}{{fa-icon "facebook" fixedWidth=true listItem=true}}
+    </li>
+    <li>
+      <label>Telefon: </label>{{input type="tel" value=klub.phone placeholder="051 289 233"}}{{fa-icon "phone" fixedWidth=true listItem=true}}
+    </li>
+    <li>
+      <label>Epošta: </label>{{input type="email" value=klub.email placeholder="info@maribor-fitnes.si"}}{{fa-icon "envelope" fixedWidth=true listItem=true}}
+    </li>
+    <li>
+      <label>Opombe: </label>{{textarea value=klub.notes placeholder="Kaj posebnega?"}}{{fa-icon "sticky-note" fixedWidth=true listItem=true}}
+    </li>
+    <li class="line-behind-text">
+      <h4>Nekaj o tebi</h4>
+    </li>
+    <li>
+      <label>Tvoja epošta: </label>{{input type="email" value=klub.editor required="required" placeholder="ime.priimek@gmail.com"}}{{fa-icon "envelope" fixedWidth=true listItem=true}}
+      <small>Nikoli ti ne bomo poslali nezaželjene pošte. Obvestili te bomo, ko so podatki sprejeti.</small>
+    </li>
+    <li class="line-behind-text">
+    </li>
+    <li>
+      <button type="submit" name="button" id="button" disabled={{submitButtonDisabled}}>Pošlji
+      <div class="loader-inline">
+        <div class="spinner-container">
+          <div class="spinner"></div>
+          <div class="spinner"></div>
+          <div class="spinner"></div>
+        </div>
+      </div>
+      </button>
+    </li>
+  </ul>
+</form>

@@ -32,7 +32,8 @@ module.exports = function (environment) {
       enabled: false
     },
     rollbar: {
-      accessToken: 'd66dea1a45e7484eaa73e7f24dbd7044'
+      accessToken: 'd66dea1a45e7484eaa73e7f24dbd7044',
+      enabled: environment === 'production'
     },
 
     // TODO: Review before going go production!!
@@ -51,7 +52,8 @@ module.exports = function (environment) {
   }
 
   if (environment === 'development') {
-    ENV.host = '/api'
+    ENV.host = '/api' // For fixtures
+    // ENV.host = 'http://api.app.local:3200'
 
     ENV.contentSecurityPolicy['script-src'] = ENV.contentSecurityPolicy['script-src'] + " 'unsafe-eval' localhost:4200"
 
@@ -81,7 +83,8 @@ module.exports = function (environment) {
   }
 
   if (environment === 'funky') {
-    ENV.host = 'http://api.app.local:3200'
+    // ENV.host = 'http://api.app.local:3200'
+    ENV.host = 'http://api.zatresi.si'
   }
 
   return ENV

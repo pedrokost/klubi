@@ -18,6 +18,7 @@ export default Model.extend({
   parent: belongsTo('klub', { inverse: 'branches', async: true }),
   branches: hasMany('klub', { inverse: 'parent', async: true }),
   notes: attr('string'),
+  editor: attr('string'),
 
   location: Ember.computed('latitude', 'longitude', function () {
     return [this.get('latitude'), this.get('longitude')]

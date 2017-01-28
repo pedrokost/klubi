@@ -15,7 +15,6 @@
     "test": "ember test"
   },
   "devDependencies": {
-    "active-model-adapter": "^2.0.2",
     "body-parser": "^1.13.3",
     "broccoli-asset-rev": "^2.4.5",
     "connect-restreamer": "^1.0.2",
@@ -39,7 +38,7 @@
     "ember-cli-meta-tags": "3.0.4",
     "ember-cli-qunit": "3.0.4",
     "ember-cli-release": "^0.2.9",
-    "ember-cli-rollbar": "0.3.0",
+    "ember-cli-rollbar": "git@github.com:svvitale/ember-cli-rollbar.git#a618c39b7707d2f21e4106126b3a66a76241a659",
     "ember-cli-sass": "5.6.0",
     "ember-cli-sri": "^2.1.0",
     "ember-cli-test-loader": "^1.1.0",

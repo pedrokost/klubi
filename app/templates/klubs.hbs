@@ -7,7 +7,7 @@
 
       {{#marker-cluster-layer zoomToBoundsOnClick="true" spiderfyOnMaxZoom="true"}}
         {{#each filteredKlubs as |klub|}}
-          {{marker-layer location=klub.location icon=(klubIcon category klub.name) onClick=(action "showKlub" klub) }}
+          {{marker-layer location=klub.location icon=(klub-icon category klub.name) onClick=(action "showKlub" klub) }}
         {{/each}}
       {{/marker-cluster-layer}}
 

@@ -9,6 +9,9 @@ module.exports = function(app) {
     extended: true
   }));
 
+  var morgan = require('morgan');
+  app.use(morgan('dev'))
+
   mocks.forEach(function(route) { route(app); });
 
   // proxy expects a stream, but express will have turned

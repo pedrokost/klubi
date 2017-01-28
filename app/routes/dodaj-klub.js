@@ -50,7 +50,9 @@ export default Ember.Route.extend(Prerenderable, {
     return this.store.createRecord('klub', {
       // name: 'Name',
       // email: 'name@klub.com',
-      // address: 'Za Gasilskim domom 11, 1290 Grosuplje'
+      // categories: ['fitnes', 'hoho'],
+      // address: 'Za Gasilskim domom 11, 1290 Grosuplje',
+      // editor: 'test@test.com'
     });
   }
 });

@@ -6,7 +6,7 @@
       {{tile-layer url="https://a.tiles.mapbox.com/v3/foursquare.meku766r/{z}/{x}/{y}.png"}}
       {{#marker-cluster-layer maxClusterRadius="60" zoomToBoundsOnClick="true" spiderfyOnMaxZoom="true" removeOutsideVisibleBounds="false"}}
         {{#each model as |klub|}}
-          {{marker-layer location=klub.location icon=(klubIcon category klub.name) onClick=(action "showKlub" klub) }}
+          {{marker-layer location=klub.location icon=(klub-icon category klub.name) onClick=(action "showKlub" klub) }}
         {{/each}}
       {{/marker-cluster-layer}}
     {{/leaflet-map}}

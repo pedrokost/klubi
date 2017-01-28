@@ -1,26 +1,4 @@
 .dodaj-klub {
-  .line-behind-text:not(:first-child) {
-    margin-top: 3em;
-  }
 
-  .fa-ul {
-    margin-left: 0;
-  }
 
-  .fa-li {
-    left: 0;
-    text-align: left;
-  }
-
-  label {
-    margin-left: 1.5rem;
-  }
-
-  button[type=submit] .loader-inline {
-    @extend %loader-inline;
-    display: none;
-  }
-  button[type=submit]:disabled .loader-inline {
-    display: inline;
-  }
 }

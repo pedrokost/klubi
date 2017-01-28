@@ -5,60 +5,7 @@
       <h1 title="Uredi klub">Uredi klub</h1>
 
       <section>
-        <form {{action "updateKlub" on="submit"}}>
-          <ul class="fa-ul dodaj-klub-item_list">
-            <li class="line-behind-text">
-              <h4>Podatki o klubu</h4>
-            </li>
-            <li class='dodaj-klub-item'>
-              <label>Ime: </label>{{input type="text" value=model.name  required="required" placeholder="Fitnes Maribor"}}{{fa-icon "home" fixedWidth=true listItem=true}}
-            </li>
-            <li class='dodaj-klub-item'>
-              <label>Kategorije: </label><small>Ločene z vejico.</small>{{input type="text" value=model.categories  required="required" placeholder="fitnes,zumba"}}{{fa-icon "clone" fixedWidth=true listItem=true}}
-
-            </li>
-            <li class='dodaj-klub-item'>
-              <label>Naslov: </label>{{input type="text" value=model.address  required="required" placeholder="Mariborska cesta 5, Maribor"}}{{fa-icon "map-marker" fixedWidth=true listItem=true}}
-              {{address-shower address=model.address action="setAddressAttrs"}}
-            </li>
-            <li class='dodaj-klub-item'>
-              <label>Spletna stran: </label>{{input type="url" value=model.website placeholder="http://www.maribor-fitnes.si"}}{{fa-icon "external-link-square" fixedWidth=true listItem=true}}
-            </li>
-            <li class='dodaj-klub-item'>
-              <label>Facebook stran: </label>{{input type="url" value=model.facebookUrl placeholder="http://facebook.com/mariborfitnes"}}{{fa-icon "facebook" fixedWidth=true listItem=true}}
-            </li>
-            <li class='dodaj-klub-item'>
-              <label>Telefon: </label>{{input type="tel" value=model.phone placeholder="051 289 233"}}{{fa-icon "phone" fixedWidth=true listItem=true}}
-            </li>
-            <li class='dodaj-klub-item'>
-              <label>Epošta: </label>{{input type="email" value=model.email placeholder="info@maribor-fitnes.si"}}{{fa-icon "envelope" fixedWidth=true listItem=true}}
-            </li>
-            <li class='dodaj-klub-item'>
-              <label>Opombe: </label>{{textarea value=model.notes placeholder="Kaj posebnega?"}}{{fa-icon "sticky-note" fixedWidth=true listItem=true}}
-            </li>
-            <li class="line-behind-text">
-              <h4>Nekaj o tebi</h4>
-            </li>
-            <li class='dodaj-klub-item'>
-              <label>Tvoja epošta: </label>{{input type="email" value=editorEmail required="required" placeholder="ime.priimek@gmail.com"}}{{fa-icon "envelope" fixedWidth=true listItem=true}}
-              <small>Obvestili te bomo, ko pregledamo popravke. Nikoli ti ne bomo poslali nezaželjene pošte.</small>
-            </li>
-            <li class="line-behind-text">
-            </li>
-            <li class="dodaj-klub-item">
-              <button type="submit" name="button" id="button" disabled={{submitButtonDisabled}}>Pošlji
-              <div class="loader-inline">
-                <div class="spinner-container">
-                  <div class="spinner"></div>
-                  <div class="spinner"></div>
-                  <div class="spinner"></div>
-                </div>
-              </div>
-              </button>
-            </li>
-          </ul>
-        </form>
-
+        {{klub-form klub=model submitButtonDisabled=submitButtonDisabled submit="updateKlub"}}
       </section>
     </article>
 

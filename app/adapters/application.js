@@ -1,13 +1,14 @@
 import DS from 'ember-data';
 import config from '../config/environment';
-import ActiveModelAdapter from 'active-model-adapter';
+// import ActiveModelAdapter from 'active-model-adapter';
+import JSONAPIAdapter from 'ember-data/adapters/json-api';
 
-export default ActiveModelAdapter.extend({
+export default JSONAPIAdapter.extend({
   host: config.host,
   // namespace: 'v2'
   // TODO: add accept header
   headers: {
-    'Accept': 'application/vnd.zatresi.v1'
+    'Accept': 'application/vnd.zatresi.v2+json'
     // TODO: add API_KEY
   },
   shouldBackgroundReloadRecord() {
