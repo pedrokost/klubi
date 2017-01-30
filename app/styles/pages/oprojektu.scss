@@ -17,6 +17,18 @@
         list-style: inherit;
       }
     }
+
+    li {
+      margin-bottom: 0.5em;
+    }
+  }
+
+  ol {
+    li {
+      list-style-type: decimal;
+      list-style-position: inside;
+      margin-bottom: 1em;
+    }
   }
 
   .icon-bullets {
