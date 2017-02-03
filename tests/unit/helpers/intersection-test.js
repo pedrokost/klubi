@@ -1,5 +1,5 @@
 
-import { intersection } from 'zatresi/helpers/intersection';
+import { intersection } from 'klubi/helpers/intersection';
 import { module, test } from 'qunit';
 
 module('Unit | Helper | intersection');

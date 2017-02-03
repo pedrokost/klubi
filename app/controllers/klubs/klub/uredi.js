@@ -21,7 +21,7 @@ export default Ember.Controller.extend({
         rollbar.error('Something went wrong when updating klub', err)
         self.set('submitButtonDisabled', false)
         Ember.$("html, body, .bodywrapper").animate({ scrollTop: 0 }, "slow")
-        flashMessages.error('Prišlo je do neznane napake pri shranjevanju podatkov o klubu :( Če ti ponovno ne uspe, me o tem prosim obesti na pedro@zatresi.si.')
+        flashMessages.error('Prišlo je do neznane napake pri shranjevanju podatkov o klubu :( Če ti ponovno ne uspe, me o tem prosim obesti na pedro@klubi.si.')
       })
     }
   }

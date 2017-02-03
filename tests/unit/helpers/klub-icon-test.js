@@ -1,5 +1,5 @@
 
-import { klubIcon } from 'zatresi/helpers/klub-icon';
+import { klubIcon } from 'klubi/helpers/klub-icon';
 import { module, test } from 'qunit';
 
 module('Unit | Helper | klub icon');

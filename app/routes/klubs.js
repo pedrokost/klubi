@@ -1,5 +1,5 @@
 import Ember from 'ember'
-import _, { intersection } from 'zatresi/helpers/intersection';
+import _, { intersection } from 'klubi/helpers/intersection';
 
 export default Ember.Route.extend({
   assetMap: Ember.inject.service('asset-map'),
@@ -13,7 +13,7 @@ export default Ember.Route.extend({
   headTags() {
     var category = this.controllerFor(this.routeName).get('category')
 
-    let canonical = `http://www.zatresi.si/${category}`
+    let canonical = `http://www.klubi.si/${category}`
 
     return [{
       type: 'meta',

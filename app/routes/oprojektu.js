@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import Prerenderable from 'zatresi/mixins/after-render-prerenderable';
+import Prerenderable from 'klubi/mixins/after-render-prerenderable';
 
 export default Ember.Route.extend(Prerenderable, {
   titleToken: 'O projektu',
@@ -15,14 +15,14 @@ export default Ember.Route.extend(Prerenderable, {
     tagId: 'link-canonical',
     attrs: {
       rel: 'canonical',
-      content: 'http://www.zatresi.si/oprojektu'
+      content: 'http://www.klubi.si/oprojektu'
     }
   }, {
     type: 'meta',
     tagId: 'meta-og-url',
     attrs: {
       property: 'og:url',
-      content: 'http://www.zatresi.si/oprojektu'
+      content: 'http://www.klubi.si/oprojektu'
     }
   }, {
     type: 'meta',

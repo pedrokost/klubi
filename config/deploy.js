@@ -9,7 +9,7 @@ module.exports = function (deployTarget) {
     build: {},
     redis: {
       allowOverwrite: true,
-      keyPrefix: 'zatresi',
+      keyPrefix: 'klubi',
       maxRecentUploads: 100
     },
     s3: {

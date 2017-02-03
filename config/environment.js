@@ -2,12 +2,12 @@
 
 module.exports = function (environment) {
   var ENV = {
-    modulePrefix: 'zatresi',
+    modulePrefix: 'klubi',
     environment: environment,
-    host: 'http://api.zatresi.si',
+    host: 'http://api.klubi.si',
     locationType: 'auto',
     rootURL: '/',
-    cdnPrepend: 'https://d3s8w0mc0h7w8s.cloudfront.net/',
+    cdnPrepend: 'https://d2ne2albfoowfo.cloudfront.net/',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -39,15 +39,15 @@ module.exports = function (environment) {
     // TODO: Review before going go production!!
     contentSecurityPolicy: {
       'default-src': "'none'",
-      'script-src': "'self' 'unsafe-inline' *.googleapis.com *.gstatic.com d3s8w0mc0h7w8s.cloudfront.net connect.facebook.net www.google-analytics.com cdnjs.cloudflare.com",
-      'font-src': "'self' fonts.gstatic.com d3s8w0mc0h7w8s.cloudfront.net",
-      'connect-src': "'self' api.zatresi.si app.local:3000 *.app.local:3000 app.local:3200 *.app.local:3200 d3s8w0mc0h7w8s.cloudfront.net maps.googleapis.com",
-      'img-src': "'self' data: *.gstatic.com *.googleapis.com *.google.com  *.tiles.mapbox.com d3s8w0mc0h7w8s.cloudfront.net www.google-analytics.com fitnes.si www.fitness-info.si",
-      'style-src': "'self' 'unsafe-inline' fonts.googleapis.com d3s8w0mc0h7w8s.cloudfront.net", // TODO: Elimintae unsafe-inline
-      'media-src': "'self' d3s8w0mc0h7w8s.cloudfront.net",
+      'script-src': "'self' 'unsafe-inline' *.googleapis.com *.gstatic.com d2ne2albfoowfo.cloudfront.net connect.facebook.net www.google-analytics.com cdnjs.cloudflare.com",
+      'font-src': "'self' fonts.gstatic.com d2ne2albfoowfo.cloudfront.net",
+      'connect-src': "'self' api.klubi.si app.local:3000 *.app.local:3000 app.local:3200 *.app.local:3200 d2ne2albfoowfo.cloudfront.net maps.googleapis.com",
+      'img-src': "'self' data: *.gstatic.com *.googleapis.com *.google.com  *.tiles.mapbox.com d2ne2albfoowfo.cloudfront.net www.google-analytics.com fitnes.si www.fitness-info.si",
+      'style-src': "'self' 'unsafe-inline' fonts.googleapis.com d2ne2albfoowfo.cloudfront.net", // TODO: Elimintae unsafe-inline
+      'media-src': "'self' d2ne2albfoowfo.cloudfront.net",
       'report-uri': 'localhost:4200',
       'frame-src': 'www.google.com www.facebook.com *.ak.facebook.com',
-      'font-src': "'self' d3s8w0mc0h7w8s.cloudfront.net fonts.gstatic.com"
+      'font-src': "'self' d2ne2albfoowfo.cloudfront.net fonts.gstatic.com"
     }
   }
 
@@ -84,7 +84,7 @@ module.exports = function (environment) {
 
   if (environment === 'funky') {
     // ENV.host = 'http://api.app.local:3200'
-    ENV.host = 'http://api.zatresi.si'
+    ENV.host = 'http://api.klubi.si'
   }
 
   return ENV

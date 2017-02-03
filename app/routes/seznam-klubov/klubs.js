@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import Prerenderable from 'zatresi/mixins/after-render-prerenderable';
+import Prerenderable from 'klubi/mixins/after-render-prerenderable';
 
 export default Ember.Route.extend(Prerenderable, {
   assetMap: Ember.inject.service('asset-map'),
@@ -13,7 +13,7 @@ export default Ember.Route.extend(Prerenderable, {
   headTags() {
     var category = this.controllerFor(this.routeName).get('category')
 
-    let canonical = `http://www.zatresi.si/seznam-klubov/${category}`
+    let canonical = `http://www.klubi.si/seznam-klubov/${category}`
 
     return [{
       type: 'meta',

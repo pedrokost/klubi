@@ -17,7 +17,7 @@ var options = {
 
   'ember-font-awesome': { includeFontAwesomeAssets: false },
   fingerprint: {
-    prepend: 'https://d3s8w0mc0h7w8s.cloudfront.net/',
+    prepend: 'https://d2ne2albfoowfo.cloudfront.net/',
     generateAssetMap: true,
     fingerprintAssetMap: true,
     exclude: [

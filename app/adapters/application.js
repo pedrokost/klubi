@@ -8,7 +8,7 @@ export default JSONAPIAdapter.extend({
   // namespace: 'v2'
   // TODO: add accept header
   headers: {
-    'Accept': 'application/vnd.zatresi.v2+json'
+    'Accept': 'application/vnd.klubi.v2+json'
     // TODO: add API_KEY
   },
   shouldBackgroundReloadRecord() {

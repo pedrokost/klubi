@@ -1,6 +1,6 @@
 import Ember from 'ember';
-import KlubRoute from 'zatresi/routes/klubs/klub';
-import Prerenderable from 'zatresi/mixins/after-render-prerenderable';
+import KlubRoute from 'klubi/routes/klubs/klub';
+import Prerenderable from 'klubi/mixins/after-render-prerenderable';
 
 export default KlubRoute.extend(Prerenderable, {
   WANTED_ZOOM_LEVEL: 16,
@@ -45,14 +45,14 @@ export default KlubRoute.extend(Prerenderable, {
       tagId: 'link-canonical',
       attrs: {
         rel: 'canonical',
-        content: `http://www.zatresi.si/${category}/${klub.get('id')}`
+        content: `http://www.klubi.si/${category}/${klub.get('id')}`
       }
     }, {
       type: 'meta',
       tagId: 'meta-og-url',
       attrs: {
         property: 'og:url',
-        content: `http://www.zatresi.si/${category}/${klub.get('id')}`
+        content: `http://www.klubi.si/${category}/${klub.get('id')}`
       }
     }, {
       type: 'meta',

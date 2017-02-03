@@ -12,7 +12,7 @@ export default EmberLeafletComponent.extend({
       zoomOutTitle: 'Oddalji'
     }
 
-    if (this.get('zatresiZoomControl')) {
+    if (this.get('klubiZoomControl')) {
       this.L.control.zoom(zoomOptions).addTo(this._layer)
     }
   }
