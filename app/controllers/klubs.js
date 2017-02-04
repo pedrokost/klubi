@@ -10,6 +10,19 @@ export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
   markerCenter: [46.122636, 14.81546], // Slivna, Slovenia,
   category: 'fitnes',
   maxBounds: L.latLngBounds(southWest, northEast),
+  flashMessages: Ember.inject.service(),
+
+  init: function () {
+    this._super();
+
+    const flashMessages = Ember.get(this, 'flashMessages');
+
+    flashMessages.add({
+      message: 'www.klubi.si je nekdanji www.zatresi.si',
+      type: 'info',
+      sticky: true
+    })
+  },
 
   anyKlub: Ember.computed('filteredKlubs', function () {
     return this.get('filteredKlubs')
