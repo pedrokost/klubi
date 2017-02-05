@@ -1,38 +1,44 @@
 <div class="klub_page-container {{if fullWidth 'klub_page-container--fullwidth'}} js-close">
   <article class="klub_page-article js-close" itemscope itemtype="http://schema.org/LocalBusiness">
 
+    {{#if isUnverified}}
+      <p class="alert alert-alert">
+      NEPOTRJEN KLUB <br>
+      Podatki o klubu niso potrjeni. Do takrat klub ne bo prikazan na zemljevidu klubov.</p>
+    {{/if}}
+
     <ul class="fa-ul klub_page-item_list js-close">
       <li class='klub_page-item'>
-        <h1 itemprop="name">{{name}} {{#link-to 'klubs.klub.uredi' categoryShown klubId title="Uredi podatke o klubu" class="klub_page-edit_klub"}}{{fa-icon "pencil"}}{{/link-to}}</h1>{{fa-icon "close" fixedWidth=true listItem=true classNames="klub_page-close_btn js-close" title="Zapri"}}
+        <h1 itemprop="name">{{klub.name}} {{#link-to 'klubs.klub.uredi' categoryShown klub.id title="Uredi podatke o klubu" class="klub_page-edit_klub"}}{{fa-icon "pencil"}}{{/link-to}}</h1>{{fa-icon "close" fixedWidth=true listItem=true classNames="klub_page-close_btn js-close" title="Zapri"}}
       </li>
-      {{#if address}}
+      {{#if klub.address}}
         <li class='klub_page-item'>
-          <p itemprop="address">{{address}}</p>{{fa-icon "map-marker" fixedWidth=true listItem=true}}
+          <p itemprop="address">{{klub.address}}</p>{{fa-icon "map-marker" fixedWidth=true listItem=true}}
         </li>
       {{/if}}
-      {{#if website}}
+      {{#if klub.website}}
         <li class='klub_page-item'>
-          <p><a itemprop="url" rel="noopener" href={{website}} target="_blank">Spletna stran</a></p>{{fa-icon "external-link-square" fixedWidth=true listItem=true}}
+          <p><a itemprop="url" rel="noopener" href={{klub.website}} target="_blank">Spletna stran</a></p>{{fa-icon "external-link-square" fixedWidth=true listItem=true}}
         </li>
       {{/if}}
-      {{#if facebookUrl}}
+      {{#if klub.facebookUrl}}
         <li class='klub_page-item'>
-          <p><a itemprop="url" rel="noopener" href={{facebookUrl}} target="_blank">Facebook stran</a></p>{{fa-icon "facebook" fixedWidth=true listItem=true}}
+          <p><a itemprop="url" rel="noopener" href={{klub.facebookUrl}} target="_blank">Facebook stran</a></p>{{fa-icon "facebook" fixedWidth=true listItem=true}}
         </li>
       {{/if}}
-      {{#if phone}}
+      {{#if klub.phone}}
         <li class='klub_page-item'>
-          <p itemprop="telephone">{{phone}}</p>{{fa-icon "phone" fixedWidth=true listItem=true}}
+          <p itemprop="telephone">{{klub.phone}}</p>{{fa-icon "phone" fixedWidth=true listItem=true}}
         </li>
       {{/if}}
-      {{#if email}}
+      {{#if klub.email}}
         <li class='klub_page-item'>
-          <p itemprop="email">{{mail-to email}}</p>{{fa-icon "envelope" fixedWidth=true listItem=true}}
+          <p itemprop="email">{{mail-to klub.email}}</p>{{fa-icon "envelope" fixedWidth=true listItem=true}}
         </li>
       {{/if}}
 
       <li class='klub_page-item'>
-        <p>{{#link-to 'klubs.klub.uredi' categoryShown klubId}}So podatki napačni? Uredi klub!{{/link-to}}</p>{{fa-icon "pencil" fixedWidth=true listItem=true}}
+        <p>{{#link-to 'klubs.klub.uredi' categoryShown klub.id}}So podatki napačni? Uredi klub!{{/link-to}}</p>{{fa-icon "pencil" fixedWidth=true listItem=true}}
       </li>
     </ul>
   </article>
