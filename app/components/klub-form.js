@@ -6,7 +6,9 @@ export default Ember.Component.extend({
 
   actions: {
     save() {
-      this.get('klub').set('address', this.get('formattedAddress'));
+      if (this.get('formattedAddress')) {
+        this.get('klub').set('address', this.get('formattedAddress'));
+      }
       this.sendAction('submit')
     },
     setAddressAttrs(latitude, longitude, formattedAddress, town) {
