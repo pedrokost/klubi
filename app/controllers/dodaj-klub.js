@@ -14,9 +14,18 @@ export default Ember.Controller.extend({
       const klub = this.get('model')
       const self = this;
       klub.save().then(function() {
-        self.set('submitButtonDisabled', false)
-        flashMessages.success('Hvala za obvestilo o klubu ;)! Podatke bomo preverili in klub v kratkem prikazali na strani')
-        self.transitionToRoute('application')
+
+        if (ENV.supportedCategories.indexOf(klub.get('categories.firstObject').toLowerCase()) === -1) {
+          flashMessages.success('Hvala za obvestilo o klubu ;)! Podatke bomo preverili in klub v kratkem prikazali na strani!')
+          self.set('submitButtonDisabled', false)
+          self.transitionToRoute('application')
+        } else {
+          klub.reload().then(function(klub) {
+            flashMessages.success('Hvala za obvestilo o klubu ;)! Podatke bomo preverili in klub v kratkem prikazali tudi na zemljevidu!')
+            self.set('submitButtonDisabled', false)
+            self.transitionToRoute('klubs.klub', klub.get('categories.firstObject').toLowerCase(), klub.get('id'))
+          })
+        }
 
       }).catch(function(err) {
         console.error(err)

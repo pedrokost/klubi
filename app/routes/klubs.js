@@ -1,4 +1,5 @@
 import Ember from 'ember'
+import ENV from '../config/environment';
 import _, { intersection } from 'klubi/helpers/intersection';
 
 export default Ember.Route.extend({
@@ -67,16 +68,15 @@ export default Ember.Route.extend({
     }]
   },
   beforeModel(transition) {
-    const supportedCategories = ['fitnes', 'wellness', 'karate', 'frizbi', 'judo', 'gimnastika', 'cheerleading']
 
     var categoryToLoad = transition.state.params.klubs.category
-    if (categoryToLoad && supportedCategories.indexOf(categoryToLoad) === -1) {
+    if (categoryToLoad && ENV.supportedCategories.indexOf(categoryToLoad) === -1) {
       transition.abort()
       let that = this
       this.store.findRecord('klub', categoryToLoad).then(function (klub) {
 
         // Do not naively take the first category, but the first in the
-        const valid_categories = intersection(klub.get('categories'), supportedCategories);
+        const valid_categories = intersection(klub.get('categories'), ENV.supportedCategories);
 
         // set of supported categories
         // Let it fail if no valid categories, it just shouldn't happen
