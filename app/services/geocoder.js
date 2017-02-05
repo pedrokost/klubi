@@ -5,17 +5,17 @@ export default Ember.Service.extend({
   baseUrl: 'https://maps.googleapis.com/maps/api/geocode/json?',
   apiKey: 'AIzaSyCHW25YKlP2Z0ApfyLEEUEeKanMtJTj92Y',
   language: 'sl',
-  components: 'country:SI',
+  region: 'si',
   address: null,
 
   url: Ember.computed('address', function() {
     const baseUrl = this.get('baseUrl');
     const apiKey = this.get('apiKey');
     const language = this.get('language');
-    const components = this.get('components');
+    const region = this.get('region');
     const address = encodeURIComponent(this.get('address'));
 
-    return `${baseUrl}language=${language}&api=${apiKey}&components=${components}&address=${address}`;
+    return `${baseUrl}language=${language}&api=${apiKey}&region=${region}&address=${address}`;
   }),
 
   geocode(address) {
