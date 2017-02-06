@@ -5,6 +5,15 @@ import Ember from 'ember'
 var southWest = L.latLng(45.0, 13.0), // spodaj levo
   northEast = L.latLng(47.2, 17) // zgoraj desno
 
+function inIframe () {
+  try {
+    return window.self !== window.top;
+  } catch (e) {
+    return false;
+  }
+}
+
+
 export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
   zoom: 8,
   markerCenter: [46.122636, 14.81546], // Slivna, Slovenia,
@@ -15,13 +24,16 @@ export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
   init: function () {
     this._super();
 
-    const flashMessages = Ember.get(this, 'flashMessages');
 
-    flashMessages.add({
-      message: 'www.klubi.si je nekdanji www.zatresi.si',
-      type: 'info',
-      sticky: true
-    })
+    if (!inIframe()) {
+      const flashMessages = Ember.get(this, 'flashMessages');
+
+      flashMessages.add({
+        message: 'www.klubi.si je nekdanji www.zatresi.si',
+        type: 'info',
+        sticky: true
+      })
+    }
   },
 
   anyKlub: Ember.computed('filteredKlubs', function () {
