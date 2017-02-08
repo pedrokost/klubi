@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  titleToken: 'Loading...',
+  titleToken: 'Nalagam...',
   renderTemplate() {
-    this.render('klubs');
+    this.render('klubs')
   }
 });

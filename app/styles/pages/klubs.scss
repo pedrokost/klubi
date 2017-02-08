@@ -15,9 +15,9 @@
   position: absolute;
   left: 0;
   right: 0;
-  @include media($landscape-large-screen-up) {
-    right: $data-bar-width;
-  }
+
+  // Place the spinner right around the marker
+  @include transform(translateY(-21px));
 }
 
 .loader--embeds {

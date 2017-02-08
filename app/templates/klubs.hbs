@@ -5,17 +5,20 @@
     {{#leaflet-map center=markerCenter zoom=zoom minZoom=8 maxZoom=18 zoomControl=false klubiZoomControl=true}}
       {{tile-layer url="https://a.tiles.mapbox.com/v3/foursquare.meku766r/{z}/{x}/{y}.png"}}
 
-      {{#marker-cluster-layer zoomToBoundsOnClick="true" spiderfyOnMaxZoom="true"}}
-        {{#each filteredKlubs as |klub|}}
-          {{marker-layer location=klub.location icon=(klub-icon category klub.name) onClick=(action "showKlub" klub) }}
-        {{/each}}
-      {{/marker-cluster-layer}}
-
+      {{#if isLoading}}
+        {{marker-layer location=markerCenter icon=(klub-icon 'loading' 'Nalagam...') }}
+      {{else}}
+        {{#marker-cluster-layer zoomToBoundsOnClick="true" spiderfyOnMaxZoom="true"}}
+          {{#each filteredKlubs as |klub|}}
+            {{marker-layer location=klub.location icon=(klub-icon category klub.name) onClick=(action "showKlub" klub) }}
+          {{/each}}
+        {{/marker-cluster-layer}}
+      {{/if}}
     {{/leaflet-map}}
 
     {{outlet}}
   </div>
-  {{#unless anyKlub}}
+  {{#if isLoading}}
     <div class="loader loader--klubs">
       <div class="spinner-container">
         <div class="spinner"></div>
@@ -23,7 +26,7 @@
         <div class="spinner"></div>
       </div>
     </div>
-  {{/unless}}
+  {{/if}}
 
   {{recent-categories currentCategory=category isCategorySupported=isCategorySupported}}
 

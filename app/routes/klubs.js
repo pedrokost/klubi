@@ -68,8 +68,16 @@ export default Ember.Route.extend({
     }]
   },
   beforeModel(transition) {
+    const routeController = this.controllerFor(this.routeName);
 
-    var categoryToLoad = transition.state.params.klubs.category
+    // Reset default viewport when switching category
+    routeController.setProperties({
+      isLoading: true,
+      markerCenter: [46.122636, 14.81546],
+      zoom: 8
+    });
+
+    const categoryToLoad = transition.state.params.klubs.category
 
     /* If the category is unrecognized, it's probably the old url format containing
     just the klub's slug */
@@ -96,7 +104,20 @@ export default Ember.Route.extend({
     this.controllerFor(this.routeName).set('model', Ember.A())
   },
   model(params) {
-    this.controllerFor(this.routeName).set('category', params.category)
-    return this.store.query('klub', params)
+    const routeController = this.controllerFor(this.routeName);
+
+    routeController.set('category', params.category)
+    var that = this;
+    return this.store.query('klub', params).then(function(data) {
+      /* Give time for the loading screen to properly render
+      and not appear frozen */
+
+      return new Promise(function(resolve, reject) {
+        return Ember.run.next(this, function() {
+          routeController.set('isLoading', false)
+          resolve(data);
+        })
+      });
+    })
   }
 })

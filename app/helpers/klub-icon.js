@@ -8,6 +8,7 @@ const _categoryImageMap = {
   'spa': '/assets/icons/spa.png',
   'judo': '/assets/icons/judo.png',
   'gimnastika': '/assets/icons/gimnastika.png',
+  'loading': '/assets/icons/default.png',
   'default': '/assets/icons/default.png'
 }
 

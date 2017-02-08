@@ -25,7 +25,6 @@ export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
   init: function () {
     this._super();
 
-
     if (!inIframe()) {
       const flashMessages = Ember.get(this, 'flashMessages');
 
