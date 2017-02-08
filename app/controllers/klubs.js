@@ -1,4 +1,5 @@
 import Ember from 'ember'
+import ENV from '../config/environment'
 
 /* globals L */
 
@@ -35,6 +36,10 @@ export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
       })
     }
   },
+
+  isCategorySupported: Ember.computed('category', function() {
+    return ENV.supportedCategories.indexOf(this.get('category')) !== -1
+  }),
 
   anyKlub: Ember.computed('filteredKlubs', function () {
     return this.get('filteredKlubs')

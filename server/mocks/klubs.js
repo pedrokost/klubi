@@ -88,6 +88,27 @@ KLUBS = [
         "data": null
       }
     }
+  },
+  {
+    "type": "klubs",
+    "id": 'joga-123',
+    "attributes": {
+      name: 'Joga Joga',
+      address: 'Nova OŠ Luis Adamič, Tovarniška 14, Grosuplje',
+      town: 'Grosuplje',
+      latitude: 45.9557645,
+      longitude: 14.658899,
+      website: 'http://www.joga.org',
+      email: 'info@sankukai.org',
+      facebook_url: 'http://www.sankukai.org/joga',
+      phone:  '031 342 440',
+      categories: ['joga'],
+    },
+    "relationships": {
+      "parent": {
+        "data": null
+      }
+    }
   }
 ];
 

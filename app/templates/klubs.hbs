@@ -25,7 +25,7 @@
     </div>
   {{/unless}}
 
-  {{recent-categories}}
+  {{recent-categories currentCategory=category isCategorySupported=isCategorySupported}}
 
   {{#link-to 'dodaj-klub' class="pure-button embedded-add-klub-btn"}}{{fa-icon "plus"}} Dodaj klub{{/link-to}}
 </div>

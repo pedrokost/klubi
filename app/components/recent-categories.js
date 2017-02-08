@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   classNames: ['recent-categories'],
+  isCategorySupported: true,
   recentCategories: [
     Ember.Object.create({identifier: 'fitnes', name: 'Fitnes'}),
     Ember.Object.create({identifier: 'wellness', name: 'Wellness'}),
