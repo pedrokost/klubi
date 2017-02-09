@@ -1,5 +1,4 @@
 import Ember from 'ember'
-import ENV from '../config/environment'
 import rollbar from 'rollbar';
 
 export default Ember.Controller.extend({
@@ -14,21 +13,13 @@ export default Ember.Controller.extend({
       const klub = this.get('model')
       const self = this;
       klub.save().then(function() {
-
-        if (ENV.supportedCategories.indexOf(klub.get('categories.firstObject').toLowerCase()) === -1) {
-          flashMessages.success('Hvala za obvestilo o klubu ;)! Podatke bomo preverili in klub v kratkem prikazali na strani!')
+        klub.reload().then(function(klub) {
+          flashMessages.success('Hvala za obvestilo o klubu ;)! Podatke bomo preverili in klub v kratkem prikazali tudi na zemljevidu!')
           self.set('submitButtonDisabled', false)
-          self.transitionToRoute('application')
-        } else {
-          klub.reload().then(function(klub) {
-            flashMessages.success('Hvala za obvestilo o klubu ;)! Podatke bomo preverili in klub v kratkem prikazali tudi na zemljevidu!')
-            self.set('submitButtonDisabled', false)
-            self.transitionToRoute('klubs.klub', klub.get('categories.firstObject').toLowerCase(), klub.get('id'))
-          })
-        }
-
+          self.transitionToRoute('klubs.klub', klub.get('categories.firstObject').toLowerCase(), klub.get('id'))
+        })
       }).catch(function(err) {
-        console.error(err)
+        // console.error(err)
         rollbar.error('Something went wrong when adding klubs', err)
         self.set('submitButtonDisabled', false)
         Ember.$("html, body, .bodywrapper").animate({ scrollTop: 0 }, "slow")
