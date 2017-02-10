@@ -77,29 +77,6 @@ export default Ember.Route.extend({
       zoom: 8
     });
 
-    const categoryToLoad = transition.state.params.klubs.category
-
-    /* If the category is unrecognized, it's probably the old url format containing
-    just the klub's slug */
-    if (categoryToLoad && ENV.supportedCategories.indexOf(categoryToLoad) === -1) {
-      let that = this
-      this.store.findRecord('klub', categoryToLoad).then(function (klub) {
-        transition.abort()
-        // Do not naively take the first category, but the first in the
-        const valid_categories = intersection(klub.get('categories'), ENV.supportedCategories);
-
-        // set of supported categories
-        // Let it fail if no valid categories, it just shouldn't happen
-        that.transitionTo('klubs.klub', valid_categories[0], klub)
-      }).catch(function(error) {
-        /* It's not an existing klub, assume it's one of the unsupported
-        categories (listing not supported, individuals are OK).
-
-        So just let it continue.
-        */
-      })
-    }
-
     // To show the user a category change is in progress, remove the currently shown data, so I can display a spinner
     this.controllerFor(this.routeName).set('model', Ember.A())
   },
