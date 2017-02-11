@@ -89,7 +89,7 @@ export default Ember.Route.extend({
       /* Give time for the loading screen to properly render
       and not appear frozen */
 
-      return new Promise(function(resolve, reject) {
+      return new Ember.RSVP.Promise(function(resolve, reject) {
         return Ember.run.next(this, function() {
           routeController.set('isLoading', false)
           resolve(data);
