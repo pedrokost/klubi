@@ -19,6 +19,21 @@ header.logo-button {
 
   h1.title {
     font-size: 2rem;
+    height: 41px;
+    background-image: url('logo/logo-klubi-slovenije-ffffff-477dca-0-240-41.svg');
+    background-repeat: no-repeat;
+    text-indent: -99999px;
+    background-size: contain;
+    background-position: 50% 50%;
+
+    $list: fitnes karate judo gimanstika frizbi wellness cheerleading gimnastika;
+
+    @each $category in $list {
+      &.#{$category} {
+        background-image: url('logo/logo-klubi-slovenije-#{$category}-ffffff-477dca-0-240-41.svg');
+      }
+
+    }
   }
 
 
