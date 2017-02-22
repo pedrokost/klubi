@@ -10,7 +10,9 @@ export default Ember.Component.extend({
     Ember.Object.create({identifier: 'frizbi', name: 'Frizbi'}),
     Ember.Object.create({identifier: 'judo', name: 'Judo', isBeta: true}),
     Ember.Object.create({identifier: 'gimnastika', name: 'Gimnastika', isBeta: true}),
-    Ember.Object.create({identifier: 'cheerleading', name: 'Cheerleading', isBeta: true})
+    Ember.Object.create({identifier: 'cheerleading', name: 'Cheerleading', isBeta: true}),
+    Ember.Object.create({identifier: 'nogomet', name: 'Nogomet', isBeta: true}),
+    Ember.Object.create({identifier: 'squash', name: 'Squash', isBeta: true})
   ],
   linkDestination: 'klubs'
 })

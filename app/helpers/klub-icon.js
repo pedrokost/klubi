@@ -3,6 +3,8 @@ import Ember from 'ember'
 /* globals L */
 
 const _categoryImageMap = {
+  'squash': '/assets/icons/squash.png',
+  'nogomet': '/assets/icons/nogomet.png',
   'karate': '/assets/icons/karate.png',
   'fitnes': '/assets/icons/fitnes.png',
   'spa': '/assets/icons/spa.png',
