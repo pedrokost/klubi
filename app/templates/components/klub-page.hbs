@@ -11,11 +11,11 @@
       <li class='klub_page-item'>
         <h1 itemprop="name">{{klub.name}} {{#link-to 'klubs.klub.uredi' categoryShown klub.id title="Uredi podatke o klubu" class="klub_page-edit_klub"}}{{fa-icon "pencil"}}{{/link-to}}</h1>{{fa-icon "close" fixedWidth=true listItem=true classNames="klub_page-close_btn js-close" title="Zapri"}}
       </li>
-      {{#if klub.address}}
+      {{#each addresses as |address|}}
         <li class='klub_page-item'>
-          <p itemprop="address">{{klub.address}}</p>{{fa-icon "map-marker" fixedWidth=true listItem=true}}
+          <p itemprop="address">{{address}}</p>{{fa-icon "map-marker" fixedWidth=true listItem=true}}
         </li>
-      {{/if}}
+      {{/each}}
       {{#if klub.website}}
         <li class='klub_page-item'>
           <p><a itemprop="url" rel="noopener" href={{klub.website}} target="_blank">Spletna stran</a></p>{{fa-icon "external-link-square" fixedWidth=true listItem=true}}

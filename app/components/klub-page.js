@@ -9,6 +9,14 @@ export default Ember.Component.extend({
     return this.get('klub.verified') === false
   }),
 
+  addresses: Ember.computed('klub.address', 'klub.branches', 'klub.branches.[].address', function() {
+
+    return [this.get('klub.address')].concat(
+      this.get('klub.branches').map(function(branch) {
+      return branch.get('address')
+    }))
+  }),
+
   click(evt) {
     // The purpose of whitelisting the close action is to enable selecting
     // the text on the page to copy it.
