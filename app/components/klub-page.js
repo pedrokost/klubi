@@ -9,11 +9,25 @@ export default Ember.Component.extend({
     return this.get('klub.verified') === false
   }),
 
-  addresses: Ember.computed('klub.address', 'klub.branches', 'klub.branches.[].address', function() {
+  addresses: Ember.computed('klub.address', 'klub.id', 'klub.branches', 'klub.branches.[].address', 'klub.branches.[].id', 'selectedLocation', function() {
 
-    return [this.get('klub.address')].concat(
+    const selectedLocation = this.get('selectedLocation.id')
+
+    // FIXME: mixing design and logic!
+    // If there are no branches, then do not color any address blue
+    const branchesCount = this.get('klub.branches.length')
+
+    return [{
+      address: this.get('klub.address'),
+      active: (this.get('klub.id') === selectedLocation) && branchesCount > 0,
+      id: this.get('klub.id')
+    }].concat(
       this.get('klub.branches').map(function(branch) {
-      return branch.get('address')
+      return {
+        address: branch.get('address'),
+        active: branch.get('id') === selectedLocation,
+        id: branch.get('id')
+      }
     }))
   }),
 
@@ -23,5 +37,5 @@ export default Ember.Component.extend({
     if (evt.target.classList.contains('js-close')) {
       this.sendAction();
     }
-  }
+  },
 });

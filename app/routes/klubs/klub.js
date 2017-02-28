@@ -48,26 +48,31 @@ export default Ember.Route.extend(Prerenderable, {
     }]
   },
   model(params, transition) {
-    return this.store.findRecord('klub', params.klub_id)
+    return this.store.findRecord('klub', params.klub_id);
+  },
+  afterModel(model) {
+    // Preload the parent (to get all of its attributes)
+    // This is necessary because the api never returns the parent's branches
+    // (issue when a parent has multiple branches)
+    if (model.get('parent.id')) {
+      this.store.findRecord('klub', model.get('parent.id'));
+    }
   },
   setupController(controller, model) {
-    // When navigating directly to a klub's page that is
-    // not included in the default category, the model
-    // is unloaded instantly. This fixes this.
-    this._super(controller, model)
+    let parent = model;
+    controller.set('selectedLocation', model)
+    if (model.get('parent.id')) {
+      parent = model.get('parent');
+    }
+    // controller.set('model', parent)
+
+    this._super(controller, parent)
 
     var currentCategory = this.controllerFor('klubs').get('category')
 
-    // HACK: For some reason, model is sometime a model, sometimes an object
-    // that wrapps the model.
-
-    if (model.get('model')) {
-      model = model.get('model')
-    }
-
-    let klubsController = this.controllerFor('klubs')
-    if (model.get('categories').indexOf(currentCategory) === -1) {
-      klubsController.set('category', model.get('categories')[0])
+    const klubsController = this.controllerFor('klubs')
+    if (parent.get('categories').indexOf(currentCategory) === -1) {
+      klubsController.set('category', parent.get('categories')[0])
     }
 
     // Ask the controller to ask parent to set the map position correct
@@ -75,7 +80,6 @@ export default Ember.Route.extend(Prerenderable, {
   },
   actions: {
     goHome() {
-      console.log('going to klubs index')
       this.transitionTo('klubs.index')
     }
   }

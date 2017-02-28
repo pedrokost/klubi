@@ -53,9 +53,9 @@ module.exports = function (environment) {
   }
 
   if (environment === 'development') {
-    ENV.host = '/api' // For fixtures
+    // ENV.host = '/api' // For fixtures
     // ENV.host = 'http://api.klubi.si'
-    // ENV.host = 'http://api.app.local:3200'
+    ENV.host = 'http://api.app.local:3200'
 
     ENV.contentSecurityPolicy['script-src'] = ENV.contentSecurityPolicy['script-src'] + " 'unsafe-eval' localhost:4200"
 

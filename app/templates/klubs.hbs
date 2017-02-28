@@ -8,7 +8,7 @@
       {{#if isLoading}}
         {{marker-layer location=markerCenter icon=(klub-icon 'loading' 'Nalagam...') }}
       {{else}}
-        {{#marker-cluster-layer zoomToBoundsOnClick="true" spiderfyOnMaxZoom="true"}}
+        {{#marker-cluster-layer zoomToBoundsOnClick="true" maxZoom=14 spiderfyOnMaxZoom=true spiderfyDistanceMultiplier=5}}
           {{#each filteredKlubs as |klub|}}
             {{marker-layer location=klub.location icon=(klub-icon category klub.name) onClick=(action "showKlub" klub) }}
           {{/each}}

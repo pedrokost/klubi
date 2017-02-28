@@ -12,9 +12,7 @@
         <h1 itemprop="name">{{klub.name}} {{#link-to 'klubs.klub.uredi' categoryShown klub.id title="Uredi podatke o klubu" class="klub_page-edit_klub"}}{{fa-icon "pencil"}}{{/link-to}}</h1>{{fa-icon "close" fixedWidth=true listItem=true classNames="klub_page-close_btn js-close" title="Zapri"}}
       </li>
       {{#each addresses as |address|}}
-        <li class='klub_page-item'>
-          <p itemprop="address">{{address}}</p>{{fa-icon "map-marker" fixedWidth=true listItem=true}}
-        </li>
+        {{klub-address address=address.address latitude=address.latitude longitude=address.longitude klubId=address.id active=address.active zoomToLocation=(action this.attrs.zoomToLocation)}}
       {{/each}}
       {{#if klub.website}}
         <li class='klub_page-item'>

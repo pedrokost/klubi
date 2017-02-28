@@ -1,0 +1,15 @@
+/*
+* @Author: Pedro Kostelec
+* @Date:   2017-02-28 21:39:08
+* @Last Modified by:   Pedro Kostelec
+* @Last Modified time: 2017-03-01 22:12:41
+*/
+
+.klub-address {
+  cursor: pointer;
+
+  &.active {
+    background: $blue;
+    color: $white;
+  }
+}
