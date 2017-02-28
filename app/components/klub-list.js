@@ -43,7 +43,7 @@ export default Ember.Component.extend(
 
       let searchFilter = (klub, query) => {
         // TODO: Should also search in all the children and parents
-        return klub.get('name').toLowerCase().indexOf(query) >= 0 || klub.get('town').toLowerCase().indexOf(query) >= 0
+        return klub.get('name').toLowerCase().indexOf(query) >= 0 || (klub.get('town') && klub.get('town').toLowerCase().indexOf(query) >= 0)
       }
 
       let fullSearchFilter = (klub, query) => {
