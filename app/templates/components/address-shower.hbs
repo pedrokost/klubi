@@ -1,16 +1,8 @@
-{{#if geocodingFailed}}
-  <small class="text-error">Vnešenega naslova ne prepoznamo.</small>
-{{else}}
-  {{#if address}}
-    <small class="text-muted">{{formattedAddress}}</small>
-  {{/if}}
-{{/if}}
-
-{{#leaflet-map center=mapLocation zoom=zoom minZoom=8 maxZoom=18 zoomControl=false klubiZoomControl=false id="address-shower-map"}}
+{{#leaflet-map keyboard=false attributionControl=false center=location zoom=zoom minZoom=8 maxZoom=18 zoomControl=false klubiZoomControl=false class="address-shower-map"}}
 
   {{tile-layer url="https://a.tiles.mapbox.com/v3/foursquare.meku766r/{z}/{x}/{y}.png"}}
 
-  {{marker-layer location=mapLocation}}
+  {{marker-layer keyboard=false location=location}}
 
 {{/leaflet-map}}
 

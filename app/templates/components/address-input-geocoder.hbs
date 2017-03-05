@@ -1,0 +1,13 @@
+<div class="l-flex l-flex--horz">
+  {{input type="text" value=inputtedAddress  required="required" placeholder=placeholder}}{{fa-icon "map-marker" fixedWidth=true listItem=true}}
+  {{yield}}
+</div>
+{{#if geocodingFailed}}
+  <small class="text-error">Vnešenega naslova ne prepoznamo.</small>
+{{else}}
+  {{#if inputtedAddress}}
+    <small class="text-muted">{{formattedAddress}}</small>
+  {{else}}
+    <small class="text-muted">&nbsp;</small>
+  {{/if}}
+{{/if}}

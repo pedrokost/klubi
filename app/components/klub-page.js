@@ -9,7 +9,7 @@ export default Ember.Component.extend({
     return this.get('klub.verified') === false
   }),
 
-  addresses: Ember.computed('klub.address', 'klub.id', 'klub.branches', 'klub.branches.[].address', 'klub.branches.[].id', 'selectedLocation', function() {
+  addresses: Ember.computed('klub.address', 'klub.id', 'klub.branches', 'klub.branches.@each.address', 'klub.branches.@each.id', 'selectedLocation', function() {
 
     const selectedLocation = this.get('selectedLocation.id')
 

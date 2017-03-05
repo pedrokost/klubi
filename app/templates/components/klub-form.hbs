@@ -11,8 +11,34 @@
 
     </li>
     <li>
-      <label>Kraj treningov: </label>{{input type="text" value=klub.address  required="required" placeholder="Mariborska cesta 5, Maribor"}}{{fa-icon "map-marker" fixedWidth=true listItem=true}}
-      {{address-shower address=klub.address action="setAddressAttrs"}}
+      <label>Kraji treningov: </label>
+
+        <ol class="klub-form-branch-list">
+          <li>
+            {{address-input-geocoder required="required" placeholder="Mariborska cesta 5, Maribor" address=klub.address updateAddress=(action "setAddressAttrs" klub)}}
+            {{#if klub.latitude}}
+              {{address-shower address=klub.address location=klub.location}}
+            {{/if}}
+          </li>
+
+          {{#each klub.branches as |branch|}}
+            {{#unless branch.isDeleted}}
+              <li>
+                {{#address-input-geocoder required="required" placeholder="Mariborska cesta 5, Maribor" address=branch.address updateAddress=(action "setAddressAttrs" branch) }}
+                  <a {{action "removeBranch" branch}} class="klub-form-remove-branch-btn" tabindex="0">Odstrani</a>
+                {{/address-input-geocoder}}
+                {{#if branch.latitude}}
+                  {{address-shower address=branch.address location=branch.location}}
+                {{/if}}
+              </li>
+            {{/unless}}
+          {{/each}}
+
+          <li>
+            <a {{action "addBranch"}} class="klub-from-button" tabindex="0">Dodaten kraj treninga</a>
+          </li>
+        </ol>
+
     </li>
     <li>
       <label>Spletna stran: </label>{{input type="url" value=klub.website placeholder="http://www.maribor-fitnes.si"}}{{fa-icon "external-link-square" fixedWidth=true listItem=true}}

@@ -33,7 +33,7 @@ export default Ember.Component.extend(
       })
     },
 
-    filteredKlubs: Ember.computed('klubs', 'klubs.[].parent', 'klubs.[].name', 'query', function () {
+    filteredKlubs: Ember.computed('klubs', 'klubs.@each.parent', 'klubs.@each.name', 'query', function () {
       let isParentFilter = (klub) => {
         var klubs = this.get('klubs')
 

@@ -13,9 +13,15 @@ export default Ember.Controller.extend({
       this.set('submitButtonDisabled', true)
       const self = this;
       klub.save().then(function() {
-        self.set('submitButtonDisabled', false)
-        flashMessages.success('Hvala za popravke ;) Podatke bomo preverili in jih v kratkem prikazali na strani')
-        self.transitionToRoute('klubs.klub', klub.get('id'))
+        klub.reload().then(function(klub) {
+          klub.rollbackAttributes();
+          klub.get('branches').forEach(function(branch){
+            branch.rollbackAttributes();
+          })
+          self.set('submitButtonDisabled', false)
+          flashMessages.success('Hvala za popravke ;) Podatke bomo preverili in jih v kratkem prikazali na strani')
+          self.transitionToRoute('klubs.klub', klub.get('id'))
+        })
       }).catch(function(err) {
         console.error(err);
         rollbar.error('Something went wrong when updating klub', err)

@@ -8,11 +8,34 @@ export default Ember.Controller.extend({
   actions: {
     createKlub() {
       const flashMessages = Ember.get(this, 'flashMessages')
+      const klub = this.get('model')
+
+      // Validate: all branches have full address
+      klub.get('branches').forEach(function(branch) {
+        if (!branch.get('address') || !branch.get('latitude') || !branch.get('longitude') || !branch.get('town')) {
+
+          flashMessages.error('Vnesi vse naslove krajev treningov');
+        }
+      })
+
+      // Stop if errors
+      if (flashMessages.get('queue').map(function(message) {
+        return message.get('type')
+      }).filter(function(type) {
+        return type==='error'
+      }).length > 0) {
+        // TODO: scroll to top
+        return;
+      }
+
       this.set('submitButtonDisabled', true)
 
-      const klub = this.get('model')
       const self = this;
       klub.save().then(function() {
+        klub.rollbackAttributes();
+        klub.get('branches').forEach(function(branch){
+          branch.rollbackAttributes();
+        })
         klub.reload().then(function(klub) {
           flashMessages.success('Hvala za obvestilo o klubu ;)! Podatke bomo preverili in klub v kratkem prikazali tudi na zemljevidu!')
           self.set('submitButtonDisabled', false)

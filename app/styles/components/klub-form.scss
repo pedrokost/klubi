@@ -2,7 +2,7 @@
 * @Author: Pedro Kostelec
 * @Date:   2017-01-29 11:20:15
 * @Last Modified by:   Pedro Kostelec
-* @Last Modified time: 2017-01-29 11:22:21
+* @Last Modified time: 2017-03-05 19:29:10
 */
 
 .klub-form {
@@ -30,4 +30,36 @@
   .line-behind-text:not(:first-child) {
     margin-top: 3em;
   }
+
+  .klub-form-branch-list {
+    li {
+      input {
+        margin-bottom: 0;
+      }
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        // The link to add new entry
+        margin-top: 0;
+      }
+      margin-top: 1.5em;
+    }
+  }
+
+  .klub-from-button {
+    display: block;
+    // padding: 0.5em 0.75em;
+    cursor: pointer;
+    margin-bottom: 1em;
+  }
+
+  .klub-form-remove-branch-btn {
+    padding: 8px;
+    cursor: pointer;
+    margin: 1px;
+    line-height: 18px;
+  }
+
 }
