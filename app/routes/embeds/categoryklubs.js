@@ -4,10 +4,34 @@ export default Ember.Route.extend({
   assetMap: Ember.inject.service('asset-map'),
   beforeModel() {
     this.controllerFor('application').send('hideMenus')
+
+    const routeController = this.controllerFor(this.routeName);
+
+    // Reset default viewport when switching category
+    routeController.setProperties({
+      isLoading: true,
+      markerCenter: [46.122636, 14.81546],
+      zoom: 8
+    });
+
+    // To show the user a category change is in progress, remove the currently shown data, so I can display a spinner
+    this.controllerFor(this.routeName).set('model', Ember.A())
   },
   model(params) {
-    this.controllerFor(this.routeName).set('category', params.category)
-    return this.store.query('klub', params)
+    const routeController = this.controllerFor(this.routeName);
+
+    routeController.set('category', params.category)
+    return this.store.query('klub', params).then(function(data) {
+      /* Give time for the loading screen to properly render
+      and not appear frozen */
+
+      return new Ember.RSVP.Promise(function(resolve, reject) {
+        return Ember.run.next(this, function() {
+          routeController.set('isLoading', false)
+          resolve(data);
+        })
+      });
+    })
   },
   headTags() {
     var category = this.controllerFor(this.routeName).get('category')
