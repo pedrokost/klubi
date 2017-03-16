@@ -6,14 +6,6 @@ import ENV from '../config/environment'
 var southWest = L.latLng(45.0, 13.0), // spodaj levo
   northEast = L.latLng(47.2, 17) // zgoraj desno
 
-function inIframe () {
-  try {
-    return window.self !== window.top;
-  } catch (e) {
-    return false;
-  }
-}
-
 
 export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
   zoom: 8,
@@ -21,20 +13,6 @@ export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
   category: 'fitnes',
   maxBounds: L.latLngBounds(southWest, northEast),
   flashMessages: Ember.inject.service(),
-
-  init: function () {
-    this._super();
-
-    if (!inIframe()) {
-      const flashMessages = Ember.get(this, 'flashMessages');
-
-      flashMessages.add({
-        message: 'www.klubi.si je nekdanji www.zatresi.si',
-        type: 'info',
-        sticky: true
-      })
-    }
-  },
 
   isCategorySupported: Ember.computed('category', function() {
     return ENV.supportedCategories.indexOf(this.get('category')) !== -1
