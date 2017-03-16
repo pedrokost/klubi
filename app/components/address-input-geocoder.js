@@ -59,7 +59,7 @@ export default Ember.Component.extend({
           }
 
           town = town ? town.long_name : null;
-          if (!town) { debugger }
+          // if (!town) { debugger }
 
           that.set('formattedAddress', formattedAddress);
 

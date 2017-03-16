@@ -31,11 +31,16 @@ export default Ember.Controller.extend({
       this.set('submitButtonDisabled', true)
 
       const self = this;
+      let newBranches = klub.get('branches').filterBy('isNew')
+      let dirtyBranches = klub.get('branches').filterBy('isDirty')
+      let deletedBranches = klub.get('branches').filterBy('isDeleted')
+
       klub.save().then(function() {
+        newBranches.invoke('deleteRecord')
+        dirtyBranches.invoke('rollbackAttributes')
+        deletedBranches.invoke('rollbackAttributes')
         klub.rollbackAttributes();
-        klub.get('branches').forEach(function(branch){
-          branch.rollbackAttributes();
-        })
+
         klub.reload().then(function(klub) {
           flashMessages.success('Hvala za obvestilo o klubu ;)! Podatke bomo preverili in klub v kratkem prikazali tudi na zemljevidu!')
           self.set('submitButtonDisabled', false)

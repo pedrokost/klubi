@@ -12,12 +12,18 @@ export default Ember.Controller.extend({
       const flashMessages = Ember.get(this, 'flashMessages')
       this.set('submitButtonDisabled', true)
       const self = this;
+
+      let newBranches = klub.get('branches').filterBy('isNew')
+      let dirtyBranches = klub.get('branches').filterBy('isDirty')
+      let deletedBranches = klub.get('branches').filterBy('isDeleted')
+
       klub.save().then(function() {
+        newBranches.invoke('deleteRecord')
+        dirtyBranches.invoke('rollbackAttributes')
+        deletedBranches.invoke('rollbackAttributes')
+        klub.rollbackAttributes();
+
         klub.reload().then(function(klub) {
-          klub.rollbackAttributes();
-          klub.get('branches').forEach(function(branch){
-            branch.rollbackAttributes();
-          })
           self.set('submitButtonDisabled', false)
           flashMessages.success('Hvala za popravke ;) Podatke bomo preverili in jih v kratkem prikazali na strani')
           self.transitionToRoute('klubs.klub', klub.get('id'))
