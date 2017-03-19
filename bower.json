@@ -1,8 +1,6 @@
 {
   "name": "klubi",
   "dependencies": {
-    "ember": "~2.10.0",
-    "ember-cli-shims": "0.1.3",
     "normalize.css": "~3.0.2",
     "font-awesome": "~4.5.0",
     "bourbon": "~4.2.3",
