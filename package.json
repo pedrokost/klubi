@@ -32,7 +32,7 @@
     "ember-cli-flash": "1.4.0",
     "ember-cli-htmlbars": "^1.0.10",
     "ember-cli-htmlbars-inline-precompile": "^0.3.3",
-    "ember-cli-ifa": "git@github.com:pedrokost/ember-cli-ifa.git#feature/preload",
+    "ember-cli-ifa": "git@github.com:pedrokost/ember-cli-ifa.git#feature/inlined",
     "ember-cli-inject-live-reload": "^1.4.1",
     "ember-cli-jshint": "^2.0.1",
     "ember-cli-meta-tags": "3.0.4",

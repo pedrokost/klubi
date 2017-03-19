@@ -30,7 +30,8 @@ module.exports = function (environment) {
       // when it is created
     },
     ifa: {
-      enabled: false
+      enabled: false,
+      inlined: true
     },
     rollbar: {
       accessToken: 'd66dea1a45e7484eaa73e7f24dbd7044',
@@ -80,7 +81,8 @@ module.exports = function (environment) {
 
   if (environment === 'production') {
     ENV.ifa = {
-      enabled: true
+      enabled: true,
+      inlined: true
     };
   }
 
