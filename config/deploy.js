@@ -33,6 +33,7 @@ module.exports = function (deployTarget) {
     ENV.s3.secretAccessKey = process.env.AWS_SECRET
     ENV.s3.bucket = process.env.AWS_S3_BUCKET
     ENV.s3.region = process.env.AWS_S3_REGION
+    ENV.s3.signatureVersion = 'v4'
   }
 
   if (deployTarget === 'qa') {
