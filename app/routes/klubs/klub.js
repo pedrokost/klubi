@@ -76,7 +76,11 @@ export default Ember.Route.extend(Prerenderable, {
     }
 
     // Ask the controller to ask parent to set the map position correct
-    klubsController.send('zoomToLocation', model.get('location'), this.WANTED_ZOOM_LEVEL)
+    klubsController.send('zoomToLocation', klubsController.get('markerCenter'), this.WANTED_ZOOM_LEVEL)
+
+    Ember.run.later(this, function() {
+      klubsController.send('zoomToLocation', model.get('location'), this.WANTED_ZOOM_LEVEL)
+    }, 3000)
   },
   actions: {
     goHome() {
