@@ -2,10 +2,12 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
   application: Ember.inject.controller('application'),
+  map: Ember.inject.service(),
   queryParams: ['category'],
   category: 'fitnes',
-  zoom: 8,
-  markerCenter: [46.122636, 14.81546], // Slivna, Slovenia,
+  zoom: Ember.computed.alias('map.zoom'),
+  markerCenter: Ember.computed.alias('map.center'),
+  maxBounds: Ember.computed.alias('map.maxBounds'),
   currentRouteName: Ember.computed.alias('application.currentRouteName'),
 
   anyKlub: Ember.computed('model', function() {
@@ -29,8 +31,7 @@ export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
       this.trackEvent('klub', 'zoom-to-marker', klub.get('id'), 1);
     },
     zoomToLocation(location, zoomLevel) {
-      this.set('zoom', zoomLevel);
-      this.set('markerCenter', location);
+      this.get('map').zoomToLocation(location, zoomLevel)
     },
     setHoveredKlub(klubId, toHovered) {
       let klub = this.get('model').find(klub => klub.get('id') === klubId);

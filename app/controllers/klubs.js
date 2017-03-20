@@ -1,17 +1,13 @@
 import Ember from 'ember'
 import ENV from '../config/environment'
 
-/* globals L */
-
-var southWest = L.latLng(45.0, 13.0), // spodaj levo
-  northEast = L.latLng(47.2, 17) // zgoraj desno
-
-
 export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
-  zoom: 8,
-  markerCenter: [46.122636, 14.81546], // Slivna, Slovenia,
+
+  map: Ember.inject.service(),
+  zoom: Ember.computed.alias('map.zoom'),
+  markerCenter: Ember.computed.alias('map.center'),
   category: 'fitnes',
-  maxBounds: L.latLngBounds(southWest, northEast),
+  maxBounds: Ember.computed.alias('map.maxBounds'),
   flashMessages: Ember.inject.service(),
 
   isCategorySupported: Ember.computed('category', function() {
@@ -41,8 +37,7 @@ export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
       this.trackEvent('klub', 'zoom-to-marker', klub.get('id'), 1)
     },
     zoomToLocation(location, zoomLevel) {
-      this.set('zoom', zoomLevel)
-      this.set('markerCenter', location)
+      this.get('map').zoomToLocation(location, zoomLevel)
     },
     setHoveredKlub(klubId, toHovered) {
       let klub = this.get('model').find(klub => klub.get('id') === klubId)
