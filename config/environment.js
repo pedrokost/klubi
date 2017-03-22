@@ -4,7 +4,7 @@ module.exports = function (environment) {
   var ENV = {
     modulePrefix: 'klubi',
     environment: environment,
-    host: 'http://api.klubi.si',
+    host: '//api.klubi.si',
     locationType: 'auto',
     supportedCategories: ['fitnes', 'wellness', 'karate', 'frizbi', 'judo', 'gimnastika', 'cheerleading', 'nogomet', 'squash'],
     rootURL: '/',
@@ -55,7 +55,7 @@ module.exports = function (environment) {
 
   if (environment === 'development') {
     // ENV.host = '/api' // For fixtures
-    ENV.host = 'http://api.klubi.si'
+    ENV.host = '//api.klubi.si'
     // ENV.host = 'http://api.app.local:3200'
 
     ENV.contentSecurityPolicy['script-src'] = ENV.contentSecurityPolicy['script-src'] + " 'unsafe-eval' localhost:4200"
@@ -88,7 +88,7 @@ module.exports = function (environment) {
 
   if (environment === 'funky') {
     // ENV.host = 'http://api.app.local:3200'
-    ENV.host = 'http://api.klubi.si'
+    ENV.host = '//api.klubi.si'
   }
 
   return ENV
