@@ -9,7 +9,6 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('oprojektu')
   this.route('dodaj-klub')
-  this.route('clanki', function() {})
 
   this.route('embeds', function() {
     this.route('categoryklubs', function() {
