@@ -4,6 +4,7 @@ import EmberLeafletComponent from "ember-leaflet/components/leaflet-map";
 
 export default EmberLeafletComponent.extend({
   geolocator: Ember.inject.service(),
+  map: Ember.inject.service(),
   didCreateLayer() {
     this._super(...arguments);
     let that = this;
@@ -48,5 +49,7 @@ export default EmberLeafletComponent.extend({
       .locate(geolocateOptions)
       .addTo(this._layer);
     this.get("geolocator").set("control", locateControl);
+
+    this.get("map").set("map", this._layer);
   }
 });
