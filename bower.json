@@ -9,6 +9,7 @@
     "neat": "~1.7.1",
     "momentjs": "~2.10.3",
     "rrssb": "~1.8.6",
-    "leaflet.markercluster": "~1.0.3"
+    "leaflet.markercluster": "~1.0.3",
+    "leaflet.locatecontrol": "~0.60.0"
   }
 }
