@@ -2,7 +2,7 @@
   "name": "klubi",
   "dependencies": {
     "normalize.css": "~3.0.2",
-    "font-awesome": "~4.5.0",
+    "font-awesome": "~4.7.0",
     "bourbon": "~4.2.3",
     "jquery-scrollintoview": "https://github.com/litera/jquery-scrollintoview/archive/v1.8.zip",
     "ember-google-analytics": "pedrokost/ember-google-analytics#instanceinitializer",
