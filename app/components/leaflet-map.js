@@ -23,6 +23,7 @@ export default EmberLeafletComponent.extend({
         outsideMapBoundsMsg: "Ste zunaj meja zemljevida" // default message for onLocationOutsideMapBounds
       },
       flyTo: true,
+      returnToPrevBounds: true,
       locateOptions: {
         enableHighAccuracy: true,
         maxZoom: 14
