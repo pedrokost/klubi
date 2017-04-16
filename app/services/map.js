@@ -10,6 +10,20 @@ export default Ember.Service.extend({
   maxBounds: L.latLngBounds(southWest, northEast),
   map: null,
 
+  invalidateSize: function() {
+    // Call this method when the .leaflet-container
+    // is resized
+
+    // TODO: this could be triggered automatically
+    // by observing the .leaflet-container size.
+    const map = this.get("map");
+    if (map) {
+      Ember.run.scheduleOnce("afterRender", this, function() {
+        map.invalidateSize();
+      });
+    }
+  },
+
   zoomOut() {
     this.zoomToLocation([46.122636, 14.81546], 8);
   },

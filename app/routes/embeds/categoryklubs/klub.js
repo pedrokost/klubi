@@ -39,11 +39,13 @@ export default KlubRoute.extend(Prerenderable, {
       model.get("location"),
       this.WANTED_ZOOM_LEVEL
     );
+
+    this.get("map").invalidateSize();
   },
   actions: {
     goHomeToEmbedsKlubs() {
-      console.log("going to categoryklubs index");
       this.transitionTo("embeds.categoryklubs.index");
+      this.get("map").invalidateSize();
     }
   },
   headTags() {
