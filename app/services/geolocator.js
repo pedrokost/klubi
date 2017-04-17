@@ -2,10 +2,20 @@ import Ember from "ember";
 
 export default Ember.Service.extend({
   control: null,
-
-  centerMapOnUser: Ember.observer("control", function() {
-    Ember.run.once(this, "_centerMapOnUser");
-  }),
+  centerMapOnUser() {
+    if (!this._isHTTPSPage()) {
+      console.log("You are not a HTTPS page. Cannot do geolocation here.");
+      return;
+    }
+    const control = this.get("control");
+    if (control) {
+      Ember.run.once(this, "_centerMapOnUser");
+    } else {
+      // TODO: add Ember.addObserver to wait until control appears
+      // TODO: throw?
+      console.log("Geolocate control element is missing!");
+    }
+  },
 
   _isHTTPSPage() {
     var url = window.location != window.parent.location
