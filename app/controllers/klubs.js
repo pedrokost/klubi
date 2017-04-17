@@ -3,8 +3,8 @@ import ENV from "../config/environment";
 
 export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
   map: Ember.inject.service(),
-  zoom: Ember.computed.alias("map.zoom"),
-  markerCenter: Ember.computed.alias("map.center"),
+  zoom: 8,
+  markerCenter: [46.122636, 14.81546],
   category: "fitnes",
   maxBounds: Ember.computed.alias("map.maxBounds"),
   flashMessages: Ember.inject.service(),

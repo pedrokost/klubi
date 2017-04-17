@@ -5,17 +5,12 @@ var southWest = L.latLng(44.0, 12.0), // spodaj levo
   northEast = L.latLng(48, 18); // zgoraj desno
 
 export default Ember.Service.extend({
-  zoom: 8,
-  center: [46.122636, 14.81546], // Slivna, Slovenia
   maxBounds: L.latLngBounds(southWest, northEast),
   map: null,
 
   invalidateSize: function() {
     // Call this method when the .leaflet-container
     // is resized
-
-    // TODO: this could be triggered automatically
-    // by observing the .leaflet-container size.
     const map = this.get("map");
     if (map) {
       Ember.run.scheduleOnce("afterRender", this, function() {
@@ -29,11 +24,6 @@ export default Ember.Service.extend({
   },
 
   zoomToLocation(location, zoomLevel) {
-    this.setProperties({
-      center: location,
-      zoom: zoomLevel
-    });
-
     // HACK: Call setView directly, as ember leaflet tries
     // setting the location and zoom separately, which does
     // not work consistently well (usually just does the
