@@ -73,7 +73,7 @@ export default KlubRoute.extend(Prerenderable, {
         tagId: "link-canonical",
         attrs: {
           rel: "canonical",
-          content: `http://www.klubi.si/${category}/${klub.get("id")}`
+          content: `https://www.klubi.si/${category}/${klub.get("id")}`
         }
       },
       {
@@ -81,7 +81,7 @@ export default KlubRoute.extend(Prerenderable, {
         tagId: "meta-og-url",
         attrs: {
           property: "og:url",
-          content: `http://www.klubi.si/${category}/${klub.get("id")}`
+          content: `https://www.klubi.si/${category}/${klub.get("id")}`
         }
       },
       {

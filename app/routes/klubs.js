@@ -15,7 +15,7 @@ export default Ember.Route.extend({
   headTags() {
     var category = this.controllerFor(this.routeName).get("category");
 
-    let canonical = `http://www.klubi.si/${category}`;
+    let canonical = `https://www.klubi.si/${category}`;
 
     return [
       {

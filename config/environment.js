@@ -15,7 +15,8 @@ module.exports = function(environment) {
       "gimnastika",
       "cheerleading",
       "nogomet",
-      "squash"
+      "squash",
+      "tenis"
     ],
     rootURL: "/",
     cdnPrepend: "https://d2ne2albfoowfo.cloudfront.net/",
@@ -65,8 +66,8 @@ module.exports = function(environment) {
 
   if (environment === "development") {
     // ENV.host = '/api' // For fixtures
-    // ENV.host = '//api.klubi.si'
-    ENV.host = "http://api.app.local:3200";
+    ENV.host = "https://api.klubi.si";
+    // ENV.host = "http://api.app.local:3200";
 
     ENV.contentSecurityPolicy["script-src"] =
       ENV.contentSecurityPolicy["script-src"] + " 'unsafe-eval' localhost:4200";
