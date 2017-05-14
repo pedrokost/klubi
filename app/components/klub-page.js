@@ -1,7 +1,7 @@
 import Ember from "ember";
 
 export default Ember.Component.extend({
-  classNames: ["klub_page js-close"],
+  classNames: ["klub_page js-close l-flex"],
   map: Ember.inject.service(),
 
   isUnverified: Ember.computed("klub.verified", function() {
@@ -17,8 +17,32 @@ export default Ember.Component.extend({
     );
   }),
 
-  didRender() {
+  permalink: Ember.computed("categoryShown", "klub.id", function() {
+    const ID_REGEX = /[-\/]\d+$/gmi;
+    const idStart = this.get("klub.id").search(ID_REGEX);
+    const category = this.get("categoryShown");
+
+    if (idStart !== -1 && category) {
+      let klubId = this.get("klub.id").substring(idStart + 1);
+      return `https://www.klubi.si/${category}/${klubId}`;
+    } else {
+      return null;
+    }
+  }),
+
+  _invalideMapSize: function() {
     this.get("map").invalidateSize();
+  },
+
+  _renderComments: function() {
+    // Get FB to parse the DOM to insert comments only if they are
+    // not yet present
+    FB.XFBML.parse();
+  },
+
+  didRender() {
+    Ember.run.debounce(this, this._invalideMapSize, 500);
+    Ember.run.debounce(this, this._renderComments, 1500);
   },
 
   addresses: Ember.computed(

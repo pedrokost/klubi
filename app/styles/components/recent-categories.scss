@@ -1,3 +1,15 @@
+body.klubs-klub-index {
+  .recent-categories {
+    display: none;
+  }
+
+  @include media($large-screen-up) {
+    .recent-categories {
+      display: block;
+    }
+  }
+}
+
 .recent-categories {
   position: relative;
 }

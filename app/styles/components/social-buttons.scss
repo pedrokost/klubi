@@ -1,6 +1,20 @@
 // Social sharing buttons
 @import '../../../bower_components/rrssb/scss/rrssb';
 
+
+body.klubs-klub-index {
+  .rrssb-buttons--klubi {
+    display: none;
+  }
+
+  @include media($large-screen-up) {
+    .rrssb-buttons--klubi {
+      display: block;
+    }
+  }
+}
+
+
 .rrssb-buttons--klubi {
   position: absolute;
   bottom: 10px;

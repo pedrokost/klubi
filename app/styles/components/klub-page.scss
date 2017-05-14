@@ -14,14 +14,16 @@
     top: 0;
     bottom: 0;
     max-height: 100vh;
-    // height: 100%;
+    overflow: auto;
   }
 }
 
 .klub_page-container {
+  width: 100%;
   @include media($landscape-large-screen-up) {
-    @include vertical-align();
-    top: 50vh;
+    margin-top: 0;
+    margin: auto;
+    width: 100%;
   }
 }
 
@@ -56,6 +58,12 @@
   .fa-li {
     top: 50%;
     transform: translateY(-50%) translateX(2.5rem);
+  }
+
+  .fb-comments {
+    margin: 0;
+    padding-left: 0;
+    width: 100%;
   }
 
   &:last-child {

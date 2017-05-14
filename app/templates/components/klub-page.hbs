@@ -44,7 +44,13 @@
       <li class='klub_page-item'>
         <p>{{#link-to 'klubs.klub.uredi' categoryShown klub.id}}So podatki napačni? Uredi klub!{{/link-to}}</p>{{fa-icon "pencil" fixedWidth=true listItem=true}}
       </li>
+      {{#if permalink}}
+        <li class="klub_page-item">
+          <div class="fb-comments" data-href="{{permalink}}" data-width="100%" data-numposts="5"></div>
+        </li>
+      {{/if}}
     </ul>
+
   </article>
   {{yield}}
 
