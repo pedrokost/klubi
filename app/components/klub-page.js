@@ -10,6 +10,10 @@ export default Ember.Component.extend({
     return this.get("klub.verified") === false;
   }),
 
+  isPermanentlyClosed: Ember.computed("klub.closedAt", function() {
+    return this.get("klub.closedAt") !== null;
+  }),
+
   didRender() {
     this.get("map").invalidateSize();
   },

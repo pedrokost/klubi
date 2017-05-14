@@ -72,7 +72,6 @@ export default Ember.Route.extend(Prerenderable, {
       parent = model.get("parent");
     }
     // controller.set('model', parent)
-
     this._super(controller, parent);
 
     var currentCategory = this.controllerFor("klubs").get("category");

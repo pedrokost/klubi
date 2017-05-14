@@ -7,6 +7,12 @@
       Podatki o klubu niso preverjeni. Do takrat klub ne bo prikazan na zemljevidu klubov.</p>
     {{/if}}
 
+    {{#if isPermanentlyClosed}}
+      <p class="alert alert-error">
+      TRAJNO ZAPRTI KLUB <br>
+      {{klub.name}} je označen trajno zaprt od leta {{as-year klub.closedAt}}. Če to ni pravilno, prosim {{#link-to 'klubs.klub.uredi' categoryShown klub.id}}uredite podatke{{/link-to}}.</p>
+    {{/if}}
+
     <ul class="fa-ul klub_page-item_list js-close">
       <li class='klub_page-item'>
         <h1 itemprop="name">{{klub.name}} {{#link-to 'klubs.klub.uredi' categoryShown klub.id title="Uredi podatke o klubu" class="klub_page-edit_klub"}}{{fa-icon "pencil"}}{{/link-to}}</h1>{{fa-icon "close" fixedWidth=true listItem=true classNames="klub_page-close_btn js-close" title="Zapri"}}
