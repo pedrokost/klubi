@@ -39,8 +39,6 @@ export default KlubRoute.extend(Prerenderable, {
       model.get("location"),
       this.WANTED_ZOOM_LEVEL
     );
-
-    this.get("map").invalidateSize();
   },
   actions: {
     goHomeToEmbedsKlubs() {
