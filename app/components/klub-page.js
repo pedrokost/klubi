@@ -11,7 +11,10 @@ export default Ember.Component.extend({
   }),
 
   isPermanentlyClosed: Ember.computed("klub.closedAt", function() {
-    return this.get("klub.closedAt") !== null;
+    return (
+      this.get("klub.closedAt") !== null &&
+      this.get("klub.closedAt") !== undefined
+    );
   }),
 
   didRender() {
