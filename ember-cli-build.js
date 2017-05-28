@@ -3,7 +3,7 @@ const EmberApp = require("ember-cli/lib/broccoli/ember-app");
 
 var options = {
   hinting: false,
-  tests: false,
+  // tests: false,
   // minifyJS: {
   //   enabled: false,
   // },
