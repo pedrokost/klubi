@@ -65,8 +65,8 @@ module.exports = function(environment) {
   };
 
   if (environment === "development") {
-    // ENV.host = '/api' // For fixtures
-    ENV.host = "https://api.klubi.si";
+    ENV.host = "/api"; // For fixtures
+    // ENV.host = "https://api.klubi.si";
     // ENV.host = "http://api.app.local:3200";
 
     ENV.contentSecurityPolicy["script-src"] =
@@ -80,6 +80,7 @@ module.exports = function(environment) {
   }
 
   if (environment === "test") {
+    ENV.host = "http://api.app.local:3200";
     // Testem prefers this...
     ENV.locationType = "none";
 
