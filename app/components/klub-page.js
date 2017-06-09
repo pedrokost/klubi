@@ -37,7 +37,9 @@ export default Ember.Component.extend({
   _renderComments: function() {
     // Get FB to parse the DOM to insert comments only if they are
     // not yet present
-    FB.XFBML.parse();
+    if (FB !== undefined) {
+      FB.XFBML.parse();
+    }
   },
 
   didRender() {
