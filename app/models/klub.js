@@ -21,6 +21,7 @@ export default Model.extend({
   editor: attr("string"),
   verified: attr("boolean"),
   closedAt: attr("date"),
+  obcina: belongsTo("obcina"),
 
   location: Ember.computed("latitude", "longitude", function() {
     return [this.get("latitude"), this.get("longitude")];

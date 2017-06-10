@@ -1,6 +1,8 @@
-<div class="klub-list-search">
-  {{input type="search" value=query class="klub-list-search-input" placeholder="Išči"}}
-</div>
+{{#if search}}
+  <div class="klub-list-search">
+    {{input type="search" value=query class="klub-list-search-input" placeholder="Išči"}}
+  </div>
+{{/if}}
 
 <div class="klub-list-collection">
   {{#ember-collection

@@ -36,6 +36,9 @@ module.exports = function(environment) {
       extendedTimeout: 1000,
       types: ["alert", "error", "notice", "success"]
     },
+    "ember-cli-string-helpers": {
+      only: ["titleize"]
+    },
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
@@ -65,9 +68,13 @@ module.exports = function(environment) {
   };
 
   if (environment === "development") {
-    ENV.host = "/api"; // For fixtures
+    // ENV.host = "/api"; // For fixtures
     // ENV.host = "https://api.klubi.si";
-    // ENV.host = "http://api.app.local:3200";
+    ENV.host = "http://api.app.local:3200";
+
+    ENV["ember-cli-mirage"] = {
+      enabled: false
+    };
 
     ENV.contentSecurityPolicy["script-src"] =
       ENV.contentSecurityPolicy["script-src"] + " 'unsafe-eval' localhost:4200";

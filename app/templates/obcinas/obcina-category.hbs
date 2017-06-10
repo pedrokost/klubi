@@ -1,0 +1,11 @@
+<div class="body">
+  <div class="article obcina-category-klubs">
+    <article>
+      <h1>{{titleize category}} v občini {{model.name}}</h1>
+
+      {{klub-list klubs=model.klubs categoryShown=category search=false}}
+
+      {{#link-to 'dodaj-klub' class="pure-button embedded-add-klub-btn"}}{{fa-icon "plus"}} Dodaj klub{{/link-to}}
+    </article>
+  </div>
+</div>
