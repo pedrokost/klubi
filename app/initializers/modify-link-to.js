@@ -1,9 +1,8 @@
-import Ember from 'ember';
+import Ember from "ember";
 
 var alreadyRun = false;
 
-
-function inIframe () {
+function inIframe() {
   try {
     return window.self !== window.top;
   } catch (e) {
@@ -12,7 +11,7 @@ function inIframe () {
 }
 
 export default {
-  name: 'modify-model',
+  name: "modify-model",
   initialize() {
     if (alreadyRun) {
       return;
@@ -21,6 +20,8 @@ export default {
     }
 
     Ember.LinkComponent.reopen({
+      attributeBindings: ["data-id"],
+
       init() {
         this._super();
         var self = this;
@@ -28,17 +29,9 @@ export default {
         // Make links open in new blank page if the app is rendered
         // from an iframe (embedded klubs)
         if (inIframe()) {
-          this.set('target', '_blank');
+          this.set("target", "_blank");
         }
-
-        // bind attributes beginning with 'data-'
-        Object.keys(this).forEach(function(key) {
-          if (key.substr(0, 5) === 'data-') {
-            self.get('attributeBindings').pushObject(key);
-          }
-        });
       }
     });
   }
 };
-
