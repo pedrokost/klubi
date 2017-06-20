@@ -8,6 +8,7 @@ var options = {
   //   enabled: false,
   // },
   es3Safe: false,
+  sourcemaps: { enabled: true, extensions: ["js"] },
   // minifyCSS: {
   //   enabled: false
   // },
