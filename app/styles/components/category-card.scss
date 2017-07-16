@@ -1,0 +1,112 @@
+/*
+* @Author: Pedro Kostelec
+* @Date:   2017-07-15 19:40:58
+* @Last Modified by:   Pedro Kostelec
+* @Last Modified time: 2017-07-16 11:52:57
+*/
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  $base-border-color: $light-gray !default;
+  $base-border-radius: 3px !default;
+  $base-background-color: $base-background-color !default;
+  $base-spacing: 1.5em !default;
+  $action-color: $blue !default;
+  $dark-gray: #333 !default;
+  $base-font-color: $dark-gray !default;
+  $card-border-color: $base-border-color;
+  $card-border: 1px solid $card-border-color;
+  $card-background: lighten($card-border-color, 10%);
+  $card-header-background: $card-background;
+  $card-margin: 1em;
+  $card-image-hover-opacity: 0.6;
+  $card-image-hover-color: $blue;
+
+  background-color: $card-background;
+  border: $card-border;
+  border-radius: $base-border-radius;
+  // box-shadow: 0 2px 4px darken($base-background-color, 10%);
+  cursor: pointer;
+  flex-grow: 1;
+  margin: 0 $card-margin $base-spacing $card-margin;
+  position: relative;
+  @include transition(all 0.2s ease-in-out);
+
+  @include media($large-screen-up) {
+    flex-basis: 15em;
+  }
+
+  .card-overlay {
+    height: 150px;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    line-height: 150px;
+    color: white;
+    z-index: 1;
+    font-weight: bold;
+    opacity: 0;
+
+    @include transition(opacity 0.2s ease-in-out);
+  }
+
+  .card-image {
+    background-color: $card-image-hover-color;
+    height: 150px;
+    max-height: 150px;
+    overflow: hidden;
+
+    img {
+      @include border-top-radius($base-border-radius);
+      opacity: 1;
+      transition: all 0.2s ease-in-out;
+      width: 100%;
+    }
+  }
+
+  .card-header {
+    background-color: $card-header-background;
+    // border-bottom: $card-border;
+    border-radius: $base-border-radius $base-border-radius 0 0;
+    font-weight: bold;
+    line-height: 1.5em;
+    padding: ($base-spacing / 3) ($base-spacing / 2);
+    transition: all 0.2s ease-in-out;
+  }
+
+  .card-copy {
+    font-size: 0.9em;
+    line-height: 1.5em;
+    padding: ($base-spacing / 2) ($base-spacing / 2);
+
+    p {
+      margin: 0 0 ($base-spacing / 2);
+    }
+  }
+
+  &:focus,
+  &:hover {
+    cursor: pointer;
+
+    img {
+      opacity: $card-image-hover-opacity;
+    }
+
+    .card-overlay {
+      opacity: 1;
+    }
+  }
+
+  &:active {
+    background-color: $card-background;
+
+    .card-header {
+      background-color: $card-background;
+    }
+  }
+}

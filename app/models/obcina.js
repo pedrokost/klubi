@@ -4,5 +4,6 @@ import { hasMany, belongsTo } from "ember-data/relationships";
 
 export default DS.Model.extend({
   name: attr("string"),
-  klubs: hasMany("klub")
+  klubs: hasMany("klub"),
+  neighbouringObcinas: hasMany("obcina")
 });

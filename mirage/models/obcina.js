@@ -1,5 +1,6 @@
 import { Model, hasMany } from "ember-cli-mirage";
 
 export default Model.extend({
-  klubs: hasMany()
+  klubs: hasMany(),
+  neighbouringObcinas: hasMany("obcina")
 });

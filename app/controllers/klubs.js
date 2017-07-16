@@ -8,9 +8,10 @@ export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
   category: "fitnes",
   maxBounds: Ember.computed.alias("map.maxBounds"),
   flashMessages: Ember.inject.service(),
+  categories: Ember.inject.service(),
 
   isCategorySupported: Ember.computed("category", function() {
-    return ENV.supportedCategories.indexOf(this.get("category")) !== -1;
+    return this.get("categories").isSupported(this.get("category"));
   }),
 
   anyKlub: Ember.computed("filteredKlubs", function() {

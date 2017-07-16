@@ -1,11 +1,127 @@
-<div class="body">
+<div class="body wrapper-for-content-outside-of-footer">
   <div class="article obcina-category-klubs">
     <article>
-      <h1>{{titleize category}} v občini {{model.name}}</h1>
+      <h1 title="{{titleize category}} v občini {{model.name}}">{{titleize category}} v občini {{model.name}}</h1>
 
-      {{klub-list klubs=model.klubs categoryShown=category search=false}}
+      <section class="klub-list-section">
+        <div class="line-behind-text">
+          <h4>Seznam klubov</h4>
+        </div>
 
-      {{#link-to 'dodaj-klub' class="pure-button embedded-add-klub-btn"}}{{fa-icon "plus"}} Dodaj klub{{/link-to}}
+        <div class="klub-list l-flex">
+          {{#each filteredKlubs as |klub|}}
+            {{klub-card-wrapper klub=klub categoryShown=category}}
+          {{else}}
+            <div class="alert-info">
+              <span>V občini {{model.name}} ni klubov, ki bi se ukvarjali s panogo {{category}}. {{#link-to 'dodaj-klub'}}Registriraj klub {{fa-icon "plus"}}{{/link-to}}</span>
+            </div>
+          {{/each}}
+        </div>
+
+        <div class="see-on-map">
+          {{#link-to 'klubs.index' category}}
+            {{fa-icon "map"}} Oglej si klube na interaktivnem zemljevidu
+          {{/link-to}}
+        </div>
+
+      </section>
+
+      <section class="nearby-obcinas">
+        <ul class="content l-flex">
+          <li class="title">{{titleize category}} v bližnjih občinah</li>
+          {{#each model.neighbouringObcinas as |obcina|}}
+            <li>{{#link-to 'obcinas.obcina-category' obcina.id category class="js-neighbouring-obcina-link" }}{{obcina.name}}{{/link-to}}</li>
+          {{/each}}
+        </ul>
+      </section>
+
+      <section>
+        <div class="line-behind-text">
+          <h4>Ostali športi v občini {{model.name}}</h4>
+        </div>
+
+        <div class="cards">
+          {{#each otherCategories as |category|}}
+            {{category-card obcina=model category=category}}
+          {{/each}}
+        </div>
+      </section>
+
+      <section class="ste-upravitelj">
+        <div class="line-behind-text">
+          <h4>Ste upravitelj športnega kluba v občini {{model.name}} ali okolici?</h4>
+        </div>
+
+        <div class="content">
+          <p>Športniki se odločajo za tiste klube, ki imajo boljšo prisotnost na internetu. Brezplačno dodajte vaš klub in začnite pridobivati nove člane.</p>
+
+          {{#link-to 'dodaj-klub' class="button js-add-klub-btn"}}{{fa-icon "plus"}} Registriraj klub{{/link-to}}
+        </div>
+      </section>
+
+      <section class="v-sodelovanju-z">
+        <div class="line-behind-text">
+          <h4>V sodelovanju z</h4>
+        </div>
+
+        <ul class="l-flex">
+          <li>
+            <a href="http://www.fitnes-zveza.si/" target="_blank" title="Fitnes Zveza Slovenije">
+              <img src="/assets/partners/fzs-logo.svg" alt="Fitnes Zveza Slovenije">
+            </a>
+          </li>
+          <li>
+            <a href="http://www.karate-olimpija.si/" target="_blank" title="Karate klub Olimpija">
+              <img src="/assets/partners/karate-klub-olimpija-logo.png" alt="Karate Klub Olimpija">
+            </a>
+          </li>
+        </ul>
+
+      </section>
+
+      <section>
+        <div class="line-behind-text">
+          <h4>Opis</h4>
+        </div>
+
+        <p>Na tej strani so zbrani vsi klubi v občini {{model.name}}, ki se ukvarjajo s panogo {{category}}. Klubi Slovenije je spletni portal športnih klubov v Sloveniji, med njimi {{#each allCategories as |category|}}{{category.name}}, {{/each}}in več.</p>
+
+        <p>Podatki o klubih se redno preverjajo in dopolnjujejo. Podatke preverimo ročno ob vnosu v sistem, ter preko predlogov, ki jih pošiljate obiskovalci portala. Prav tako lahko podatke urejajo upravitelji klubov in s tem poskrbijo, da so podatki pravilni.</p>
+
+        <p>Obišči portal Klubi Sloveniji, kadar zeliš izvedeti kateri klubi so na voljo v tvoji bližini. Portal redno obiskujejo športniki in bodoči člani klubov, ki se odločajo v kateri klub bi se vpisali.</p>
+
+        <p>Če zeliš več informacij o panogi {{category}} v občini {{model.name}} nam piši na {{mail-to 'pedro@klubi.si'}}.</p>
+      </section>
     </article>
   </div>
 </div>
+
+<footer class="footer-2" role="contentinfo">
+  <div class="footer-logo">
+    <img src="/assets/logo/logo-klubi-slovenije-000000-ffffff-0-240-41.svg" alt="Logo image">
+  </div>
+    <ul>
+      <li>{{#link-to 'oprojektu'}}O nas{{/link-to}}</li>
+      <li>{{#link-to 'dodaj-klub'}}Registriraj klub{{/link-to}}</li>
+      <li>{{#link-to 'klubs' 'fitnes'}}Zemljevid klubov{{/link-to}}</li>
+      <li>{{#link-to 'seznam-klubov.klubs' 'fitnes'}}Seznam klubov{{/link-to}}</li>
+    </ul>
+
+    <div class="footer-secondary-links">
+      <ul>
+        <li>{{mail-to 'pedro@klubi.si'}}</li>
+      </ul>
+
+      <ul class="footer-social">
+        <li><a target="_blank" href="https://www.facebook.com/klubi.slovenije/" title="Facebook stran">
+          {{fa-icon "facebook"}}
+          </a></li>
+        <li><a target="_blank" href="https://twitter.com/klubi_si" title="Twitter (@klubi_si)">
+          {{fa-icon "twitter"}}
+        </a></li>
+        <li><a target="_blank" href="https://www.google.com/+ZatresiSi" title="Google Plus stran">
+          {{fa-icon "google-plus"}}
+        </a></li>
+      </ul>
+    </div>
+</footer>

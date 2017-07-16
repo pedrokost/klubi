@@ -1,0 +1,112 @@
+/*
+* @Author: Pedro Kostelec
+* @Date:   2017-06-10 17:01:33
+* @Last Modified by:   Pedro Kostelec
+* @Last Modified time: 2017-07-16 11:55:39
+*/
+
+
+.obcina-category-klubs {
+  h1 {
+    font-size: 4rem;
+  }
+
+  section {
+    margin: 2em 0;
+  }
+
+  .klub-list-section {
+    .l-flex {
+      @include flex-wrap(wrap);
+      @include justify-content(space-between);
+      @include align-items(baseline);
+      > .klub-card, .alert-info {
+        @include flex-grow(1);
+      }
+
+      > .klub-card {
+        margin: 0 1em 1em 0;
+        border: 1px solid $light-gray;
+        border-radius: 4px;
+      }
+    }
+
+    .see-on-map {
+      text-align: center;
+      margin-top: 1em;
+    }
+  }
+
+  .ste-upravitelj {
+    @include row();
+
+    .content {
+      text-align: center;
+
+      @include media($large-screen-up) {
+        @include span-columns(6);
+        @include shift(3);
+      }
+    }
+  }
+
+  .v-sodelovanju-z {
+
+    a:hover {
+      img {
+        opacity: 0.7;
+      }
+    }
+
+    .l-flex {
+      > li {
+        text-align: center;
+        @include flex-grow(1);
+      }
+
+      img {
+        max-height: 60px;
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .nearby-obcinas {
+    .content {
+      border: 1px dashed $light-gray;
+      border-left: none;
+      border-right: none;
+      padding: 1em 0;
+    }
+
+    .title {
+      font-weight: bold;
+      color: $medium-gray;
+    }
+
+    .l-flex {
+      @include justify-content(space-between);
+      @include flex-wrap(wrap);
+
+      > li {
+        @include flex-grow(1);
+        padding: 0 1em 0 0;
+
+        @include media($medium-screen-up) {
+          text-align: right;
+        }
+
+        &:first-child {
+          @include media($medium-screen-up) {
+            text-align: left;
+          }
+          padding-left: 0;
+        }
+
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+    }
+  }
+}

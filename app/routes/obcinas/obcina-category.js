@@ -14,7 +14,8 @@ export default Ember.Route.extend({
     var obcina = this.modelFor(this.routeName);
 
     let canonical = `https://www.klubi.si/obcina/${obcina.id}/${category}`;
-    let description = `Seznam vseh ${category} klubov v obcini grosuplje`;
+    let description = `Seznam vseh ${category} klubov v občini ${obcina.get("name")}`;
+    let title = `${category.capitalize()} v občini ${obcina.get("name")}`;
 
     return [
       {
@@ -62,7 +63,7 @@ export default Ember.Route.extend({
         tagId: "meta-og-title",
         attrs: {
           property: "og:title",
-          content: `${category.capitalize()} v občini ${obcina.name}`
+          content: title
         }
       },
       {

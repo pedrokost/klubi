@@ -27,6 +27,8 @@
 @import 'components/text-color';
 @import 'components/klub-form';
 @import 'components/klub-address';
+@import 'components/category-card';
+@import 'components/footer';
 
 // Pages
 @import 'pages/base';
@@ -35,7 +37,7 @@
 @import 'pages/dodaj-klub';
 @import 'pages/seznam-klubov';
 @import 'pages/categoryklubs';
-@import 'pages/obcina-category-klubs';
+@import 'pages/obcina-category';
 
 // Misc
 @import 'cookie-consent';

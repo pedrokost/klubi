@@ -6,18 +6,6 @@ module.exports = function(environment) {
     environment: environment,
     host: "//api.klubi.si",
     locationType: "auto",
-    supportedCategories: [
-      "fitnes",
-      "wellness",
-      "karate",
-      "frizbi",
-      "judo",
-      "gimnastika",
-      "cheerleading",
-      "nogomet",
-      "squash",
-      "tenis"
-    ],
     rootURL: "/",
     cdnPrepend: "https://d2ne2albfoowfo.cloudfront.net/",
     EmberENV: {
