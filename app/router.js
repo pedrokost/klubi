@@ -29,6 +29,7 @@ Router.map(function() {
   );
 
   this.route("obcinas", { path: "/obcina" }, function() {
+    this.route("obcina", { path: "/:obcina_id" }, function() {});
     this.route(
       "obcina-category",
       { path: "/:obcina_id/:category" },

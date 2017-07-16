@@ -12,58 +12,58 @@ export default Ember.Service.extend({
       Ember.Object.create({
         identifier: "fitnes",
         name: "Fitnes",
-        thumbnail: assetMap.resolve("assets/social/fb-fitnes.png")
+        thumbnail: "/assets/social/fb-fitnes.png"
       }),
       Ember.Object.create({
         identifier: "wellness",
         name: "Wellness",
-        thumbnail: assetMap.resolve("assets/social/fb-wellness.png")
+        thumbnail: "/assets/social/fb-wellness.png"
       }),
       Ember.Object.create({
         identifier: "karate",
         name: "Karate",
-        thumbnail: assetMap.resolve("assets/social/fb-karate.png")
+        thumbnail: "/assets/social/fb-karate.png"
       }),
       Ember.Object.create({
         identifier: "frizbi",
         name: "Frizbi",
-        thumbnail: assetMap.resolve("assets/social/fb-frizbi.png")
+        thumbnail: "/assets/social/fb-frizbi.png"
       }),
       Ember.Object.create({
         identifier: "judo",
         name: "Judo",
         isBeta: true,
-        thumbnail: assetMap.resolve("assets/social/fb-judo.png")
+        thumbnail: "/assets/social/fb-judo.png"
       }),
       Ember.Object.create({
         identifier: "gimnastika",
         name: "Gimnastika",
         isBeta: true,
-        thumbnail: assetMap.resolve("assets/social/fb-gimnastika.png")
+        thumbnail: "/assets/social/fb-gimnastika.png"
       }),
       Ember.Object.create({
         identifier: "cheerleading",
         name: "Cheerleading",
         isBeta: true,
-        thumbnail: assetMap.resolve("assets/social/fb-cheerleading.png")
+        thumbnail: "/assets/social/fb-cheerleading.png"
       }),
       Ember.Object.create({
         identifier: "nogomet",
         name: "Nogomet",
         isBeta: true,
-        thumbnail: assetMap.resolve("assets/social/fb-nogomet.png")
+        thumbnail: "/assets/social/fb-nogomet.png"
       }),
       Ember.Object.create({
         identifier: "squash",
         name: "Squash",
         isBeta: true,
-        thumbnail: assetMap.resolve("assets/social/fb-squash.png")
+        thumbnail: "/assets/social/fb-squash.png"
       }),
       Ember.Object.create({
         identifier: "tenis",
         name: "Tenis",
         isBeta: true,
-        thumbnail: assetMap.resolve("assets/social/fb-tenis.png")
+        thumbnail: "/assets/social/fb-tenis.png"
       })
     ]);
 

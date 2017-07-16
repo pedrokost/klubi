@@ -1,50 +1,59 @@
 <div class="body wrapper-for-content-outside-of-footer">
-  <div class="article obcina-category-page">
+  <div class="article obcina-page">
     <article>
-      <h1 title="{{titleize category}} v občini {{model.name}}">{{titleize category}} v občini {{model.name}}</h1>
+      <h1 title="Športni klubi v občini {{model.name}}">Športni klubi v občini {{model.name}}</h1>
 
-      <section class="klub-list-section">
-        <div class="line-behind-text">
-          <h4>Seznam klubov</h4>
-        </div>
+      {{#if noKlubs}}
+        <section class="klub-list-section">
+          <div class="line-behind-text">
+            <h4>Vsi klubi</h4>
+          </div>
+          <div class="alert-info js-no-klubs-notif">
+            <span>V občini {{model.name}} ni športnih klubov. {{#link-to 'dodaj-klub'}}Registriraj klub {{fa-icon "plus"}}{{/link-to}}</span>
+          </div>
 
-        <div class="klub-list l-flex">
-          {{#each filteredKlubs as |klub|}}
-            {{klub-card-wrapper klub=klub categoryShown=category}}
-          {{else}}
-            <div class="alert-info">
-              <span>V občini {{model.name}} ni klubov, ki bi se ukvarjali s panogo {{category}}. {{#link-to 'dodaj-klub'}}Registriraj klub {{fa-icon "plus"}}{{/link-to}}</span>
+          <div class="see-on-map">
+            {{#link-to 'klubs.index' 'fitnes'}}
+              {{fa-icon "map"}} Oglej si klube v Sloveniji na interaktivnem zemljevidu
+            {{/link-to}}
+          </div>
+        </section>
+      {{else}}
+        {{#each categorizedKlubs as |group|}}
+          <section class="klub-list-section js-klub-list-section">
+            <div class="line-behind-text">
+              <h4>{{group.category.name}}</h4>
             </div>
-          {{/each}}
-        </div>
+            <div class="klub-list-container">
+              <div class="klub-list l-flex">
+                {{#each group.klubs as |klub|}}
+                  {{klub-card-wrapper klub=klub categoryShown=group.category.identifier}}
+                {{/each}}
+              </div>
+              {{#if group.hasMore}}
+                {{#link-to 'obcinas.obcina-category' model.id group.category.identifier class="button"}}Prikaži vse{{/link-to}}
+              {{/if}}
+            </div>
+            <div class="category-details">
+              <div class="image">
+                <img src="{{group.category.thumbnail}}" alt="{{group.category.name}} v občini {{model.name}}">
+              </div>
+              <br>
+              {{#link-to 'klubs.index' group.category.identifier}}{{fa-icon "map"}} Prikaži interaktivni zemljevid - {{group.category.name}}{{/link-to}}
 
-        <div class="see-on-map">
-          {{#link-to 'klubs.index' category}}
-            {{fa-icon "map"}} Oglej si klube na interaktivnem zemljevidu
-          {{/link-to}}
-        </div>
+            </div>
 
-      </section>
+          </section>
+        {{/each}}
+      {{/if}}
 
       <section class="nearby-obcinas">
         <ul class="content l-flex">
-          <li class="title">{{titleize category}} v bližnjih občinah</li>
+          <li class="title">Klubi v bližnjih občinah</li>
           {{#each model.neighbouringObcinas as |obcina|}}
-            <li>{{#link-to 'obcinas.obcina-category' obcina.id category class="js-neighbouring-obcina-link" }}{{obcina.name}}{{/link-to}}</li>
+            <li>{{#link-to 'obcinas.obcina' obcina.id class="js-neighbouring-obcina-link" }}{{obcina.name}}{{/link-to}}</li>
           {{/each}}
         </ul>
-      </section>
-
-      <section>
-        <div class="line-behind-text">
-          <h4>Ostali športi v občini {{model.name}}</h4>
-        </div>
-
-        <div class="cards">
-          {{#each otherCategories as |category|}}
-            {{category-card obcina=model category=category}}
-          {{/each}}
-        </div>
       </section>
 
       <section class="ste-upravitelj">
@@ -84,13 +93,13 @@
           <h4>Opis</h4>
         </div>
 
-        <p>Na tej strani so zbrani vsi klubi v občini {{model.name}}, ki se ukvarjajo s panogo {{category}}. Klubi Slovenije je spletni portal športnih klubov v Sloveniji, med njimi {{#each allCategories as |category|}}{{category.name}}, {{/each}}in več.</p>
+        <p>Na tej strani so zbrani vsi športni klubi v občini {{model.name}}. Klubi Slovenije je spletni portal športnih klubov v Sloveniji, med njimi {{#each allCategories as |category|}}{{category.name}}, {{/each}}in več.</p>
 
         <p>Podatki o klubih se redno preverjajo in dopolnjujejo. Podatke preverimo ročno ob vnosu v sistem, ter preko predlogov, ki jih pošiljate obiskovalci portala. Prav tako lahko podatke urejajo upravitelji klubov in s tem poskrbijo, da so podatki pravilni.</p>
 
         <p>Obišči portal Klubi Sloveniji, kadar zeliš izvedeti kateri klubi se nahajajo v tvoji bližini. Portal redno obiskujejo športniki in bodoči člani klubov, ki se odločajo v kateri klub bi se vpisali.</p>
 
-        <p>Če zeliš več informacij o panogi {{category}} v občini {{model.name}} nam piši na {{mail-to 'pedro@klubi.si'}}.</p>
+        <p>Če zeliš več informacij o športu v občini {{model.name}} nam piši na {{mail-to 'pedro@klubi.si'}}.</p>
       </section>
     </article>
   </div>
