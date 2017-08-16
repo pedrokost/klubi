@@ -1,0 +1,36 @@
+/*
+* @Author: Pedro Kostelec
+* @Date:   2017-07-15 19:40:58
+* @Last Modified by:   Pedro Kostelec
+* @Last Modified time: 2017-08-16 21:36:22
+*/
+
+.card--home {
+  $card-image-hover-opacity: 0.6;
+  $card-height: 120px;
+
+  @include media($large-screen-up) {
+    flex-basis: 10em;
+  }
+
+  .card-overlay {
+    opacity: 1;
+    height: $card-height;
+    line-height: $card-height;
+  }
+
+  .card-image {
+    height: $card-height;
+    max-height: $card-height;
+    img {
+      opacity: $card-image-hover-opacity;
+    }
+  }
+
+  &:focus,
+  &:hover {
+    img {
+      opacity: 1;
+    }
+  }
+}

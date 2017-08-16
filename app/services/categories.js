@@ -15,11 +15,6 @@ export default Ember.Service.extend({
         thumbnail: "/assets/social/fb-fitnes.png"
       }),
       Ember.Object.create({
-        identifier: "wellness",
-        name: "Wellness",
-        thumbnail: "/assets/social/fb-wellness.png"
-      }),
-      Ember.Object.create({
         identifier: "karate",
         name: "Karate",
         thumbnail: "/assets/social/fb-karate.png"
@@ -28,6 +23,11 @@ export default Ember.Service.extend({
         identifier: "frizbi",
         name: "Frizbi",
         thumbnail: "/assets/social/fb-frizbi.png"
+      }),
+      Ember.Object.create({
+        identifier: "wellness",
+        name: "Wellness",
+        thumbnail: "/assets/social/fb-wellness.png"
       }),
       Ember.Object.create({
         identifier: "judo",

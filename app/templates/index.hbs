@@ -1,0 +1,146 @@
+<div class="body wrapper-for-content-outside-of-footer">
+  {{#hero-image}}
+    <div class="article home-page">
+      <h1 title="Vsi športni klubi na enem mestu">Vsi športni klubi na enem mestu</h1>
+    </div>
+  {{/hero-image}}
+  <div class="article home-page">
+    <article>
+      <section class="home-categories-list">
+        {{!-- <div class="line-behind-text">
+        </div> --}}
+
+        <div class="cards">
+          {{#each categories.list as |category|}}
+            {{home-category-card category=category}}
+          {{/each}}
+        </div>
+      </section>
+
+      <section class="o-projektu">
+        <div class="line-behind-text">
+          <h4>Zakaj portal športnih klubov Slovenije?</h4>
+        </div>
+
+
+        <ul class="icon-bullets">
+          <li class="bullet four-col-bullet">
+            <div class="bullet-icon">
+              {{fa-icon "database"}}
+            </div>
+            <div class="bullet-content">
+              <h2>Največja baza športnih klubov</h2>
+              <p>Najdi večjo, izzivam te!</p>
+            </div>
+          </li>
+
+          <li class="bullet four-col-bullet">
+            <div class="bullet-icon">
+              {{fa-icon "refresh"}}
+            </div>
+            <div class="bullet-content">
+              <h2>Vedno aktualni podatki</h2>
+              <p>Podatke redno preverjamo in dodelujemo. Kvaliteta, ne le kvantiteta.</p>
+            </div>
+          </li>
+          <li class="bullet four-col-bullet">
+            <div class="bullet-icon">
+              {{fa-icon "thumbs-up"}}
+            </div>
+            <div class="bullet-content">
+              <h2>Poišči ustrezne, izberi najboljšega</h2>
+              <p>Najdi klub, v katerem boš lahko dorasel svojim ciljem.</p>
+            </div>
+          </li>
+          <li class="bullet four-col-bullet">
+            <div class="bullet-icon bullet-icon-4">
+              {{fa-icon "paint-brush"}}
+            </div>
+            <div class="bullet-content">
+              <h2>Enostavno, obiskovalcem prijazno</h2>
+              <p>Kaj je bolj prijaznega {{#link-to 'klubs' 'fitnes'}}od zemljevida{{/link-to}}? Če bi raje, lahko pa {{#link-to 'seznam-klubov.klubs' 'fitnes'}}tudi seznam{{/link-to}}!</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="ste-upravitelj">
+        <div class="line-behind-text">
+          <h4>Ste upravitelj športnega kluba v občini {{model.name}} ali okolici?</h4>
+        </div>
+
+        <div class="content">
+          <p>Športniki se odločajo za tiste klube, ki imajo boljšo prisotnost na internetu. Brezplačno dodajte vaš klub in začnite pridobivati nove člane.</p>
+
+          {{#link-to 'dodaj-klub' class="button js-add-klub-btn"}}{{fa-icon "plus"}} Registriraj klub{{/link-to}}
+        </div>
+      </section>
+
+      <section class="v-sodelovanju-z">
+        <div class="line-behind-text">
+          <h4>V sodelovanju z</h4>
+        </div>
+
+        <ul class="l-flex">
+          <li>
+            <a href="http://www.fitnes-zveza.si/" target="_blank" title="Fitnes Zveza Slovenije">
+              <img src="/assets/partners/fzs-logo.svg" alt="Fitnes Zveza Slovenije">
+            </a>
+          </li>
+          <li>
+            <a href="http://www.karate-olimpija.si/" target="_blank" title="Karate klub Olimpija">
+              <img src="/assets/partners/karate-klub-olimpija-logo.png" alt="Karate Klub Olimpija">
+            </a>
+          </li>
+        </ul>
+
+      </section>
+
+      <section>
+        <div class="line-behind-text">
+          <h4>Opis</h4>
+        </div>
+
+        <p>Klubi Slovenije je spletni portal športnih klubov v Sloveniji, med njimi {{#each categories.list as |category|}}{{category.name}}, {{/each}}in več.</p>
+
+        <p>Podatki o klubih se redno preverjajo in dopolnjujejo. Podatke preverimo ročno ob vnosu v sistem, ter preko predlogov, ki jih pošiljate obiskovalci portala. Prav tako lahko podatke urejajo upravitelji klubov.</p>
+
+        <p>Klube si lahko ogledaš {{#link-to 'klubs' 'fitnes'}}na zemljevidu klubov{{/link-to}}, kjer boš hitro in enostavno odkril/a klube primerne zate. Lahko pa se odločis za brskanje klubov {{#link-to 'seznam-klubov.klubs' 'fitnes'}}po seznamu{{/link-to}}, da ne zgrešiš nobenega!</p>
+
+        <p>Obišči portal Klubi Sloveniji, kadar zeliš izvedeti kateri klubi se nahajajo v tvoji bližini. Portal redno obiskujejo športniki in bodoči člani klubov, ki se odločajo v kateri klub bi se vpisali.</p>
+
+        <p>Če zeliš več informacij o projektu {{#link-to 'oprojektu'}}beri dalje tukaj{{/link-to}}.</p>
+      </section>
+    </article>
+  </div>
+</div>
+
+<footer class="footer-2" role="contentinfo">
+  <div class="footer-logo">
+    <img src="/assets/logo/logo-klubi-slovenije-000000-ffffff-0-240-41.svg" alt="Logo image">
+  </div>
+  <ul>
+    <li>{{#link-to 'oprojektu'}}O nas{{/link-to}}</li>
+    <li>{{#link-to 'dodaj-klub'}}Registriraj klub{{/link-to}}</li>
+    <li>{{#link-to 'klubs' 'fitnes'}}Zemljevid klubov{{/link-to}}</li>
+    <li>{{#link-to 'seznam-klubov.klubs' 'fitnes'}}Seznam klubov{{/link-to}}</li>
+  </ul>
+
+  <div class="footer-secondary-links">
+    <ul>
+      <li>{{mail-to 'pedro@klubi.si'}}</li>
+    </ul>
+
+    <ul class="footer-social">
+      <li><a target="_blank" href="https://www.facebook.com/klubi.slovenije/" title="Facebook stran">
+        {{fa-icon "facebook"}}
+        </a></li>
+      <li><a target="_blank" href="https://twitter.com/klubi_si" title="Twitter (@klubi_si)">
+        {{fa-icon "twitter"}}
+      </a></li>
+      <li><a target="_blank" href="https://www.google.com/+ZatresiSi" title="Google Plus stran">
+        {{fa-icon "google-plus"}}
+      </a></li>
+    </ul>
+  </div>
+</footer>

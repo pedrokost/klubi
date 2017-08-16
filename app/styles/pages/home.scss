@@ -1,0 +1,104 @@
+/*
+* @Author: Pedro Kostelec
+* @Date:   2017-08-06 20:40:25
+* @Last Modified by:   Pedro Kostelec
+* @Last Modified time: 2017-08-16 22:03:26
+*/
+
+.home-hero-title {
+  width: 100%;
+
+  $image-gradient-color-top: white;
+  $image-gradient-color-bottom: white;
+  $image-gradient-color-medium: white;
+  $transparency-top: 0;
+  $transparency-bottom: 1;
+  $transparency-medium: 0.4;
+
+
+  @include media($large-screen-up) {
+    height: 400px;
+    background: url("/assets/hero/sport-wallpaper-1024x576.jpg") no-repeat center center;
+    background-size: cover;
+    margin-bottom: 4rem;
+    border-bottom: 8px solid $blue;
+  }
+
+  $imageFiles: "basketball_player_3-wallpaper-1024x576.jpg" "kick_the_ball-wallpaper-1024x576.jpg" "lionel_messi___argentina-wallpaper-1024x576.jpg" "male_olympic_runner_2-wallpaper-1024x576.jpg" "male_olympic_runner-wallpaper-1024x576.jpg" "man_playing_tennis-wallpaper-1024x576.jpg" "olympic_gymnast_on_beam-wallpaper-1024x576.jpg" "olympic_gymnast-wallpaper-1024x576.jpg" "olympic_sports-wallpaper-1024x576.jpg" "olympic_swimmer_girl-wallpaper-1024x576.jpg" "olympic_winner-wallpaper-1024x576.jpg" "rio_2016_olympics_gymnastics-wallpaper-1024x576.jpg" "rio_2016_olympics_soccer-wallpaper-1024x576.jpg" "rio_2016_olympics_swimming-wallpaper-1024x576.jpg" "rio_2016_olympics_volleyball-wallpaper-1024x576.jpg" "rock_climbing-wallpaper-1024x576.jpg" "sport-wallpaper-1024x576.jpg" "tennis_abstract_art-wallpaper-1024x576.jpg" "tennis_ball-wallpaper-1024x576.jpg" "tennis_player_polygon_art-wallpaper-1024x576.jpg" "tennis_player_racket_and_ball-wallpaper-1024x576.jpg" "tennis_serve-wallpaper-1024x576.jpg" "tennis__sport-wallpaper-1024x576.jpg" "tennis-wallpaper-1024x576.jpg" "volleyball_3-wallpaper-1024x576.jpg";
+
+
+  @for $i from 1 through length($imageFiles) {
+    &.image-#{$i} {
+      background-image: url("/assets/hero/" + nth($imageFiles, $i));
+    }
+  }
+
+  h1 {
+
+    @include media($large-screen-up) {
+      font-size: 4rem;
+      color: $blue;
+      margin-top: 2em;
+
+      text-shadow: 0 1px 1px white;
+    }
+  }
+
+
+}
+.home-page {
+
+  // h1 {
+  //   font-size: 4rem;
+  //   margin-bottom: 4rem;
+  // }
+
+  section {
+    margin-bottom: 3rem;
+  }
+
+  .line-behind-text {
+    margin-bottom: 3rem;
+  }
+
+  .home-categories-list {
+    .card-overlay {
+      font-size: 1.5em !important;
+    }
+  }
+
+  .ste-upravitelj {
+    @include row();
+
+    .content {
+      text-align: center;
+
+      @include media($large-screen-up) {
+        @include span-columns(6);
+        @include shift(3);
+      }
+    }
+  }
+
+  .v-sodelovanju-z {
+
+    a:hover {
+      img {
+        opacity: 0.7;
+      }
+    }
+
+    .l-flex {
+      > li {
+        text-align: center;
+        @include flex-grow(1);
+      }
+
+      img {
+        max-height: 60px;
+        opacity: 0.5;
+      }
+    }
+  }
+
+}
