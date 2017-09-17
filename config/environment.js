@@ -43,14 +43,19 @@ module.exports = function(environment) {
     // TODO: Review before going go production!!
     contentSecurityPolicy: {
       // "default-src": "'none'",
-      "script-src": "'self' 'unsafe-inline' *.googleapis.com *.gstatic.com d2ne2albfoowfo.cloudfront.net connect.facebook.net www.google-analytics.com cdnjs.cloudflare.com d37gvrvc0wt4s1.cloudfront.net",
+      "script-src":
+        "'self' 'unsafe-inline' *.googleapis.com *.gstatic.com d2ne2albfoowfo.cloudfront.net connect.facebook.net www.google-analytics.com cdnjs.cloudflare.com d37gvrvc0wt4s1.cloudfront.net",
       "font-src": "'self' fonts.gstatic.com d2ne2albfoowfo.cloudfront.net",
-      "connect-src": "'self' api.klubi.si app.local:3000 *.app.local:3000 app.local:3200 *.app.local:3200 d2ne2albfoowfo.cloudfront.net maps.googleapis.com",
-      "img-src": "'self' data: *.gstatic.com *.googleapis.com *.google.com  *.tiles.mapbox.com d2ne2albfoowfo.cloudfront.net www.google-analytics.com fitnes.si www.fitness-info.si www.facebook.com",
-      "style-src": "'self' 'unsafe-inline' fonts.googleapis.com d2ne2albfoowfo.cloudfront.net", // TODO: Elimintae unsafe-inline
+      "connect-src":
+        "'self' api.klubi.si app.local:3000 *.app.local:3000 app.local:3200 *.app.local:3200 d2ne2albfoowfo.cloudfront.net maps.googleapis.com",
+      "img-src":
+        "'self' data: *.gstatic.com *.googleapis.com *.google.com  *.tiles.mapbox.com d2ne2albfoowfo.cloudfront.net www.google-analytics.com fitnes.si www.fitness-info.si www.facebook.com",
+      "style-src":
+        "'self' 'unsafe-inline' fonts.googleapis.com d2ne2albfoowfo.cloudfront.net", // TODO: Elimintae unsafe-inline
       "media-src": "'self' d2ne2albfoowfo.cloudfront.net",
       "report-uri": "localhost:4200",
-      "frame-src": "www.google.com www.facebook.com *.ak.facebook.com staticxx.facebook.com m.facebook.com",
+      "frame-src":
+        "www.google.com www.facebook.com *.ak.facebook.com staticxx.facebook.com m.facebook.com",
       "font-src": "'self' d2ne2albfoowfo.cloudfront.net fonts.gstatic.com"
     }
   };

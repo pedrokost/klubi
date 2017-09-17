@@ -1,6 +1,7 @@
 .klub_page {
   $klub-page-max-width: 400px;
   $klub-page-border: 1px solid $map-widget-border-color;
+  position: relative;
 
   background: $white;
 
@@ -8,13 +9,14 @@
   @include transform-style(preserve-3d);
 
   @include media($landscape-large-screen-up) {
-    right: $data-bar-width;
+    right: 0;
     width: $klub-page-max-width;
     left: auto;
     top: 0;
     bottom: 0;
     max-height: 100vh;
     overflow: auto;
+    z-index: 1004;
   }
 }
 
@@ -47,10 +49,12 @@
 
   border-bottom: 1px solid darken($white, 3%);
 
-  line-height: 1.3;  // Don't add units, it makes it fail
+  line-height: 1.3; // Don't add units, it makes it fail
   padding: 1em 0.8em;
 
-  p, h1 {
+  p,
+  h1,
+  .klub-gallery {
     margin: 0;
     padding-left: 2.14285714rem;
   }
@@ -75,17 +79,18 @@
       display: inline;
     }
   }
-
 }
 
 .klub_page-close_btn {
   font-size: 1rem;
   cursor: pointer;
-  &:hover, &:focus, &:active {
+  &:hover,
+  &:focus,
+  &:active {
     color: $base-accent-color;
   }
 }
 
-
 .klub_page a {
 }
+

@@ -22,6 +22,7 @@ export default Model.extend({
   verified: attr("boolean"),
   closedAt: attr("date"),
   obcina: belongsTo("obcina"),
+  images: hasMany("image", { async: true }),
 
   location: Ember.computed("latitude", "longitude", function() {
     return [this.get("latitude"), this.get("longitude")];

@@ -1,0 +1,7 @@
+{{yield}}
+
+{{#photo-swipe items=filteredImages bgOpacity=0.7 onClose=(action "galleryClosed") history=false as |photoswipe|}}
+  {{#each filteredImages as |item index|}}
+    <img src="{{item.msrc}}" {{action "openGallery" photoswipe index}} />
+  {{/each}}
+{{/photo-swipe}}
