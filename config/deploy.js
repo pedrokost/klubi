@@ -15,7 +15,9 @@ module.exports = function(deployTarget) {
     },
     s3: {
       prefix: "",
-      filePattern: "**/*.{js,css,png,gif,ico,jpg,map,xml,txt,svg,swf,eot,ttf,woff,woff2,otf,json}"
+      filePattern:
+        "**/*.{js,css,png,gif,ico,jpg,map,xml,txt,svg,swf,eot,ttf,woff,woff2,otf,json}",
+      signatureVersion: "v4"
     }
   };
   if (VALID_DEPLOY_TARGETS.indexOf(deployTarget) === -1) {

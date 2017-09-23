@@ -1,16 +1,16 @@
 {
   "name": "klubi",
   "dependencies": {
-    "normalize.css": "~3.0.2",
+    "normalize.css": "~7.0.0",
     "font-awesome": "~4.7.0",
-    "bourbon": "~4.2.3",
-    "jquery-scrollintoview": "https://github.com/litera/jquery-scrollintoview/archive/v1.8.zip",
-    "ember-google-analytics": "pedrokost/ember-google-analytics#instanceinitializer",
+    "bourbon": "~4.3.4",
+    "ember-google-analytics":
+      "pedrokost/ember-google-analytics#instanceinitializer",
     "neat": "~1.7.1",
-    "momentjs": "~2.10.3",
-    "rrssb": "~1.8.6",
-    "leaflet.markercluster": "~1.0.3",
-    "leaflet.locatecontrol": "~0.60.0",
-    "photoswipe": "4.1.0"
+    "momentjs": "~2.18.1",
+    "rrssb": "~1.14.0",
+    "leaflet.markercluster": "~1.1.0",
+    "leaflet.locatecontrol": "~0.62",
+    "photoswipe": "~4.1.2"
   }
 }

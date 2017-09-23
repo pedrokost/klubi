@@ -8,7 +8,8 @@ export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
   zoom: 8,
   markerCenter: [46.122636, 14.81546], // Slivna, Slovenia
   maxBounds: Ember.computed.alias("map.maxBounds"),
-  currentRouteName: Ember.computed.alias("application.currentRouteName"),
+  router: Ember.inject.service(),
+  currentRouteName: Ember.computed.alias("router.currentRouteName"),
 
   anyKlub: Ember.computed("model", function() {
     return this.get("model");
@@ -22,7 +23,10 @@ export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
   actions: {
     showKlub(klub) {
       // TODO: Will probably needs a simple one for these too
-      this.transitionToRoute("embeds.categoryklubs.klub", klub.get("id"));
+      this.get("router").transitionTo(
+        "embeds.categoryklubs.klub",
+        klub.get("id")
+      );
     },
     zoomToMarker(klub) {
       this.set("zoom", 12);

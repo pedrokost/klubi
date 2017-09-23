@@ -9,6 +9,7 @@ export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
   maxBounds: Ember.computed.alias("map.maxBounds"),
   flashMessages: Ember.inject.service(),
   categories: Ember.inject.service(),
+  router: Ember.inject.service(),
 
   isCategorySupported: Ember.computed("category", function() {
     return this.get("categories").isSupported(this.get("category"));
@@ -32,7 +33,7 @@ export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
 
   actions: {
     showKlub(klub) {
-      this.transitionToRoute("klubs.klub", klub.get("id"));
+      this.get("router").transitionTo("klubs.klub", klub.get("id"));
     },
     zoomToMarker(klub) {
       this.send("zoomToLocation", klub.get("location"), 12);

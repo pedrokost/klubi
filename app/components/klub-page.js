@@ -18,7 +18,7 @@ export default Ember.Component.extend({
   }),
 
   permalink: Ember.computed("categoryShown", "klub.id", function() {
-    const ID_REGEX = /[-\/]\d+$/gmi;
+    const ID_REGEX = /[-\/]\d+$/gim;
     const idStart = this.get("klub.id").search(ID_REGEX);
     const category = this.get("categoryShown");
 
@@ -37,7 +37,7 @@ export default Ember.Component.extend({
   _renderComments: function() {
     // Get FB to parse the DOM to insert comments only if they are
     // not yet present
-    if (FB !== undefined) {
+    if (typeof FB != "undefined" && FB != null) {
       FB.XFBML.parse();
     }
   },

@@ -3,7 +3,7 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: "klubi",
-    environment: environment,
+    environment,
     host: "//api.klubi.si",
     locationType: "auto",
     rootURL: "/",
@@ -33,7 +33,7 @@ module.exports = function(environment) {
     },
     ifa: {
       enabled: false,
-      inlined: true
+      inline: true
     },
     rollbar: {
       accessToken: "d66dea1a45e7484eaa73e7f24dbd7044",
@@ -49,7 +49,7 @@ module.exports = function(environment) {
       "connect-src":
         "'self' api.klubi.si app.local:3000 *.app.local:3000 app.local:3200 *.app.local:3200 d2ne2albfoowfo.cloudfront.net maps.googleapis.com",
       "img-src":
-        "'self' data: *.gstatic.com *.googleapis.com *.google.com  *.tiles.mapbox.com d2ne2albfoowfo.cloudfront.net www.google-analytics.com fitnes.si www.fitness-info.si www.facebook.com",
+        "'self' data: *.gstatic.com *.googleapis.com *.google.com  *.tiles.mapbox.com d2ne2albfoowfo.cloudfront.net www.google-analytics.com fitnes.si www.fitness-info.si www.facebook.com scontent.xx.fbcdn.net",
       "style-src":
         "'self' 'unsafe-inline' fonts.googleapis.com d2ne2albfoowfo.cloudfront.net", // TODO: Elimintae unsafe-inline
       "media-src": "'self' d2ne2albfoowfo.cloudfront.net",
@@ -94,7 +94,7 @@ module.exports = function(environment) {
   if (environment === "production") {
     ENV.ifa = {
       enabled: true,
-      inlined: true
+      inline: true
     };
   }
 

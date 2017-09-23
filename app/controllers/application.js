@@ -6,19 +6,21 @@ export default Ember.Controller.extend({
   klubs: Ember.inject.controller(),
   "seznam-klubov/klubs": Ember.inject.controller(),
   "obcinas/obcina-category": Ember.inject.controller(),
+  router: Ember.inject.service(),
 
   category: Ember.computed(
-    "currentRouteName",
+    "router.currentRouteName",
     "klubs.category",
     "seznam-klubov/klubs.category",
     "obcinas/obcina-category.category",
     function() {
-      if (this.get("currentRouteName") === "klubs.index") {
+      let router = this.get("router");
+      if (router.get("currentRouteName") === "klubs.index") {
         return this.get("klubs.category");
-      } else if (this.get("currentRouteName") === "seznam-klubov.klubs") {
+      } else if (router.get("currentRouteName") === "seznam-klubov.klubs") {
         return this.get("seznam-klubov/klubs.category");
       } else if (
-        this.get("currentRouteName") === "obcinas.obcina-category.index"
+        router.get("currentRouteName") === "obcinas.obcina-category.index"
       ) {
         return this.get("obcinas/obcina-category.category");
       } else {
@@ -27,9 +29,10 @@ export default Ember.Controller.extend({
     }
   ),
 
-  isShowPage: Ember.computed("currentRouteName", function() {
+  isShowPage: Ember.computed("router.currentRouteName", function() {
+    let router = this.get("router");
     return ["embeds.categoryklubs.klub.index", "klubs.klub.index"].includes(
-      this.get("currentRouteName")
+      router.get("currentRouteName")
     );
   }),
 
@@ -37,8 +40,8 @@ export default Ember.Controller.extend({
     this.set("isSideNavVisible", false);
   }),
 
-  isEmbeddedPage: Ember.computed("currentRouteName", function() {
-    let route = this.get("currentRouteName");
+  isEmbeddedPage: Ember.computed("router.currentRouteName", function() {
+    let route = this.get("router").get("currentRouteName");
     let matcher = "embeds";
     return (
       route.substr(0, matcher.length).toLowerCase() === matcher.toLowerCase()

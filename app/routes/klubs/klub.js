@@ -5,6 +5,7 @@ export default Ember.Route.extend(Prerenderable, {
   WANTED_ZOOM_LEVEL: 16,
   assetMap: Ember.inject.service("asset-map"),
   map: Ember.inject.service(),
+  router: Ember.inject.service(),
   titleToken(model) {
     return model.get("name");
   },
@@ -17,7 +18,9 @@ export default Ember.Route.extend(Prerenderable, {
         tagId: "meta-description",
         attrs: {
           name: "description",
-          content: `${klub.get("name")} je ${category} klub v mestu ${klub.get("town")}. Najdi najboljši ${category} klub v svoji bližini.`
+          content: `${klub.get("name")} je ${category} klub v mestu ${klub.get(
+            "town"
+          )}. Najdi najboljši ${category} klub v svoji bližini.`
         }
       },
       {
@@ -25,7 +28,9 @@ export default Ember.Route.extend(Prerenderable, {
         tagId: "meta-og-description",
         attrs: {
           property: "og:description",
-          content: `${klub.get("name")} je ${category} klub v ${klub.get("town")}.`
+          content: `${klub.get("name")} je ${category} klub v ${klub.get(
+            "town"
+          )}.`
         }
       },
       {
@@ -89,7 +94,7 @@ export default Ember.Route.extend(Prerenderable, {
   },
   actions: {
     goHome() {
-      this.transitionTo("klubs.index");
+      this.get("router").transitionTo("klubs.index");
       this.get("map").invalidateSize();
     }
   }

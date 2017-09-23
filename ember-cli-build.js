@@ -1,4 +1,5 @@
 /* eslint-env node */
+"use strict";
 const EmberApp = require("ember-cli/lib/broccoli/ember-app");
 
 var options = {
@@ -34,7 +35,7 @@ var options = {
 };
 
 module.exports = function(defaults) {
-  var app = new EmberApp(defaults, options);
+  let app = new EmberApp(defaults, options);
 
   app.import("bower_components/font-awesome/css/font-awesome.css");
   app.import("bower_components/font-awesome/fonts/fontawesome-webfont.eot", {
@@ -72,10 +73,6 @@ module.exports = function(defaults) {
   );
   app.import(
     "bower_components/leaflet.locatecontrol/dist/L.Control.Locate.min.css"
-  );
-
-  app.import(
-    "bower_components/jquery-scrollintoview/jquery.scrollintoview.min.js"
   );
 
   // Google Analytics
