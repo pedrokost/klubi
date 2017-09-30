@@ -64,11 +64,28 @@ export default Ember.Service.extend({
         name: "Tenis",
         isBeta: true,
         thumbnail: "/assets/social/fb-tenis.png"
+      }),
+      Ember.Object.create({
+        identifier: "kosarka",
+        name: "Košarka",
+        isBeta: true,
+        thumbnail: "/assets/social/fb-kosarka.png"
       })
     ]);
 
     this.set("list", categories);
   }),
+
+  humanizeCategory: function(categoryIdentifier) {
+    let category = this.get("list").filter(
+      category => category.identifier === categoryIdentifier
+    );
+    if (category.length > 0) {
+      return category[0].name;
+    } else {
+      return categoryIdentifier.capitalize();
+    }
+  },
 
   isSupported: function(categoryIdentifier) {
     return (

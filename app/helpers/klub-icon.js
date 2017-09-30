@@ -11,6 +11,7 @@ const _categoryImageMap = {
   judo: "/assets/icons/judo.png",
   gimnastika: "/assets/icons/gimnastika.png",
   tenis: "/assets/icons/tenis.png",
+  kosarka: "/assets/icons/basketball.png",
   loading: "/assets/icons/default.png",
   default: "/assets/icons/default.png"
 };

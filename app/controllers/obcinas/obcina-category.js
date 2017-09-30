@@ -6,6 +6,10 @@ export default Ember.Controller.extend({
 
   allCategories: Ember.computed.alias("categories.list"),
 
+  categoryTitle: Ember.computed("category", function() {
+    return this.get("categories").humanizeCategory(this.get("category"));
+  }),
+
   otherCategories: Ember.computed("categories.list", function() {
     let allCategories = this.get("categories.list");
     const currentCategory = this.get("category");

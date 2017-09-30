@@ -1,7 +1,7 @@
 <div class="body wrapper-for-content-outside-of-footer">
   <div class="article obcina-category-page">
     <article>
-      <h1 title="{{titleize category}} v občini {{model.name}}">{{titleize category}} v občini {{model.name}}</h1>
+      <h1 title="{{categoryTitle}} v občini {{model.name}}">{{categoryTitle}} v občini {{model.name}}</h1>
 
       <section class="klub-list-section">
         <div class="line-behind-text">
@@ -28,7 +28,7 @@
 
       <section class="nearby-obcinas">
         <ul class="content l-flex">
-          <li class="title">{{titleize category}} v bližnjih občinah</li>
+          <li class="title">{{categoryTitle}} v bližnjih občinah</li>
           {{#each model.neighbouringObcinas as |obcina|}}
             <li>{{#link-to 'obcinas.obcina-category' obcina.id category class="js-neighbouring-obcina-link" }}{{obcina.name}}{{/link-to}}</li>
           {{/each}}

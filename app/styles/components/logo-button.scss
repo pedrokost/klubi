@@ -1,5 +1,4 @@
 header.logo-button {
-
   $logo-button-color: lighten($base-font-color, 30%);
   $logo-button-background: $base-background-color;
   $logo-button-border-color: $map-widget-border-color;
@@ -20,22 +19,21 @@ header.logo-button {
   h1.title {
     font-size: 2rem;
     height: 41px;
-    background-image: url('logo/logo-klubi-slovenije-ffffff-477dca-0-240-41.svg');
+    background-image: url("logo/logo-klubi-slovenije-ffffff-477dca-0-240-41.svg");
     background-repeat: no-repeat;
     text-indent: -99999px;
     background-size: contain;
     background-position: 50% 50%;
 
-    $list: fitnes karate judo gimanstika frizbi wellness cheerleading gimnastika nogomet squash tenis;
+    $list: fitnes karate judo gimanstika frizbi wellness cheerleading gimnastika
+      nogomet squash tenis kosarka;
 
     @each $category in $list {
       &.#{$category} {
-        background-image: url('logo/logo-klubi-slovenije-#{$category}-ffffff-477dca-0-240-41.svg');
+        background-image: url("logo/logo-klubi-slovenije-#{$category}-ffffff-477dca-0-240-41.svg");
       }
-
     }
   }
-
 
   h2.slogan {
     font-size: 1rem;
@@ -53,7 +51,7 @@ header.logo-button {
       @include omega();
       text-align: center;
       position: absolute;
-      bottom:0;
+      bottom: 0;
       left: 0;
     }
   }
@@ -84,8 +82,6 @@ header.logo-button {
     }
 
     i {
-
     }
   }
 }
-

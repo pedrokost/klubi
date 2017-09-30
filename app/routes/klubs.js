@@ -5,12 +5,14 @@ import _, { intersection } from "klubi/helpers/intersection";
 export default Ember.Route.extend({
   assetMap: Ember.inject.service("asset-map"),
   map: Ember.inject.service(),
+  categories: Ember.inject.service(),
   title(tokens) {
+    const categories = this.get("categories");
     var category = this.controllerFor(this.routeName).get("category");
     if (tokens.length > 0) {
       return tokens.reverse().join(" - ");
     }
-    return `${category.capitalize()} klubi`;
+    return `${categories.humanizeCategory(category)} klubi`;
   },
   headTags() {
     var category = this.controllerFor(this.routeName).get("category");
