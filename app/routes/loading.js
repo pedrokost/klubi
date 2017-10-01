@@ -1,8 +1,11 @@
-import Ember from 'ember';
+import Ember from "ember";
 
 export default Ember.Route.extend({
-  titleToken: 'Nalagam...',
-  renderTemplate() {
-    this.render('klubs')
-  }
+  titleToken: "Nalagam..."
+  // Leaflet is sometimes not correctly re-initialized. This removes the
+  // number of times leaflet is created and destroyed, therefore reducing
+  // the number of errors!
+  // renderTemplate() {
+  //   this.render('klubs')
+  // }
 });
