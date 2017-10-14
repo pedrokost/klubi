@@ -6,12 +6,13 @@ A short introduction of this app could easily go here.
 ## When adding a new category
 
 1. `services/categories.js` should list it
-2. Place category icon for marker in '/assets/icons/<category>.png'
+2. Place category icon for marker in '/assets/icons/<category>.png' (source: `../images/icons`)
 3. `klub-icon.js` should link to category icon
 4. In `logo-buttons.scss` as the category to the `$list`.
-5. In `design/logo_generation/` update `logo.rb` category list `SUBTITLES` and follow the instructions in the `Readme.md` there to generate the new logo. Finally copy new images to `/assets/logo/`.
-6. Open `images/category-social.psd` and generate images for new categories with dimensions 1434x1434.jpg and 200x200.png. Plase them in `/assets/social`.
+5. In `../images/logo_generation/` update `logo.rb` category list `SUBTITLES` and follow the instructions in the `Readme.md` there to generate the new logo. Finally copy new images to `/assets/logo/`.
+6. Open `../images/category-social.psd` and generate images for new categories with dimensions 1434x1434.jpg and 200x200.png. Plase them in `/assets/social`.
 7. [optional] Enqueue in Buffer news
+8. [optional] Invite zveza to add map to their page
 
 ## Prerequisites
 

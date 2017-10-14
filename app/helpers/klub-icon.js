@@ -13,7 +13,8 @@ const _categoryImageMap = {
   tenis: "/assets/icons/tenis.png",
   kosarka: "/assets/icons/basketball.png",
   loading: "/assets/icons/default.png",
-  default: "/assets/icons/default.png"
+  default: "/assets/icons/default.png",
+  boks: "/assets/icons/boks.png"
 };
 
 const SHADOW_IMAGE_URL = "/assets/icons/shadow.png";

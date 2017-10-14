@@ -70,6 +70,12 @@ export default Ember.Service.extend({
         name: "Košarka",
         isBeta: true,
         thumbnail: "/assets/social/fb-kosarka.png"
+      }),
+      Ember.Object.create({
+        identifier: "boks",
+        name: "Boks",
+        isBeta: true,
+        thumbnail: "/assets/social/fb-boks.png"
       })
     ]);
 
