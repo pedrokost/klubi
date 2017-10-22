@@ -14,7 +14,14 @@ const _categoryImageMap = {
   kosarka: "/assets/icons/basketball.png",
   loading: "/assets/icons/default.png",
   default: "/assets/icons/default.png",
-  boks: "/assets/icons/boks.png"
+  boks: "/assets/icons/boks.png",
+  badminton: "/assets/icons/badminton.png",
+  atletika: "/assets/icons/atletika.png",
+  "namizni-tenis": "/assets/icons/namizni-tenis.png",
+  "ju-jitsu": "/assets/icons/ju-jitsu.png",
+  rugby: "/assets/icons/rugby.png",
+  sabljanje: "/assets/icons/default.png",
+  kickbox: "/assets/icons/kickbox.png"
 };
 
 const SHADOW_IMAGE_URL = "/assets/icons/shadow.png";

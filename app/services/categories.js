@@ -76,6 +76,54 @@ export default Ember.Service.extend({
         name: "Boks",
         isBeta: true,
         thumbnail: "/assets/social/fb-boks.png"
+      }),
+      Ember.Object.create({
+        identifier: "badminton",
+        name: "Badminton",
+        isBeta: true,
+        thumbnail: "/assets/social/fb-badminton.png"
+      }),
+      Ember.Object.create({
+        identifier: "atletika",
+        name: "Atletika",
+        isBeta: true,
+        thumbnail: "/assets/social/fb-atletika.png"
+      }),
+      Ember.Object.create({
+        identifier: "namizni-tenis",
+        name: "Namizni tenis",
+        isBeta: true,
+        thumbnail: "/assets/social/fb-namizni-tenis.png"
+      }),
+      Ember.Object.create({
+        identifier: "ju-jitsu",
+        name: "Ju-jitsu",
+        isBeta: true,
+        thumbnail: "/assets/social/fb-ju-jitsu.png"
+      }),
+      Ember.Object.create({
+        identifier: "rugby",
+        name: "Rugby",
+        isBeta: true,
+        thumbnail: "/assets/social/fb-rugby.png"
+      }),
+      Ember.Object.create({
+        identifier: "sabljanje",
+        name: "Sabljanje",
+        isBeta: true,
+        thumbnail: "/assets/social/fb-sabljanje.png"
+      }),
+      Ember.Object.create({
+        identifier: "lokostrelstvo",
+        name: "Lokostrelstvo",
+        isBeta: true,
+        thumbnail: "/assets/social/fb-lokostrelstvo.png"
+      }),
+      Ember.Object.create({
+        identifier: "kickbox",
+        name: "Kickbox",
+        isBeta: true,
+        thumbnail: "/assets/social/fb-kickbox.png"
       })
     ]);
 
