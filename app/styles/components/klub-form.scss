@@ -2,15 +2,15 @@
 * @Author: Pedro Kostelec
 * @Date:   2017-01-29 11:20:15
 * @Last Modified by:   Pedro Kostelec
-* @Last Modified time: 2017-03-05 19:29:10
+* @Last Modified time: 2017-10-29 20:47:25
 */
 
 .klub-form {
-  button[type=submit] .loader-inline {
+  button[type="submit"] .loader-inline {
     @extend %loader-inline;
     display: none;
   }
-  button[type=submit]:disabled .loader-inline {
+  button[type="submit"]:disabled .loader-inline {
     display: inline;
   }
 
@@ -61,5 +61,4 @@
     margin: 1px;
     line-height: 18px;
   }
-
 }

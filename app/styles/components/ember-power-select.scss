@@ -1,0 +1,81 @@
+/*
+* @Author: Pedro Kostelec
+* @Date:   2017-10-29 20:33:09
+* @Last Modified by:   Pedro Kostelec
+* @Last Modified time: 2017-10-29 21:11:22
+*/
+
+$ember-power-select-default-border-radius: $base-border-radius;
+$ember-power-select-border-color: $form-border-color;
+// $ember-power-select-option-padding: 0.3em;
+$ember-power-select-multiple-option-padding: 0.25em 0.6em 0.25em 0.4em;
+$ember-power-select-multiple-option-line-height: $base-line-height;
+$ember-power-select-line-height: $base-line-height;
+$ember-power-select-focus-border-color: $form-border-color-focus;
+$ember-power-select-focus-box-shadow: $form-box-shadow-focus;
+$ember-power-select-multiple-selection-background-color: lighten($blue, 40%);
+$ember-power-select-multiple-option-border-color: lighten($blue, 25%);
+$ember-power-select-multiple-selection-color: $blue;
+$ember-power-select-selected-background: $white;
+$ember-power-select-placeholder-color: #777;
+@import "../ember-power-select";
+
+input.ember-power-select-trigger-multiple-input {
+  &,
+  &:focus {
+    border: none;
+    padding: 0.25em 0.6em 0.25em 0.2em;
+    margin: 2px 0 2px 4px;
+    box-shadow: none;
+  }
+}
+
+.ember-power-select-option[aria-selected="true"] {
+  display: none;
+}
+
+.ember-power-select-multiple-trigger {
+  padding: 0;
+  box-shadow: $form-box-shadow;
+  margin-bottom: 0.75em;
+  @include transition(border-color);
+}
+
+@keyframes drop-fade-below {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+@keyframes drop-fade-above {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.slide-fade {
+  // When opening below the trigger
+  &.ember-basic-dropdown-content--below.ember-basic-dropdown--transitioning-in {
+    animation: drop-fade-below 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  &.ember-basic-dropdown-content--below.ember-basic-dropdown--transitioning-out {
+    animation: drop-fade-below 0.15s reverse;
+  }
+
+  // When opening above the trigger
+  &.ember-basic-dropdown-content--above.ember-basic-dropdown--transitioning-in {
+    animation: drop-fade-above 0.15s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  &.ember-basic-dropdown-content--above.ember-basic-dropdown--transitioning-out {
+    animation: drop-fade-above 0.15s reverse;
+  }
+}

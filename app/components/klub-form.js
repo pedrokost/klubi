@@ -4,6 +4,9 @@ export default Ember.Component.extend({
   classNames: "klub-form",
   store: Ember.inject.service(),
   flashMessages: Ember.inject.service(),
+  categories: Ember.inject.service(),
+
+  knownCategories: Ember.A([]),
 
   serialized: Ember.computed(
     "klub",
@@ -16,7 +19,27 @@ export default Ember.Component.extend({
     }
   ),
 
+  setup: Ember.on("init", function() {
+    let categories = this.get("categories");
+    this.set("knownCategories", categories.list.mapBy("identifier"));
+  }),
+
   actions: {
+    createCategoryOnDelimiter(select, e) {
+      if (
+        (e.key === "Enter" || e.key === ",") &&
+        select.isOpen &&
+        (!select.highlighted || e.key === ",") &&
+        !Ember.isBlank(select.searchText)
+      ) {
+        let selected = this.get("klub.categories") || [];
+        if (!selected.includes(select.searchText)) {
+          this.get("knownCategories").pushObject(select.searchText);
+          select.actions.choose(select.searchText);
+        }
+        return false;
+      }
+    },
     setAddressAttrs(klub, address, latitude, longitude, town) {
       klub.setProperties({ address, latitude, longitude, town });
     },
