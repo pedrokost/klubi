@@ -53,7 +53,10 @@
       <label>Epošta: </label>{{input type="email" value=klub.email placeholder="info@maribor-fitnes.si"}}{{fa-icon "envelope" fixedWidth=true listItem=true}}
     </li>
     <li>
-      <label>Opombe: </label>{{textarea value=klub.notes placeholder="Kaj posebnega?"}}{{fa-icon "sticky-note" fixedWidth=true listItem=true}}
+      <label>Opis: </label>{{textarea value=klub.description placeholder="Na kratko opiši klub..."}}{{fa-icon "sticky-note" fixedWidth=true listItem=true}}
+    </li>
+    <li>
+      <label>Opombe za uredika: </label>{{textarea value=klub.notes placeholder="Informacije v tem poljo bojo vidne samo uredniku portala."}}{{fa-icon "comment" fixedWidth=true listItem=true}}
     </li>
     <li class="line-behind-text">
       <h4>Nekaj o tebi</h4>

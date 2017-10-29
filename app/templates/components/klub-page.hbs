@@ -40,6 +40,11 @@
           <p itemprop="email">{{mail-to klub.email}}</p>{{fa-icon "envelope" fixedWidth=true listItem=true}}
         </li>
       {{/if}}
+      {{#if klub.description}}
+        <li class='klub_page-item'>
+          <p itemprop="description">{{klub.description}}</p>{{fa-icon "sticky-note" fixedWidth=true listItem=true}}
+        </li>
+      {{/if}}
       {{#if klub.images.length}}
         <li class='klub_page-item'>
           {{klub-gallery images=klub.images}}

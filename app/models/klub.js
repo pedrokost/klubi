@@ -21,6 +21,7 @@ export default Model.extend({
   editor: attr("string"),
   verified: attr("boolean"),
   closedAt: attr("date"),
+  description: attr("string"),
   obcina: belongsTo("obcina"),
   images: hasMany("image", { async: true }),
 
