@@ -1,12 +1,12 @@
-import { moduleFor, test } from 'ember-qunit';
+import { moduleFor, test } from "ember-qunit";
 
-moduleFor('adapter:obcina', 'Unit | Adapter | obcina', {
+moduleFor("adapter:obcina", "Unit | Adapter | obcina", {
   // Specify the other units that are required for this test.
-  // needs: ['serializer:foo']
+  needs: ["service:scheduler"]
 });
 
 // Replace this with your real tests.
-test('it exists', function(assert) {
+test("it exists", function(assert) {
   let adapter = this.subject();
   assert.ok(adapter);
 });

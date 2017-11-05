@@ -1,10 +1,12 @@
 /* globals L */
-import Ember from "ember";
+import { scheduleOnce } from '@ember/runloop';
+
+import Service from '@ember/service';
 
 var southWest = L.latLng(44.0, 12.0), // spodaj levo
   northEast = L.latLng(48, 18); // zgoraj desno
 
-export default Ember.Service.extend({
+export default Service.extend({
   maxBounds: L.latLngBounds(southWest, northEast),
   map: null,
 
@@ -13,7 +15,7 @@ export default Ember.Service.extend({
     // is resized
     const map = this.get("map");
     if (map) {
-      Ember.run.scheduleOnce("afterRender", this, function() {
+      scheduleOnce("afterRender", this, function() {
         map.invalidateSize();
       });
     }

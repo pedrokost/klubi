@@ -1,9 +1,11 @@
-import Ember from "ember";
+import { inject as service } from '@ember/service';
+import { alias } from '@ember/object/computed';
+import Controller, { inject as controller } from '@ember/controller';
 
-export default Ember.Controller.extend({
-  "embeds/categoryklubs": Ember.inject.controller(),
-  categoryShown: Ember.computed.alias("embeds/categoryklubs.category"),
-  router: Ember.inject.service(),
+export default Controller.extend({
+  "embeds/categoryklubs": controller(),
+  categoryShown: alias("embeds/categoryklubs.category"),
+  router: service(),
 
   actions: {
     zoomToKlub(klubId) {

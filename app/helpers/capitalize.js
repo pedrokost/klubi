@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
 
 export function capitalize(str/*, hash*/) {
   if (str[0]) {
@@ -8,4 +8,4 @@ export function capitalize(str/*, hash*/) {
   }
 }
 
-export default Ember.Helper.helper(capitalize);
+export default helper(capitalize);

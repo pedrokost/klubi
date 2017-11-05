@@ -1,14 +1,17 @@
-import Ember from "ember";
+import $ from 'jquery';
+import { get } from '@ember/object';
+import { inject as service } from '@ember/service';
+import Controller from '@ember/controller';
 import rollbar from "rollbar";
 
-export default Ember.Controller.extend({
+export default Controller.extend({
   submitButtonDisabled: false,
-  flashMessages: Ember.inject.service(),
-  router: Ember.inject.service(),
+  flashMessages: service(),
+  router: service(),
 
   actions: {
     createKlub() {
-      const flashMessages = Ember.get(this, "flashMessages");
+      const flashMessages = get(this, "flashMessages");
       const klub = this.get("model");
 
       // Validate: all branches have full address
@@ -71,7 +74,7 @@ export default Ember.Controller.extend({
           // console.error(err)
           rollbar.error("Something went wrong when adding klubs", err);
           self.set("submitButtonDisabled", false);
-          Ember.$("html, body, .bodywrapper").animate({ scrollTop: 0 }, "slow");
+          $("html, body, .bodywrapper").animate({ scrollTop: 0 }, "slow");
           flashMessages.error(
             "Prišlo je do neznane napake pri shranjevanju podatkov o klubu :( Če ti ponovno ne uspe, me o tem prosim obesti na pedro@klubi.si."
           );

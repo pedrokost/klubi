@@ -1,23 +1,26 @@
-import Ember from "ember";
+import { debounce } from '@ember/runloop';
+import { computed } from '@ember/object';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
   classNames: ["klub_page js-close l-flex"],
-  map: Ember.inject.service(),
+  map: service(),
 
-  isUnverified: Ember.computed("klub.verified", function() {
+  isUnverified: computed("klub.verified", function() {
     // === to avoid geting undefined and showing the warning while the
     // model is being loaded
     return this.get("klub.verified") === false;
   }),
 
-  isPermanentlyClosed: Ember.computed("klub.closedAt", function() {
+  isPermanentlyClosed: computed("klub.closedAt", function() {
     return (
       this.get("klub.closedAt") !== null &&
       this.get("klub.closedAt") !== undefined
     );
   }),
 
-  permalink: Ember.computed("categoryShown", "klub.id", function() {
+  permalink: computed("categoryShown", "klub.id", function() {
     const ID_REGEX = /[-\/]\d+$/gim;
     const idStart = this.get("klub.id").search(ID_REGEX);
     const category = this.get("categoryShown");
@@ -43,11 +46,11 @@ export default Ember.Component.extend({
   },
 
   didRender() {
-    Ember.run.debounce(this, this._invalideMapSize, 500);
-    Ember.run.debounce(this, this._renderComments, 1500);
+    debounce(this, this._invalideMapSize, 500);
+    debounce(this, this._renderComments, 1500);
   },
 
-  addresses: Ember.computed(
+  addresses: computed(
     "klub.address",
     "klub.id",
     "klub.branches",

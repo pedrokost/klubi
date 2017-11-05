@@ -1,10 +1,13 @@
-import Ember from "ember";
+import { debounce } from '@ember/runloop';
+import { observer } from '@ember/object';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
   required: null,
   placeholder: null,
   classNameBindings: ["geocodingInvalid"],
-  geocoder: Ember.inject.service(),
+  geocoder: service(),
   geocodingInvalid: true,
   geocodingFailed: false,
   inputtedAddress: null,
@@ -76,10 +79,10 @@ export default Ember.Component.extend({
     }
   },
 
-  listenForTypingPause: Ember.observer("inputtedAddress", function() {
+  listenForTypingPause: observer("inputtedAddress", function() {
     this.set("formattedAddress", "...");
     this.set("geocodingInvalid", true);
     this.set("geocodingFailed", false);
-    Ember.run.debounce(this, this.updateMap, 250);
+    debounce(this, this.updateMap, 250);
   })
 });

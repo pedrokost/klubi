@@ -1,7 +1,8 @@
-import Ember from "ember";
+import { inject as service } from '@ember/service';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
-  assetMap: Ember.inject.service("asset-map"),
+export default Route.extend({
+  assetMap: service("asset-map"),
   titleToken(obcina) {
     return obcina.get("name");
   },

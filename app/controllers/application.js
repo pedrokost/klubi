@@ -1,14 +1,16 @@
-import Ember from "ember";
+import { computed, observer } from '@ember/object';
+import { inject as service } from '@ember/service';
+import Controller, { inject as controller } from '@ember/controller';
 
-export default Ember.Controller.extend({
+export default Controller.extend({
   isSideNavVisible: false,
   showMenus: true,
-  klubs: Ember.inject.controller(),
-  "seznam-klubov/klubs": Ember.inject.controller(),
-  "obcinas/obcina-category": Ember.inject.controller(),
-  router: Ember.inject.service(),
+  klubs: controller(),
+  "seznam-klubov/klubs": controller(),
+  "obcinas/obcina-category": controller(),
+  router: service(),
 
-  category: Ember.computed(
+  category: computed(
     "router.currentRouteName",
     "klubs.category",
     "seznam-klubov/klubs.category",
@@ -29,18 +31,18 @@ export default Ember.Controller.extend({
     }
   ),
 
-  isShowPage: Ember.computed("router.currentRouteName", function() {
+  isShowPage: computed("router.currentRouteName", function() {
     let router = this.get("router");
     return ["embeds.categoryklubs.klub.index", "klubs.klub.index"].includes(
       router.get("currentRouteName")
     );
   }),
 
-  hideSideNav: Ember.observer("currentPath", function() {
+  hideSideNav: observer("currentPath", function() {
     this.set("isSideNavVisible", false);
   }),
 
-  isEmbeddedPage: Ember.computed("router.currentRouteName", function() {
+  isEmbeddedPage: computed("router.currentRouteName", function() {
     let route = this.get("router").get("currentRouteName");
     let matcher = "embeds";
     return (

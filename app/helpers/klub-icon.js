@@ -1,4 +1,4 @@
-import Ember from "ember";
+import { helper } from '@ember/component/helper';
 
 /* globals L */
 
@@ -47,4 +47,4 @@ export function klubIcon(params /*, hash*/) {
   return new L.DivIcon({ html, className, iconSize });
 }
 
-export default Ember.Helper.helper(klubIcon);
+export default helper(klubIcon);

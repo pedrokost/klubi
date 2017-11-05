@@ -5,7 +5,7 @@ moduleFor(
   "Unit | Route | obcinas/obcina category",
   {
     // Specify the other units that are required for this test.
-    needs: ["service:asset-map"]
+    needs: ["service:asset-map", "service:scheduler", "service:router-scroll"]
   }
 );
 

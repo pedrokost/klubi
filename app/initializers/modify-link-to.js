@@ -1,4 +1,4 @@
-import Ember from "ember";
+import LinkComponent from '@ember/routing/link-component';
 
 var alreadyRun = false;
 
@@ -19,7 +19,7 @@ export default {
       alreadyRun = true;
     }
 
-    Ember.LinkComponent.reopen({
+    LinkComponent.reopen({
       attributeBindings: ["data-id"],
 
       init() {

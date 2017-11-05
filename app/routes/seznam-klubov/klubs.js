@@ -1,8 +1,9 @@
-import Ember from "ember";
+import { inject as service } from '@ember/service';
+import Route from '@ember/routing/route';
 import Prerenderable from "klubi/mixins/after-render-prerenderable";
 
-export default Ember.Route.extend(Prerenderable, {
-  assetMap: Ember.inject.service("asset-map"),
+export default Route.extend(Prerenderable, {
+  assetMap: service("asset-map"),
   title(tokens) {
     var category = this.controllerFor(this.routeName).get("category");
     if (tokens.length > 0) {

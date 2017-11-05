@@ -1,14 +1,20 @@
-import Ember from "ember";
+import $ from 'jquery';
+import { isBlank } from '@ember/utils';
+import { on } from '@ember/object/evented';
+import { computed, get } from '@ember/object';
+import { A } from '@ember/array';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
   classNames: "klub-form",
-  store: Ember.inject.service(),
-  flashMessages: Ember.inject.service(),
-  categories: Ember.inject.service(),
+  store: service(),
+  flashMessages: service(),
+  categories: service(),
 
-  knownCategories: Ember.A([]),
+  knownCategories: A([]),
 
-  serialized: Ember.computed(
+  serialized: computed(
     "klub",
     "klub.branches",
     "klub.branches.@each.address",
@@ -19,7 +25,7 @@ export default Ember.Component.extend({
     }
   ),
 
-  setup: Ember.on("init", function() {
+  setup: on("init", function() {
     let categories = this.get("categories");
     this.set("knownCategories", categories.list.mapBy("identifier"));
   }),
@@ -30,7 +36,7 @@ export default Ember.Component.extend({
         (e.key === "Enter" || e.key === ",") &&
         select.isOpen &&
         (!select.highlighted || e.key === ",") &&
-        !Ember.isBlank(select.searchText)
+        !isBlank(select.searchText)
       ) {
         let selected = this.get("klub.categories") || [];
         if (!selected.includes(select.searchText)) {
@@ -53,12 +59,12 @@ export default Ember.Component.extend({
     },
     save() {
       let editor = this.get("klub.editor");
-      if (Ember.isBlank(editor)) {
-        const flashMessages = Ember.get(this, "flashMessages");
+      if (isBlank(editor)) {
+        const flashMessages = get(this, "flashMessages");
         flashMessages.error(
           "Prosim, vnesi svojo e-pošto. Obvestili te bomo, ko bojo podatki obljavljeni."
         );
-        Ember.$("html, body, .bodywrapper").animate({ scrollTop: 0 }, "slow");
+        $("html, body, .bodywrapper").animate({ scrollTop: 0 }, "slow");
 
         return;
       }

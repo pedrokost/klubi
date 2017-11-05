@@ -5,7 +5,7 @@ moduleFor(
   "Unit | Route | /obcinas/obcina/index",
   {
     // Specify the other units that are required for this test.
-    // needs: ['controller:foo']
+    needs: ["service:scheduler", "service:router-scroll"]
   }
 );
 

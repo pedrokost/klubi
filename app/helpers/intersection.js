@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
 
 export function intersection(unsortedA, unsortedB) {
   /* finds the intersection of
@@ -34,4 +34,4 @@ export function intersection(unsortedA, unsortedB) {
   return result;
 }
 
-export default Ember.Helper.helper(intersection);
+export default helper(intersection);

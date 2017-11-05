@@ -1,11 +1,13 @@
-import Ember from "ember";
+import { alias } from '@ember/object/computed';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
   classNames: ["recent-categories"],
   isCategorySupported: true,
-  categories: Ember.inject.service(),
+  categories: service(),
 
-  recentCategories: Ember.computed.alias("categories.list"),
+  recentCategories: alias("categories.list"),
 
   linkDestination: "klubs"
 });

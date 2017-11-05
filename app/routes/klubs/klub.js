@@ -1,11 +1,12 @@
-import Ember from "ember";
+import { inject as service } from '@ember/service';
+import Route from '@ember/routing/route';
 import Prerenderable from "klubi/mixins/after-render-prerenderable";
 
-export default Ember.Route.extend(Prerenderable, {
+export default Route.extend(Prerenderable, {
   WANTED_ZOOM_LEVEL: 16,
-  assetMap: Ember.inject.service("asset-map"),
-  map: Ember.inject.service(),
-  router: Ember.inject.service(),
+  assetMap: service("asset-map"),
+  map: service(),
+  router: service(),
   titleToken(model) {
     return model.get("name");
   },

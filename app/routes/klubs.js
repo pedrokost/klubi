@@ -1,11 +1,15 @@
-import Ember from "ember";
+import { next } from '@ember/runloop';
+import { Promise as EmberPromise } from 'rsvp';
+import { A } from '@ember/array';
+import { inject as service } from '@ember/service';
+import Route from '@ember/routing/route';
 import ENV from "../config/environment";
 import _, { intersection } from "klubi/helpers/intersection";
 
-export default Ember.Route.extend({
-  assetMap: Ember.inject.service("asset-map"),
-  map: Ember.inject.service(),
-  categories: Ember.inject.service(),
+export default Route.extend({
+  assetMap: service("asset-map"),
+  map: service(),
+  categories: service(),
   title(tokens) {
     const categories = this.get("categories");
     var category = this.controllerFor(this.routeName).get("category");
@@ -91,7 +95,7 @@ export default Ember.Route.extend({
     this.get("map").zoomOut();
 
     // To show the user a category change is in progress, remove the currently shown data, so I can display a spinner
-    this.controllerFor(this.routeName).set("model", Ember.A());
+    this.controllerFor(this.routeName).set("model", A());
   },
   model(params) {
     const routeController = this.controllerFor(this.routeName);
@@ -102,8 +106,8 @@ export default Ember.Route.extend({
       /* Give time for the loading screen to properly render
       and not appear frozen */
 
-      return new Ember.RSVP.Promise(function(resolve, reject) {
-        return Ember.run.next(this, function() {
+      return new EmberPromise(function(resolve, reject) {
+        return next(this, function() {
           routeController.set("isLoading", false);
           resolve(data);
         });

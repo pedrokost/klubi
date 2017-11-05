@@ -1,11 +1,14 @@
-import Ember from "ember";
+import { computed } from '@ember/object';
+import { alias } from '@ember/object/computed';
+import { inject as service } from '@ember/service';
+import Controller from '@ember/controller';
 
-export default Ember.Controller.extend({
-  categories: Ember.inject.service(),
+export default Controller.extend({
+  categories: service(),
 
-  allCategories: Ember.computed.alias("categories.list"),
+  allCategories: alias("categories.list"),
 
-  filteredKlubs: Ember.computed(
+  filteredKlubs: computed(
     "model.klubs",
     "model.klubs.@each.parent",
     function() {
@@ -20,11 +23,11 @@ export default Ember.Controller.extend({
     }
   ),
 
-  noKlubs: Ember.computed("filteredKlubs", function() {
+  noKlubs: computed("filteredKlubs", function() {
     return this.get("filteredKlubs").length === 0;
   }),
 
-  categorizedKlubs: Ember.computed(
+  categorizedKlubs: computed(
     "filteredKlubs",
     "categories.list",
     function() {

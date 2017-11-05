@@ -1,7 +1,7 @@
-import Ember from 'ember';
-import {pluralize} from 'ember-inflector';
+import Mixin from '@ember/object/mixin';
+import { pluralize } from 'ember-inflector';
 
-export default Ember.Mixin.create({
+export default Mixin.create({
 
   _serializeEmbeddedHasMany(snapshot, json, relationship) {
     this._super(snapshot, json, relationship);

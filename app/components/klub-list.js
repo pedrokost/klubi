@@ -1,15 +1,19 @@
+import { A } from '@ember/array';
+import $ from 'jquery';
+import { computed } from '@ember/object';
+import Component from '@ember/component';
 import Ember from "ember";
 
-export default Ember.Component.extend(Ember.GoogleAnalyticsTrackingMixin, {
+export default Component.extend(Ember.GoogleAnalyticsTrackingMixin, {
   tagName: "section",
   classNames: ["klub-list"],
   query: "",
   height: null,
 
-  klubCardSizes: Ember.computed("filteredKlubs", function() {
+  klubCardSizes: computed("filteredKlubs", function() {
     const klubs = this.get("filteredKlubs");
 
-    const width = Ember.$(".klub-list-collection").width() - 20;
+    const width = $(".klub-list-collection").width() - 20;
     const MARGIN_BOTTOM = 5;
     const DEFAULT_HEIGHT = 62 + MARGIN_BOTTOM;
     const BRANCH_HEIGHT = 38;
@@ -29,7 +33,7 @@ export default Ember.Component.extend(Ember.GoogleAnalyticsTrackingMixin, {
 
     if (height === null) {
       // Set the height of the list to fill the remaining of the page
-      const docHeight = Ember.$(document).height();
+      const docHeight = $(document).height();
       const listTopOffset = this.$(".klub-list-collection").offset().top;
 
       this.$(".klub-list-collection").css({
@@ -38,7 +42,7 @@ export default Ember.Component.extend(Ember.GoogleAnalyticsTrackingMixin, {
     }
   },
 
-  filteredKlubs: Ember.computed(
+  filteredKlubs: computed(
     "klubs",
     "klubs.@each.parent",
     "klubs.@each.name",
@@ -65,7 +69,7 @@ export default Ember.Component.extend(Ember.GoogleAnalyticsTrackingMixin, {
 
       let fullSearchFilter = (klub, query) => {
         // Returns true if the klub, any of its parents, or any of its children contains the search query
-        let family = Ember.A([klub]);
+        let family = A([klub]);
         if (klub.get("parent.content")) {
           family.pushObject(klub.get("parent.content"));
         }

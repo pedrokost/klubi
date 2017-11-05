@@ -1,13 +1,16 @@
-import Ember from 'ember'
+import { A } from '@ember/array';
+import { computed } from '@ember/object';
+import { gt } from '@ember/object/computed';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
   classNames: ['klub-card'],
   classNameBindings: ['cardClass'],
   // TODO: add class name binding for type of card
 
-  hasFamily: Ember.computed.gt('family.length', 1),
+  hasFamily: gt('family.length', 1),
 
-  cardClass: Ember.computed('hasFamily', function () {
+  cardClass: computed('hasFamily', function () {
     if (this.get('hasFamily')) {
       return 'klub-card--with-branches'
     } else {
@@ -15,7 +18,7 @@ export default Ember.Component.extend({
     }
   }),
 
-  cardType: Ember.computed('hasFamily', function () {
+  cardType: computed('hasFamily', function () {
     if (this.get('hasFamily')) {
       return 'klub-card-with-branches'
     } else {
@@ -23,9 +26,9 @@ export default Ember.Component.extend({
     }
   }),
 
-  family: Ember.computed('klub', 'klub.parent', 'klub.branches', function () {('')
+  family: computed('klub', 'klub.parent', 'klub.branches', function () {('')
     let klub = this.get('klub')
-    let family = Ember.A([klub])
+    let family = A([klub])
     if (klub.get('parent.content')) {
       family.pushObject(klub.get('parent.content'))
     }

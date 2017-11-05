@@ -1,3 +1,4 @@
+import { computed } from '@ember/object';
 import Model from "ember-data/model";
 import attr from "ember-data/attr";
 import { hasMany, belongsTo } from "ember-data/relationships";
@@ -25,7 +26,7 @@ export default Model.extend({
   obcina: belongsTo("obcina"),
   images: hasMany("image", { async: true }),
 
-  location: Ember.computed("latitude", "longitude", function() {
+  location: computed("latitude", "longitude", function() {
     return [this.get("latitude"), this.get("longitude")];
   })
 });

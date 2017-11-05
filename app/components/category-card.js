@@ -1,9 +1,10 @@
-import Ember from "ember";
+import { computed } from '@ember/object';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
   classNames: ["card", "js-category-card"],
 
-  title: Ember.computed("obcina.name", "category.name", function() {
+  title: computed("obcina.name", "category.name", function() {
     const obcinaName = this.get("obcina.name");
     const categoryName = this.get("category.name");
 

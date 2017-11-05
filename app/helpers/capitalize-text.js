@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
 
 export function capitalize(string) {
   return string[0].capitalize();
 }
 
-export default Ember.Helper.helper(capitalize);
+export default helper(capitalize);

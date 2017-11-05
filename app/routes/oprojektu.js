@@ -1,7 +1,7 @@
-import Ember from "ember";
+import Route from '@ember/routing/route';
 import Prerenderable from "klubi/mixins/after-render-prerenderable";
 
-export default Ember.Route.extend(Prerenderable, {
+export default Route.extend(Prerenderable, {
   titleToken: "O projektu",
   headTags: [
     {

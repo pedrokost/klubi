@@ -1,6 +1,6 @@
-import Ember from "ember";
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
+export default Route.extend({
   titleToken: "Nalagam..."
   // Leaflet is sometimes not correctly re-initialized. This removes the
   // number of times leaflet is created and destroyed, therefore reducing

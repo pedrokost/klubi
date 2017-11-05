@@ -1,10 +1,12 @@
 // import Ember from 'ember'
 
+import { inject as service } from '@ember/service';
+
 import EmberLeafletComponent from "ember-leaflet/components/leaflet-map";
 
 export default EmberLeafletComponent.extend({
-  geolocator: Ember.inject.service(),
-  map: Ember.inject.service(),
+  geolocator: service(),
+  map: service(),
   didCreateLayer() {
     this._super(...arguments);
     let that = this;

@@ -1,3 +1,4 @@
+import { get } from '@ember/object';
 import ApplicationAdapter from "./application";
 
 export default ApplicationAdapter.extend({
@@ -5,7 +6,7 @@ export default ApplicationAdapter.extend({
     if (snapshot.adapterOptions) {
       let url = this.buildURL(type.modelName, id, snapshot, "findRecord");
       let query = {
-        category: Ember.get(snapshot.adapterOptions, "category")
+        category: get(snapshot.adapterOptions, "category")
       };
       return this.ajax(url, "GET", { data: query });
     } else {

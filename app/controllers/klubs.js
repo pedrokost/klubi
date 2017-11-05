@@ -1,29 +1,34 @@
+import { A } from '@ember/array';
+import { computed } from '@ember/object';
+import { alias } from '@ember/object/computed';
+import { inject as service } from '@ember/service';
+import Controller from '@ember/controller';
 import Ember from "ember";
 import ENV from "../config/environment";
 
-export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
-  map: Ember.inject.service(),
+export default Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
+  map: service(),
   zoom: 8,
   markerCenter: [46.122636, 14.81546],
   category: "fitnes",
-  maxBounds: Ember.computed.alias("map.maxBounds"),
-  flashMessages: Ember.inject.service(),
-  categories: Ember.inject.service(),
-  router: Ember.inject.service(),
+  maxBounds: alias("map.maxBounds"),
+  flashMessages: service(),
+  categories: service(),
+  router: service(),
 
-  isCategorySupported: Ember.computed("category", function() {
+  isCategorySupported: computed("category", function() {
     return this.get("categories").isSupported(this.get("category"));
   }),
 
-  anyKlub: Ember.computed("filteredKlubs", function() {
+  anyKlub: computed("filteredKlubs", function() {
     return this.get("filteredKlubs");
   }),
 
-  filteredKlubs: Ember.computed("category", "model", function() {
+  filteredKlubs: computed("category", "model", function() {
     var category = this.get("category");
 
     if (!this.get("model")) {
-      return Ember.A();
+      return A();
     }
 
     return this.get("model").filter(function(klub) {

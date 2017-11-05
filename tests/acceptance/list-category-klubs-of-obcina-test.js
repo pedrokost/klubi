@@ -16,7 +16,11 @@ test("should list all klubs", function(assert) {
 
   andThen(function() {
     assert.equal(currentURL(), `/obcina/${obcina.id}/fitnes`);
-    assert.ok(find("article h1").text().includes(obcina.name));
+    assert.ok(
+      find("article h1")
+        .text()
+        .includes(obcina.name)
+    );
     assert.equal(find(".klub-list .js-klub-card").length, 3);
   });
 });
@@ -29,7 +33,11 @@ test("should include 'Registriraj klub' button", function(assert) {
   visit(`/obcina/${obcina.id}/fitnes`);
 
   andThen(function() {
-    assert.ok(find(".js-add-klub-btn").text().includes("Registriraj klub"));
+    assert.ok(
+      find(".js-add-klub-btn")
+        .text()
+        .includes("Registriraj klub")
+    );
   });
 });
 
@@ -41,7 +49,7 @@ test("it include other available categories", function(assert) {
   visit(`/obcina/${obcina.id}/fitnes`);
 
   andThen(function() {
-    assert.equal(find(".js-category-card").length, 9);
+    assert.equal(find(".js-category-card").length, 19);
   });
 });
 

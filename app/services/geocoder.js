@@ -1,13 +1,15 @@
-import Ember from "ember";
+import $ from 'jquery';
+import { computed } from '@ember/object';
+import Service from '@ember/service';
 
-export default Ember.Service.extend({
+export default Service.extend({
   baseUrl: "https://maps.googleapis.com/maps/api/geocode/json?",
   apiKey: "AIzaSyBpN-jOLvDa0z6-nOaypIrgGLA465bmTSE",
   language: "sl",
   region: "si",
   address: null,
 
-  url: Ember.computed("address", function() {
+  url: computed("address", function() {
     const baseUrl = this.get("baseUrl");
     const apiKey = this.get("apiKey");
     const language = this.get("language");
@@ -19,6 +21,6 @@ export default Ember.Service.extend({
 
   geocode(address) {
     this.set("address", address);
-    return Ember.$.getJSON(this.get("url"));
+    return $.getJSON(this.get("url"));
   }
 });

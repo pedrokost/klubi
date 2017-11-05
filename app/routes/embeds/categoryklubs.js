@@ -1,7 +1,11 @@
-import Ember from "ember";
+import { next } from '@ember/runloop';
+import { Promise as EmberPromise } from 'rsvp';
+import { A } from '@ember/array';
+import { inject as service } from '@ember/service';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
-  assetMap: Ember.inject.service("asset-map"),
+export default Route.extend({
+  assetMap: service("asset-map"),
   beforeModel() {
     this.controllerFor("application").send("hideMenus");
 
@@ -15,7 +19,7 @@ export default Ember.Route.extend({
     });
 
     // To show the user a category change is in progress, remove the currently shown data, so I can display a spinner
-    this.controllerFor(this.routeName).set("model", Ember.A());
+    this.controllerFor(this.routeName).set("model", A());
   },
   model(params) {
     const routeController = this.controllerFor(this.routeName);
@@ -25,8 +29,8 @@ export default Ember.Route.extend({
       /* Give time for the loading screen to properly render
       and not appear frozen */
 
-      return new Ember.RSVP.Promise(function(resolve, reject) {
-        return Ember.run.next(this, function() {
+      return new EmberPromise(function(resolve, reject) {
+        return next(this, function() {
           routeController.set("isLoading", false);
           resolve(data);
         });

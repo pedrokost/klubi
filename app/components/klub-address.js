@@ -1,6 +1,7 @@
-import Ember from "ember";
+import { computed } from '@ember/object';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
   tagName: "li",
   classNames: ["klub-address", "klub_page-item"],
   classNameBindings: ["active"],
@@ -11,7 +12,7 @@ export default Ember.Component.extend({
     this.attrs.zoomToLocation(this.get("klubId"));
   },
 
-  cleanAddress: Ember.computed("address", function() {
+  cleanAddress: computed("address", function() {
     var address = this.get("address");
     if (address === null || address === undefined) {
       return "";

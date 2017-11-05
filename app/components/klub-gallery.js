@@ -1,9 +1,11 @@
-import Ember from "ember";
+import $ from 'jquery';
+import { computed } from '@ember/object';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
   classNames: "klub-gallery",
 
-  filteredImages: Ember.computed("images", function() {
+  filteredImages: computed("images", function() {
     // Leave only the first profile_photo, and all the photos
 
     let images = this.get("images");
@@ -28,10 +30,10 @@ export default Ember.Component.extend({
   actions: {
     openGallery(photoSwipe, index) {
       photoSwipe.actions.open({ index: index });
-      Ember.$(".klub_page").css({ overflow: "hidden" });
+      $(".klub_page").css({ overflow: "hidden" });
     },
     galleryClosed() {
-      Ember.$(".klub_page").css({ overflow: "auto" });
+      $(".klub_page").css({ overflow: "auto" });
     }
   }
 });

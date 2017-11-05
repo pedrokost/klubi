@@ -1,12 +1,13 @@
-import Ember from 'ember';
+import { scheduleOnce } from '@ember/runloop';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
   tagName: 'ul',
   classNames: ['rrssb-buttons', 'rrssb-buttons--klubi'],
   classNameBindings: ['isShowPage:is-show-page'],
 
   didInsertElement() {
-    Ember.run.scheduleOnce('afterRender', this, function() {
+    scheduleOnce('afterRender', this, function() {
       rrssbInit();
     });
   }

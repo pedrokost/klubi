@@ -1,12 +1,12 @@
-import Ember from "ember";
+import { inject as service } from '@ember/service';
 import KlubRoute from "klubi/routes/klubs/klub";
 import Prerenderable from "klubi/mixins/after-render-prerenderable";
 
 export default KlubRoute.extend(Prerenderable, {
   WANTED_ZOOM_LEVEL: 16,
-  assetMap: Ember.inject.service("asset-map"),
-  map: Ember.inject.service(),
-  router: Ember.inject.service(),
+  assetMap: service("asset-map"),
+  map: service(),
+  router: service(),
 
   model(params, transition) {
     return this.store.findRecord("klub", params.klub_id);

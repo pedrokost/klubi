@@ -1,11 +1,12 @@
-import Ember from 'ember';
+import { computed } from '@ember/object';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
   tagName: 'div',
   classNames: ['klub-card-inner js-klub-card'],
   attributeBindings: ['klubId:data-id'],
 
-  branchesWithCategory: Ember.computed('branches', 'categoryShown', function() {
+  branchesWithCategory: computed('branches', 'categoryShown', function() {
     // Make sure to alway load the data corresponding to only the selected
     // category
     let category = this.get('categoryShown');

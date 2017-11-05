@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
 
 export function fromDate(date) {
   return moment(date[0]).fromNow();
 }
 
-export default Ember.Helper.helper(fromDate);
+export default helper(fromDate);

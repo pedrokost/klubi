@@ -1,7 +1,8 @@
-import Ember from "ember";
+import { inject as service } from '@ember/service';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
-  router: Ember.inject.service(),
+export default Route.extend({
+  router: service(),
   redirect() {
     this.get("router").transitionTo("seznam-klubov.klubs", "fitnes");
   }

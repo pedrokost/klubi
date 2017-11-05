@@ -1,6 +1,7 @@
-import Ember from "ember";
+import { once } from '@ember/runloop';
+import Service from '@ember/service';
 
-export default Ember.Service.extend({
+export default Service.extend({
   control: null,
   centerMapOnUser() {
     if (!this._isHTTPSPage()) {
@@ -9,7 +10,7 @@ export default Ember.Service.extend({
     }
     const control = this.get("control");
     if (control) {
-      Ember.run.once(this, "_centerMapOnUser");
+      once(this, "_centerMapOnUser");
     } else {
       // TODO: add Ember.addObserver to wait until control appears
       // TODO: throw?

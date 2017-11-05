@@ -1,7 +1,8 @@
-import Ember from 'ember';
+import { computed } from '@ember/object';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
-  branchCSSClasses: Ember.computed('isHovered', function() {
+export default Component.extend({
+  branchCSSClasses: computed('isHovered', function() {
     let cssClass = 'klub-card-branch js-klub-card';
     if (this.get('isHovered')) {
       cssClass += ' is-hovered';

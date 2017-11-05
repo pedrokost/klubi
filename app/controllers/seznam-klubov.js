@@ -1,5 +1,6 @@
+import Controller from '@ember/controller';
 import Ember from 'ember';
 
-export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
+export default Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
   category: 'fitnes'
 });

@@ -1,21 +1,25 @@
+import { computed } from '@ember/object';
+import { alias } from '@ember/object/computed';
+import { inject as service } from '@ember/service';
+import Controller, { inject as controller } from '@ember/controller';
 import Ember from "ember";
 
-export default Ember.Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
-  application: Ember.inject.controller("application"),
-  map: Ember.inject.service(),
+export default Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
+  application: controller("application"),
+  map: service(),
   queryParams: ["category"],
   category: "fitnes",
   zoom: 8,
   markerCenter: [46.122636, 14.81546], // Slivna, Slovenia
-  maxBounds: Ember.computed.alias("map.maxBounds"),
-  router: Ember.inject.service(),
-  currentRouteName: Ember.computed.alias("router.currentRouteName"),
+  maxBounds: alias("map.maxBounds"),
+  router: service(),
+  currentRouteName: alias("router.currentRouteName"),
 
-  anyKlub: Ember.computed("model", function() {
+  anyKlub: computed("model", function() {
     return this.get("model");
   }),
 
-  isShowPage: Ember.computed("currentRouteName", function() {
+  isShowPage: computed("currentRouteName", function() {
     // TODO: this is brittle.
     return this.get("currentRouteName") === "embeds.categoryklubs.klub.index";
   }),
