@@ -5,7 +5,8 @@ module.exports = function(environment) {
     modulePrefix: "klubi",
     environment,
     host: "//api.klubi.si",
-    locationType: "auto",
+    locationType: "router-scroll",
+    historySupportMiddleware: true,
     rootURL: "/",
     cdnPrepend: "https://d2ne2albfoowfo.cloudfront.net/",
     EmberENV: {
@@ -39,7 +40,9 @@ module.exports = function(environment) {
       accessToken: "d66dea1a45e7484eaa73e7f24dbd7044",
       enabled: environment === "production"
     },
-
+    routerScroll: {
+      scrollElement: "#bodywrapper"
+    },
     // TODO: Review before going go production!!
     contentSecurityPolicy: {
       // "default-src": "'none'",

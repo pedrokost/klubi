@@ -58,6 +58,7 @@
     "ember-photoswipe": "^0.3.2",
     "ember-power-select": "^1.9.11",
     "ember-resolver": "^4.0.0",
+    "ember-router-scroll": "^0.4.0",
     "ember-source": "~2.15.0",
     "ember-watson": "~0.8.1",
     "express": "^4.12.4",
