@@ -1,7 +1,7 @@
-import { debounce } from '@ember/runloop';
-import { observer } from '@ember/object';
-import { inject as service } from '@ember/service';
-import Component from '@ember/component';
+import { debounce } from "@ember/runloop";
+import { observer } from "@ember/object";
+import { inject as service } from "@ember/service";
+import Component from "@ember/component";
 
 export default Component.extend({
   required: null,
@@ -59,6 +59,11 @@ export default Component.extend({
           let town = results[0].address_components.find(component => {
             return component.types.includes("postal_town");
           });
+          if (!town) {
+            town = results[0].address_components.find(component => {
+              return component.types.includes("locality");
+            });
+          }
           if (!town) {
             town = results[0].address_components.find(component => {
               return component.types.includes("administrative_area_level_1");
