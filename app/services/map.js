@@ -31,7 +31,7 @@ export default Service.extend({
     // not work consistently well (usually just does the
     // zooming, but position breaks)
     const map = this.get("map");
-    if (!map) {
+    if (!map || !map._mapPane) {
       return;
     }
     map.setView(location, zoomLevel, { animate: false });

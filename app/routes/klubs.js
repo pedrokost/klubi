@@ -1,8 +1,8 @@
-import { next } from '@ember/runloop';
-import { Promise as EmberPromise } from 'rsvp';
-import { A } from '@ember/array';
-import { inject as service } from '@ember/service';
-import Route from '@ember/routing/route';
+import { next } from "@ember/runloop";
+import { Promise as EmberPromise } from "rsvp";
+import { A } from "@ember/array";
+import { inject as service } from "@ember/service";
+import Route from "@ember/routing/route";
 import ENV from "../config/environment";
 import _, { intersection } from "klubi/helpers/intersection";
 
