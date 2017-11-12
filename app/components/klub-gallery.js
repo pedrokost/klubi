@@ -1,6 +1,6 @@
-import $ from 'jquery';
-import { computed } from '@ember/object';
-import Component from '@ember/component';
+import $ from "jquery";
+import { computed } from "@ember/object";
+import Component from "@ember/component";
 
 export default Component.extend({
   classNames: "klub-gallery",
@@ -29,8 +29,8 @@ export default Component.extend({
 
   actions: {
     openGallery(photoSwipe, index) {
-      photoSwipe.actions.open({ index: index });
       $(".klub_page").css({ overflow: "hidden" });
+      photoSwipe.actions.open({ index: index });
     },
     galleryClosed() {
       $(".klub_page").css({ overflow: "auto" });
