@@ -54,7 +54,5 @@ export default EmberLeafletComponent.extend({
     this.get("geolocator").set("control", locateControl);
 
     this.get("map").set("map", this._layer);
-
-    window.map = this._layer;
   }
 });
