@@ -55,7 +55,10 @@ export default Component.extend({
         if (okStatus) {
           const latitude = results[0].geometry.location.lat;
           const longitude = results[0].geometry.location.lng;
-          const formattedAddress = results[0].formatted_address;
+          const formattedAddress = results[0].formatted_address
+            .replace(", Slovenija", "")
+            .replace(", Slovenia", "");
+
           let town = results[0].address_components.find(component => {
             return component.types.includes("postal_town");
           });
