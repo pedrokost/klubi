@@ -48,7 +48,6 @@
     }
 
     @include media($landscape-large-screen-up) {
-      right: $klub-page-max-width + $widgets-separation;
     }
   }
 

@@ -19,6 +19,14 @@
   }
 }
 
+.klubs-klub .klubs-page .recent-categories {
+  $widgets-separation: 10px;
+
+  @include media($landscape-large-screen-up) {
+    right: $klub-page-max-width + $widgets-separation;
+  }
+}
+
 .klub_page-container {
   width: 100%;
   @include media($landscape-large-screen-up) {
@@ -92,4 +100,3 @@
 
 .klub_page a {
 }
-
