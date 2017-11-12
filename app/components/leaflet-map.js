@@ -1,6 +1,6 @@
 // import Ember from 'ember'
 
-import { inject as service } from '@ember/service';
+import { inject as service } from "@ember/service";
 
 import EmberLeafletComponent from "ember-leaflet/components/leaflet-map";
 
@@ -9,6 +9,7 @@ export default EmberLeafletComponent.extend({
   map: service(),
   didCreateLayer() {
     this._super(...arguments);
+
     let that = this;
 
     var zoomOptions = {

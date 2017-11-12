@@ -1,7 +1,7 @@
 /* globals L */
-import { scheduleOnce } from '@ember/runloop';
+import { scheduleOnce } from "@ember/runloop";
 
-import Service from '@ember/service';
+import Service from "@ember/service";
 
 var southWest = L.latLng(44.0, 12.0), // spodaj levo
   northEast = L.latLng(48, 18); // zgoraj desno
@@ -34,6 +34,6 @@ export default Service.extend({
     if (!map) {
       return;
     }
-    map.setView(location, zoomLevel);
+    map.setView(location, zoomLevel, { animate: false });
   }
 });
