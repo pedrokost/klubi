@@ -39,9 +39,7 @@ export default Controller.extend({
               klub.get("categories.firstObject").toLowerCase(),
               klub.get("id")
             );
-          flashMessages.success(
-            "Fantansticno! Tvoj komentar je sedaj objavljen!"
-          );
+          flashMessages.success("Fantanstično! Tvoj komentar je objavljen!");
         })
         .catch(function(err) {
           rollbar.error(

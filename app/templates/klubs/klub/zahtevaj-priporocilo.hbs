@@ -1,0 +1,66 @@
+{{#modal-dialog
+  onClose=(action (mut isShowingTranslucent) false)
+  targetAttachment='none'
+  containerClass='modal-centered-scrolling-container'
+  overlayClass='modal-centered-scrolling-overlay'
+  wrapperClass='modal-centered-scrolling-wrapper'
+  translucentOverlay=true}}
+
+  <div class="article priporocilo-modal">
+    <h1 title="{{model.klub.name}}">Zahtevaj priporočilo</h1>
+
+    <form {{action "sendRequest" on="submit"}}>
+      <ul class="fa-ul">
+        <li class="line-behind-text">
+          <h4>Zakaj zbiranje priporočil?</h4>
+        </li>
+        <li>
+          <p>
+            Priporočila zadovoljnih članov in članic so pika na i vaše dobre predstavitve. Tekst pove, kaj delate, slike to pokažejo, priporočila pa vse skupaj potrdijo. Potencialni člani in članice najbolj zaupajo kredibilnim mnenjem vaših obstoječih članov/ic. Veliko število priporočil so najboljša garancija za stalen pritok novih članov.
+          </p>
+        </li>
+
+        <li class="line-behind-text">
+          <h4>Koga bi želeli prositi za priporočilo?</h4>
+        </li>
+
+        {{#each model as |recommender index| }}
+          {{#unless recommender.isDeleted}}
+            <li>
+              <label>Ime: {{#if index}}<a {{action "removeRecommender" recommender}} class="pull-right zahtevaj-priporocilo-remove-button">Odstrani</a>{{/if}}</label>{{input type="text" value=recommender.commenterName required="required" placeholder="Proporocevalid Tadej"}}{{fa-icon "envelope" fixedWidth=true listItem=true}}
+            </li>
+            <li>
+              <label>E-pošta: </label>{{input type="email" value=recommender.commenterEmail required="required" placeholder="tadej@gmail.com"}}{{fa-icon "envelope" fixedWidth=true listItem=true}}
+            </li>
+            {{#if multipleRecommenders}}<hr>{{/if}}
+          {{/unless}}
+        {{/each}}
+        <li>
+          <a {{action "addRecommender"}} class="zahtevaj-priporocilo-add-button" tabindex="0">Dodaj prejemnika</a>
+        </li>
+        <li class="line-behind-text">
+          <h4>Nekaj o tebi</h4>
+        </li>
+
+        <li>
+          <label>Tvoje ime: </label>{{input type="text" value=requesterName required="required" placeholder="Matej Pozdavek"}}{{fa-icon "envelope" fixedWidth=true listItem=true}}
+          <small>Ime bo vidno prejemnikom zahtevka za priporočilo.</small>
+        </li>
+        <li>
+          <label>Tvoja e-pošta: </label>{{input type="email" value=requesterEmail required="required" placeholder="matej.pozdavek@gmail.com"}}{{fa-icon "envelope" fixedWidth=true listItem=true}}
+          <small>Nikoli ti ne bomo poslali nezaželjene pošte. Obvestili te bomo o novih priporočilih.</small>
+        </li>
+        <li>
+          <br>
+          <button type="submit" disabled={{ submitButtonDisabled }}>Pošlji zahtevek za priporočilo <div class="loader-inline">
+          <div class="spinner-container">
+            <div class="spinner"></div>
+            <div class="spinner"></div>
+            <div class="spinner"></div>
+          </div>
+        </div></button>
+        </li>
+      </ul>
+    </form>
+  </div>
+{{/modal-dialog}}

@@ -1,12 +1,12 @@
 {{#modal-dialog
   onClose=(action (mut isShowingTranslucent) false)
   targetAttachment='none'
-  containerClass='podaj-klub-centered-scrolling-container'
-  overlayClass='podaj-klub-centered-scrolling-overlay'
-  wrapperClass='podaj-klub-centered-scrolling-wrapper'
+  containerClass='modal-centered-scrolling-container'
+  overlayClass='modal-centered-scrolling-overlay'
+  wrapperClass='modal-centered-scrolling-wrapper'
   translucentOverlay=true}}
 
-  <div class="article podaj-mnenje-modal">
+  <div class="article priporocilo-modal">
     <h1 title="{{model.klub.name}}">Priporoči {{model.klub.name}}</h1>
 
     <form {{action "saveComment" on="submit"}}>
@@ -22,6 +22,7 @@
           <label>Vaše ime: </label>
           {{input type="text" value=model.commenterName required="required" placeholder="Anja Gmah"}}{{fa-icon "user" fixedWidth=true listItem=true}}
         </li>
+        <br>
         <li>
           {{input type="checkbox" required="required" id="podaj-mnenje-agreement"}}<label for="podaj-mnenje-agreement">Potrjujem, da moje priporočilo temelji na moji dejanski izkušnji s klubom in da z njim nimam osebnih ali poslovnih povezav.</label>
           {{fa-icon "check" fixedWidth=true listItem=true}}
@@ -37,8 +38,6 @@
         </div></button>
         </li>
       </ul>
-
-
     </form>
   </div>
 {{/modal-dialog}}

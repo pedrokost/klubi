@@ -57,6 +57,7 @@ Router.map(function() {
             { path: "/podaj-mnenje/:request_hash" },
             function() {}
           );
+          this.route("zahtevaj-priporocilo");
         }
       ); // generates subroutes
 

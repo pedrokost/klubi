@@ -1,12 +1,11 @@
-
+<div class="flashes-container">
+  {{#if flashMessages}}
+    {{#each flashMessages.queue as |flash|}}
+      {{flash-message flash=flash}}
+    {{/each}}
+  {{/if}}
+</div>
 <div id="bodywrapper" class="bodywrapper {{if isEmbeddedPage 'bodywrapper--embedded' }} {{if isSideNavVisible 'bodywrapper-hidden'}}">
-  <div class="flashes-container">
-    {{#if flashMessages}}
-      {{#each flashMessages.queue as |flash|}}
-        {{flash-message flash=flash}}
-      {{/each}}
-    {{/if}}
-  </div>
   {{outlet}}
 </div>
 

@@ -1,7 +1,7 @@
-import $ from 'jquery';
-import { get } from '@ember/object';
-import { inject as service } from '@ember/service';
-import Controller from '@ember/controller';
+import $ from "jquery";
+import { get } from "@ember/object";
+import { inject as service } from "@ember/service";
+import Controller from "@ember/controller";
 import ENV from "../../../config/environment";
 import rollbar from "rollbar";
 
@@ -33,7 +33,9 @@ export default Controller.extend({
             flashMessages.success(
               "Hvala za popravke ;) Podatke bomo preverili in jih v kratkem prikazali na strani"
             );
-            self.get("router").transitionTo("klubs.klub", klub.get("id"));
+            self
+              .get("router")
+              .transitionTo("klubs.klub.zahtevaj-priporocilo", klub.get("id"));
           });
         })
         .catch(function(err) {

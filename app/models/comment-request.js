@@ -1,0 +1,11 @@
+import DS from "ember-data";
+import attr from "ember-data/attr";
+import { belongsTo } from "ember-data/relationships";
+
+export default DS.Model.extend({
+  commenterName: attr("string"),
+  commenterEmail: attr("string"),
+  requesterName: attr("string"),
+  requesterEmail: attr("string"),
+  klub: belongsTo("klub")
+});
