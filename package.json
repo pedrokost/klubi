@@ -55,6 +55,7 @@
     "ember-leaflet": "^3.0.12",
     "ember-leaflet-marker-cluster": "0.1.1",
     "ember-load-initializers": "^1.0.0",
+    "ember-modal-dialog": "^2.4.0",
     "ember-photoswipe": "^0.3.2",
     "ember-power-select": "^1.9.11",
     "ember-resolver": "^4.0.0",

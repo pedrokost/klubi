@@ -3,6 +3,8 @@
 @import "base/grid-settings";
 @import "../../bower_components/neat/app/assets/stylesheets/neat";
 @import "base/base";
+@import "ember-modal-dialog/ember-modal-structure";
+@import "ember-modal-dialog/ember-modal-appearance";
 
 @import "mixins";
 
@@ -33,6 +35,7 @@
 @import "components/footer";
 @import "components/klub-gallery";
 @import "components/ember-power-select";
+@import "components/ember-modal-appearance";
 
 // Pages
 @import "pages/base";
@@ -44,6 +47,7 @@
 @import "pages/categoryklubs";
 @import "pages/obcina-category";
 @import "pages/obcina";
+@import "pages/podaj-mnenje";
 
 // Misc
 @import "cookie-consent";

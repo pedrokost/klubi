@@ -1,0 +1,44 @@
+{{#modal-dialog
+  onClose=(action (mut isShowingTranslucent) false)
+  targetAttachment='none'
+  containerClass='podaj-klub-centered-scrolling-container'
+  overlayClass='podaj-klub-centered-scrolling-overlay'
+  wrapperClass='podaj-klub-centered-scrolling-wrapper'
+  translucentOverlay=true}}
+
+  <div class="article podaj-mnenje-modal">
+    <h1 title="{{model.klub.name}}">Priporoči {{model.klub.name}}</h1>
+
+    <form {{action "saveComment" on="submit"}}>
+      <ul class="fa-ul">
+        {{!-- <li class="line-behind-text">
+          <h4>Vase mnenje</h4>
+        </li> --}}
+        <li>
+          <label>Vaše mnenje o klubu: </label>
+          {{textarea value=model.body required="required" placeholder="Kaj vam je v klubu najbolj všeč? Kaj bi radi, da se izboljša? Zakaj bi nekdo izbral ta klub?" rows="5"}}{{fa-icon "sticky-note" fixedWidth=true listItem=true}}
+        </li>
+        <li>
+          <label>Vaše ime: </label>
+          {{input type="text" value=model.commenterName required="required" placeholder="Anja Gmah"}}{{fa-icon "user" fixedWidth=true listItem=true}}
+        </li>
+        <li>
+          {{input type="checkbox" required="required" id="podaj-mnenje-agreement"}}<label for="podaj-mnenje-agreement">Potrjujem, da moje priporočilo temelji na moji dejanski izkušnji s klubom in da z njim nimam osebnih ali poslovnih povezav.</label>
+          {{fa-icon "check" fixedWidth=true listItem=true}}
+        </li>
+        <li>
+          <br>
+          <button type="submit" disabled={{ submitButtonDisabled }}>Oddaj mnenje <div class="loader-inline">
+          <div class="spinner-container">
+            <div class="spinner"></div>
+            <div class="spinner"></div>
+            <div class="spinner"></div>
+          </div>
+        </div></button>
+        </li>
+      </ul>
+
+
+    </form>
+  </div>
+{{/modal-dialog}}

@@ -52,6 +52,11 @@ Router.map(function() {
         },
         function() {
           this.route("uredi");
+          this.route(
+            "podaj-mnenje",
+            { path: "/podaj-mnenje/:request_hash" },
+            function() {}
+          );
         }
       ); // generates subroutes
 

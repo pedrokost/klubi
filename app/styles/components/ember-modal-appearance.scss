@@ -1,0 +1,5 @@
+.ember-modal-overlay {
+  &.translucent {
+    background: transparentize(black, 0.3);
+  }
+}
