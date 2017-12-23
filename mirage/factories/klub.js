@@ -7,5 +7,8 @@ export default Factory.extend({
   town(i) {
     return `Town ${i}`;
   },
-  obcina: association()
+  obcina: association(),
+  latitude: 14.3,
+  longitude: 14.3,
+  address: "Testni naslov, Ljubljana"
 });

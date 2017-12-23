@@ -11,8 +11,8 @@ if (window.rollbar === undefined) {
 }
 
 export default Controller.extend({
-  requesterName: "requested",
-  requesterEmail: "requested@email.com",
+  requesterName: null,
+  requesterEmail: null,
   submitButtonDisabled: false,
   flashMessages: service(),
   router: service(),

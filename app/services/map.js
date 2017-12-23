@@ -35,6 +35,9 @@ export default Service.extend({
     // here as they tend to cause errors; I don't need animation on boot
     // anyway
 
+    if (!location[0] || !location[1]) {
+      location = [46.122636, 14.81546];
+    }
     this.getMap().then(function(map) {
       map.setView(location, zoomLevel, { animate: false });
     });

@@ -28,4 +28,8 @@ export default function() {
   this.get("/klubs");
   this.get("/klubs/:id");
   this.get("/obcinas/:id");
+  this.post("/comments");
+  this.post("/comment-requests");
+  // this.get("/comments/:id");
+  // this.get("/comment-requests/:id");
 }

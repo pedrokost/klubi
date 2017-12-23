@@ -27,10 +27,10 @@
         {{#each model as |recommender index| }}
           {{#unless recommender.isDeleted}}
             <li>
-              <label>Ime: {{#if index}}<a {{action "removeRecommender" recommender}} class="pull-right zahtevaj-priporocilo-remove-button">Odstrani</a>{{/if}}</label>{{input type="text" value=recommender.commenterName required="required" placeholder="Proporocevalid Tadej"}}{{fa-icon "envelope" fixedWidth=true listItem=true}}
+              <label>Ime: {{#if index}}<a {{action "removeRecommender" recommender}} class="pull-right zahtevaj-priporocilo-remove-button">Odstrani</a>{{/if}}</label>{{input type="text" value=recommender.commenterName required="required" placeholder="Tadej Borelc" class="js-zahtevaj-ime"}}{{fa-icon "envelope" fixedWidth=true listItem=true}}
             </li>
             <li>
-              <label>E-pošta: </label>{{input type="email" value=recommender.commenterEmail required="required" placeholder="tadej@gmail.com"}}{{fa-icon "envelope" fixedWidth=true listItem=true}}
+              <label>E-pošta: </label>{{input type="email" value=recommender.commenterEmail required="required" placeholder="tadej@gmail.com" class="js-zahtevaj-email"}}{{fa-icon "envelope" fixedWidth=true listItem=true}}
             </li>
             {{#if multipleRecommenders}}<hr>{{/if}}
           {{/unless}}
@@ -43,11 +43,11 @@
         </li>
 
         <li>
-          <label>Tvoje ime: </label>{{input type="text" value=requesterName required="required" placeholder="Matej Pozdavek"}}{{fa-icon "envelope" fixedWidth=true listItem=true}}
+          <label>Tvoje ime: </label>{{input type="text" value=requesterName required="required" placeholder="Matej Pozdavek" class="js-zahtevaj-tvoje-ime"}}{{fa-icon "envelope" fixedWidth=true listItem=true}}
           <small>Ime bo vidno prejemnikom zahtevka za priporočilo.</small>
         </li>
         <li>
-          <label>Tvoja e-pošta: </label>{{input type="email" value=requesterEmail required="required" placeholder="matej.pozdavek@gmail.com"}}{{fa-icon "envelope" fixedWidth=true listItem=true}}
+          <label>Tvoja e-pošta: </label>{{input type="email" value=requesterEmail required="required" placeholder="matej.pozdavek@gmail.com" class="js-zahtevaj-tvoj-email"}}{{fa-icon "envelope" fixedWidth=true listItem=true}}
           <small>Nikoli ti ne bomo poslali nezaželjene pošte. Obvestili te bomo o novih priporočilih.</small>
         </li>
         <li>
