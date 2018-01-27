@@ -17,14 +17,12 @@ export default Component.extend({
 
   didReceiveAttrs() {
     this._super(...arguments);
-    if (
-      !this.get("initialized") &&
-      !this.get("inputtedAddress") &&
-      this.get("address")
-    ) {
+    if (!this.get("inputtedAddress") && this.get("address")) {
       this.set("inputtedAddress", this.get("address"));
-      this.updateMap();
-      this.set("initialized", true);
+      if (this.get("address")) {
+        this.set("formattedAddress", this.get("address"));
+      }
+      // this.updateMap();
     }
   },
 
@@ -88,6 +86,13 @@ export default Component.extend({
   },
 
   listenForTypingPause: observer("inputtedAddress", function() {
+    if (!this.get("initialized")) {
+      if (this.get("address") !== this.get("inputtedAddress")) {
+        this.set("initialized", true);
+      } else {
+        return;
+      }
+    }
     this.set("formattedAddress", "...");
     this.set("geocodingInvalid", true);
     this.set("geocodingFailed", false);
