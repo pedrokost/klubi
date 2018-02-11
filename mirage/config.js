@@ -1,3 +1,5 @@
+import Mirage from "ember-cli-mirage";
+
 export default function() {
   // These comments are here to help you get started. Feel free to delete them.
 
@@ -25,6 +27,19 @@ export default function() {
   this.namespace = "";
   this.urlPrefix = "http://api.app.local:3200";
 
+  this.post("/klubs/:id/confirm", (schema, request) => {
+    const hash = JSON.parse(request.requestBody).request_hash;
+
+    if (hash === "invalid-code") {
+      return new Mirage.Response(
+        404,
+        { "Content-Type": "application/json" },
+        {}
+      );
+    } else {
+      return null;
+    }
+  });
   this.get("/klubs");
   this.get("/klubs/:id");
   this.get("/obcinas/:id");

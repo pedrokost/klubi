@@ -1,0 +1,35 @@
+/*
+* @Author: Pedro Kostelec
+* @Date:   2018-02-11 16:00:41
+* @Last Modified by:   Pedro Kostelec
+* @Last Modified time: 2018-05-07 20:22:50
+*/
+
+.potrdi-klub-modal {
+  // float: none;
+  margin-left: 0;
+  width: 100%;
+
+  form {
+    button {
+      @include span-columns(5);
+      @include shift(2);
+
+      &.button-secondary {
+        @include shift(0);
+      }
+    }
+  }
+  h1 {
+    font-size: 2em;
+    text-align: center;
+  }
+
+  button[type="submit"] .loader-inline {
+    @extend %loader-inline;
+    display: none;
+  }
+  button[type="submit"]:disabled .loader-inline {
+    display: inline;
+  }
+}

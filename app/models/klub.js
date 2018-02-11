@@ -2,6 +2,7 @@ import { computed } from "@ember/object";
 import Model from "ember-data/model";
 import attr from "ember-data/attr";
 import { hasMany, belongsTo } from "ember-data/relationships";
+import { memberAction } from "ember-api-actions";
 
 /* globals Ember */
 
@@ -29,5 +30,10 @@ export default Model.extend({
 
   location: computed("latitude", "longitude", function() {
     return [this.get("latitude"), this.get("longitude")];
+  }),
+
+  confirmData: memberAction({
+    path: "confirm",
+    type: "post"
   })
 });

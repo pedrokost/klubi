@@ -1,0 +1,25 @@
+{{#modal-dialog
+  onClose=(action (mut isShowingTranslucent) false)
+  targetAttachment='none'
+  containerClass='modal-centered-scrolling-container'
+  overlayClass='modal-centered-scrolling-overlay'
+  wrapperClass='modal-centered-scrolling-wrapper'
+  translucentOverlay=true}}
+
+  <div class="article potrdi-klub-modal">
+    <h1>So podatki za {{model.klub.name}} pravilni?</h1>
+
+    <br>
+
+    <form {{action "sendConfirmation" on="submit"}}>
+      <button data-test-no class="button-secondary" disabled={{ submitButtonDisabled }} {{action "openEditKlubPage" model.klub}}>Ne, uredi podatke</button>
+      <button data-test-yes type="submit" disabled={{ submitButtonDisabled }}>Ja <div class="loader-inline">
+        <div class="spinner-container">
+          <div class="spinner"></div>
+          <div class="spinner"></div>
+          <div class="spinner"></div>
+        </div>
+      </div></button>
+    </form>
+  </div>
+{{/modal-dialog}}

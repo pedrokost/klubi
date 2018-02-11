@@ -58,6 +58,7 @@ Router.map(function() {
             function() {}
           );
           this.route("zahtevaj-priporocilo");
+          this.route("potrdi", { path: "/potrdi/:request_hash" });
         }
       ); // generates subroutes
 

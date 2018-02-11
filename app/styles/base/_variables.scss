@@ -44,7 +44,9 @@ $base-accent-color: $blue;
 $base-link-color: $base-accent-color;
 $hover-link-color: darken($base-accent-color, 15);
 $base-button-color: $base-link-color;
+$secondary-button-color: $medium-gray;
 $hover-button-color: $hover-link-color;
+$hover-secondary-button-color: darken($medium-gray, 15);
 
 // Flash Colors
 $alert-color: $light-yellow;

@@ -6,7 +6,6 @@
     "bourbon": "~4.3.4",
     "ember-google-analytics":
       "pedrokost/ember-google-analytics#instanceinitializer",
-    "neat": "~1.7.1",
     "momentjs": "~2.18.1",
     "rrssb": "~1.14.0",
     "leaflet.markercluster": "~1.1.0",

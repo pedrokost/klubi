@@ -19,7 +19,7 @@ test("single user request", function(assert) {
     assert.ok(
       find(".alert")
         .text()
-        .includes("upešno si poslal/a zahetvke za priporočilo")
+        .includes("Odlično! Uspešno si poslal/a zahetvke za priporočilo!")
     );
   });
 });
@@ -51,4 +51,3 @@ test("adding and removing recipients", function(assert) {
     // );
   });
 });
-

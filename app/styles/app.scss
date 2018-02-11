@@ -1,7 +1,8 @@
 @import "bourbon";
 @import "ember-photoswipe";
 @import "base/grid-settings";
-@import "../../bower_components/neat/app/assets/stylesheets/neat";
+// @import "../../bower_components/neat/app/assets/stylesheets/neat";
+@import "neat";
 @import "base/base";
 @import "ember-modal-dialog/ember-modal-structure";
 @import "ember-modal-dialog/ember-modal-appearance";
@@ -49,6 +50,7 @@
 @import "pages/obcina";
 @import "pages/podaj-mnenje";
 @import "pages/zahtevaj-priporocilo";
+@import "pages/potrdi-klub";
 
 // Misc
 @import "cookie-consent";
