@@ -45,12 +45,12 @@
           <p itemprop="description">{{klub.description}}</p>{{fa-icon "sticky-note" fixedWidth=true listItem=true}}
         </li>
       {{/if}}
-      {{#if klub.images.length}}
+      {{!-- {{#if klub.images.length}}
         <li class='klub_page-item'>
           {{klub-gallery images=klub.images}}
           {{fa-icon "camera" fixedWidth=true listItem=true}}
         </li>
-      {{/if}}
+      {{/if}} --}}
       <li class='klub_page-item'>
         <p>{{#link-to 'klubs.klub.uredi' categoryShown klub.id}}So podatki napačni? Uredi klub!{{/link-to}}</p>{{fa-icon "pencil" fixedWidth=true listItem=true}}
       </li>

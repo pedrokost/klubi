@@ -3,6 +3,7 @@
 # compiled output
 /dist
 /tmp
+build/
 
 # dependencies
 /node_modules
@@ -18,6 +19,7 @@ yarn-error.log
 testem.log
 .vagrant
 deploy.json
+package-lock.json
 
 GOODTOKNOW.md
 
