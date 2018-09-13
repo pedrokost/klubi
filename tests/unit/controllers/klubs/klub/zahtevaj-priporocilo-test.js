@@ -2,10 +2,11 @@ import { moduleFor, test } from "ember-qunit";
 
 moduleFor(
   "controller:klubs/klub/zahtevaj-priporocilo",
-  "Unit | Controller | klubs/klub/prosi priporocilo",
+  "Unit | Controller | klubs/klub/zahteval priporocilo",
   {
     // Specify the other units that are required for this test.
     // needs: ['controller:foo']
+    needs: ["service:scheduler", "service:router-scroll", "service:flashMessages"]
   }
 );
 
