@@ -1,6 +1,6 @@
-import $ from 'jquery';
-import { computed } from '@ember/object';
-import Service from '@ember/service';
+import $ from "jquery";
+import { computed } from "@ember/object";
+import Service from "@ember/service";
 
 export default Service.extend({
   baseUrl: "https://maps.googleapis.com/maps/api/geocode/json?",
@@ -16,7 +16,7 @@ export default Service.extend({
     const region = this.get("region");
     const address = encodeURIComponent(this.get("address"));
 
-    return `${baseUrl}language=${language}&api=${apiKey}&region=${region}&address=${address}`;
+    return `${baseUrl}language=${language}&key=${apiKey}&region=${region}&address=${address}`;
   }),
 
   geocode(address) {
