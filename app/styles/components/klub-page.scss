@@ -6,7 +6,7 @@
   background: $white;
 
   // To prevent blurring cause by translation
-  @include transform-style(preserve-3d);
+  transform-style: preserve-3d;
 
   @include media($landscape-large-screen-up) {
     right: 0;

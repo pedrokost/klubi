@@ -1,5 +1,4 @@
 .oprojektu {
-
   section {
     margin: 2em 0;
   }
@@ -33,7 +32,7 @@
 
   .icon-bullets {
     .bullet {
-      @include flex-basis(30em);
+      flex-basis: 30em;
     }
   }
 

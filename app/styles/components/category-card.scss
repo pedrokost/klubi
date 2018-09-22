@@ -2,7 +2,7 @@
 * @Author: Pedro Kostelec
 * @Date:   2017-07-15 19:40:58
 * @Last Modified by:   Pedro Kostelec
-* @Last Modified time: 2017-08-16 21:36:09
+* @Last Modified time: 2018-09-16 14:45:58
 */
 
 .cards {
@@ -35,7 +35,7 @@
   flex-grow: 1;
   margin: 0 $card-margin $base-spacing $card-margin;
   position: relative;
-  @include transition(all 0.2s ease-in-out);
+  transition: all 0.2s ease-in-out;
 
   @include media($large-screen-up) {
     flex-basis: 15em;
@@ -52,7 +52,7 @@
     font-weight: bold;
     opacity: 0;
 
-    @include transition(opacity 0.2s ease-in-out);
+    transition: opacity 0.2s ease-in-out;
   }
 
   .card-image {

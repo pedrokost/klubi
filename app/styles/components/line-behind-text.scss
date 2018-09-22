@@ -16,7 +16,7 @@
     padding: 0 10px;
     position: relative;
     text-transform: uppercase;
-    @include transform(translateY(50%));
+    transform: translateY(50%);
     // top: 1.1em;
   }
 }

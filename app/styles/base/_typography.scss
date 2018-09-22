@@ -50,7 +50,7 @@ p {
 }
 
 a {
-  @include transition(color 0.1s linear);
+  transition: color 0.1s linear;
   color: $base-link-color;
   text-decoration: none;
 
@@ -58,7 +58,8 @@ a {
     color: $hover-link-color;
   }
 
-  &:active, &:focus {
+  &:active,
+  &:focus {
     color: $hover-link-color;
     outline: none;
   }

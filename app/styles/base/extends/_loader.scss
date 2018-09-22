@@ -3,16 +3,15 @@
   $spinner-height: 16px;
   $spinner-color: lighten($blue, 20%);
   $spinner-thickness: 2px;
-  $spinner-spacing: - $spinner-thickness/2;
-  $spinner-offset-left: - $spinner-width / 2;
-  $spinner-offset-top: - $spinner-height / 2;
-
+  $spinner-spacing: -$spinner-thickness/2;
+  $spinner-offset-left: -$spinner-width / 2;
+  $spinner-offset-top: -$spinner-height / 2;
 
   display: inline-block;
   position: relative;
   pointer-events: none;
-  @include animation(fadeIn 1.0s 0.25s ease-in);
-  @include animation-fill-mode(backwards);
+  animation: fadeIn 1s 0.25s ease-in;
+  animation-fill-mode: backwards;
 
   .spinner-container {
     display: inline-block;
@@ -23,7 +22,6 @@
     margin: 0 10px 0 10px;
   }
   .spinner {
-
     display: inline-block;
     position: absolute;
     border-radius: 100%;
@@ -42,30 +40,32 @@
     left: $spinner-offset-left;
     top: $spinner-offset-top;
 
-
-    @include animation(spin $spin-anim-speed infinite linear, fadeInOut1 $fade-anim-speed infinite linear);
+    animation: spin $spin-anim-speed infinite linear,
+      fadeInOut1 $fade-anim-speed infinite linear;
 
     &:nth-child(2) {
       $spinner-color2: adjust-hue($spinner-color, -40%);
       border-bottom-color: $spinner-color2;
       border-left-color: $spinner-color2;
-      width: $spinner-width - 2*$spinner-thickness - 2*$spinner-spacing;
-      height: $spinner-width - 2*$spinner-thickness - 2*$spinner-spacing;
+      width: $spinner-width - 2 * $spinner-thickness - 2 * $spinner-spacing;
+      height: $spinner-width - 2 * $spinner-thickness - 2 * $spinner-spacing;
       left: $spinner-thickness + $spinner-spacing + $spinner-offset-left;
       top: $spinner-thickness + $spinner-spacing + $spinner-offset-top;
 
-      @include animation(spin $spin-anim-speed infinite linear, fadeInOut2 $fade-anim-speed infinite linear);
+      animation: spin $spin-anim-speed infinite linear,
+        fadeInOut2 $fade-anim-speed infinite linear;
     }
 
     &:nth-child(3) {
       $spinner-color3: adjust-hue($spinner-color, -80%);
       border-bottom-color: $spinner-color3;
       border-left-color: $spinner-color3;
-      width: $spinner-width - 4*$spinner-thickness - 4*$spinner-spacing;
-      height: $spinner-width - 4*$spinner-thickness - 4*$spinner-spacing;
-      left: 2*($spinner-thickness + $spinner-spacing) + $spinner-offset-left;
-      top: 2*($spinner-thickness + $spinner-spacing) + $spinner-offset-top;
-      @include animation(spin $spin-anim-speed infinite linear, fadeInOut3 $fade-anim-speed infinite linear);
+      width: $spinner-width - 4 * $spinner-thickness - 4 * $spinner-spacing;
+      height: $spinner-width - 4 * $spinner-thickness - 4 * $spinner-spacing;
+      left: 2 * ($spinner-thickness + $spinner-spacing) + $spinner-offset-left;
+      top: 2 * ($spinner-thickness + $spinner-spacing) + $spinner-offset-top;
+      animation: spin $spin-anim-speed infinite linear,
+        fadeInOut3 $fade-anim-speed infinite linear;
     }
   }
 }
@@ -77,8 +77,8 @@
   line-height: 10em;
   position: relative;
   pointer-events: none;
-  @include animation(fadeIn 1.0s 0.25s ease-in);
-  @include animation-fill-mode(backwards);
+  animation: fadeIn 1s 0.25s ease-in;
+  animation-fill-mode: backwards;
 
   .spinner-container {
     position: relative;
@@ -89,9 +89,9 @@
     $spinner-height: 50px;
     $spinner-color: $blue;
     $spinner-thickness: 2px;
-    $spinner-spacing: - $spinner-thickness/2;
-    $spinner-offset-left: - $spinner-width / 2;
-    $spinner-offset-top: - $spinner-height / 2;
+    $spinner-spacing: -$spinner-thickness/2;
+    $spinner-offset-left: -$spinner-width / 2;
+    $spinner-offset-top: -$spinner-height / 2;
 
     position: absolute;
     border-radius: 100%;
@@ -110,30 +110,32 @@
     left: $spinner-offset-left;
     top: $spinner-offset-top;
 
-
-    @include animation(spin $spin-anim-speed infinite linear, fadeInOut1 $fade-anim-speed infinite linear);
+    animation: spin $spin-anim-speed infinite linear,
+      fadeInOut1 $fade-anim-speed infinite linear;
 
     &:nth-child(2) {
       $spinner-color2: adjust-hue($spinner-color, -40%);
       border-bottom-color: $spinner-color2;
       border-left-color: $spinner-color2;
-      width: $spinner-width - 2*$spinner-thickness - 2*$spinner-spacing;
-      height: $spinner-width - 2*$spinner-thickness - 2*$spinner-spacing;
+      width: $spinner-width - 2 * $spinner-thickness - 2 * $spinner-spacing;
+      height: $spinner-width - 2 * $spinner-thickness - 2 * $spinner-spacing;
       left: $spinner-thickness + $spinner-spacing + $spinner-offset-left;
       top: $spinner-thickness + $spinner-spacing + $spinner-offset-top;
 
-      @include animation(spin $spin-anim-speed infinite linear, fadeInOut2 $fade-anim-speed infinite linear);
+      animation: spin $spin-anim-speed infinite linear,
+        fadeInOut2 $fade-anim-speed infinite linear;
     }
 
     &:nth-child(3) {
       $spinner-color3: adjust-hue($spinner-color, -80%);
       border-bottom-color: $spinner-color3;
       border-left-color: $spinner-color3;
-      width: $spinner-width - 4*$spinner-thickness - 4*$spinner-spacing;
-      height: $spinner-width - 4*$spinner-thickness - 4*$spinner-spacing;
-      left: 2*($spinner-thickness + $spinner-spacing) + $spinner-offset-left;
-      top: 2*($spinner-thickness + $spinner-spacing) + $spinner-offset-top;
-      @include animation(spin $spin-anim-speed infinite linear, fadeInOut3 $fade-anim-speed infinite linear);
+      width: $spinner-width - 4 * $spinner-thickness - 4 * $spinner-spacing;
+      height: $spinner-width - 4 * $spinner-thickness - 4 * $spinner-spacing;
+      left: 2 * ($spinner-thickness + $spinner-spacing) + $spinner-offset-left;
+      top: 2 * ($spinner-thickness + $spinner-spacing) + $spinner-offset-top;
+      animation: spin $spin-anim-speed infinite linear,
+        fadeInOut3 $fade-anim-speed infinite linear;
     }
   }
 }

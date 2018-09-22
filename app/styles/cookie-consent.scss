@@ -9,10 +9,11 @@ body .cc_container {
 
   .cc_btn {
     @extend %button;
-    // @include appearance(none);
+    // appearance: none;
   }
 
-  &:focus, &:hover {
+  &:focus,
+  &:hover {
     opacity: 1;
   }
 

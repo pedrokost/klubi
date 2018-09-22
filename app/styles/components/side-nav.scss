@@ -1,18 +1,16 @@
-@include keyframes(slide-away) {
+@keyframes slide-away {
   from {
-    @include transform(translateX($sliding-menu-width));
+    transform: translateX($sliding-menu-width);
     opacity: 1;
   }
   to {
-    @include transform(translateX(0));
+    transform: translateX(0);
     opacity: 0.4;
   }
 }
 
-
 .sliding-menu-content {
-
-///////////////////////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////////////////
   ul {
     padding: 0;
     margin: 0;
@@ -26,7 +24,7 @@
     text-decoration: none;
   }
 
-//////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////
 
   $sliding-menu-border-color: $dark-gray;
   $sliding-menu-background: lighten($sliding-menu-border-color, 5%);
@@ -41,8 +39,8 @@
 
   @include position(fixed, 0px auto 0px 0px);
   @include size($sliding-menu-width 100%);
-  @include transform(translateX(-$sliding-menu-width));
-  @include transition(all 0.25s ease-out);
+  transform: translateX(-$sliding-menu-width);
+  transition: all 0.25s ease-out;
   background: $sliding-menu-background;
   z-index: 1006;
   // overflow-y: auto; // I can't have this if I want to animate the active button
@@ -54,14 +52,14 @@
   }
 
   li.active {
-    @include transition(all 0.25s ease-out);
-    @include transform(translateX($sliding-menu-width));
+    transition: all 0.25s ease-out;
+    transform: translateX($sliding-menu-width);
 
-    @include animation(slide-away 1.0s ease);
-    @include animation-delay(2s);
-    @include animation-fill-mode(forwards);
-    @include animation-iteration-count(1);
-    @include animation-play-state(running);
+    animation: slide-away 1s ease;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-play-state: running;
   }
 
   li a {
@@ -88,7 +86,8 @@
       background-color: $sliding-menu-background-focus;
     }
 
-    &:hover, &.active {
+    &:hover,
+    &.active {
       background-color: $sliding-menu-background-hover;
       color: $sliding-menu-color-hover;
 
@@ -105,12 +104,12 @@
   }
 
   &.is-visible {
-    @include transform(translateX(0));
+    transform: translateX(0);
 
     li.active {
-      @include transform(translateX(0));
-      @include animation-play-state(paused);
-      @include animation(none);
+      transform: translateX(0);
+      animation-play-state: paused;
+      animation: none;
       opacity: 1;
     }
   }

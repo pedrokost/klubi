@@ -1,6 +1,6 @@
 .sliding-menu-fade-screen {
   @include position(fixed, 0px 0px 0px 0px);
-  @include transition;
+  transition: opacity 0.25s;
   background: black;
   opacity: 0;
   visibility: hidden;

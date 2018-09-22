@@ -1,7 +1,7 @@
 .icon-bullets {
   ///////////////////////////////////////////////////////////////////////////////////
   $base-line-height: 1.5em !default;
-  $base-accent-color: #477DCA !default;
+  $base-accent-color: #477dca !default;
   $base-link-color: $base-accent-color !default;
   $dark-gray: #333 !default;
   $base-font-color: $dark-gray !default;
@@ -22,23 +22,23 @@
     line-height: $base-line-height;
   }
 
-  img, i.fa {
+  img,
+  i.fa {
     max-width: 100%;
     color: $white;
     font-size: $icon-bullet-size / 2;
   }
   //////////////////////////////////////////////////////////////////////////////////
 
-
-  @include display(flex);
-  @include flex-wrap(wrap);
+  display: flex;
+  flex-wrap: wrap;
   margin-bottom: $base-line-height;
   margin: 1em 0;
   overflow: auto;
 
   .bullet {
-    @include flex-basis(20em);
-    @include flex-grow(1);
+    flex-basis: 20em;
+    flex-grow: 1;
   }
 
   .bullet-icon {

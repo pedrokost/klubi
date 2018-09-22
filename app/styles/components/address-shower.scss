@@ -6,7 +6,7 @@
 .address-shower {
   // @include span-columns(12);
   width: 100%;
-  @include transition(opacity 0.5s);
+  transition: opacity 0.5s;
   margin-bottom: 8px;
 
   &.geocoding-invalid {

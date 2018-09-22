@@ -1,6 +1,6 @@
 .leaflet-container {
-  $leaflet-background-color: #EBE5E0;
-  @include flex-grow(1);
+  $leaflet-background-color: #ebe5e0;
+  flex-grow: 1;
   background-color: $leaflet-background-color;
   min-height: 200px; // Prevent the map to get too small
 }

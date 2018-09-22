@@ -5,7 +5,9 @@
   margin-left: -16px;
   margin-top: -37px;
 }
-.klub-icon-shadow, .klub-icon-marker, .klub-icon-title_wrapper {
+.klub-icon-shadow,
+.klub-icon-marker,
+.klub-icon-title_wrapper {
   position: absolute;
 }
 
@@ -29,11 +31,10 @@
   line-height: 1.1;
   margin-bottom: 7px;
   height: 28px;
-  color: #477DCA;
+  color: #477dca;
   overflow: hidden;
   display: table;
-  text-shadow: 0px 0px 8px white,
-                -1px -1px 4px white;
+  text-shadow: 0px 0px 8px white, -1px -1px 4px white;
 }
 
 .klub-icon-title {
@@ -45,6 +46,6 @@
 .klub-icon-title_wrapper-shadow {
   color: transparent;
   text-shadow: 0 0 4px #5f5b59;
-  @include transform(skewX(-45deg) rotateX(65deg) translateZ(1px) scale(1,1.3))
+  transform: skewX(-45deg) rotateX(65deg) translateZ(1px) scale(1, 1.3);
   transform-origin: bottom left;
 }

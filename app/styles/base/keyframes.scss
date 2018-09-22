@@ -1,13 +1,13 @@
-@include keyframes(spin) {
+@keyframes spin {
   from {
-    @include transform(rotate(0deg));
+    transform: rotate(0deg);
   }
   to {
-    @include transform(rotate(379deg));
+    transform: rotate(379deg);
   }
 }
 
-@include keyframes(fadeInOut1) {
+@keyframes fadeInOut1 {
   from {
     opacity: 1;
   }
@@ -28,7 +28,7 @@
   }
 }
 
-@include keyframes(fadeInOut2) {
+@keyframes fadeInOut2 {
   from {
     opacity: 0;
   }
@@ -61,8 +61,7 @@
   }
 }
 
-
-@include keyframes(fadeInOut3) {
+@keyframes fadeInOut3 {
   from {
     opacity: 0;
   }

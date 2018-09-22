@@ -16,7 +16,7 @@
   right: 0;
 
   // Place the spinner right around the marker
-  @include transform(translateY(-21px));
+  transform: translateY(-21px);
 }
 
 .loader--embeds {
@@ -57,9 +57,9 @@
 }
 
 .map-and-klubpage {
-  @include flex-grow(1);
+  flex-grow: 1;
 
   @include media($landscape-large-screen-up) {
-    @include flex-direction(row);
+    flex-direction: row;
   }
 }

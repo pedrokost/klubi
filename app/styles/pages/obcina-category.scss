@@ -2,11 +2,11 @@
 * @Author: Pedro Kostelec
 * @Date:   2017-06-10 17:01:33
 * @Last Modified by:   Pedro Kostelec
-* @Last Modified time: 2017-07-16 15:37:55
+* @Last Modified time: 2018-09-16 14:45:33
 */
 
-
-.obcina-category-page, .obcina-page {
+.obcina-category-page,
+.obcina-page {
   h1 {
     font-size: 4rem;
   }
@@ -17,11 +17,12 @@
 
   .klub-list-section {
     .l-flex {
-      @include flex-wrap(wrap);
-      @include justify-content(space-between);
-      @include align-items(baseline);
-      > .klub-card, .alert-info {
-        @include flex-grow(1);
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      > .klub-card,
+      .alert-info {
+        flex-grow: 1;
       }
 
       > .klub-card {
@@ -51,7 +52,6 @@
   }
 
   .v-sodelovanju-z {
-
     a:hover {
       img {
         opacity: 0.7;
@@ -61,7 +61,7 @@
     .l-flex {
       > li {
         text-align: center;
-        @include flex-grow(1);
+        flex-grow: 1;
       }
 
       img {
@@ -85,11 +85,11 @@
     }
 
     .l-flex {
-      @include justify-content(space-between);
-      @include flex-wrap(wrap);
+      justify-content: space-between;
+      flex-wrap: wrap;
 
       > li {
-        @include flex-grow(1);
+        flex-grow: 1;
         padding: 0 1em 0 0;
 
         @include media($medium-screen-up) {

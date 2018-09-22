@@ -2,7 +2,7 @@
 * @Author: Pedro Kostelec
 * @Date:   2017-10-29 20:33:09
 * @Last Modified by:   Pedro Kostelec
-* @Last Modified time: 2017-10-29 21:11:22
+* @Last Modified time: 2018-09-16 14:45:58
 */
 
 $ember-power-select-default-border-radius: $base-border-radius;
@@ -38,7 +38,7 @@ input.ember-power-select-trigger-multiple-input {
   padding: 0;
   box-shadow: $form-box-shadow;
   margin-bottom: 0.75em;
-  @include transition(border-color);
+  transition: border-color;
 }
 
 @keyframes drop-fade-below {

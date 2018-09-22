@@ -1,9 +1,8 @@
 .klub-card {
-
   list-style: none;
 
-  // @include animation(fadeIn 0.25s ease);
-  // @include animation-fill-mode(backwards);
+  // animation: fadeIn 0.25s ease;
+  // animation-fill-mode: backwards;
 
   // $delay-ease: 1;
   // @for $i from 1 through 20 {
@@ -17,32 +16,35 @@
     display: block;
     text-decoration: none;
     color: inherit;
-    border-bottom: 1px solid #DEDEDE;
+    border-bottom: 1px solid #dedede;
     cursor: pointer;
     padding-bottom: 5px;
     line-height: 20px;
 
-    &:hover, &:active, &.active {
-      background-color: rgb(240,240,240);
+    &:hover,
+    &:active,
+    &.active {
+      background-color: rgb(240, 240, 240);
     }
 
     .klub-card-parent {
       padding: 10px;
       border-radius: 3px;
-      &.active, &.is-hovered {
-        background-color: rgb(240,240,240);
+      &.active,
+      &.is-hovered {
+        background-color: rgb(240, 240, 240);
       }
     }
 
     .klub-card-branch {
-      &.active, &.is-hovered {
-        background-color: rgb(240,240,240);
+      &.active,
+      &.is-hovered {
+        background-color: rgb(240, 240, 240);
       }
     }
   }
 
   &.klub-card--without-branches {
-
   }
 
   &.klub-card--with-branches {
@@ -50,16 +52,18 @@
       padding: 0;
     }
 
-    &:hover, &:active, &.active {
+    &:hover,
+    &:active,
+    &.active {
       .klub-card-branch {
         background-color: $white;
       }
     }
 
-    .klub-card-parent, .klub-card-branch {
+    .klub-card-parent,
+    .klub-card-branch {
       color: inherit;
       display: block;
-
     }
 
     .klub-card-parent {
@@ -67,14 +71,16 @@
     }
 
     .klub-card-branch {
-      border-top: 1px dashed #F1F1F1;
+      border-top: 1px dashed #f1f1f1;
       padding: 5px 10px;
       &:last-child {
         padding-bottom: 10px;
       }
 
-      &:hover, &:active, &.active {
-        background-color: rgb(240,240,240);
+      &:hover,
+      &:active,
+      &.active {
+        background-color: rgb(240, 240, 240);
       }
     }
   }

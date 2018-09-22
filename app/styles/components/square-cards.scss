@@ -1,7 +1,7 @@
 .square-cards {
-  @include display(flex);
-  @include flex-wrap(wrap);
-  @include justify-content(space-between);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .square-card {
@@ -10,7 +10,7 @@
   $base-border-radius: 3px !default;
   $base-background-color: white !default;
   $base-spacing: 1.5em !default;
-  $base-accent-color: #477DCA !default;
+  $base-accent-color: #477dca !default;
   $base-link-color: $base-accent-color !default;
   $dark-gray: #333 !default;
   $base-font-color: $dark-gray !default;
@@ -21,13 +21,16 @@
   $square-card-background: lighten($square-card-border-color, 10%);
   $square-card-header-background: $square-card-background;
   $square-card-hover-background: lighten($square-card-background, 5%);
-  $square-card-image-background: #DBD199;
-  $square-card-image-hover-background: lighten($square-card-image-background, 5%);
+  $square-card-image-background: #dbd199;
+  $square-card-image-hover-background: lighten(
+    $square-card-image-background,
+    5%
+  );
   $square-card-margin: 1em;
 
-  @include flex-basis(15em);
-  @include flex-grow(1);
-  @include transition (all 0.2s ease-in-out);
+  flex-basis: 15em;
+  flex-grow: 1;
+  transition: all 0.2s ease-in-out;
   background-color: $square-card-background;
   border-radius: $base-border-radius;
   border: $square-card-border;
@@ -42,7 +45,7 @@
     max-height: 150px;
 
     img {
-      @include transition (all 0.2s ease-in-out);
+      transition: all 0.2s ease-in-out;
       background: $square-card-image-background;
       border-top-left-radius: $base-border-radius;
       border-top-right-radius: $base-border-radius;
@@ -51,7 +54,7 @@
   }
 
   .square-card-header {
-    @include transition (all 0.2s ease-in-out);
+    transition: all 0.2s ease-in-out;
     background-color: $square-card-header-background;
     border-bottom: $square-card-border;
     border-radius: $base-border-radius $base-border-radius 0 0;
