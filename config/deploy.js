@@ -50,22 +50,22 @@ module.exports = function(deployTarget) {
   return ENV;
 
   /* Note: a synchronous return is shown above, but ember-cli-deploy
- * does support returning a promise, in case you need to get any of
- * your configuration asynchronously. e.g.
- *
- *    var Promise = require('ember-cli/lib/ext/promise')
- *    return new Promise(function(resolve, reject){
- *      var exec = require('child_process').exec
- *      var command = 'heroku config:get REDISTOGO_URL --app my-app-' + deployTarget
- *      exec(command, function (error, stdout, stderr) {
- *        ENV.redis.url = stdout.replace(/\n/, '').replace(/\/\/redistogo:/, '//:')
- *        if (error) {
- *          reject(error)
- *        } else {
- *          resolve(ENV)
- *        }
- *      })
- *    })
- *
- */
+   * does support returning a promise, in case you need to get any of
+   * your configuration asynchronously. e.g.
+   *
+   *    var Promise = require('ember-cli/lib/ext/promise')
+   *    return new Promise(function(resolve, reject){
+   *      var exec = require('child_process').exec
+   *      var command = 'heroku config:get REDISTOGO_URL --app my-app-' + deployTarget
+   *      exec(command, function (error, stdout, stderr) {
+   *        ENV.redis.url = stdout.replace(/\n/, '').replace(/\/\/redistogo:/, '//:')
+   *        if (error) {
+   *          reject(error)
+   *        } else {
+   *          resolve(ENV)
+   *        }
+   *      })
+   *    })
+   *
+   */
 };

@@ -1,5 +1,7 @@
 .body {
-  @include outer-container;
+  width: 100%;
+  overflow-x: hidden;
+  @include grid-container;
 }
 
 .bodywrapper {
@@ -12,14 +14,13 @@
 
   margin-top: $top-nav-height-mobile;
 
-  @include media($medium-screen-up) {
+  @include grid-media($medium-up-grid) {
     margin-top: 0;
   }
 
   &.bodywrapper--embedded {
     margin-top: 0;
   }
-
 }
 
 .bodywrapper-hidden {
@@ -27,13 +28,16 @@
 }
 
 .article {
-  @include span-columns(10);
-  @include shift(1);
-  @include omega();
+  @include grid-column(12);
 
-  @include media($medium-screen-up) {
-    @include span-columns(8);
-    @include shift(3);
+  @include grid-media($medium-up-grid) {
+    float: none;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  @include grid-media($large-up-grid) {
+    max-width: 640px;
   }
 
   h1 {
@@ -42,16 +46,23 @@
     color: $blue;
     margin: 0.25em 0 0.5em 0;
 
-    &:before, &:after {
+    &:before,
+    &:after {
       content: attr(title);
-      color: rgba(255,255,255,.1);
+      color: rgba(255, 255, 255, 0.1);
       position: absolute;
     }
 
-    &:before { top: 1px; left: 1px }
-    &:after  { top: 2px; left: 2px }
+    &:before {
+      top: 1px;
+      left: 1px;
+    }
+    &:after {
+      top: 2px;
+      left: 2px;
+    }
 
-    @include media($medium-screen-up) {
+    @include grid-media($medium-up-grid) {
       font-size: 5rem;
     }
   }
@@ -64,10 +75,6 @@
 
     section p:last-of-type {
       margin-bottom: 2em;
-    }
-
-    @include media($large-screen) {
-      @include span-columns(6 of 8);
     }
   }
 }

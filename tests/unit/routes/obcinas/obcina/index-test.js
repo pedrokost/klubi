@@ -1,15 +1,11 @@
-import { moduleFor, test } from "ember-qunit";
+import { module, test } from 'qunit';
+import { setupTest } from "ember-qunit";
 
-moduleFor(
-  "route:obcinas/obcina/index",
-  "Unit | Route | /obcinas/obcina/index",
-  {
-    // Specify the other units that are required for this test.
-    needs: ["service:scheduler", "service:router-scroll"]
-  }
-);
+module("Unit | Route | /obcinas/obcina/index", function(hooks) {
+  setupTest(hooks);
 
-test("it exists", function(assert) {
-  let route = this.subject();
-  assert.ok(route);
+  test("it exists", function(assert) {
+    let route = this.owner.lookup("route:obcinas/obcina/index");
+    assert.ok(route);
+  });
 });

@@ -1,71 +1,66 @@
-import { test } from "qunit";
-import moduleForAcceptance from "klubi/tests/helpers/module-for-acceptance";
+import {
+  findAll,
+  currentURL,
+  find,
+  visit,
+  pauseTest
+} from "@ember/test-helpers";
+import { module, test } from "qunit";
+import { setupApplicationTest } from "ember-qunit";
+import setupMirage from "ember-cli-mirage/test-support/setup-mirage";
 
-moduleForAcceptance("Acceptance | list category klubs of obcina");
+module("Acceptance | list category klubs of obcina", function(hooks) {
+  setupApplicationTest(hooks);
+  setupMirage(hooks);
 
-test("should list all klubs", function(assert) {
-  assert.expect(3);
+  test("should list all klubs", async function(assert) {
+    assert.expect(3);
 
-  let klub1 = server.create("klub");
-  let klub2 = server.create("klub");
-  let klub3 = server.create("klub");
+    let klubs = this.server.createList("klub", 3, { categories: ["fitnes"] });
 
-  let obcina = server.create("obcina", { klubs: [klub1, klub2, klub3] });
+    let obcina = this.server.create("obcina", { klubs: klubs });
 
-  visit(`/obcina/${obcina.id}/fitnes`);
+    await visit(`/obcina/${obcina.id}/fitnes`);
 
-  andThen(function() {
     assert.equal(currentURL(), `/obcina/${obcina.id}/fitnes`);
-    assert.ok(
-      find("article h1")
-        .text()
-        .includes(obcina.name)
-    );
-    assert.equal(find(".klub-list .js-klub-card").length, 3);
+    assert.ok(find("article h1").textContent.includes(obcina.name));
+    assert.equal(findAll(".klub-list .js-klub-card").length, 3);
   });
-});
 
-test("should include 'Registriraj klub' button", function(assert) {
-  assert.expect(1);
+  test("should include 'Registriraj klub' button", async function(assert) {
+    assert.expect(1);
 
-  let obcina = server.create("obcina", { klubs: [] });
+    let obcina = this.server.create("obcina", { klubs: [] });
 
-  visit(`/obcina/${obcina.id}/fitnes`);
+    await visit(`/obcina/${obcina.id}/fitnes`);
 
-  andThen(function() {
     assert.ok(
-      find(".js-add-klub-btn")
-        .text()
-        .includes("Registriraj klub")
+      find(".js-add-klub-btn").textContent.includes("Registriraj klub")
     );
   });
-});
 
-test("it include other available categories", function(assert) {
-  assert.expect(1);
+  test("it include other available categories", async function(assert) {
+    assert.expect(1);
 
-  let obcina = server.create("obcina", { klubs: [] });
+    let obcina = this.server.create("obcina", { klubs: [] });
 
-  visit(`/obcina/${obcina.id}/fitnes`);
+    await visit(`/obcina/${obcina.id}/fitnes`);
 
-  andThen(function() {
-    assert.equal(find(".js-category-card").length, 19);
-  });
-});
-
-test("it includes a list of neighboring obcinas", function(assert) {
-  assert.expect(1);
-
-  let obcina1 = server.create("obcina", { klubs: [] });
-  let obcina2 = server.create("obcina", { klubs: [] });
-  let obcina3 = server.create("obcina", {
-    klubs: [],
-    neighbouringObcinas: [obcina1, obcina2]
+    assert.equal(findAll(".js-category-card").length, 19);
   });
 
-  visit(`/obcina/${obcina3.id}/fitnes`);
+  test("it includes a list of neighboring obcinas", async function(assert) {
+    assert.expect(1);
 
-  andThen(function() {
-    assert.equal(find(".js-neighbouring-obcina-link").length, 2);
+    let obcina1 = this.server.create("obcina", { klubs: [] });
+    let obcina2 = this.server.create("obcina", { klubs: [] });
+    let obcina3 = this.server.create("obcina", {
+      klubs: [],
+      neighbouringObcinas: [obcina1, obcina2]
+    });
+
+    await visit(`/obcina/${obcina3.id}/fitnes`);
+
+    assert.equal(findAll(".js-neighbouring-obcina-link").length, 2);
   });
 });

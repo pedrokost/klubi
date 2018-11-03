@@ -5,7 +5,7 @@
       <h1 title="Uredi klub">Uredi klub</h1>
 
       <section>
-        {{klub-form klub=model submitButtonDisabled=submitButtonDisabled submit="updateKlub"}}
+        <KlubForm @klub={{model}} @submitButtonDisabled={{submitButtonDisabled}} @onSubmit={{action "updateKlub"}} />
       </section>
     </article>
 

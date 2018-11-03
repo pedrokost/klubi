@@ -2,9 +2,9 @@
   z-index: 1006;
   position: absolute;
   top: 65px;
-  margin: $base-page-pad;
+  margin: $base-spacing;
 
-  @include media($medium-screen-up) {
+  @include grid-media($medium-up-grid) {
     top: 105px;
   }
 }

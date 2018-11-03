@@ -8,10 +8,10 @@
   ///////////////////////////////////////////////////////////////////////////////////
   $base-border-color: gainsboro !default;
   $base-border-radius: 3px !default;
-  $base-background-color: white !default;
+  $viewport-background-color: white !default;
   $base-spacing: 1.5em !default;
-  $base-accent-color: #477dca !default;
-  $base-link-color: $base-accent-color !default;
+  $action-color: #477dca !default;
+  $action-color: $action-color !default;
   $dark-gray: #333 !default;
   $base-font-color: $dark-gray !default;
   //////////////////////////////////////////////////////////////////////////////////
@@ -34,7 +34,7 @@
   background-color: $square-card-background;
   border-radius: $base-border-radius;
   border: $square-card-border;
-  box-shadow: 0 2px 4px darken($base-background-color, 10%);
+  box-shadow: 0 2px 4px darken($viewport-background-color, 10%);
   // cursor: pointer;
   margin: 0 $square-card-margin $base-spacing $square-card-margin;
   position: relative;

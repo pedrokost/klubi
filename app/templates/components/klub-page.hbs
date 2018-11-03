@@ -1,4 +1,4 @@
-<div class="klub_page-container {{if fullWidth 'klub_page-container--fullwidth'}} js-close">
+<div class="klub_page-container {{if @fullWidth 'klub_page-container--fullwidth'}} js-close">
   <article class="klub_page-article js-close" itemscope itemtype="http://schema.org/LocalBusiness">
 
     {{#if isUnverified}}
@@ -10,51 +10,51 @@
     {{#if isPermanentlyClosed}}
       <p class="alert alert-error">
       TRAJNO ZAPRTI KLUB <br>
-      {{klub.name}} je označen trajno zaprt od leta {{as-year klub.closedAt}}. Če to ni pravilno, prosim {{#link-to 'klubs.klub.uredi' categoryShown klub.id}}uredite podatke{{/link-to}}.</p>
+      {{klub.name}} je označen trajno zaprt od leta {{as-year @klub.closedAt}}. Če to ni pravilno, prosim {{#link-to 'klubs.klub.uredi' @categoryShown @klub.id}}uredite podatke{{/link-to}}.</p>
     {{/if}}
 
     <ul class="fa-ul klub_page-item_list js-close">
       <li class='klub_page-item'>
-        <h1 itemprop="name">{{klub.name}} {{#link-to 'klubs.klub.uredi' categoryShown klub.id title="Uredi podatke o klubu" class="klub_page-edit_klub"}}{{fa-icon "pencil"}}{{/link-to}}</h1>{{fa-icon "close" fixedWidth=true listItem=true classNames="klub_page-close_btn js-close" title="Zapri"}}
+        <h1 itemprop="name">{{klub.name}}</h1>{{fa-icon "close" fixedWidth=true listItem=true class="klub_page-close_btn js-close" title="Zapri"}}
       </li>
       {{#each addresses as |address|}}
         {{klub-address address=address.address latitude=address.latitude longitude=address.longitude klubId=address.id active=address.active zoomToLocation=(action this.attrs.zoomToLocation)}}
       {{/each}}
-      {{#if klub.website}}
+      {{#if @klub.website}}
         <li class='klub_page-item'>
-          <p><a itemprop="url" rel="noopener" href={{klub.website}} target="_blank">Spletna stran</a></p>{{fa-icon "external-link-square" fixedWidth=true listItem=true}}
+          <p><a itemprop="url" rel="noopener" href={{@klub.website}} target="_blank">Spletna stran</a></p>{{fa-icon "external-link-square" fixedWidth=true listItem=true}}
         </li>
       {{/if}}
-      {{#if klub.facebookUrl}}
+      {{#if @klub.facebookUrl}}
         <li class='klub_page-item'>
-          <p><a itemprop="url" rel="noopener" href={{klub.facebookUrl}} target="_blank">Facebook stran</a></p>{{fa-icon "facebook" fixedWidth=true listItem=true}}
+          <p><a itemprop="url" rel="noopener" href={{@klub.facebookUrl}} target="_blank">Facebook stran</a></p>{{fa-icon "facebook" fixedWidth=true listItem=true}}
         </li>
       {{/if}}
-      {{#if klub.phone}}
+      {{#if @klub.phone}}
         <li class='klub_page-item'>
-          <p itemprop="telephone">{{klub.phone}}</p>{{fa-icon "phone" fixedWidth=true listItem=true}}
+          <p itemprop="telephone">{{@klub.phone}}</p>{{fa-icon "phone" fixedWidth=true listItem=true}}
         </li>
       {{/if}}
-      {{#if klub.email}}
+      {{#if @klub.email}}
         <li class='klub_page-item'>
-          <p itemprop="email">{{mail-to klub.email}}</p>{{fa-icon "envelope" fixedWidth=true listItem=true}}
+          <p itemprop="email">{{mail-to @klub.email}}</p>{{fa-icon "envelope" fixedWidth=true listItem=true}}
         </li>
       {{/if}}
-      {{#if klub.description}}
+      {{#if @klub.description}}
         <li class='klub_page-item'>
-          <p itemprop="description">{{klub.description}}</p>{{fa-icon "sticky-note" fixedWidth=true listItem=true}}
+          <p itemprop="description">{{@klub.description}}</p>{{fa-icon "sticky-note" fixedWidth=true listItem=true}}
         </li>
       {{/if}}
       {{!-- {{#if klub.images.length}}
         <li class='klub_page-item'>
-          {{klub-gallery images=klub.images}}
+          <KlubGallery @images={{klub.images}}/>
           {{fa-icon "camera" fixedWidth=true listItem=true}}
         </li>
       {{/if}} --}}
       <li class='klub_page-item'>
-        <p>{{#link-to 'klubs.klub.uredi' categoryShown klub.id}}So podatki napačni? Uredi klub!{{/link-to}}</p>{{fa-icon "pencil" fixedWidth=true listItem=true}}
+        <p>{{#link-to 'klubs.klub.uredi' @categoryShown @klub.id}}So podatki napačni? Uredi klub!{{/link-to}}</p>{{fa-icon "pencil" fixedWidth=true listItem=true}}
       </li>
-      {{#each klub.comments as |comment|}}
+      {{#each @klub.comments as |comment|}}
         <li class='klub_page-item'>
           <p itemprop="review">{{comment.body}} — <em>{{comment.commenterName}}</em></p>{{fa-icon "comment" fixedWidth=true listItem=true}}
         </li>

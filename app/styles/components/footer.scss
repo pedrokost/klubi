@@ -1,32 +1,6 @@
-// Uncomment this for a sticky footer.
-//
-// .wrapper-for-content-outside-of-footer {
-//   min-height: 100%;
-//   height: auto !important;
-//   height: 100%;
-//   margin: 0 auto -4em;
-// }
-
-// html, body {
-//  height: 100%;
-// }
-
-// .wrapper-for-content-outside-of-footer::after {
-//   content: "";
-//   display: block;
-// }
-
-// .footer-2, .wrapper-for-content-outside-of-footer::after {
-//   height: 17em;
-
-//   @include media($large-screen) {
-//     height: 4em;
-//   }
-// }
-
 .footer-2 {
   $base-spacing: 1.5em !default;
-  $action-color: #477DCA !default;
+  $action-color: #477dca !default;
   $medium-screen: 40em !default;
   $large-screen: 53.75em !default;
   $footer-background: desaturate(darken($action-color, 20%), 30%);
@@ -43,7 +17,7 @@
     margin-bottom: 1em;
     margin-right: 1em;
 
-    @include media($large-screen) {
+    @include grid-media($large-up-grid) {
       float: left;
       margin-bottom: 0;
     }
@@ -58,7 +32,7 @@
     margin: 0 0 1em 0;
     padding: 0;
 
-    @include media($large-screen) {
+    @include grid-media($large-up-grid) {
       float: left;
       line-height: 1.8em;
       margin-bottom: 0;
@@ -70,7 +44,7 @@
     list-style: none;
     padding-right: 1em;
 
-    @include media($large-screen) {
+    @include grid-media($large-up-grid) {
       display: inline;
       text-align: left;
     }
@@ -87,7 +61,7 @@
   }
 
   .footer-secondary-links {
-    @include media($large-screen) {
+    @include grid-media($large-up-grid) {
       float: right;
     }
 
@@ -98,7 +72,7 @@
     ul.footer-social {
       // margin: 1em 0 0 0;
 
-      @include media($large-screen) {
+      @include grid-media($large-up-grid) {
         float: right;
         // margin-top: 0;
       }

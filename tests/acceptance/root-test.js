@@ -1,12 +1,15 @@
-import { test } from "qunit";
-import moduleForAcceptance from "klubi/tests/helpers/module-for-acceptance";
+import { currentURL, visit } from "@ember/test-helpers";
+import { module, test } from "qunit";
+import { setupApplicationTest } from "ember-qunit";
+import setupMirage from "ember-cli-mirage/test-support/setup-mirage";
 
-moduleForAcceptance("Acceptance | root");
+module("Acceptance | root", function(hooks) {
+  setupApplicationTest(hooks);
+  setupMirage(hooks);
 
-test("visiting /root", function(assert) {
-  visit("/");
+  test("visiting /root", async function(assert) {
+    await visit("/");
 
-  andThen(function() {
     assert.equal(currentURL(), "/");
   });
 });

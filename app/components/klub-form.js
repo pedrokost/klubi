@@ -1,10 +1,10 @@
-import $ from 'jquery';
-import { isBlank } from '@ember/utils';
-import { on } from '@ember/object/evented';
-import { computed, get } from '@ember/object';
-import { A } from '@ember/array';
-import { inject as service } from '@ember/service';
-import Component from '@ember/component';
+import $ from "jquery";
+import { isBlank } from "@ember/utils";
+import { on } from "@ember/object/evented";
+import { computed, get } from "@ember/object";
+import { A } from "@ember/array";
+import { inject as service } from "@ember/service";
+import Component from "@ember/component";
 
 export default Component.extend({
   classNames: "klub-form",
@@ -72,7 +72,8 @@ export default Component.extend({
       if (this.get("formattedAddress")) {
         this.get("klub").set("address", this.get("formattedAddress"));
       }
-      this.sendAction("submit");
+
+      this.onSubmit();
     }
   }
 });

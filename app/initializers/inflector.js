@@ -1,11 +1,11 @@
-import Ember from "ember";
+import Inflector from "ember-inflector";
 
 export function initialize() {
-  var inflector = Ember.Inflector.inflector;
-  inflector.irregular('clanek', 'clanki');
+  var inflector = Inflector.inflector;
+  inflector.irregular("clanek", "clanki");
 }
 
 export default {
-  name: 'inflector',
+  name: "inflector",
   initialize: initialize
 };

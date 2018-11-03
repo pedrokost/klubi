@@ -1,8 +1,8 @@
-import { A } from '@ember/array';
-import { computed } from '@ember/object';
-import { alias } from '@ember/object/computed';
-import { inject as service } from '@ember/service';
-import Controller from '@ember/controller';
+import { A } from "@ember/array";
+import { computed } from "@ember/object";
+import { alias } from "@ember/object/computed";
+import { inject as service } from "@ember/service";
+import Controller from "@ember/controller";
 import Ember from "ember";
 import ENV from "../config/environment";
 
@@ -17,21 +17,21 @@ export default Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
   router: service(),
 
   isCategorySupported: computed("category", function() {
-    return this.get("categories").isSupported(this.get("category"));
+    return this.get("categories").isSupported(this.category);
   }),
 
   anyKlub: computed("filteredKlubs", function() {
-    return this.get("filteredKlubs");
+    return this.filteredKlubs;
   }),
 
   filteredKlubs: computed("category", "model", function() {
-    var category = this.get("category");
+    var category = this.category;
 
-    if (!this.get("model")) {
+    if (!this.model) {
       return A();
     }
 
-    return this.get("model").filter(function(klub) {
+    return this.model.filter(function(klub) {
       return klub.get("categories").indexOf(category) >= 0;
     });
   }),

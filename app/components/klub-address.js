@@ -1,5 +1,5 @@
-import { computed } from '@ember/object';
-import Component from '@ember/component';
+import { computed } from "@ember/object";
+import Component from "@ember/component";
 
 export default Component.extend({
   tagName: "li",
@@ -9,11 +9,11 @@ export default Component.extend({
   attributeBindings: ["title"],
 
   click: function() {
-    this.attrs.zoomToLocation(this.get("klubId"));
+    this.zoomToLocation(this.get("klubId"));
   },
 
   cleanAddress: computed("address", function() {
-    var address = this.get("address");
+    var address = this.address;
     if (address === null || address === undefined) {
       return "";
     }

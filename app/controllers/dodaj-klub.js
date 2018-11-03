@@ -1,13 +1,13 @@
-import $ from 'jquery';
-import { get } from '@ember/object';
-import { inject as service } from '@ember/service';
-import Controller from '@ember/controller';
-import rollbar from "rollbar";
+import $ from "jquery";
+import { get } from "@ember/object";
+import { inject as service } from "@ember/service";
+import Controller from "@ember/controller";
 
 export default Controller.extend({
   submitButtonDisabled: false,
   flashMessages: service(),
   router: service(),
+  rollbar: service(),
 
   actions: {
     createKlub() {
@@ -72,7 +72,10 @@ export default Controller.extend({
         })
         .catch(function(err) {
           // console.error(err)
-          rollbar.error("Something went wrong when adding klubs", err);
+          this.get("rollbar").error(
+            "Something went wrong when adding klubs",
+            err
+          );
           self.set("submitButtonDisabled", false);
           $("html, body, .bodywrapper").animate({ scrollTop: 0 }, "slow");
           flashMessages.error(

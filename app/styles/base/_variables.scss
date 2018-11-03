@@ -1,88 +1,71 @@
 // Typography
-$sans-serif: $helvetica;
-$serif: $georgia;
-$base-font-family: $sans-serif;
-$header-font-family: $base-font-family;
-
-// Font Sizes
-$base-font-size: 1em;
-$h1-font-size: $base-font-size * 2.25;
-$h2-font-size: $base-font-size * 2;
-$h3-font-size: $base-font-size * 1.75;
-$h4-font-size: $base-font-size * 1.5;
-$h5-font-size: $base-font-size * 1.25;
-$h6-font-size: $base-font-size;
+$base-font-family: $font-stack-verdana;
+$heading-font-family: $base-font-family;
 
 // Line height
 $base-line-height: 1.5;
-$header-line-height: 1.25;
+$heading-line-height: 1.2;
 
 // Other Sizes
 $base-border-radius: 3px;
-$base-spacing: $base-line-height * 1em;
+$base-spacing: 1.5em;
+$small-spacing: $base-spacing / 2;
 $base-z-index: 0;
-$base-page-pad: 10px;
 
 // Colors
 $white: #fff;
-$blue: #477dca;
+$blue: #1565c0;
 $dark-gray: #4d4d4d;
 $medium-gray: #999;
-$light-gray: #dedede;
-$light-red: #fbe3e4;
-$light-yellow: #fff6bf;
-$light-green: #e6efc2;
-
-// Background Color
-$base-background-color: white;
+$light-gray: #ddd;
 
 // Font Colors
 $base-font-color: $dark-gray;
-$base-accent-color: $blue;
+$action-color: $blue;
 
-// Link Colors
-$base-link-color: $base-accent-color;
-$hover-link-color: darken($base-accent-color, 15);
-$base-button-color: $base-link-color;
-$secondary-button-color: $medium-gray;
-$hover-button-color: $hover-link-color;
-$hover-secondary-button-color: darken($medium-gray, 15);
-
-// Flash Colors
-$alert-color: $light-yellow;
-$error-color: $light-red;
-$notice-color: lighten($base-accent-color, 40);
-$success-color: $light-green;
-
-// Border color
+// Border
 $base-border-color: $light-gray;
 $base-border: 1px solid $base-border-color;
 
-// Forms
-$form-border-color: $base-border-color;
-$form-border-color-hover: darken($base-border-color, 10);
-$form-border-color-focus: $base-accent-color;
-$form-border-radius: $base-border-radius;
-$form-box-shadow: inset 0 1px 3px rgba(black, 0.06);
-$form-box-shadow-focus: $form-box-shadow,
-  0 0 5px rgba(darken($form-border-color-focus, 5), 0.7);
-$form-font-size: $base-font-size;
-$form-font-family: $base-font-family;
+// Background Colors
+$viewport-background-color: #fff;
 
-// Specifics: data-bar
-$data-bar-width: 330px !default;
+// Focus
+$focus-outline-color: transparentize($action-color, 0.4);
+$focus-outline-width: 3px;
+$focus-outline: $focus-outline-width solid $focus-outline-color;
+$focus-outline-offset: 2px;
 
-// Specifics: top-nav
-$top-nav-height: 160px;
-$top-nav-height-mobile: 55px;
+// Animations
+$base-duration: 150ms;
+$base-timing: ease;
 
 // Specifics: side-nav
 $sliding-menu-width: 280px !default;
+
+// Specifics: data-bar
+$data-bar-width: 330px !default;
 
 // Specifics: logo-button
 
 // Specifics: map widgets
 $map-widget-border-color: silver;
 
+// Specifics: top-nav
+$top-nav-height: 160px;
+$top-nav-height-mobile: 55px;
+
 // KLUBI SLOVENIJE SPECIFIC
 $klub-page-max-width: 400px;
+
+$medium-up-grid: (
+  media: "(min-width: 640px)"
+);
+
+$large-up-grid: (
+  media: "(min-width: 860px)"
+);
+
+$landscape-large-up-grid: (
+  media: "orientation: ladscape and (min-width: 860px)"
+);

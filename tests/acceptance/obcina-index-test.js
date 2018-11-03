@@ -1,12 +1,15 @@
-import { test } from "qunit";
-import moduleForAcceptance from "klubi/tests/helpers/module-for-acceptance";
+import { currentURL, visit, pauseTest } from "@ember/test-helpers";
+import { module, test } from "qunit";
+import { setupApplicationTest } from "ember-qunit";
+import setupMirage from "ember-cli-mirage/test-support/setup-mirage";
 
-moduleForAcceptance("Acceptance | obcina index");
+module("Acceptance | obcina index", function(hooks) {
+  setupApplicationTest(hooks);
+  setupMirage(hooks);
 
-test("visiting /obcina should redirect to home", function(assert) {
-  visit("/obcina");
+  test("visiting /obcina should redirect to home", async function(assert) {
+    await visit("/obcina");
 
-  andThen(function() {
     assert.equal(currentURL(), "/fitnes");
   });
 });

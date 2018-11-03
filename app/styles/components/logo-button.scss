@@ -1,19 +1,20 @@
 header.logo-button {
   $logo-button-color: lighten($base-font-color, 30%);
-  $logo-button-background: $base-background-color;
+  $logo-button-background: $viewport-background-color;
   $logo-button-border-color: $map-widget-border-color;
 
   position: relative;
   z-index: 1007;
   width: 100%;
-  @include outer-container;
+  max-width: 100%;
 
-  @include media($medium-screen-up) {
+  @include grid-media($medium-up-grid) {
+    // background: red;
     width: $sliding-menu-width;
     position: fixed;
     top: 0;
     left: 0;
-    @include pad($base-page-pad);
+    padding: $base-spacing;
   }
 
   h1.title {
@@ -24,6 +25,7 @@ header.logo-button {
     text-indent: -99999px;
     background-size: contain;
     background-position: 50% 50%;
+    margin: 0;
 
     $list: fitnes karate judo gimanstika frizbi wellness cheerleading gimnastika
       nogomet squash tenis kosarka boks badminton atletika namizni-tenis
@@ -41,15 +43,16 @@ header.logo-button {
     line-height: 2rem;
     font-weight: normal;
     color: $logo-button-color;
-    background: $white;
+    margin: 0;
+    padding: 0.5em 0;
     border-top: 1px solid darken($logo-button-background, 3%);
 
     display: none;
 
-    @include media($medium-screen-up) {
+    @include grid-media($medium-up-grid) {
       display: block;
-      @include span-columns(12);
-      @include omega();
+      @include grid-container;
+      @include grid-column(12);
       text-align: center;
       position: absolute;
       bottom: 0;
@@ -61,28 +64,24 @@ header.logo-button {
     text-align: left;
     background-color: $logo-button-background;
     // @include button(flat, $logo-button-background);
-    border-radius: 0;
+    border-radius: 2px;
     overflow: hidden;
     padding: 7px 16px 7px 16px;
     position: relative;
     cursor: pointer;
     outline: none;
-    color: $base-accent-color;
-    @include span-columns(12);
-    @include omega();
+    color: $action-color;
+    width: 100%;
     border-bottom: 1px solid darken($logo-button-border-color, 15);
 
-    @include media($medium-screen-up) {
+    @include grid-media($medium-up-grid) {
       border: 1px solid $logo-button-border-color;
       text-align: center;
-      padding: 10px 16px 2.5rem 16px;
+      padding: 10px 16px 3.7rem 16px;
     }
 
     &:hover:not(:disabled) {
       background-color: darken($logo-button-background, 3%);
-    }
-
-    i {
     }
   }
 }

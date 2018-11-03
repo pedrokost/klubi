@@ -1,15 +1,12 @@
-import {
-  moduleFor,
-  test
-} from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupTest } from 'ember-qunit';
 
-moduleFor('serializer:klub', 'KlubSerializer', {
-  // Specify the other units that are required for this test.
-  // needs: ['serializer:foo']
-});
+module('KlubSerializer', function(hooks) {
+  setupTest(hooks);
 
-// Replace this with your real tests.
-test('it exists', function(assert) {
-  var serializer = this.subject();
-  assert.ok(serializer);
+  // Replace this with your real tests.
+  test('it exists', function(assert) {
+    var serializer = this.owner.lookup('serializer:klub');
+    assert.ok(serializer);
+  });
 });

@@ -14,7 +14,7 @@ export default Service.extend({
     const apiKey = this.get("apiKey");
     const language = this.get("language");
     const region = this.get("region");
-    const address = encodeURIComponent(this.get("address"));
+    const address = encodeURIComponent(this.address);
 
     return `${baseUrl}language=${language}&key=${apiKey}&region=${region}&address=${address}`;
   }),

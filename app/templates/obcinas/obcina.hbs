@@ -1,4 +1,4 @@
-<div class="body wrapper-for-content-outside-of-footer">
+<div class="body">
   <div class="article obcina-page">
     <article>
       <h1 title="Športni klubi v občini {{model.name}}">Športni klubi v občini {{model.name}}</h1>
@@ -27,7 +27,7 @@
             <div class="klub-list-container">
               <div class="klub-list l-flex">
                 {{#each group.klubs as |klub|}}
-                  {{klub-card-wrapper klub=klub categoryShown=group.category.identifier}}
+                  <KlubCardWrapper @klub={{klub}} @categoryShown={{group.category.identifier}} />
                 {{/each}}
               </div>
               {{#if group.hasMore}}
@@ -40,9 +40,7 @@
               </div>
               <br>
               {{#link-to 'klubs.index' group.category.identifier}}{{fa-icon "map"}} Prikaži interaktivni zemljevid - {{group.category.name}}{{/link-to}}
-
             </div>
-
           </section>
         {{/each}}
       {{/if}}

@@ -1,11 +1,11 @@
-import { moduleFor, test } from "ember-qunit";
+import { module, test } from 'qunit';
+import { setupTest } from "ember-qunit";
 
-moduleFor("route:obcinas/obcina", "Unit | Route | obcinas/obcina", {
-  // Specify the other units that are required for this test.
-  needs: ["service:asset-map", "service:scheduler", "service:router-scroll"]
-});
+module("Unit | Route | obcinas/obcina", function(hooks) {
+  setupTest(hooks);
 
-test("it exists", function(assert) {
-  let route = this.subject();
-  assert.ok(route);
+  test("it exists", function(assert) {
+    let route = this.owner.lookup("route:obcinas/obcina");
+    assert.ok(route);
+  });
 });

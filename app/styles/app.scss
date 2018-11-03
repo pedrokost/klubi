@@ -1,7 +1,7 @@
 @import "bourbon";
 @import "ember-photoswipe";
-@import "base/grid-settings";
-// @import "../../bower_components/neat/app/assets/stylesheets/neat";
+
+// @import "base/grid-settings";
 @import "neat";
 @import "base/base";
 @import "ember-modal-dialog/ember-modal-structure";
@@ -9,8 +9,19 @@
 
 @import "mixins";
 
-// Major/non-components base classes
-@import "scroll-on-page";
+// Ember power select
+$ember-power-select-default-border-radius: $base-border-radius;
+$ember-power-select-border-color: $base-border-color;
+$ember-power-select-multiple-option-padding: 0.25em 0.6em 0.25em 0.4em;
+$ember-power-select-multiple-option-line-height: $base-line-height;
+$ember-power-select-line-height: $base-line-height;
+$ember-power-select-focus-border-color: $action-color;
+$ember-power-select-multiple-selection-background-color: lighten($blue, 40%);
+$ember-power-select-multiple-option-border-color: lighten($blue, 25%);
+$ember-power-select-multiple-selection-color: $blue;
+$ember-power-select-selected-background: $white;
+$ember-power-select-placeholder-color: #777;
+@import "ember-power-select";
 
 // Components
 @import "components/klub-list";

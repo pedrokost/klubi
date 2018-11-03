@@ -1,15 +1,29 @@
 body .cc_container {
-  padding: 3px 8px;
-  opacity: 0.9;
+  padding: 0.5em 0.8em;
 
   border-width: 0;
   border-top-width: 1px;
 
   font-family: inherit;
+  @include grid-container;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   .cc_btn {
-    @extend %button;
-    // appearance: none;
+    order: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $action-color;
+    line-height: 100%;
+    color: white;
+    margin: 0;
+
+    &:hover {
+      background: $focus-outline-color;
+      color: white;
+    }
   }
 
   &:focus,
@@ -18,11 +32,6 @@ body .cc_container {
   }
 
   .cc_message {
-    display: inline-block;
-    vertical-align: middle;
     line-height: normal;
-    font-size: 1em;
-    max-width: calc(100% - 150px);
-    margin-top: 0.75em;
   }
 }

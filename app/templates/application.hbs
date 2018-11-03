@@ -1,20 +1,19 @@
 <div class="flashes-container">
   {{#if flashMessages}}
     {{#each flashMessages.queue as |flash|}}
-      {{flash-message flash=flash}}
+      <FlashMessage @flash={{flash}} />
     {{/each}}
   {{/if}}
 </div>
+
 <div id="bodywrapper" class="bodywrapper {{if isEmbeddedPage 'bodywrapper--embedded' }} {{if isSideNavVisible 'bodywrapper-hidden'}}">
   {{outlet}}
 </div>
 
 {{#if showMenus}}
-  {{logo-button action="toggleSideNav" category=category}}
+  <LogoButton @onClick={{action "toggleSideNav"}} @category={{category}} />
 
-  {{side-nav visible=isSideNavVisible}}
+  <SideNav @visible={{isSideNavVisible}}/>
 
-  {{fade-screen visible=isSideNavVisible action="toggleSideNav"}}
+  <FadeScreen @visible={{isSideNavVisible}} @onClick={{action "toggleSideNav"}} />
 {{/if}}
-
-{{!-- <div class="activeArea {{if isShowPage 'a'}}"></div> --}}

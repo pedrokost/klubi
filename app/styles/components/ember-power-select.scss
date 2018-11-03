@@ -2,23 +2,13 @@
 * @Author: Pedro Kostelec
 * @Date:   2017-10-29 20:33:09
 * @Last Modified by:   Pedro Kostelec
-* @Last Modified time: 2018-09-16 14:45:58
+* @Last Modified time: 2018-12-02 15:09:36
 */
+$_form-background-color: _#fff;
+$_form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
+$_form-box-shadow-focus: $_form-box-shadow, 0 0 5px rgba($action-color, 0.7);
 
-$ember-power-select-default-border-radius: $base-border-radius;
-$ember-power-select-border-color: $form-border-color;
-// $ember-power-select-option-padding: 0.3em;
-$ember-power-select-multiple-option-padding: 0.25em 0.6em 0.25em 0.4em;
-$ember-power-select-multiple-option-line-height: $base-line-height;
-$ember-power-select-line-height: $base-line-height;
-$ember-power-select-focus-border-color: $form-border-color-focus;
-$ember-power-select-focus-box-shadow: $form-box-shadow-focus;
-$ember-power-select-multiple-selection-background-color: lighten($blue, 40%);
-$ember-power-select-multiple-option-border-color: lighten($blue, 25%);
-$ember-power-select-multiple-selection-color: $blue;
-$ember-power-select-selected-background: $white;
-$ember-power-select-placeholder-color: #777;
-@import "../ember-power-select";
+
 
 input.ember-power-select-trigger-multiple-input {
   &,
@@ -36,7 +26,7 @@ input.ember-power-select-trigger-multiple-input {
 
 .ember-power-select-multiple-trigger {
   padding: 0;
-  box-shadow: $form-box-shadow;
+  box-shadow: $_form-box-shadow;
   margin-bottom: 0.75em;
   transition: border-color;
 }

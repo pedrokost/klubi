@@ -1,4 +1,4 @@
-import { inject as service } from '@ember/service';
+import { inject as service } from "@ember/service";
 import KlubRoute from "klubi/routes/klubs/klub";
 import Prerenderable from "klubi/mixins/after-render-prerenderable";
 
@@ -43,7 +43,7 @@ export default KlubRoute.extend(Prerenderable, {
     );
   },
   actions: {
-    goHomeToEmbedsKlubs() {
+    goHomeToEmbedsKlubsRouteAction() {
       this.get("router").transitionTo("embeds.categoryklubs.index");
       this.get("map").invalidateSize();
     }

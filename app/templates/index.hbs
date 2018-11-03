@@ -1,9 +1,9 @@
-<div class="body wrapper-for-content-outside-of-footer">
-  {{#hero-image}}
+<div class="body">
+  <HeroImage>
     <div class="article home-page">
       <h1 title="Vsi športni klubi na enem mestu">Vsi športni klubi na enem mestu</h1>
     </div>
-  {{/hero-image}}
+  </HeroImage>
   <div class="article home-page">
     <article>
       <section class="home-categories-list">
@@ -12,7 +12,7 @@
 
         <div class="cards">
           {{#each categories.list as |category|}}
-            {{home-category-card category=category}}
+            <HomeCategoryCard @category={{category}}/>
           {{/each}}
         </div>
       </section>

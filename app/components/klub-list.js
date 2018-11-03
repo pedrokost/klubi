@@ -1,7 +1,7 @@
-import { A } from '@ember/array';
-import $ from 'jquery';
-import { computed } from '@ember/object';
-import Component from '@ember/component';
+import { A } from "@ember/array";
+import $ from "jquery";
+import { computed } from "@ember/object";
+import Component from "@ember/component";
 import Ember from "ember";
 
 export default Component.extend(Ember.GoogleAnalyticsTrackingMixin, {
@@ -11,7 +11,7 @@ export default Component.extend(Ember.GoogleAnalyticsTrackingMixin, {
   height: null,
 
   klubCardSizes: computed("filteredKlubs", function() {
-    const klubs = this.get("filteredKlubs");
+    const klubs = this.filteredKlubs;
 
     const width = $(".klub-list-collection").width() - 20;
     const MARGIN_BOTTOM = 5;
@@ -21,9 +21,10 @@ export default Component.extend(Ember.GoogleAnalyticsTrackingMixin, {
 
     return klubs.map(function(klub) {
       const branchesCount = klub.get("branches.length");
-      const height = branchesCount == 0
-        ? DEFAULT_HEIGHT
-        : PARENT_HEIGHT + (branchesCount + 1) * BRANCH_HEIGHT;
+      const height =
+        branchesCount == 0
+          ? DEFAULT_HEIGHT
+          : PARENT_HEIGHT + (branchesCount + 1) * BRANCH_HEIGHT;
       return { width: width, height: height };
     });
   }),
@@ -49,7 +50,7 @@ export default Component.extend(Ember.GoogleAnalyticsTrackingMixin, {
     "query",
     function() {
       let isParentFilter = klub => {
-        var klubs = this.get("klubs");
+        var klubs = this.klubs;
 
         // Return if it is a parent klub, or if its real parent does not belong to the current category.
         return (
@@ -61,9 +62,15 @@ export default Component.extend(Ember.GoogleAnalyticsTrackingMixin, {
       let searchFilter = (klub, query) => {
         // TODO: Should also search in all the children and parents
         return (
-          klub.get("name").toLowerCase().indexOf(query) >= 0 ||
+          klub
+            .get("name")
+            .toLowerCase()
+            .indexOf(query) >= 0 ||
           (klub.get("town") &&
-            klub.get("town").toLowerCase().indexOf(query) >= 0)
+            klub
+              .get("town")
+              .toLowerCase()
+              .indexOf(query) >= 0)
         );
       };
 

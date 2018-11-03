@@ -3,7 +3,6 @@
   "dependencies": {
     "normalize.css": "~7.0.0",
     "font-awesome": "~4.7.0",
-    "bourbon": "~4.3.4",
     "ember-google-analytics":
       "pedrokost/ember-google-analytics#instanceinitializer",
     "momentjs": "~2.18.1",

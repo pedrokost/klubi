@@ -1,7 +1,7 @@
-import { computed } from '@ember/object';
-import { alias } from '@ember/object/computed';
-import { inject as service } from '@ember/service';
-import Controller from '@ember/controller';
+import { computed } from "@ember/object";
+import { alias } from "@ember/object/computed";
+import { inject as service } from "@ember/service";
+import Controller from "@ember/controller";
 
 export default Controller.extend({
   category: null,
@@ -10,7 +10,7 @@ export default Controller.extend({
   allCategories: alias("categories.list"),
 
   categoryTitle: computed("category", function() {
-    return this.get("categories").humanizeCategory(this.get("category"));
+    return this.get("categories").humanizeCategory(this.category);
   }),
 
   otherCategories: computed("categories.list", function() {
@@ -26,7 +26,7 @@ export default Controller.extend({
     "model.klubs",
     "model.klubs.@each.parent",
     function() {
-      var klubs = this.get("model.klubs");
+      let klubs = this.get("model.klubs");
 
       let isParentFilter = klub => {
         // Return if it is a parent klub, or if its real parent does not belong to the current category.

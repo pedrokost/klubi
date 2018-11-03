@@ -1,48 +1,72 @@
-import { test } from "qunit";
-import moduleForAcceptance from "klubi/tests/helpers/module-for-acceptance";
+import {
+  click,
+  fillIn,
+  currentURL,
+  find,
+  findAll,
+  visit,
+  pauseTest
+} from "@ember/test-helpers";
+import { module, test } from "qunit";
+import { setupApplicationTest } from "ember-qunit";
+import setupMirage from "ember-cli-mirage/test-support/setup-mirage";
 
-moduleForAcceptance("Acceptance | zahtevaj priporocilo");
+module("Acceptance | zahtevaj priporocilo", function(hooks) {
+  setupApplicationTest(hooks);
+  setupMirage(hooks);
 
-test("single user request", function(assert) {
-  assert.expect(2);
-  let klub = server.create("klub", { categories: ["football"] });
-  visit(`/football/${klub.id}/zahtevaj-priporocilo`);
+  test("single user request", async function(assert) {
+    assert.expect(2);
+    let klub = this.server.create("klub", { categories: ["football"] });
+    await visit(`/football/${klub.id}/zahtevaj-priporocilo`);
 
-  fillIn(".priporocilo-modal .js-zahtevaj-ime", "Andrej Bajuk");
-  fillIn(".priporocilo-modal .js-zahtevaj-email", "andrej@bajuk.si");
-  fillIn(".priporocilo-modal .js-zahtevaj-tvoje-ime", "Moje ime");
-  fillIn(".priporocilo-modal .js-zahtevaj-tvoj-email", "moje@ime.si");
-  click(".priporocilo-modal button");
+    await fillIn(".priporocilo-modal .js-zahtevaj-ime", "Andrej Bajuk");
+    await fillIn(".priporocilo-modal .js-zahtevaj-email", "andrej@bajuk.si");
+    await fillIn(".priporocilo-modal .js-zahtevaj-tvoje-ime", "Moje ime");
+    await fillIn(".priporocilo-modal .js-zahtevaj-tvoj-email", "moje@ime.si");
+    await click(".priporocilo-modal button");
 
-  andThen(function() {
     assert.equal(currentURL(), `/football/${klub.id}`);
     assert.ok(
-      find(".alert")
-        .text()
-        .includes("Odlično! Uspešno si poslal/a zahetvke za priporočilo!")
+      find(".alert").textContent.includes(
+        "Odlično! Uspešno si poslal/a zahetvke za priporočilo!"
+      )
     );
   });
-});
 
-test("adding and removing recipients", function(assert) {
-  assert.expect(1);
-  let klub = server.create("klub", { categories: ["football"] });
-  visit(`/football/${klub.id}/zahtevaj-priporocilo`);
+  test("adding and removing recipients", async function(assert) {
+    assert.expect(1);
+    let klub = this.server.create("klub", { categories: ["football"] });
+    await visit(`/football/${klub.id}/zahtevaj-priporocilo`);
 
-  fillIn(".priporocilo-modal .js-zahtevaj-ime", "Andrej Bajuk");
-  fillIn(".priporocilo-modal .js-zahtevaj-email", "andrej@bajuk.si");
-  fillIn(".priporocilo-modal .js-zahtevaj-tvoje-ime", "Moje ime");
-  fillIn(".priporocilo-modal .js-zahtevaj-tvoj-email", "moje@ime.si");
-  click(".zahtevaj-priporocilo-add-button");
-  fillIn(".priporocilo-modal .js-zahtevaj-ime:last", "Drugi");
-  fillIn(".priporocilo-modal .js-zahtevaj-email:last", "drugi@pampa.si");
-  click(".zahtevaj-priporocilo-add-button");
-  fillIn(".priporocilo-modal .js-zahtevaj-ime:last", "Tretji");
-  fillIn(".priporocilo-modal .js-zahtevaj-email:last", "Tretji@pampa.si");
-  click(".zahtevaj-priporocilo-remove-button:last");
-  click(".priporocilo-modal button");
+    await fillIn(".priporocilo-modal .js-zahtevaj-ime", "Andrej Bajuk");
+    await fillIn(".priporocilo-modal .js-zahtevaj-email", "andrej@bajuk.si");
+    await fillIn(".priporocilo-modal .js-zahtevaj-tvoje-ime", "Moje ime");
+    await fillIn(".priporocilo-modal .js-zahtevaj-tvoj-email", "moje@ime.si");
+    await click(".zahtevaj-priporocilo-add-button");
 
-  andThen(function() {
+    await fillIn(
+      findAll(".priporocilo-modal .js-zahtevaj-ime").get("lastObject"),
+      "Drugi"
+    );
+    await fillIn(
+      findAll(".priporocilo-modal .js-zahtevaj-email").get("lastObject"),
+      "drugi@pampa.si"
+    );
+    await click(".zahtevaj-priporocilo-add-button");
+    await fillIn(
+      findAll(".priporocilo-modal .js-zahtevaj-ime").get("lastObject"),
+      "Tretji"
+    );
+    await fillIn(
+      findAll(".priporocilo-modal .js-zahtevaj-email").get("lastObject"),
+      "Tretji@pampa.si"
+    );
+    await click(
+      findAll(".zahtevaj-priporocilo-remove-button").get("lastObject")
+    );
+    await click(".priporocilo-modal button");
+
     assert.equal(currentURL(), `/football/${klub.id}`);
     // assert.ok(
     //   find(".alert")

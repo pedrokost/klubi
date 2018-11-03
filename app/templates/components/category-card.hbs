@@ -1,11 +1,11 @@
-{{#link-to 'obcinas.obcina-category' obcina.id category.identifier}}
+{{#link-to 'obcinas.obcina-category' @obcina.id @category.identifier}}
   <div class="card-overlay">
     {{title}}
   </div>
   <div class="card-image">
-    <img src="{{category.thumbnail}}" alt="{{category.name}}">
+    <img src="{{@category.thumbnail}}" alt="{{@category.name}}">
   </div>
   <div class="card-header">
-    {{category.name}}
+    {{@category.name}}
   </div>
 {{/link-to}}

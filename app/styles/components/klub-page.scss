@@ -8,7 +8,7 @@
   // To prevent blurring cause by translation
   transform-style: preserve-3d;
 
-  @include media($landscape-large-screen-up) {
+  @include grid-media($large-up-grid) {
     right: 0;
     width: $klub-page-max-width;
     left: auto;
@@ -22,14 +22,15 @@
 .klubs-klub .klubs-page .recent-categories {
   $widgets-separation: 10px;
 
-  @include media($landscape-large-screen-up) {
+  @include grid-media($large-up-grid) {
     right: $klub-page-max-width + $widgets-separation;
   }
 }
 
 .klub_page-container {
   width: 100%;
-  @include media($landscape-large-screen-up) {
+
+  @include grid-media($large-up-grid) {
     margin-top: 0;
     margin: auto;
     width: 100%;
@@ -49,6 +50,10 @@
 .klub_page-item {
   // $icon-right-offset: 2.5rem;
   $klub_page-border-color: $map-widget-border-color;
+
+  h1 {
+    font-size: 2.5em;
+  }
 
   .klub_page-edit_klub {
     display: none;
@@ -95,7 +100,7 @@
   &:hover,
   &:focus,
   &:active {
-    color: $base-accent-color;
+    color: $action-color;
   }
 }
 

@@ -2,16 +2,12 @@
 * @Author: Pedro Kostelec
 * @Date:   2017-07-15 19:40:58
 * @Last Modified by:   Pedro Kostelec
-* @Last Modified time: 2017-08-16 21:36:22
+* @Last Modified time: 2018-12-08 20:59:21
 */
 
 .card--home {
   $card-image-hover-opacity: 0.6;
   $card-height: 120px;
-
-  @include media($large-screen-up) {
-    flex-basis: 10em;
-  }
 
   .card-overlay {
     opacity: 1;

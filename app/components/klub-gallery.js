@@ -8,11 +8,9 @@ export default Component.extend({
   filteredImages: computed("images", function() {
     // Leave only the first profile_photo, and all the photos
 
-    let images = this.get("images");
+    let photos = this.images.filterBy("type", "photo");
 
-    let photos = images.filterBy("type", "photo");
-
-    let profilePhotos = images.filterBy("type", "profile_photo");
+    let profilePhotos = this.images.filterBy("type", "profile_photo");
 
     if (profilePhotos.length) {
       photos.unshift(profilePhotos[0]);

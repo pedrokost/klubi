@@ -1,9 +1,9 @@
-{{#leaflet-map keyboard=false attributionControl=false center=location zoom=zoom minZoom=8 maxZoom=18 zoomControl=false klubiZoomControl=false class="address-shower-map"}}
+<LeafletMap @keyboard={{false}} @attributionControl={{false}} @center={{@location}} @zoom={{zoom}} @minZoom=8 @maxZoom=18 @zoomControl={{false}} @klubiZoomControl={{false}} class="address-shower-map">
 
-  {{tile-layer url="https://a.tiles.mapbox.com/v3/foursquare.meku766r/{z}/{x}/{y}.png"}}
+  <TileLayer @url="https://a.tiles.mapbox.com/v3/foursquare.meku766r/{z}/{x}/{y}.png"/>
 
-  {{marker-layer keyboard=false location=location}}
+  <MarkerLayer @keyboard=false @location={{@location}} />
 
-{{/leaflet-map}}
+</LeafletMap>
 
 

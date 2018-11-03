@@ -1,6 +1,4 @@
-/* eslint-env node */
-"use strict";
-const EmberApp = require("ember-cli/lib/broccoli/ember-app");
+'use strict';
 
 var options = {
   hinting: false,
@@ -15,7 +13,7 @@ var options = {
   // },
   // TODO: delete above in production
 
-  "ember-font-awesome": { includeFontAwesomeAssets: false },
+  // "ember-font-awesome": { includeFontAwesomeAssets: false },
   fingerprint: {
     prepend: "https://d2ne2albfoowfo.cloudfront.net/",
     generateAssetMap: true,
@@ -31,31 +29,37 @@ var options = {
   },
   vendorFiles: {
     "handlebars.js": null
+  },
+  sassOptions: {
+    includePaths: [
+      'node_modules/bourbon-neat/core'
+    ]
   }
 };
+const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, options);
 
-  app.import("bower_components/font-awesome/css/font-awesome.css");
-  app.import("bower_components/font-awesome/fonts/fontawesome-webfont.eot", {
-    destDir: "fonts"
-  });
-  app.import("bower_components/font-awesome/fonts/fontawesome-webfont.svg", {
-    destDir: "fonts"
-  });
-  app.import("bower_components/font-awesome/fonts/fontawesome-webfont.ttf", {
-    destDir: "fonts"
-  });
-  app.import("bower_components/font-awesome/fonts/fontawesome-webfont.woff", {
-    destDir: "fonts"
-  });
-  app.import("bower_components/font-awesome/fonts/fontawesome-webfont.woff2", {
-    destDir: "fonts"
-  });
-  app.import("bower_components/font-awesome/fonts/FontAwesome.otf", {
-    destDir: "fonts"
-  });
+  // app.import("bower_components/font-awesome/css/font-awesome.css");
+  // app.import("bower_components/font-awesome/fonts/fontawesome-webfont.eot", {
+  //   destDir: "fonts"
+  // });
+  // app.import("bower_components/font-awesome/fonts/fontawesome-webfont.svg", {
+  //   destDir: "fonts"
+  // });
+  // app.import("bower_components/font-awesome/fonts/fontawesome-webfont.ttf", {
+  //   destDir: "fonts"
+  // });
+  // app.import("bower_components/font-awesome/fonts/fontawesome-webfont.woff", {
+  //   destDir: "fonts"
+  // });
+  // app.import("bower_components/font-awesome/fonts/fontawesome-webfont.woff2", {
+  //   destDir: "fonts"
+  // });
+  // app.import("bower_components/font-awesome/fonts/FontAwesome.otf", {
+  //   destDir: "fonts"
+  // });
 
   app.import("bower_components/normalize.css/normalize.css");
   // Leaflet

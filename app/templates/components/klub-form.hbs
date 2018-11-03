@@ -4,23 +4,23 @@
       <h4>Podatki o klubu</h4>
     </li>
     <li>
-      <label>Ime: </label>{{input type="text" value=klub.name  required="required" placeholder="Fitnes Maribor"}}{{fa-icon "home" fixedWidth=true listItem=true}}
+      <label>Ime: </label>{{input type="text" value=@klub.name  required="required" placeholder="Fitnes Maribor"}}{{fa-icon "home" fixedWidth=true listItem=true}}
     </li>
     <li>
       <label>Športne dejavnosti: </label>
 
-      {{#power-select-multiple
-        options=knownCategories
-        selected=klub.categories
-        onchange=(action (mut klub.categories))
-        onkeydown=(action "createCategoryOnDelimiter")
-        dropdownClass="slide-fade"
-        required="required"
-        placeholder="fitnes, zumba"
-        noMatchesMessage="Pritisni Enter"
-        as |number|}}
+      <PowerSelectMultiple
+        @options={{knownCategories}}
+        @selected={{@klub.categories}}
+        @onchange={{action (mut @klub.categories)}}
+        @onkeydown={{action "createCategoryOnDelimiter"}}
+        @dropdownClass="slide-fade"
+        @required="required"
+        @placeholder="fitnes, zumba"
+        @noMatchesMessage="Pritisni Enter"
+        as |number|>
         {{number}}
-      {{/power-select-multiple}}
+      </PowerSelectMultiple>
       {{fa-icon "clone" fixedWidth=true listItem=true}}
 
     </li>
@@ -29,20 +29,20 @@
 
         <ol class="klub-form-branch-list">
           <li>
-            {{address-input-geocoder required="required" placeholder="Mariborska cesta 5, Maribor" address=klub.address updateAddress=(action "setAddressAttrs" klub)}}
-            {{#if klub.latitude}}
-              {{address-shower address=klub.address location=klub.location}}
+            <AddressInputGeocoder @placeholder="Mariborska cesta 5, Maribor" @address={{@klub.address}} @updateAddress={{action "setAddressAttrs" @klub}} />
+            {{#if @klub.latitude}}
+              <AddressShower @address={{@klub.address}} @location={{@klub.location}} />
             {{/if}}
           </li>
 
-          {{#each klub.branches as |branch|}}
+          {{#each @klub.branches as |branch|}}
             {{#unless branch.isDeleted}}
               <li>
-                {{#address-input-geocoder required="required" placeholder="Mariborska cesta 5, Maribor" address=branch.address updateAddress=(action "setAddressAttrs" branch) }}
+                <AddressInputGeocoder @placeholder="Mariborska cesta 5, Maribor" @address={{branch.address}} @updateAddress={{action "setAddressAttrs" branch}} >
                   <a {{action "removeBranch" branch}} class="klub-form-remove-branch-btn" tabindex="0">Odstrani</a>
-                {{/address-input-geocoder}}
+                </AddressInputGeocoder>
                 {{#if branch.latitude}}
-                  {{address-shower address=branch.address location=branch.location}}
+                  <AddressShower @address={{branch.address}} @location={{branch.location}} />
                 {{/if}}
               </li>
             {{/unless}}
@@ -55,34 +55,34 @@
 
     </li>
     <li>
-      <label>Spletna stran: </label>{{input type="url" value=klub.website placeholder="http://www.maribor-fitnes.si"}}{{fa-icon "external-link-square" fixedWidth=true listItem=true}}
+      <label>Spletna stran: </label>{{input type="url" value=@klub.website placeholder="http://www.maribor-fitnes.si"}}{{fa-icon "external-link-square" fixedWidth=true listItem=true}}
     </li>
     <li>
-      <label>Facebook stran: </label>{{input type="url" value=klub.facebookUrl placeholder="http://facebook.com/mariborfitnes"}}{{fa-icon "facebook" fixedWidth=true listItem=true}}
+      <label>Facebook stran: </label>{{input type="url" value=@klub.facebookUrl placeholder="http://facebook.com/mariborfitnes"}}{{fa-icon "facebook" fixedWidth=true listItem=true}}
     </li>
     <li>
-      <label>Telefon: </label>{{input type="tel" value=klub.phone placeholder="051 289 233"}}{{fa-icon "phone" fixedWidth=true listItem=true}}
+      <label>Telefon: </label>{{input type="tel" value=@klub.phone placeholder="051 289 233"}}{{fa-icon "phone" fixedWidth=true listItem=true}}
     </li>
     <li>
-      <label>Epošta: </label>{{input type="email" value=klub.email placeholder="info@maribor-fitnes.si"}}{{fa-icon "envelope" fixedWidth=true listItem=true}}
+      <label>Epošta: </label>{{input type="email" value=@klub.email placeholder="info@maribor-fitnes.si"}}{{fa-icon "envelope" fixedWidth=true listItem=true}}
     </li>
     <li>
-      <label>Opis: </label>{{textarea value=klub.description placeholder="Kratka predstavitev kluba"}}{{fa-icon "sticky-note" fixedWidth=true listItem=true}}
+      <label>Opis: </label>{{textarea value=@klub.description placeholder="Kratka predstavitev kluba"}}{{fa-icon "sticky-note" fixedWidth=true listItem=true}}
     </li>
     <li>
-      <label>Opombe za uredika: </label>{{textarea value=klub.notes placeholder="Informacije v tem poljo bojo vidne samo uredniku portala."}}{{fa-icon "comment" fixedWidth=true listItem=true}}
+      <label>Opombe za uredika: </label>{{textarea value=@klub.notes placeholder="Informacije v tem poljo bojo vidne samo uredniku portala."}}{{fa-icon "comment" fixedWidth=true listItem=true}}
     </li>
     <li class="line-behind-text">
       <h4>Nekaj o tebi</h4>
     </li>
     <li>
-      <label>Tvoja e-pošta: </label>{{input type="email" value=klub.editor required="required" placeholder="ime.priimek@gmail.com"}}{{fa-icon "envelope" fixedWidth=true listItem=true}}
+      <label>Tvoja e-pošta: </label>{{input type="email" value=@klub.editor required="required" placeholder="ime.priimek@gmail.com"}}{{fa-icon "envelope" fixedWidth=true listItem=true}}
       <small>Nikoli ti ne bomo poslali nezaželjene pošte. Obvestili te bomo, ko so podatki sprejeti.</small>
     </li>
     <li class="line-behind-text">
     </li>
     <li>
-      <button type="submit" name="button" id="button" disabled={{submitButtonDisabled}}>Pošlji
+      <button type="submit" name="button" id="button" disabled={{@submitButtonDisabled}}>Pošlji
       <div class="loader-inline">
         <div class="spinner-container">
           <div class="spinner"></div>

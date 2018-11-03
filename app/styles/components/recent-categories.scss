@@ -3,7 +3,7 @@ body.klubs-klub-index {
     display: none;
   }
 
-  @include media($large-screen-up) {
+  @include grid-media($large-up-grid) {
     .recent-categories {
       display: block;
     }
@@ -21,26 +21,25 @@ body.klubs-klub-index {
   $base-line-height: 1.5em !default;
   $base-spacing: 1.5em !default;
   $base-font-size: 1em !default;
-  $base-background-color: white !default;
-  $base-accent-color: #477DCA !default;
-  $base-link-color: $base-accent-color !default;
+  $viewport-background-color: white !default;
+  $action-color: #477dca !default;
+  $action-color: $action-color !default;
   $dark-gray: #333 !default;
   $widgets-separation: 10px;
   $large-screen: em(860) !default;
   $base-font-color: $dark-gray !default;
   //////////////////////////////////////////////////////////////////////////////////
 
-  $button-group-background: $base-background-color;
+  $button-group-background: $viewport-background-color;
   $button-group-color: lighten($base-font-color, 30%);
   $button-group-border: 1px solid $map-widget-border-color;
   $button-group-inner-border: 1px solid lighten($map-widget-border-color, 18%);
-  $button-group-background-checked: $base-accent-color;
+  $button-group-background-checked: $action-color;
   $button-group-color-checked: white;
   $button-group-border-checked: darken($button-group-background-checked, 15%);
 
   white-space: nowrap;
   overflow-x: auto;
-  @include pad(1px);
 
   input {
     display: none;
@@ -52,7 +51,7 @@ body.klubs-klub-index {
     margin-right: 4px;
     position: relative;
 
-    @include media($medium-screen-up) {
+    @include grid-media($medium-up-grid) {
       margin-right: 0px;
       // float: left;
     }
@@ -67,7 +66,6 @@ body.klubs-klub-index {
       text-align: center;
     }
 
-
     .button-group-item {
       background: $button-group-background;
       border: $button-group-border;
@@ -81,8 +79,9 @@ body.klubs-klub-index {
       padding: 0.75em 1em;
       width: 100%;
       border-radius: $base-border-radius;
+      outline: none;
 
-      @include media($medium-screen-up) {
+      @include grid-media($medium-up-grid) {
         border-left: 0;
         border-right: $button-group-inner-border;
         width: auto;
@@ -97,7 +96,8 @@ body.klubs-klub-index {
       &.active {
         background: $button-group-background-checked;
         border: 1px solid $button-group-border-checked;
-        box-shadow: inset 0 1px 2px darken($button-group-background-checked, 10%);
+        box-shadow: inset 0 1px 2px
+          darken($button-group-background-checked, 10%);
         color: $button-group-color-checked;
 
         & > .tag {
@@ -111,7 +111,7 @@ body.klubs-klub-index {
       // border-top-right-radius: $base-border-radius;
       // border-top: $button-group-border;
 
-      @include media($medium-screen-up) {
+      @include grid-media($medium-up-grid) {
         border-bottom-left-radius: $base-border-radius;
         border-left: $button-group-border;
         border-top-left-radius: $base-border-radius;
@@ -127,7 +127,7 @@ body.klubs-klub-index {
       // border-bottom-right-radius: $base-border-radius;
       // border-bottom: $button-group-border;
 
-      @include media($medium-screen-up) {
+      @include grid-media($medium-up-grid) {
         // border-bottom-left-radius: 0;
         border-bottom-right-radius: $base-border-radius;
         border-right: $button-group-border;

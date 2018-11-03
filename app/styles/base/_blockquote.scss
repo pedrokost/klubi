@@ -1,0 +1,21 @@
+/*
+* @Author: Pedro Kostelec
+* @Date:   2018-12-08 20:46:37
+* @Last Modified by:   Pedro Kostelec
+* @Last Modified time: 2018-12-08 20:50:49
+*/
+
+blockquote {
+  border-left: 2px solid $light-gray;
+  padding-left: 0.75em;
+  margin: 1.5em 0;
+}
+
+cite {
+  color: $medium-gray;
+  font-style: italic;
+
+  &:before {
+    content: "\2014 \00A0";
+  }
+}

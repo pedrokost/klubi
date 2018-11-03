@@ -7,10 +7,10 @@
           <span class="tag tag-beta">BETA</span>
         {{/if}}
       {{/link-to}}
-    </label>{{/each}}{{#unless isCategorySupported}}<label>
-      <input type="radio" name="button-group" value={{currentCategory}}>
-      {{#link-to linkDestination currentCategory classNameBindings=":category :button-group-item"}}
-        {{capitalize currentCategory}}
+    </label>{{/each}}{{#unless @isCategorySupported}}<label>
+      <input type="radio" name="button-group" value={{@currentCategory}}>
+      {{#link-to linkDestination @currentCategory classNameBindings=":category :button-group-item"}}
+        {{capitalize @currentCategory}}
         <span class="tag tag-beta">V PRIPRAVI</span>
       {{/link-to}}
     </label>

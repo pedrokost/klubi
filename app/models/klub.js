@@ -29,7 +29,7 @@ export default Model.extend({
   comments: hasMany("comments"),
 
   location: computed("latitude", "longitude", function() {
-    return [this.get("latitude"), this.get("longitude")];
+    return [this.latitude, this.longitude];
   }),
 
   confirmData: memberAction({

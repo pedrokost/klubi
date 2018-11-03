@@ -94,7 +94,7 @@ export default Route.extend(Prerenderable, {
     );
   },
   actions: {
-    goHome() {
+    goHomeRouteAction() {
       this.get("router").transitionTo("klubs.index");
       this.get("map").invalidateSize();
     }

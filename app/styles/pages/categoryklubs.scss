@@ -6,11 +6,11 @@
 
   padding: 0.5em 0.75em;
 
-  @include media($medium-screen-up) {
+  @include grid-media($medium-up-grid) {
     position: absolute;
     padding: 0.75em 1em;
-    top: $base-page-pad;
-    right: $base-page-pad;
+    top: $base-spacing;
+    right: $base-spacing;
     bottom: auto;
   }
 }

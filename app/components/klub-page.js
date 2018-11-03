@@ -1,7 +1,7 @@
-import { debounce } from '@ember/runloop';
-import { computed } from '@ember/object';
-import { inject as service } from '@ember/service';
-import Component from '@ember/component';
+import { debounce } from "@ember/runloop";
+import { computed } from "@ember/object";
+import { inject as service } from "@ember/service";
+import Component from "@ember/component";
 
 export default Component.extend({
   classNames: ["klub_page js-close l-flex"],
@@ -23,7 +23,7 @@ export default Component.extend({
   permalink: computed("categoryShown", "klub.id", function() {
     const ID_REGEX = /[-\/]\d+$/gim;
     const idStart = this.get("klub.id").search(ID_REGEX);
-    const category = this.get("categoryShown");
+    const category = this.categoryShown;
 
     if (idStart !== -1 && category) {
       let klubId = this.get("klub.id").substring(idStart + 1);
@@ -58,7 +58,7 @@ export default Component.extend({
     "klub.branches.@each.id",
     "selectedLocation",
     function() {
-      const selectedLocation = this.get("selectedLocation.id");
+      const selectedLocation = this.selectedLocation.id;
 
       // FIXME: mixing design and logic!
       // If there are no branches, then do not color any address blue
@@ -86,7 +86,7 @@ export default Component.extend({
     // The purpose of whitelisting the close action is to enable selecting
     // the text on the page to copy it.
     if (evt.target.classList.contains("js-close")) {
-      this.sendAction();
+      this.exit();
     }
   }
 });

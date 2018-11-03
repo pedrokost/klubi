@@ -2,7 +2,7 @@
 * @Author: Pedro Kostelec
 * @Date:   2017-07-15 19:40:58
 * @Last Modified by:   Pedro Kostelec
-* @Last Modified time: 2018-09-16 14:45:58
+* @Last Modified time: 2018-12-08 21:36:37
 */
 
 .cards {
@@ -14,32 +14,30 @@
 .card {
   $base-border-color: $light-gray !default;
   $base-border-radius: 3px !default;
-  $base-background-color: $base-background-color !default;
+  $viewport-background-color: $viewport-background-color !default;
   $base-spacing: 1.5em !default;
   $action-color: $blue !default;
   $dark-gray: #333 !default;
   $base-font-color: $dark-gray !default;
   $card-border-color: $base-border-color;
-  $card-border: 1px solid $card-border-color;
-  $card-background: lighten($card-border-color, 10%);
+  $card-border: 1px solid $white;
+  $card-background: transparent; //lighten($card-border-color, 10%);
   $card-header-background: $card-background;
-  $card-margin: 1em;
+  $card-margin: $base-spacing / 2;
+  $card-margin-large: 1em;
   $card-image-hover-opacity: 0.6;
   $card-image-hover-color: $blue;
 
   background-color: $card-background;
   border: $card-border;
   border-radius: $base-border-radius;
-  // box-shadow: 0 2px 4px darken($base-background-color, 10%);
+  overflow: hidden;
+  // box-shadow: 0 2px 4px darken($viewport-background-color, 10%);
   cursor: pointer;
   flex-grow: 1;
-  margin: 0 $card-margin $base-spacing $card-margin;
+  // margin: 0 $card-margin $base-spacing $card-margin;
   position: relative;
   transition: all 0.2s ease-in-out;
-
-  @include media($large-screen-up) {
-    flex-basis: 15em;
-  }
 
   .card-overlay {
     height: 150px;
@@ -77,6 +75,7 @@
     line-height: 1.5em;
     padding: ($base-spacing / 3) ($base-spacing / 2);
     transition: all 0.2s ease-in-out;
+    text-decoration: none;
   }
 
   .card-copy {

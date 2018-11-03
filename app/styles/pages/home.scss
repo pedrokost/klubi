@@ -2,12 +2,10 @@
 * @Author: Pedro Kostelec
 * @Date:   2017-08-06 20:40:25
 * @Last Modified by:   Pedro Kostelec
-* @Last Modified time: 2018-09-16 14:44:37
+* @Last Modified time: 2018-12-06 09:39:53
 */
 
 .home-hero-title {
-  width: 100%;
-
   $image-gradient-color-top: white;
   $image-gradient-color-bottom: white;
   $image-gradient-color-medium: white;
@@ -15,11 +13,17 @@
   $transparency-bottom: 1;
   $transparency-medium: 0.4;
 
-  @include media($large-screen-up) {
+  @include grid-column(12);
+  @include grid-collapse;
+  padding: 0 20px;
+  margin-bottom: $base-spacing;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-image: url("/assets/hero/sport-wallpaper-1024x576.jpg");
+
+  @include grid-media($large-up-grid) {
     height: 400px;
-    background: url("/assets/hero/sport-wallpaper-1024x576.jpg") no-repeat
-      center center;
-    background-size: cover;
     margin-bottom: 4rem;
     border-bottom: 8px solid $blue;
   }
@@ -54,21 +58,17 @@
   }
 
   h1 {
-    @include media($large-screen-up) {
-      font-size: 4rem;
-      color: $blue;
-      margin-top: 2em;
+    font-size: modular-scale(4);
+    margin: $base-spacing 0;
 
+    @include grid-media($large-up-grid) {
+      font-size: 4rem;
+      margin-top: 2em;
       text-shadow: 0 1px 1px white;
     }
   }
 }
 .home-page {
-  // h1 {
-  //   font-size: 4rem;
-  //   margin-bottom: 4rem;
-  // }
-
   section {
     margin-bottom: 3rem;
   }
@@ -78,21 +78,18 @@
   }
 
   .home-categories-list {
+    .cards {
+      min-width: 1px; // fix for invisble section
+    }
+
     .card-overlay {
       font-size: 1.5em !important;
     }
   }
 
   .ste-upravitelj {
-    @include row();
-
     .content {
       text-align: center;
-
-      @include media($large-screen-up) {
-        @include span-columns(6);
-        @include shift(3);
-      }
     }
   }
 

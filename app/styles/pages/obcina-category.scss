@@ -2,7 +2,7 @@
 * @Author: Pedro Kostelec
 * @Date:   2017-06-10 17:01:33
 * @Last Modified by:   Pedro Kostelec
-* @Last Modified time: 2018-09-16 14:45:33
+* @Last Modified time: 2018-12-08 21:32:31
 */
 
 .obcina-category-page,
@@ -39,15 +39,8 @@
   }
 
   .ste-upravitelj {
-    @include row();
-
     .content {
       text-align: center;
-
-      @include media($large-screen-up) {
-        @include span-columns(6);
-        @include shift(3);
-      }
     }
   }
 
@@ -92,12 +85,12 @@
         flex-grow: 1;
         padding: 0 1em 0 0;
 
-        @include media($medium-screen-up) {
+        @include grid-media($medium-up-grid) {
           text-align: right;
         }
 
         &:first-child {
-          @include media($medium-screen-up) {
+          @include grid-media($medium-up-grid) {
             text-align: left;
           }
           padding-left: 0;

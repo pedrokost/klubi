@@ -48,10 +48,13 @@ export default EmberLeafletComponent.extend({
     if (this.get("klubiZoomControl")) {
       this.L.control.zoom(zoomOptions).addTo(this._layer);
     }
-    const locateControl = this.L.control
-      .locate(geolocateOptions)
-      .addTo(this._layer);
-    this.get("geolocator").set("control", locateControl);
+
+    if (this.get("geolocateControl")) {
+      const locateControl = this.L.control
+        .locate(geolocateOptions)
+        .addTo(this._layer);
+      this.get("geolocator").set("control", locateControl);
+    }
 
     this.get("map").set("map", this._layer);
   }

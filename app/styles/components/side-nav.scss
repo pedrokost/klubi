@@ -13,7 +13,6 @@
   ///////////////////////////////////////////////////////////////////////////////////
   ul {
     padding: 0;
-    margin: 0;
   }
 
   li {
@@ -32,13 +31,13 @@
   $sliding-menu-color-subtitle: $light-gray;
   $sliding-menu-icon-color: $medium-gray;
   $sliding-menu-border: 1px solid $sliding-menu-border-color;
-  $sliding-menu-background-hover: $base-accent-color;
+  $sliding-menu-background-hover: $action-color;
   $sliding-menu-color-hover: $light-gray;
   $sliding-menu-color-subtitle-hover: $light-gray;
   $sliding-menu-background-focus: lighten($sliding-menu-background, 5%);
 
   @include position(fixed, 0px auto 0px 0px);
-  @include size($sliding-menu-width 100%);
+  @include size($sliding-menu-width, 100%);
   transform: translateX(-$sliding-menu-width);
   transition: all 0.25s ease-out;
   background: $sliding-menu-background;
@@ -46,8 +45,9 @@
   // overflow-y: auto; // I can't have this if I want to animate the active button
   -webkit-overflow-scrolling: touch;
   padding-top: $top-nav-height-mobile;
+  overflow-x: hidden;
 
-  @include media($medium-screen-up) {
+  @include grid-media($medium-up-grid) {
     padding-top: $top-nav-height;
   }
 
@@ -68,10 +68,11 @@
     display: block;
     font-weight: bold;
     padding: 1em;
-    @include outer-container;
+    @include grid-container;
+    @include grid-collapse;
 
     i {
-      @include span-columns(3);
+      @include grid-column(3);
       text-align: center;
       font-size: 2rem;
       line-height: 1rem + 1rem * $base-line-height;
@@ -79,7 +80,7 @@
     }
 
     span {
-      @include span-columns(9);
+      @include grid-column(9);
     }
 
     &:focus {

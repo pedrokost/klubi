@@ -37,7 +37,7 @@ module.exports = function(environment) {
       enabled: false,
       inline: true
     },
-    rollbar: {
+    emberRollbarClient: {
       accessToken: "d66dea1a45e7484eaa73e7f24dbd7044",
       enabled: environment === "production"
     },
@@ -93,6 +93,7 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = "#ember-testing";
+    ENV.APP.autoboot = false;
   }
 
   if (environment === "production") {

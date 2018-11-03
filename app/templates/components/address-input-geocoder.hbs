@@ -1,5 +1,5 @@
 <div class="l-flex l-flex--horz">
-  {{input type="text" value=inputtedAddress  required="required" placeholder=placeholder}}{{fa-icon "map-marker" fixedWidth=true listItem=true}}
+  {{input type="text" value=inputtedAddress  required="required" placeholder=@placeholder}}{{fa-icon "map-marker" fixedWidth=true listItem=true}}
   {{yield}}
 </div>
 {{#if geocodingFailed}}

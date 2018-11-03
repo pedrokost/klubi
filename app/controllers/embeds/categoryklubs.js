@@ -1,7 +1,7 @@
-import { computed } from '@ember/object';
-import { alias } from '@ember/object/computed';
-import { inject as service } from '@ember/service';
-import Controller, { inject as controller } from '@ember/controller';
+import { computed } from "@ember/object";
+import { alias } from "@ember/object/computed";
+import { inject as service } from "@ember/service";
+import Controller, { inject as controller } from "@ember/controller";
 import Ember from "ember";
 
 export default Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
@@ -16,12 +16,12 @@ export default Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
   currentRouteName: alias("router.currentRouteName"),
 
   anyKlub: computed("model", function() {
-    return this.get("model");
+    return this.model;
   }),
 
   isShowPage: computed("currentRouteName", function() {
     // TODO: this is brittle.
-    return this.get("currentRouteName") === "embeds.categoryklubs.klub.index";
+    return this.currentRouteName === "embeds.categoryklubs.klub.index";
   }),
 
   actions: {

@@ -1,11 +1,11 @@
-import { moduleFor, test } from "ember-qunit";
+import { module, test } from 'qunit';
+import { setupTest } from "ember-qunit";
 
-moduleFor("route:klubs/klub/index", "Unit | Route | klubs/klub/index", {
-  // Specify the other units that are required for this test.
-  needs: ["service:scheduler", "service:router-scroll"]
-});
+module("Unit | Route | klubs/klub/index", function(hooks) {
+  setupTest(hooks);
 
-test("it exists", function(assert) {
-  var route = this.subject();
-  assert.ok(route);
+  test("it exists", function(assert) {
+    var route = this.owner.lookup("route:klubs/klub/index");
+    assert.ok(route);
+  });
 });

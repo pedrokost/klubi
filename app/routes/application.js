@@ -1,4 +1,4 @@
-import Route from '@ember/routing/route';
+import Route from "@ember/routing/route";
 
 // window.ENV = window.ENV || {};
 // window.ENV.LOG_EVENT_TRACKING = true; // Google Analytics see what is tracked
@@ -17,7 +17,8 @@ export default Route.extend({
         tagId: "meta-description",
         attrs: {
           name: "description",
-          content: "Najdi najboljši fitnes, vadbeni center, karate dojo, wellness center, frizbi klub, judo dojo, gimnastično društvo v svoji bližini. Smo največja Slovenska baza fitnesov, karate klubov, judo klubov, frizbi klubov, in več!"
+          content:
+            "Najdi najboljši fitnes, vadbeni center, karate dojo, wellness center, frizbi klub, judo dojo, gimnastično društvo v svoji bližini. Smo največja Slovenska baza fitnesov, karate klubov, judo klubov, frizbi klubov, in več!"
         }
       },
       {
@@ -33,7 +34,8 @@ export default Route.extend({
         tagId: "meta-og-description",
         attrs: {
           property: "og:description",
-          content: "Najdi najboljši fitnes, vadbeni center, karate dojo, wellness center, frizbi klub, judo dojo, gimnastično društvo v svoji bližini. Smo največja Slovenska baza fitnesov, karate klubov, judo klubov, frizbi klubov, in več!"
+          content:
+            "Najdi najboljši fitnes, vadbeni center, karate dojo, wellness center, frizbi klub, judo dojo, gimnastično društvo v svoji bližini. Smo največja Slovenska baza fitnesov, karate klubov, judo klubov, frizbi klubov, in več!"
         }
       },
       {
@@ -69,10 +71,5 @@ export default Route.extend({
         }
       }
     ];
-  },
-  actions: {
-    toggleSideNav() {
-      this.controllerFor("application").toggleProperty("isSideNavVisible");
-    }
   }
 });

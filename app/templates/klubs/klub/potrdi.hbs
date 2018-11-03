@@ -1,10 +1,10 @@
-{{#modal-dialog
-  onClose=(action (mut isShowingTranslucent) false)
-  targetAttachment='none'
-  containerClass='modal-centered-scrolling-container'
-  overlayClass='modal-centered-scrolling-overlay'
-  wrapperClass='modal-centered-scrolling-wrapper'
-  translucentOverlay=true}}
+<ModalDialog
+  @onClose={{action (mut isShowingTranslucent) false}}
+  @targetAttachment='none'
+  @containerClass='modal-centered-scrolling-container'
+  @overlayClass='modal-centered-scrolling-overlay'
+  @wrapperClass='modal-centered-scrolling-wrapper'
+  @translucentOverlay=true>
 
   <div class="article potrdi-klub-modal">
     <h1>So podatki za {{model.klub.name}} pravilni?</h1>
@@ -22,4 +22,4 @@
       </div></button>
     </form>
   </div>
-{{/modal-dialog}}
+</ModalDialog>

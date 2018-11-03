@@ -2,14 +2,12 @@
 * @Author: Pedro Kostelec
 * @Date:   2017-06-10 17:01:33
 * @Last Modified by:   Pedro Kostelec
-* @Last Modified time: 2017-07-16 15:38:56
+* @Last Modified time: 2018-12-08 21:32:23
 */
 
-
 .obcina-page {
-
   .klub-list-section {
-    @include row();
+    @include grid-container;
 
     .image {
       width: 100%;
@@ -19,7 +17,7 @@
       border-radius: 4px;
       margin: 0 auto;
 
-      @include media($large-screen-up) {
+      @include grid-media($large-up-grid) {
         margin: 0 0 0 auto;
       }
     }
@@ -27,15 +25,15 @@
     .category-details {
       text-align: center;
 
-      @include media($large-screen-up) {
+      @include grid-media($large-up-grid) {
         text-align: right;
-        @include span-columns(3);
+        @include grid-column(3);
       }
     }
 
     .klub-list-container {
-      @include media($large-screen-up) {
-        @include span-columns(9);
+      @include grid-media($large-up-grid) {
+        @include grid-column(9);
       }
     }
   }

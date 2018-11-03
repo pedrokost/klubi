@@ -1,8 +1,8 @@
-{{#link-to 'klubs.index' category.identifier}}
+{{#link-to 'klubs.index' @category.identifier}}
   <div class="card-overlay">
-    {{category.name}}
+    {{@category.name}}
   </div>
   <div class="card-image">
-    <img src="{{category.thumbnail}}" alt="{{category.name}}">
+    <img src="{{@category.thumbnail}}" alt="{{@category.name}}">
   </div>
 {{/link-to}}

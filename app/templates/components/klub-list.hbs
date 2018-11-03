@@ -1,4 +1,4 @@
-{{#if search}}
+{{#if @search}}
   <div class="klub-list-search">
     {{input type="search" value=query class="klub-list-search-input" placeholder="Išči"}}
   </div>
@@ -10,15 +10,15 @@
     class="klub-list-collection-container"
     cell-layout=(mixed-grid-layout klubCardSizes) as |klub index|
   }}
-    {{klub-card-wrapper klub=klub categoryShown=categoryShown}}
+    <KlubCardWrapper @klub={{klub}} @categoryShown={{@categoryShown}} />
   {{/ember-collection}}
 
   {{#unless filteredKlubs}}
     <p class="alert alert-alert">
       {{#if query}}
-        Ni zadetkov za iskalni niz <em>{{query}}</em> v kategoriji {{categoryShown}}.
+        Ni zadetkov za iskalni niz <em>{{query}}</em> v kategoriji {{@categoryShown}}.
       {{else}}
-        Ni klubov v kategoriji {{categoryShown}}.
+        Ni klubov v kategoriji {{@categoryShown}}.
       {{/if}}
       </p>
   {{/unless}}

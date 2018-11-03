@@ -1,4 +1,4 @@
-<div class="body wrapper-for-content-outside-of-footer">
+<div class="body">
   <div class="article obcina-category-page">
     <article>
       <h1 title="{{categoryTitle}} v občini {{model.name}}">{{categoryTitle}} v občini {{model.name}}</h1>
@@ -10,7 +10,7 @@
 
         <div class="klub-list l-flex">
           {{#each filteredKlubs as |klub|}}
-            {{klub-card-wrapper klub=klub categoryShown=category}}
+            <KlubCardWrapper @klub={{klub}} @categoryShown={{category}} />
           {{else}}
             <div class="alert-info">
               <span>V občini {{model.name}} ni klubov, ki bi se ukvarjali s panogo {{category}}. {{#link-to 'dodaj-klub'}}Registriraj klub {{fa-icon "plus"}}{{/link-to}}</span>
@@ -42,7 +42,7 @@
 
         <div class="cards">
           {{#each otherCategories as |category|}}
-            {{category-card obcina=model category=category}}
+            <CategoryCard @obcina={{model}} @category={{category}}/>
           {{/each}}
         </div>
       </section>

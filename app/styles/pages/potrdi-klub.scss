@@ -2,7 +2,7 @@
 * @Author: Pedro Kostelec
 * @Date:   2018-02-11 16:00:41
 * @Last Modified by:   Pedro Kostelec
-* @Last Modified time: 2018-05-07 20:22:50
+* @Last Modified time: 2018-12-08 21:05:27
 */
 
 .potrdi-klub-modal {
@@ -12,11 +12,12 @@
 
   form {
     button {
-      @include span-columns(5);
-      @include shift(2);
+      @include grid-column(5);
+      @include grid-shift(2);
 
       &.button-secondary {
-        @include shift(0);
+        @include grid-shift(0);
+        background: $medium-gray;
       }
     }
   }

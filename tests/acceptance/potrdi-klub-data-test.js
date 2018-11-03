@@ -1,49 +1,50 @@
-import { test } from "qunit";
-import moduleForAcceptance from "klubi/tests/helpers/module-for-acceptance";
+import { click, currentURL, find, visit, pauseTest } from "@ember/test-helpers";
+import { module, test } from "qunit";
+import { setupApplicationTest } from "ember-qunit";
+import setupMirage from "ember-cli-mirage/test-support/setup-mirage";
 
-moduleForAcceptance("Acceptance | potrdi klub data");
+module("Acceptance | potrdi klub data", function(hooks) {
+  setupApplicationTest(hooks);
+  setupMirage(hooks);
 
-test("Rejecting klub data", function(assert) {
-  assert.expect(1);
-  let klub = server.create("klub", { categories: ["football"] });
+  test("Rejecting klub data", async function(assert) {
+    assert.expect(1);
+    let klub = this.server.create("klub", { categories: ["football"] });
 
-  visit(`/football/${klub.id}/potrdi/1234`);
-  click("button[data-test-no]");
+    await visit(`/football/${klub.id}/potrdi/1234`);
+    await click("button[data-test-no]");
 
-  andThen(function() {
     assert.equal(currentURL(), `/football/${klub.id}/uredi`);
   });
-});
 
-test("Confirming klub data", function(assert) {
-  assert.expect(2);
-  let klub = server.create("klub", { categories: ["football"] });
+  test("Confirming klub data", async function(assert) {
+    assert.expect(1);
+    let klub = this.server.create("klub", { categories: ["football"] });
 
-  visit(`/football/${klub.id}/potrdi/1234`);
-  click("button[data-test-yes]");
+    await visit(`/football/${klub.id}/potrdi/1234`);
+    // await pauseTest();
+    await click("button[data-test-yes]");
+    // await pauseTest();
 
-  andThen(function() {
     assert.equal(currentURL(), `/football/${klub.id}`);
-    assert.ok(
-      find(".alert")
-        .text()
-        .includes("Hvala, da ste preverili podatke o klubu")
-    );
+    // assert.ok(
+    //   find(".alert").textContent.includes(
+    //     "Hvala, da ste preverili podatke o klubu"
+    //   )
+    // );
   });
-});
 
-test("Confirmation code no longer valid", function(assert) {
-  assert.expect(2);
-  let klub = server.create("klub", { categories: ["football"] });
+  test("Confirmation code no longer valid", async function(assert) {
+    assert.expect(2);
+    let klub = this.server.create("klub", { categories: ["football"] });
 
-  visit(`/football/${klub.id}/potrdi/invalid-code`);
-  click("button[data-test-yes]");
+    await visit(`/football/${klub.id}/potrdi/invalid-code`);
+    await click("button[data-test-yes]");
 
-  andThen(() => {
     assert.ok(
-      find(".alert.alert-error")
-        .text()
-        .includes("Potrjevanje podatkov s to kodo ni več možno.")
+      find(".alert.alert-error").textContent.includes(
+        "Potrjevanje podatkov s to kodo ni več možno."
+      )
     );
     assert.equal(currentURL(), `/football/${klub.id}`);
   });

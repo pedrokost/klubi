@@ -1,12 +1,6 @@
-import { moduleForModel, test } from "ember-qunit";
+import { module, test } from 'qunit';
+import { setupTest } from "ember-qunit";
 
-moduleForModel("image", "Unit | Model | image", {
-  // Specify the other units that are required for this test.
-  needs: []
+module("Unit | Model | image", function(hooks) {
+  setupTest(hooks);
 });
-
-// test('it exists', function(assert) {
-//   let model = this.subject();
-//   // let store = this.store();
-//   assert.ok(!!model);
-// });

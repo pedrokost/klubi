@@ -4,7 +4,7 @@
   height: calc(100vh - #{$top-nav-height-mobile});
   color: $blue;
 
-  @include media($medium-screen-up) {
+  @include grid-media($medium-up-grid) {
     height: 100vh;
   }
 }
@@ -39,15 +39,13 @@
     left: 0;
     right: 0;
     // overflow: hidden;
-    margin: $base-page-pad;
+    margin: $base-spacing;
 
-    @include media($medium-screen-up) {
+    @include grid-media($medium-up-grid) {
       // right:  $widgets-separation;
       right: 9.5em;
       left: $sliding-menu-width;
-    }
-
-    @include media($landscape-large-screen-up) {
+      margin-left: 0;
     }
   }
 
@@ -59,7 +57,7 @@
 .map-and-klubpage {
   flex-grow: 1;
 
-  @include media($landscape-large-screen-up) {
+  @include grid-media($large-up-grid) {
     flex-direction: row;
   }
 }

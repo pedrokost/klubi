@@ -1,6 +1,6 @@
-import { computed, observer } from '@ember/object';
-import { inject as service } from '@ember/service';
-import Controller, { inject as controller } from '@ember/controller';
+import { computed, observer } from "@ember/object";
+import { inject as service } from "@ember/service";
+import Controller, { inject as controller } from "@ember/controller";
 
 export default Controller.extend({
   isSideNavVisible: false,
@@ -43,7 +43,7 @@ export default Controller.extend({
   }),
 
   isEmbeddedPage: computed("router.currentRouteName", function() {
-    let route = this.get("router").get("currentRouteName");
+    let route = this.get("router.currentRouteName");
     let matcher = "embeds";
     return (
       route.substr(0, matcher.length).toLowerCase() === matcher.toLowerCase()
@@ -53,6 +53,10 @@ export default Controller.extend({
   actions: {
     hideMenus() {
       this.set("showMenus", false);
+    },
+
+    toggleSideNav() {
+      this.toggleProperty("isSideNavVisible");
     }
   }
 });
