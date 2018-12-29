@@ -1,4 +1,4 @@
-import { helper } from '@ember/component/helper';
+import { helper } from "@ember/component/helper";
 
 /* globals L */
 
@@ -21,7 +21,8 @@ const _categoryImageMap = {
   "ju-jitsu": "/assets/icons/ju-jitsu.png",
   rugby: "/assets/icons/rugby.png",
   sabljanje: "/assets/icons/default.png",
-  kickbox: "/assets/icons/kickbox.png"
+  kickbox: "/assets/icons/kickbox.png",
+  floorball: "/assets/icons/floorball.png"
 };
 
 const SHADOW_IMAGE_URL = "/assets/icons/shadow.png";

@@ -29,7 +29,7 @@ header.logo-button {
 
     $list: fitnes karate judo gimanstika frizbi wellness cheerleading gimnastika
       nogomet squash tenis kosarka boks badminton atletika namizni-tenis
-      ju-jitsu rugby sabljanje lokostrelstvo kickbox;
+      ju-jitsu rugby sabljanje lokostrelstvo kickbox floorball;
 
     @each $category in $list {
       &.#{$category} {

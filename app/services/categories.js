@@ -111,6 +111,12 @@ export default Service.extend({
         identifier: "kickbox",
         name: "Kickbox",
         thumbnail: "/assets/social/fb-kickbox.png"
+      }),
+      EmberObject.create({
+        identifier: "floorball",
+        name: "Floorball",
+        isBeta: true,
+        thumbnail: "/assets/social/fb-floorball.png"
       })
     ]);
 
