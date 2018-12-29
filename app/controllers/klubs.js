@@ -32,7 +32,9 @@ export default Controller.extend(Ember.GoogleAnalyticsTrackingMixin, {
     }
 
     return this.model.filter(function(klub) {
-      return klub.get("categories").indexOf(category) >= 0;
+      return (
+        klub.get("categories") && klub.get("categories").indexOf(category) >= 0
+      );
     });
   }),
 

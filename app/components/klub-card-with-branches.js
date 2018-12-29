@@ -12,7 +12,10 @@ export default Component.extend({
     let category = this.categoryShown;
 
     return this.branches.reject(branch => {
-      return branch.get("categories").indexOf(category) === -1;
+      return (
+        branch.get("categories") &&
+        branch.get("categories").indexOf(category) === -1
+      );
     });
   })
 });
