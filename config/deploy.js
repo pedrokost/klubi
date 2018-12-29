@@ -17,7 +17,11 @@ module.exports = function(deployTarget) {
       prefix: "",
       filePattern:
         "**/*.{js,css,png,gif,ico,jpg,map,xml,txt,svg,swf,eot,ttf,woff,woff2,otf,json}",
-      signatureVersion: "v4"
+      signatureVersion: "v4",
+      filePattern: function(context, pluginHelper) {
+        let filePattern = pluginHelper.readConfigDefault("filePattern");
+        return filePattern.replace("}", ",json}");
+      }
     }
   };
   if (VALID_DEPLOY_TARGETS.indexOf(deployTarget) === -1) {

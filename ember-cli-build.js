@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 var options = {
   hinting: false,
@@ -31,12 +31,10 @@ var options = {
     "handlebars.js": null
   },
   sassOptions: {
-    includePaths: [
-      'node_modules/bourbon-neat/core'
-    ]
+    includePaths: ["node_modules/bourbon-neat/core"]
   }
 };
-const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const EmberApp = require("ember-cli/lib/broccoli/ember-app");
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, options);
