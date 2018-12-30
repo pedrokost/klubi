@@ -70,6 +70,9 @@ export default Route.extend(Prerenderable, {
     if (model.get("parent.id")) {
       this.store.findRecord("klub", model.get("parent.id"));
     }
+    // Call the afterModel hook in the Prerenderable mixin
+    // TODO: write a test to confirm mixin is called
+    this._super.apply(this, arguments);
   },
   setupController(controller, model) {
     let parent = model;

@@ -4481,9 +4481,10 @@ ember-cli-meta-tags@~5.1.0:
     ember-cli-head "^0.4.1"
     ember-cli-htmlbars "^2.0.1"
 
-ember-cli-mirage@^0.4.9:
+ember-cli-mirage@^0.4.10:
   version "0.4.10"
   resolved "https://registry.yarnpkg.com/ember-cli-mirage/-/ember-cli-mirage-0.4.10.tgz#48d71c3941ba038b3d20b24d84f1b8f8237bce9d"
+  integrity sha512-J98oUHIZHU0DGzn1q2ryb08nn6u+/g2n9xOph/v1cNrYkfdjFh1F6yPGZi4Ee4POxJkM++44uG7kO+QkxN6i6A==
   dependencies:
     "@xg-wang/whatwg-fetch" "^3.0.0"
     broccoli-file-creator "^2.1.1"
