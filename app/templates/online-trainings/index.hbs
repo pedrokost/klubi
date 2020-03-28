@@ -1,0 +1,20 @@
+<div class="body">
+  <div class="article online-trainings-page">
+    <article>
+      {{#link-to 'dodaj-online-trening' class="pure-button embedded-add-klub-btn"}}{{fa-icon "plus"}} Dodaj online trening{{/link-to}}
+
+      <h1 title="Online treningi #ostanidoma">Online treningi #ostanidoma</h1>
+
+      <p>Zaradi izbruha koronavirusa so športni objekti začasno zaprti. Nekateri klubi se trudijo in za svoje stranke pripravljajo video treninge dostopne preko spleta. Na tej strani zbiramo seznam teh online treningov z navodili kako se jim lahko pridružis.
+      </p>
+
+      {{outlet}}
+
+      <div class="online-trening-collection">
+        {{#each entries as |entry|}}
+          <OnlineTrainingCard @entry={{entry}} />
+        {{/each}}
+      </div>
+    </article>
+  </div>
+</div>

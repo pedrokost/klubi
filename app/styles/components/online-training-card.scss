@@ -1,0 +1,66 @@
+.online-training-card {
+  list-style: none;
+
+  // animation: fadeIn 0.25s ease;
+  // animation-fill-mode: backwards;
+
+  // $delay-ease: 1;
+  // @for $i from 1 through 20 {
+  //   &:nth-of-type(#{$i}){
+  //     @include animation-delay($i * $delay-ease * 0.1s);
+  //     $delay-ease: $delay-ease * 0.95;
+  //   }
+  // }
+}
+
+.online-training-card-inner {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px solid #dedede;
+  cursor: pointer;
+  line-height: 20px;
+
+  &:hover,
+  &:active,
+  &.active {
+    background-color: rgb(240, 240, 240);
+  }
+}
+
+.online-training-card-parent {
+  color: inherit;
+  display: block;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 15px;
+  border-radius: 3px;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &.active,
+  &.is-hovered {
+    background-color: rgb(240, 240, 240);
+  }
+}
+
+.online-training-card-name {
+  white-space: nowrap;
+  font-size: 1.2em;
+}
+
+
+.online-training-card-organizer {
+  font-size: 0.8em;
+}
+
+.online-training-card-priced {
+  float: right;
+}
+
+.online-training-card-categories {
+  margin: 0.75em 0;
+}

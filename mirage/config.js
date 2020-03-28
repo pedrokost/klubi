@@ -45,6 +45,8 @@ export default function() {
   this.get("/obcinas/:id");
   this.post("/comments");
   this.post("/comment-requests");
+  this.get("/online-training-entries");
+  this.get("/online-training-entries/:id");
   // this.get("/comments/:id");
   // this.get("/comment-requests/:id");
 }

@@ -1,0 +1,16 @@
+<div class="online-training-card-inner">
+  {{#link-to 'online-trainings.show' entry.id class='online-training-card-parent' }}
+    <span class="online-training-card-name">{{entry.title}}</span><br>
+
+    <div class="online-training-card-categories">
+      {{#each entry.categories as |category|}}
+        <span class="badge-notice">{{category}}</span>
+      {{/each}}
+    </div>
+
+    <span class="online-training-card-brief">{{entry.brief}}</span><br>
+
+    {{!-- <span class="online-training-card-priced">{{#if entry.is_priced}}{{fa-icon "euro"}}{{/if}}</span> --}}
+    <span class="online-training-card-organizer">{{entry.organizer}}</span>
+  {{/link-to}}
+</div>

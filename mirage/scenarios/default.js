@@ -11,4 +11,6 @@ export default function(server) {
   let klubs = server.createList("klub", 30);
   server.create("obcina", { klubs: klubs, id: 99 });
   server.createList("obcina", 10);
+
+  server.createList('online-training-entry', 3)
 }

@@ -10,6 +10,7 @@ const Router = EmberRouter.extend(RouterScroll, {
 Router.map(function() {
   this.route("oprojektu");
   this.route("dodaj-klub");
+  this.route("dodaj-online-trening");
 
   this.route("embeds", function() {
     this.route("categoryklubs", function() {
@@ -65,6 +66,12 @@ Router.map(function() {
       this.route("new");
     }
   );
+
+  this.route('online-trainings', {
+    path: "online-treningi"
+  }, function() {
+    this.route('show', { path: '/:entry_id'}, function() {})
+  })
 });
 
 export default Router;

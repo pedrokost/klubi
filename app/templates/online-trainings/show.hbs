@@ -1,0 +1,38 @@
+<div class="body">
+
+  <div class="article online-training">
+
+    <h1 title="{{entry.title}}">{{entry.title}}</h1>
+
+    <ul class="fa-ul klub_page-item_list">
+      {{#if entry.categories}}
+        <li class='klub_page-item'>
+          {{#each entry.categories as |category|}}
+            <span class="badge-notice">{{category}}</span>
+          {{/each}}
+
+          {{!-- <span class="online-training-card-priced">{{#if entry.is_priced}}placljivo {{fa-icon "euro"}}{{else}}zastonj{{/if}}</span> --}}
+        </li>
+      {{/if}}
+    </ul>
+    <ul class="fa-ul klub_page-item_list">
+      {{#if entry.description}}
+        <li class='klub_page-item'>
+          <article class="user-markdown">{{#set-links-target}}
+              {{marked-down entry.description}}
+            {{/set-links-target}}</article>
+
+
+          <p></p>{{fa-icon "sticky-note" fixedWidth=true listItem=true}}
+        </li>
+      {{/if}}
+    </ul>
+    <ul class="fa-ul klub_page-item_list">
+      {{#if entry.organizer}}
+        <li class='klub_page-item'>
+          <p>{{entry.organizer}}</p>{{fa-icon "users" fixedWidth=true listItem=true}}
+        </li>
+      {{/if}}
+    </ul>
+  </div>
+</div>

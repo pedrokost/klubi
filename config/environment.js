@@ -66,11 +66,11 @@ module.exports = function(environment) {
 
   if (environment === "development") {
     // ENV.host = "/api"; // For fixtures
-    ENV.host = "https://api.klubi.si";
-    // ENV.host = "http://api.app.local:3200";
+    // ENV.host = "https://api.klubi.si";
+    ENV.host = "http://api.app.local:3200";
 
     ENV["ember-cli-mirage"] = {
-      enabled: false
+      enabled: true
     };
 
     ENV.contentSecurityPolicy["script-src"] =

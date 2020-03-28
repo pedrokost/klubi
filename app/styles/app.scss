@@ -24,6 +24,7 @@ $ember-power-select-placeholder-color: #777;
 @import "ember-power-select";
 
 // Components
+@import "components/badge";
 @import "components/klub-list";
 @import "components/klub-card";
 @import "components/leaflet-map";
@@ -48,6 +49,7 @@ $ember-power-select-placeholder-color: #777;
 @import "components/klub-gallery";
 @import "components/ember-power-select";
 @import "components/ember-modal-appearance";
+@import "components/online-training-card";
 
 // Pages
 @import "pages/base";
@@ -62,6 +64,7 @@ $ember-power-select-placeholder-color: #777;
 @import "pages/podaj-mnenje";
 @import "pages/zahtevaj-priporocilo";
 @import "pages/potrdi-klub";
+@import "pages/online-training";
 
 // Misc
 @import "cookie-consent";
