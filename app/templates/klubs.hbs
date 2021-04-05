@@ -4,7 +4,7 @@
     <RecentCategories @currentCategory={{category}} @isCategorySupported={{isCategorySupported}} />
 
     <LeafletMap @center={{markerCenter}} @zoom={{zoom}} @minZoom=8 @maxZoom=18 @maxBounds={{maxBounds}} @zoomControl={{false}} @klubiZoomControl={{true}} @geolocateControl={{true}}>
-      {{tile-layer url="https://a.tiles.mapbox.com/v3/foursquare.meku766r/{z}/{x}/{y}.png"}}
+      {{tile-layer url="https://a.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"}}
 
       {{#if isLoading}}
         <MarkerLayer @location={{markerCenter}} @icon={{klub-icon 'loading' 'Nalagam...'}} />
