@@ -70,6 +70,9 @@ Make use of the many generators for code, try `ember help generate` for more det
 ### Deploying
 
 ```
+# Tempoary hack due to self-signed certificate.
+export NODE_TLS_REJECT_UNAUTHORIZED='0'
+
 ember deploy prod
 # Review changes in browser, acessing: www.klubi.si/?index_key=klubi:<key>
 
