@@ -20,6 +20,7 @@
   "devDependencies": {
     "@ember/jquery": "^0.5.2",
     "@ember/optional-features": "^0.6.3",
+    "@googlemaps/js-api-loader": "^1.16.6",
     "body-parser": "^1.13.3",
     "bourbon-neat": "^3.0.0",
     "broccoli-asset-rev": "^2.7.0",

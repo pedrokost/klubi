@@ -1,26 +1,54 @@
 import $ from "jquery";
 import { computed } from "@ember/object";
 import Service from "@ember/service";
+import { Loader } from "@googlemaps/js-api-loader";
 
 export default Service.extend({
-  baseUrl: "https://maps.googleapis.com/maps/api/geocode/json?",
-  apiKey: "AIzaSyBpN-jOLvDa0z6-nOaypIrgGLA465bmTSE",
   language: "sl",
   region: "si",
-  address: null,
+  _geocoder: null,
 
-  url: computed("address", function() {
-    const baseUrl = this.get("baseUrl");
-    const apiKey = this.get("apiKey");
-    const language = this.get("language");
-    const region = this.get("region");
-    const address = encodeURIComponent(this.address);
+  _loadGeocoder() {
+    const loader = new Loader({
+      apiKey: "AIzaSyBpN-jOLvDa0z6-nOaypIrgGLA465bmTSE",
+      version: "weekly",
+      libraries: ["geocoding"],
+    });
 
-    return `${baseUrl}language=${language}&key=${apiKey}&region=${region}&address=${address}`;
-  }),
+    loader
+      .importLibrary("geocoding")
+      .then(({ Geocoder }) => {
+        this.set("_geocoder", new Geocoder());
+      })
+      .catch((error) => {
+        console.error("Error loading Geocoder:", error);
+      });
+  },
 
   geocode(address) {
-    this.set("address", address);
-    return $.getJSON(this.get("url"));
-  }
+    return new Promise((resolve, reject) => {
+      if (!this.get("_geocoder")) {
+        this._loadGeocoder()
+          .then(() => {
+            this._doGeocode(address, resolve, reject);
+          })
+          .catch(reject);
+      } else {
+        this._doGeocode(address, resolve, reject);
+      }
+    });
+  },
+
+  _doGeocode(address, resolve, reject) {
+    this.get("_geocoder")
+      .geocode({
+        address,
+        language: this.language,
+        region: this.region,
+      })
+      .then((results) => {
+        resolve(results);
+      })
+      .catch(reject);
+  },
 });

@@ -28,9 +28,7 @@ export default Component.extend({
 
   _setValidity(isValid) {
     const message = isValid ? "" : "Naslova nismo prepoznali.";
-    this.$()
-      .find("input")[0]
-      .setCustomValidity(message);
+    this.$().find("input")[0].setCustomValidity(message);
   },
 
   updateMap() {
@@ -39,53 +37,69 @@ export default Component.extend({
     var that = this;
 
     if (address) {
-      geocoder.geocode(address).then(function({ status, results }) {
-        // Because of the components used in geocoding, if no match is found
-        // google returns "Slovenia" with the "OK" status.
-        const okStatus =
-          status === "OK" && results[0].formatted_address !== "Slovenija";
+      geocoder.geocode(address).then(
+        function (resultsObj) {
+          // Because of the components used in geocoding, if no match is found
+          // google returns "Slovenia" with the "OK" status.
+          let results = resultsObj.results;
 
-        that.set("geocodingInvalid", !okStatus);
-        that.set("geocodingFailed", !okStatus);
+          const okStatus =
+            !!results.length && results[0].formatted_address !== "Slovenija";
 
-        that._setValidity(okStatus);
+          that.set("geocodingInvalid", !okStatus);
+          that.set("geocodingFailed", !okStatus);
 
-        if (okStatus) {
-          const latitude = results[0].geometry.location.lat;
-          const longitude = results[0].geometry.location.lng;
-          const formattedAddress = results[0].formatted_address
-            .replace(", Slovenija", "")
-            .replace(", Slovenia", "");
+          let result = results[0];
 
-          let town = results[0].address_components.find(component => {
-            return component.types.includes("postal_town");
-          });
-          if (!town) {
-            town = results[0].address_components.find(component => {
-              return component.types.includes("locality");
+          that._setValidity(okStatus);
+
+          if (okStatus) {
+            const latitude = result.geometry.location.lat();
+            const longitude = result.geometry.location.lng();
+            const formattedAddress = result.formatted_address
+              .replace(", Slovenija", "")
+              .replace(", Slovenia", "");
+
+            let town = result.address_components.find((component) => {
+              return component.types.includes("postal_town");
             });
+            if (!town) {
+              town = result.address_components.find((component) => {
+                return component.types.includes("locality");
+              });
+            }
+            if (!town) {
+              town = result.address_components.find((component) => {
+                return component.types.includes("administrative_area_level_1");
+              });
+            }
+
+            town = town ? town.long_name : null;
+            // if (!town) { debugger }
+
+            that.set("formattedAddress", formattedAddress);
+
+            that.attrs.updateAddress(
+              formattedAddress,
+              latitude,
+              longitude,
+              town,
+            );
+
+            that.set("zoom", 14);
+            that.set("mapLocation", [latitude, longitude]);
           }
-          if (!town) {
-            town = results[0].address_components.find(component => {
-              return component.types.includes("administrative_area_level_1");
-            });
-          }
-
-          town = town ? town.long_name : null;
-          // if (!town) { debugger }
-
-          that.set("formattedAddress", formattedAddress);
-
-          that.attrs.updateAddress(formattedAddress, latitude, longitude, town);
-
-          that.set("zoom", 14);
-          that.set("mapLocation", [latitude, longitude]);
-        }
-      });
+        },
+        function (error) {
+          that.set("geocodingInvalid", true);
+          that.set("geocodingFailed", true);
+          that._setValidity(false);
+        },
+      );
     }
   },
 
-  listenForTypingPause: observer("inputtedAddress", function() {
+  listenForTypingPause: observer("inputtedAddress", function () {
     if (!this.get("initialized")) {
       if (this.get("address") !== this.get("inputtedAddress")) {
         this.set("initialized", true);
@@ -97,5 +111,5 @@ export default Component.extend({
     this.set("geocodingInvalid", true);
     this.set("geocodingFailed", false);
     debounce(this, this.updateMap, 250);
-  })
+  }),
 });
